@@ -8,6 +8,7 @@
 
 #import "PLAIOSAppDelegate.h"
 #import "PLAPlayerViewController.h"
+#import "PLAController.h"
 
 @implementation PLAIOSAppDelegate
 
@@ -23,6 +24,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
   
+  [PLAController sharedController];
 
   self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
