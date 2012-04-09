@@ -7,7 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PLATrack.h"
+#import "PTPusher.h"
 
-@interface PLAController : NSObject
+@interface PLAController : NSObject <PTPusherDelegate>{
+  NSArray *queuedTracks;
+  PLATrack *currentlyPlayingTrack;
+  PTPusher *pusherClient;
+}
+
+@property (nonatomic, retain) NSArray *queuedTracks;
+@property (nonatomic, retain) PLATrack *currentlyPlayingTrack;
+@property (nonatomic, retain) PTPusher *pusherClient;
+
++ (PLAController *)sharedController;
 
 @end

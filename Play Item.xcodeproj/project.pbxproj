@@ -26,6 +26,8 @@
 		E058E275153376E80079B226 /* PLAPlayClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E058E271153376E80079B226 /* PLAPlayClient.m */; };
 		E058E276153376E80079B226 /* PLATrack.m in Sources */ = {isa = PBXBuildFile; fileRef = E058E273153376E80079B226 /* PLATrack.m */; };
 		E058E277153376E80079B226 /* PLATrack.m in Sources */ = {isa = PBXBuildFile; fileRef = E058E273153376E80079B226 /* PLATrack.m */; };
+		E058E27A153377160079B226 /* PLAController.m in Sources */ = {isa = PBXBuildFile; fileRef = E058E279153377160079B226 /* PLAController.m */; };
+		E058E27B153377160079B226 /* PLAController.m in Sources */ = {isa = PBXBuildFile; fileRef = E058E279153377160079B226 /* PLAController.m */; };
 		E0783F301533187E003EA138 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EE21533187D003EA138 /* AFHTTPClient.m */; };
 		E0783F311533187E003EA138 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EE41533187D003EA138 /* AFHTTPRequestOperation.m */; };
 		E0783F321533187E003EA138 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EE61533187D003EA138 /* AFImageRequestOperation.m */; };
@@ -132,6 +134,8 @@
 		E058E271153376E80079B226 /* PLAPlayClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAPlayClient.m; sourceTree = "<group>"; };
 		E058E272153376E80079B226 /* PLATrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLATrack.h; sourceTree = "<group>"; };
 		E058E273153376E80079B226 /* PLATrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLATrack.m; sourceTree = "<group>"; };
+		E058E278153377160079B226 /* PLAController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAController.h; sourceTree = "<group>"; };
+		E058E279153377160079B226 /* PLAController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAController.m; sourceTree = "<group>"; };
 		E0783E9A1533168C003EA138 /* Play iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Play iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0783EE11533187D003EA138 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		E0783EE21533187D003EA138 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
@@ -321,6 +325,8 @@
 				E058E271153376E80079B226 /* PLAPlayClient.m */,
 				E058E272153376E80079B226 /* PLATrack.h */,
 				E058E273153376E80079B226 /* PLATrack.m */,
+				E058E278153377160079B226 /* PLAController.h */,
+				E058E279153377160079B226 /* PLAController.m */,
 			);
 			path = "Play Client";
 			sourceTree = "<group>";
@@ -724,6 +730,7 @@
 				E0C965E9153327A6001D52BF /* main.m in Sources */,
 				E058E275153376E80079B226 /* PLAPlayClient.m in Sources */,
 				E058E277153376E80079B226 /* PLATrack.m in Sources */,
+				E058E27B153377160079B226 /* PLAController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -746,6 +753,7 @@
 				E0C965C51533279D001D52BF /* main.m in Sources */,
 				E058E274153376E80079B226 /* PLAPlayClient.m in Sources */,
 				E058E276153376E80079B226 /* PLATrack.m in Sources */,
+				E058E27A153377160079B226 /* PLAController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
