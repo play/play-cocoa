@@ -79,6 +79,8 @@
   }
   
   self.queuedTracks = [NSArray arrayWithArray:tracks];
+  
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"PLANowPlayingUpdated" object:nil];
 }
 
 #pragma mark - Channel Even handler
