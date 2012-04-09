@@ -22,4 +22,6 @@
 
 + (PLAController *)sharedController;
 
+- (void)updateNowPlaying:(NSDictionary *)nowPlayingDict;
+
 @end
