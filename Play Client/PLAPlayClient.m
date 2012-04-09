@@ -9,7 +9,7 @@
 #import "PLAPlayClient.h"
 #import "AFJSONRequestOperation.h"
 
-NSString * const kPLBaseURLString = @"https://play.githubapp.com";
+NSString * const kPLBaseURLString = @"http://localhost:5050";
 
 @implementation PLAPlayClient
 
