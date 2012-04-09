@@ -22,7 +22,6 @@
 		E058E25F15333AE70079B226 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E058E25A15333AD10079B226 /* Foundation.framework */; };
 		E058E26015333AEA0079B226 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E058E25815333AC80079B226 /* UIKit.framework */; };
 		E058E26215333B360079B226 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E058E26115333B360079B226 /* libicucore.dylib */; };
-		E058E26A153340790079B226 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E058E269153340790079B226 /* libz.dylib */; };
 		E0783EDD153317E8003EA138 /* PLAPlayClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EDA153317E8003EA138 /* PLAPlayClient.m */; };
 		E0783EDE153317E8003EA138 /* PLATrack.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EDC153317E8003EA138 /* PLATrack.m */; };
 		E0783F301533187E003EA138 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EE21533187D003EA138 /* AFHTTPClient.m */; };
@@ -127,7 +126,6 @@
 		E058E25A15333AD10079B226 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		E058E25C15333ADB0079B226 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		E058E26115333B360079B226 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/usr/lib/libicucore.dylib; sourceTree = DEVELOPER_DIR; };
-		E058E269153340790079B226 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/usr/lib/libz.dylib; sourceTree = DEVELOPER_DIR; };
 		E0783E9A1533168C003EA138 /* Play iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Play iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0783ED9153317E8003EA138 /* PLAPlayClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAPlayClient.h; sourceTree = "<group>"; };
 		E0783EDA153317E8003EA138 /* PLAPlayClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAPlayClient.m; sourceTree = "<group>"; };
@@ -233,7 +231,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E058E26A153340790079B226 /* libz.dylib in Frameworks */,
 				E058E26215333B360079B226 /* libicucore.dylib in Frameworks */,
 				E0CAF64A15332631007EE510 /* Security.framework in Frameworks */,
 				E0CAF64815332623007EE510 /* AVFoundation.framework in Frameworks */,
@@ -406,7 +403,6 @@
 		E09B1E3D14E3FD4C001BD57E = {
 			isa = PBXGroup;
 			children = (
-				E058E269153340790079B226 /* libz.dylib */,
 				E058E26115333B360079B226 /* libicucore.dylib */,
 				E0783EDF1533187D003EA138 /* vendor */,
 				E0783ED8153317CC003EA138 /* Play Client */,
