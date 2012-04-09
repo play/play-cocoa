@@ -8,7 +8,6 @@
 
 #import "PLAIOSAppDelegate.h"
 #import "PLAPlayerViewController.h"
-#import "PTPusher.h"
 
 @implementation PLAIOSAppDelegate
 
@@ -24,12 +23,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
   
-  PTPusher *client = [PTPusher pusherWithKey:@"e9b0032af2f98b47120f" delegate:nil encrypted:NO];
-  
-//  [client bindToEventNamed:@"update_now_playing" handleWithBlock:^(PTPusherEvent *event) {
-//    NSLog(@"GOT A PUSH: %@", event);
-//  }];
-
 
   self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
