@@ -136,6 +136,8 @@
 		E058E273153376E80079B226 /* PLATrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLATrack.m; sourceTree = "<group>"; };
 		E058E278153377160079B226 /* PLAController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAController.h; sourceTree = "<group>"; };
 		E058E279153377160079B226 /* PLAController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAController.m; sourceTree = "<group>"; };
+		E058E2811533837E0079B226 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		E058E2821533837E0079B226 /* ReachabilityAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachabilityAppDelegate.h; sourceTree = "<group>"; };
 		E0783E9A1533168C003EA138 /* Play iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Play iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0783EE11533187D003EA138 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		E0783EE21533187D003EA138 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
@@ -331,9 +333,19 @@
 			path = "Play Client";
 			sourceTree = "<group>";
 		};
+		E058E2801533837E0079B226 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				E058E2811533837E0079B226 /* Reachability.h */,
+				E058E2821533837E0079B226 /* ReachabilityAppDelegate.h */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
 		E0783EDF1533187D003EA138 /* vendor */ = {
 			isa = PBXGroup;
 			children = (
+				E058E2801533837E0079B226 /* Reachability */,
 				E058E22A153334860079B226 /* libPusher */,
 				E0783EE01533187D003EA138 /* AFNetworking */,
 				E0783EF61533187D003EA138 /* AudioStreamer */,
