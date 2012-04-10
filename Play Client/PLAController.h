@@ -26,4 +26,6 @@
 
 - (void)updateNowPlaying:(NSDictionary *)nowPlayingDict;
 
+- (void)getStreamUrlWithBlock:(void(^)(NSString *streamUrl))block;
+
 @end

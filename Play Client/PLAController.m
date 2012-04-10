@@ -8,6 +8,7 @@
 
 #import "PLAController.h"
 #import "PTPusherChannel.h"
+#import "PLAPlayClient.h"
 
 #if TARGET_OS_EMBEDDED
 #import "Reachability.h"
@@ -100,6 +101,17 @@
 
 - (NSString *)authToken{
   return [settingsDict objectForKey:@"authToken"];
+}
+
+- (void)getStreamUrlWithBlock:(void(^)(NSString *streamUrl))block{
+  NSDictionary *parameters = [NSDictionary dictionaryWithObject:@"maddox" forKey:@"login"];
+  
+  [[PLAPlayClient sharedClient] getPath:@"/stream_url" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    block([responseObject objectForKey:@"stream_url"]);
+  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    NSLog(@"error: %@", error);
+    block(nil);
+  }];
 }
 
 #pragma mark - State methods
