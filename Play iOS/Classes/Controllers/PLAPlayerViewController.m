@@ -155,14 +155,16 @@
 
 #pragma mark - Play Methods
 
-- (void)createStreamer{
+- (void)createStreamer:(NSString *)streamUrl{
 	if (streamer){
 		return;
 	}
   
+  NSLog(@"opening stream at: %@", streamUrl);
+
 	[self destroyStreamer];
   
-  NSURL *url = [NSURL URLWithString:@"http://play.githubapp.com:8000/listen"];
+  NSURL *url = [NSURL URLWithString:streamUrl];
 	streamer = [[AudioStreamer alloc] initWithURL:url];
 	  
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackStateChanged:) name:ASStatusChangedNotification object:streamer];
@@ -185,12 +187,18 @@
   if ([streamer isPlaying]) {
 		[self destroyStreamer];
     [playButton setImage:[UIImage imageNamed:@"button-play.png"] forState:UIControlStateNormal];
-    [self hideNowPlaying:YES];
     [statusLabel setHidden:YES];
   }else{
-		[self createStreamer];
-    [statusLabel setHidden:NO];
-    [streamer start];
+    
+    [[PLAController sharedController] getStreamUrlWithBlock:^(NSString *streamUrl) {
+      dispatch_async(dispatch_get_main_queue(), ^{
+        [self createStreamer:streamUrl];
+        [statusLabel setHidden:NO];
+        [streamer start];
+      });
+    }];
+
+    
   }
 }
 
