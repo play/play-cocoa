@@ -40,18 +40,40 @@
   
   [self hideNowPlaying:NO];
   
-  // listen for notifications for updated songs from the CFController and pusher
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateViewsWithTrackInformation) name:@"PLANowPlayingUpdated" object:nil];
   
-  [PLATrack currentTrackWithBlock:^(PLATrack *track) {
-    [[PLAController sharedController] setCurrentlyPlayingTrack:track];
-
+  [[PLAController sharedController] logInWithBlock:^(BOOL succeeded) {
     dispatch_async(dispatch_get_main_queue(), ^(void) {
-      [self updateViewsWithTrackInformation];
+      if (succeeded) {
+        NSLog(@"log in succeeded: %d", succeeded);
+        // listen for notifications for updated songs from the CFController and pusher
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateViewsWithTrackInformation) name:@"PLANowPlayingUpdated" object:nil];
+        
+        [PLATrack currentTrackWithBlock:^(PLATrack *track) {
+          [[PLAController sharedController] setCurrentlyPlayingTrack:track];
+          
+          dispatch_async(dispatch_get_main_queue(), ^(void) {
+            [self updateViewsWithTrackInformation];
+          });
+          
+        }];
+      }else{
+        [self presentLogIn];
+      }
+      
     });
-    
   }];
+}
 
+- (void)presentLogIn{
+  NSLog(@"present log in");
+  UIViewController *controller = [[UIViewController alloc] init];
+  controller.modalPresentationStyle = UIModalPresentationFullScreen;
+  controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+  
+  [self presentViewController:controller animated:YES completion:^{
+    NSLog(@"did present view controller");
+    [controller release];
+  }];
 }
 
 - (void)updateViewsWithTrackInformation{
