@@ -9,6 +9,7 @@
 #import "PLAItemAppDelegate.h"
 #import "PLAController.h"
 #import "PLATrack.h"
+#import "PLAPlayClient.h"
 //#import "SPMediaKeyTap.h"
 
 @interface PLAItemAppDelegate ()
@@ -62,6 +63,8 @@
   // listen for notifications for updated songs from the CFController and pusher
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateWithTrackInformation) name:@"PLANowPlayingUpdated" object:nil];
   
+  
+  
   [PLATrack currentTrackWithBlock:^(PLATrack *track) {
     [[PLAController sharedController] setCurrentlyPlayingTrack:track];
     
@@ -106,9 +109,15 @@
     [self setPlayActionTitle:@"Play"];
     [statusItem setImage:[NSImage imageNamed:@"status-icon-off.png"]];
   }else{
-		[self createStreamer];
-    [self setPlayStatus:@"Buffering..."];
-    [streamer start];
+    
+    [[PLAController sharedController] getStreamUrlWithBlock:^(NSString *streamUrl) {
+      dispatch_async(dispatch_get_main_queue(), ^{
+        [self createStreamer:streamUrl];
+        [self setPlayStatus:@"Buffering..."];
+        [streamer start];
+      });
+    }];
+
   }
 }
 
@@ -119,14 +128,16 @@
 
 #pragma mark - Play Methods
 
-- (void)createStreamer{
+- (void)createStreamer:(NSString *)streamUrl{
 	if (streamer){
 		return;
 	}
   
+  NSLog(@"opening stream at: %@", streamUrl);
+  
 	[self destroyStreamer];
   
-  NSURL *url = [NSURL URLWithString:@"http://localhost:8000/listen"];
+  NSURL *url = [NSURL URLWithString:streamUrl];
 	streamer = [[AudioStreamer alloc] initWithURL:url];
   
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackStateChanged:) name:ASStatusChangedNotification object:streamer];
