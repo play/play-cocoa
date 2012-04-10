@@ -27,6 +27,8 @@
     _sharedClient = [[self alloc] initWithBaseURL:[NSURL URLWithString:[[PLAController sharedController] playUrl]]];
   }
   
+  [_sharedClient setDefaultHeader:@"Authorization" value:[[PLAController sharedController] authToken]];
+
   return _sharedClient;
 }
 
@@ -39,6 +41,7 @@
   [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
 	[self setDefaultHeader:@"Accept" value:@"application/json"];
 	[self setDefaultHeader:@"Accept-Encoding" value:@"gzip,deflate"];
+	[self setDefaultHeader:@"Authorization" value:[[PLAController sharedController] authToken]];
   
   return self;
 }
