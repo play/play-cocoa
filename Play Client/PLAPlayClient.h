@@ -8,8 +8,6 @@
 
 #import "AFHTTPClient.h"
 
-extern NSString * const kPLBaseURLString;
-
 @interface PLAPlayClient : AFHTTPClient
 
 + (id)sharedClient;

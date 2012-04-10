@@ -8,8 +8,7 @@
 
 #import "PLAPlayClient.h"
 #import "AFJSONRequestOperation.h"
-
-NSString * const kPLBaseURLString = @"http://localhost:5050";
+#import "PLAController.h"
 
 @implementation PLAPlayClient
 
@@ -18,7 +17,7 @@ NSString * const kPLBaseURLString = @"http://localhost:5050";
   static dispatch_once_t oncePredicate;
   
   dispatch_once(&oncePredicate, ^{
-    _sharedClient = [[self alloc] initWithBaseURL:[NSURL URLWithString:kPLBaseURLString]];
+    _sharedClient = [[self alloc] initWithBaseURL:[NSURL URLWithString:[[PLAController sharedController] playUrl]]];
   });
   
   return _sharedClient;
