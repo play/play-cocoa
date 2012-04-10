@@ -15,12 +15,16 @@
   PLATrack *currentlyPlayingTrack;
   PTPusher *pusherClient;
   NSMutableDictionary *settingsDict;
+  NSString *streamUrl;
+  NSString *pusherKey;
 }
 
 @property (nonatomic, retain) NSArray *queuedTracks;
 @property (nonatomic, retain) PLATrack *currentlyPlayingTrack;
 @property (nonatomic, retain) PTPusher *pusherClient;
 @property (nonatomic, retain) NSMutableDictionary *settingsDict;
+@property (nonatomic, retain) NSString *streamUrl;
+@property (nonatomic, retain) NSString *pusherKey;
 
 + (PLAController *)sharedController;
 
@@ -34,7 +38,7 @@
 - (NSString *)pusherKey;
 - (void)setAuthToken:(NSString *)token;
 - (NSString *)authToken;
-- (void)getStreamUrlWithBlock:(void(^)(NSString *streamUrl))block;
+- (void)logInWithBlock:(void(^)(BOOL succeeded))block;
 - (void)updateNowPlaying:(NSDictionary *)nowPlayingDict;
 
 @end

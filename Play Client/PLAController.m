@@ -16,12 +16,14 @@
 
 @implementation PLAController
 
-@synthesize queuedTracks, currentlyPlayingTrack, pusherClient, settingsDict;
+@synthesize queuedTracks, currentlyPlayingTrack, pusherClient, settingsDict, streamUrl, pusherKey;
 
 - (void) dealloc{
   [queuedTracks release];
   [currentlyPlayingTrack release];
   [pusherClient release];
+  [streamUrl release];
+  [pusherKey release];
 
   [super dealloc];
 }
@@ -51,17 +53,29 @@
     [self saveSettings];
   }
   
-  
-  // set up pusher stuff
-  self.pusherClient = [PTPusher pusherWithKey:@"e9b0032af2f98b47120f" delegate:self encrypted:NO];
-  [pusherClient setReconnectAutomatically:YES];
-  [pusherClient setReconnectDelay:30];
-
-  PTPusherChannel *channel = [pusherClient subscribeToChannelNamed:@"now_playing_updates"];
-  
-  [channel bindToEventNamed:@"update_now_playing" target:self action:@selector(channelEventPushed:)];
-  
   return self;
+}
+
+- (void)logInWithBlock:(void(^)(BOOL succeeded))block{
+  NSDictionary *parameters = [NSDictionary dictionaryWithObject:@"7df5ee" forKey:@"token"];
+  
+  [[PLAPlayClient sharedClient] getPath:@"/streaming_info" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    self.streamUrl = [responseObject objectForKey:@"stream_url"];
+    self.pusherKey = [responseObject objectForKey:@"pusher_key"];
+    
+    self.pusherClient = [PTPusher pusherWithKey:pusherKey delegate:self encrypted:NO];
+    [pusherClient setReconnectAutomatically:YES];
+    [pusherClient setReconnectDelay:30];
+    PTPusherChannel *channel = [pusherClient subscribeToChannelNamed:@"now_playing_updates"];
+    
+    [channel bindToEventNamed:@"update_now_playing" target:self action:@selector(channelEventPushed:)];
+    
+    block(YES);
+  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    NSLog(@"error: %@", error);
+    block(NO);
+  }];
+
 }
 
 #pragma mark - Settings
@@ -85,15 +99,6 @@
   return [settingsDict objectForKey:@"playUrl"];
 }
 
-- (void)setPusherKey:(NSString *)key{
-  [settingsDict setObject:key forKey:@"pusherKey"];
-  [self saveSettings];
-}
-
-- (NSString *)pusherKey{
-  return [settingsDict objectForKey:@"pusherKey"];
-}
-
 - (void)setAuthToken:(NSString *)token{
   [settingsDict setObject:token forKey:@"authToken"];
   [self saveSettings];
@@ -101,17 +106,6 @@
 
 - (NSString *)authToken{
   return [settingsDict objectForKey:@"authToken"];
-}
-
-- (void)getStreamUrlWithBlock:(void(^)(NSString *streamUrl))block{
-  NSDictionary *parameters = [NSDictionary dictionaryWithObject:@"maddox" forKey:@"login"];
-  
-  [[PLAPlayClient sharedClient] getPath:@"/stream_url" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-    block([responseObject objectForKey:@"stream_url"]);
-  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-    NSLog(@"error: %@", error);
-    block(nil);
-  }];
 }
 
 #pragma mark - State methods
