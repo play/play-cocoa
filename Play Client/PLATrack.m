@@ -17,6 +17,8 @@
   [name release];
   [album release];
   [artist release];
+  
+  [super dealloc];
 }
 
 - (id)initWithAttributes:(NSDictionary *)attributes {
