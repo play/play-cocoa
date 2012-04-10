@@ -122,7 +122,7 @@
 }
 
 - (IBAction)goToPlay{
-  [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://play.githubapp.com"]];
+  [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[[PLAController sharedController] playUrl]]];
 }
 
 
