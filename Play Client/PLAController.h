@@ -26,6 +26,15 @@
 
 - (void)updateNowPlaying:(NSDictionary *)nowPlayingDict;
 
+- (NSString *)settingsPath;
+- (void)saveSettings;
+- (void)setPlayUrl:(NSString *)url;
+- (NSString *)playUrl;
+- (void)setPusherKey:(NSString *)key;
+- (NSString *)pusherKey;
+- (void)setAuthToken:(NSString *)token;
+- (NSString *)authToken;
 - (void)getStreamUrlWithBlock:(void(^)(NSString *streamUrl))block;
+- (void)updateNowPlaying:(NSDictionary *)nowPlayingDict;
 
 @end
