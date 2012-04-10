@@ -14,7 +14,6 @@
   NSArray *queuedTracks;
   PLATrack *currentlyPlayingTrack;
   PTPusher *pusherClient;
-  NSMutableDictionary *settingsDict;
   NSString *streamUrl;
   NSString *pusherKey;
 }
@@ -22,7 +21,6 @@
 @property (nonatomic, retain) NSArray *queuedTracks;
 @property (nonatomic, retain) PLATrack *currentlyPlayingTrack;
 @property (nonatomic, retain) PTPusher *pusherClient;
-@property (nonatomic, retain) NSMutableDictionary *settingsDict;
 @property (nonatomic, retain) NSString *streamUrl;
 @property (nonatomic, retain) NSString *pusherKey;
 
@@ -30,8 +28,6 @@
 
 - (void)updateNowPlaying:(NSDictionary *)nowPlayingDict;
 
-- (NSString *)settingsPath;
-- (void)saveSettings;
 - (void)setPlayUrl:(NSString *)url;
 - (NSString *)playUrl;
 - (void)setPusherKey:(NSString *)key;

@@ -16,7 +16,7 @@
 
 @implementation PLAController
 
-@synthesize queuedTracks, currentlyPlayingTrack, pusherClient, settingsDict, streamUrl, pusherKey;
+@synthesize queuedTracks, currentlyPlayingTrack, pusherClient, streamUrl, pusherKey;
 
 - (void) dealloc{
   [queuedTracks release];
@@ -42,15 +42,6 @@
   self = [super init];
   if (!self) {
     return nil;
-  }
-  
-  NSData *settingsFile = [NSData dataWithContentsOfFile:[self settingsPath]];
-  
-  if ([NSKeyedUnarchiver unarchiveObjectWithData:settingsFile]){
-    self.settingsDict = [NSKeyedUnarchiver unarchiveObjectWithData:settingsFile];
-  }else{
-    self.settingsDict = [NSMutableDictionary dictionary];
-    [self saveSettings];
   }
   
   return self;
@@ -80,32 +71,22 @@
 
 #pragma mark - Settings
 
-- (NSString *)settingsPath{
-  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-  NSString *documentsDirectory = [paths objectAtIndex:0];
-  return [NSString stringWithFormat:@"%@/%@", documentsDirectory, @"playSettings.plist"];
-}
-
-- (void)saveSettings{
-  [NSKeyedArchiver archiveRootObject:settingsDict toFile:[self settingsPath]];
-}
-
 - (void)setPlayUrl:(NSString *)url{
-  [settingsDict setObject:url forKey:@"playUrl"];
-  [self saveSettings];
+  [[NSUserDefaults standardUserDefaults] setObject:url forKey:@"playUrl"];
+  [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (NSString *)playUrl{
-  return [settingsDict objectForKey:@"playUrl"];
+  return [[NSUserDefaults standardUserDefaults] objectForKey:@"playUrl"];
 }
 
 - (void)setAuthToken:(NSString *)token{
-  [settingsDict setObject:token forKey:@"authToken"];
-  [self saveSettings];
+  [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"authToken"];
+  [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (NSString *)authToken{
-  return [settingsDict objectForKey:@"authToken"];
+  return [[NSUserDefaults standardUserDefaults] objectForKey:@"authToken"];
 }
 
 #pragma mark - State methods
