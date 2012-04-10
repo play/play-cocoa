@@ -12,6 +12,7 @@
 #import "SDWebImageDownloader.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "PLAController.h"
+#import "PLALogInViewControllerViewController.h"
 
 @implementation PLAPlayerViewController
 @synthesize songLabel, artistLabel, albumArtImageView, playButton, nowPlayingView, sliderView, statusLabel, currentTrack;
@@ -70,7 +71,7 @@
 
 - (void)presentLogIn{
   NSLog(@"present log in");
-  UIViewController *controller = [[UIViewController alloc] init];
+  PLALogInViewControllerViewController *controller = [[PLALogInViewControllerViewController alloc] initWithNibName:@"PLALogInViewControllerViewController" bundle:nil];
   controller.modalPresentationStyle = UIModalPresentationFullScreen;
   controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
   
@@ -181,10 +182,12 @@
 
 #pragma mark - Play Methods
 
-- (void)createStreamer:(NSString *)streamUrl{
+- (void)createStreamer{
 	if (streamer){
 		return;
 	}
+  
+  NSString *streamUrl = [[PLAController sharedController] streamUrl];
   
   NSLog(@"opening stream at: %@", streamUrl);
 
@@ -215,16 +218,9 @@
     [playButton setImage:[UIImage imageNamed:@"button-play.png"] forState:UIControlStateNormal];
     [statusLabel setHidden:YES];
   }else{
-    
-    [[PLAController sharedController] getStreamUrlWithBlock:^(NSString *streamUrl) {
-      dispatch_async(dispatch_get_main_queue(), ^{
-        [self createStreamer:streamUrl];
-        [statusLabel setHidden:NO];
-        [streamer start];
-      });
-    }];
-
-    
+    [self createStreamer];
+    [statusLabel setHidden:NO];
+    [streamer start];
   }
 }
 
