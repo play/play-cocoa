@@ -36,6 +36,8 @@
 		E05AEBFC1533DA340094566C /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E05AEBFB1533DA340094566C /* libicucore.dylib */; };
 		E05AEBFE1533DA580094566C /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05AEBFD1533DA580094566C /* CoreAudio.framework */; };
 		E05AEC001533DAD00094566C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05AEBFF1533DAD00094566C /* AVFoundation.framework */; };
+		E05AEC0E1534B6BE0094566C /* PLALogInViewControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E05AEC0C1534B6BE0094566C /* PLALogInViewControllerViewController.m */; };
+		E05AEC0F1534B6BE0094566C /* PLALogInViewControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E05AEC0D1534B6BE0094566C /* PLALogInViewControllerViewController.xib */; };
 		E0783F301533187E003EA138 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EE21533187D003EA138 /* AFHTTPClient.m */; };
 		E0783F311533187E003EA138 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EE41533187D003EA138 /* AFHTTPRequestOperation.m */; };
 		E0783F321533187E003EA138 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EE61533187D003EA138 /* AFImageRequestOperation.m */; };
@@ -162,6 +164,9 @@
 		E05AEBFB1533DA340094566C /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		E05AEBFD1533DA580094566C /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		E05AEBFF1533DAD00094566C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		E05AEC0B1534B6BE0094566C /* PLALogInViewControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLALogInViewControllerViewController.h; sourceTree = "<group>"; };
+		E05AEC0C1534B6BE0094566C /* PLALogInViewControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLALogInViewControllerViewController.m; sourceTree = "<group>"; };
+		E05AEC0D1534B6BE0094566C /* PLALogInViewControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PLALogInViewControllerViewController.xib; sourceTree = "<group>"; };
 		E0783E9A1533168C003EA138 /* Play iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Play iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0783EE11533187D003EA138 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		E0783EE21533187D003EA138 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
@@ -552,6 +557,9 @@
 		E0C965CB153327A6001D52BF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E05AEC0B1534B6BE0094566C /* PLALogInViewControllerViewController.h */,
+				E05AEC0C1534B6BE0094566C /* PLALogInViewControllerViewController.m */,
+				E05AEC0D1534B6BE0094566C /* PLALogInViewControllerViewController.xib */,
 				E0C965CC153327A6001D52BF /* PLAPlayerViewController.h */,
 				E0C965CD153327A6001D52BF /* PLAPlayerViewController.m */,
 				E0C965CE153327A6001D52BF /* PLAPlayerViewController_iPad.xib */,
@@ -702,6 +710,7 @@
 				E058E22715332C4C0079B226 /* icon.png in Resources */,
 				E058E22815332C4C0079B226 /* icon@2x.png in Resources */,
 				E058E245153334860079B226 /* README.txt in Resources */,
+				E05AEC0F1534B6BE0094566C /* PLALogInViewControllerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -754,6 +763,7 @@
 				E058E275153376E80079B226 /* PLAPlayClient.m in Sources */,
 				E058E277153376E80079B226 /* PLATrack.m in Sources */,
 				E058E27B153377160079B226 /* PLAController.m in Sources */,
+				E05AEC0E1534B6BE0094566C /* PLALogInViewControllerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
