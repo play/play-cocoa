@@ -8,7 +8,10 @@
 
 #import "PLAController.h"
 #import "PTPusherChannel.h"
+
+#if TARGET_OS_EMBEDDED
 #import "Reachability.h"
+#endif
 
 @implementation PLAController
 
@@ -110,6 +113,7 @@
   NSLog(@"received error event: %@", errorEvent);
 }
 
+#if TARGET_OS_EMBEDDED
 - (void)pusher:(PTPusher *)client connectionDidDisconnect:(PTPusherConnection *)connection{
   Reachability *reachability = [Reachability reachabilityForInternetConnection];
   
@@ -136,6 +140,7 @@
     [reachability stopNotifier];
   }
 }
+#endif
 
 
 
