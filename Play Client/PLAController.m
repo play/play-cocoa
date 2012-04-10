@@ -15,7 +15,7 @@
 
 @implementation PLAController
 
-@synthesize queuedTracks, currentlyPlayingTrack, pusherClient;
+@synthesize queuedTracks, currentlyPlayingTrack, pusherClient, settingsDict;
 
 - (void) dealloc{
   [queuedTracks release];
@@ -41,19 +41,14 @@
     return nil;
   }
   
-//  NSData *settingsFile = [NSData dataWithContentsOfFile:[self settingsPath]];
-//  
-//  if ([NSKeyedUnarchiver unarchiveObjectWithData:settingsFile]){
-//    self.settingsDict = [NSKeyedUnarchiver unarchiveObjectWithData:settingsFile];
-//    if (![settingsDict objectForKey:@"joinedRooms"]) {
-//      [settingsDict setObject:[NSMutableArray array] forKey:@"joinedRooms"];
-//      [self saveSettings];
-//    }
-//  }else{
-//    self.settingsDict = [NSMutableDictionary dictionary];
-//    [settingsDict setObject:[NSMutableArray array] forKey:@"joinedRooms"];
-//    [self saveSettings];
-//  }
+  NSData *settingsFile = [NSData dataWithContentsOfFile:[self settingsPath]];
+  
+  if ([NSKeyedUnarchiver unarchiveObjectWithData:settingsFile]){
+    self.settingsDict = [NSKeyedUnarchiver unarchiveObjectWithData:settingsFile];
+  }else{
+    self.settingsDict = [NSMutableDictionary dictionary];
+    [self saveSettings];
+  }
   
   
   // set up pusher stuff
@@ -66,6 +61,45 @@
   [channel bindToEventNamed:@"update_now_playing" target:self action:@selector(channelEventPushed:)];
   
   return self;
+}
+
+#pragma mark - Settings
+
+- (NSString *)settingsPath{
+  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+  NSString *documentsDirectory = [paths objectAtIndex:0];
+  return [NSString stringWithFormat:@"%@/%@", documentsDirectory, @"playSettings.plist"];
+}
+
+- (void)saveSettings{
+  [NSKeyedArchiver archiveRootObject:settingsDict toFile:[self settingsPath]];
+}
+
+- (void)setPlayUrl:(NSString *)url{
+  [settingsDict setObject:url forKey:@"playUrl"];
+  [self saveSettings];
+}
+
+- (NSString *)playUrl{
+  return [settingsDict objectForKey:@"playUrl"];
+}
+
+- (void)setPusherKey:(NSString *)key{
+  [settingsDict setObject:key forKey:@"pusherKey"];
+  [self saveSettings];
+}
+
+- (NSString *)pusherKey{
+  return [settingsDict objectForKey:@"pusherKey"];
+}
+
+- (void)setAuthToken:(NSString *)token{
+  [settingsDict setObject:token forKey:@"authToken"];
+  [self saveSettings];
+}
+
+- (NSString *)authToken{
+  return [settingsDict objectForKey:@"authToken"];
 }
 
 #pragma mark - State methods

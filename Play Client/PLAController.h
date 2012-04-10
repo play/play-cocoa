@@ -14,11 +14,13 @@
   NSArray *queuedTracks;
   PLATrack *currentlyPlayingTrack;
   PTPusher *pusherClient;
+  NSMutableDictionary *settingsDict;
 }
 
 @property (nonatomic, retain) NSArray *queuedTracks;
 @property (nonatomic, retain) PLATrack *currentlyPlayingTrack;
 @property (nonatomic, retain) PTPusher *pusherClient;
+@property (nonatomic, retain) NSMutableDictionary *settingsDict;
 
 + (PLAController *)sharedController;
 
