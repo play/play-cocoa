@@ -20,6 +20,13 @@
     _sharedClient = [[self alloc] initWithBaseURL:[NSURL URLWithString:[[PLAController sharedController] playUrl]]];
   });
   
+  // This isn't pretty, but baseURL is readonly. So we can't actually 
+  // keep it a singleton and adjust the url based on user input at runtime.
+  if (![[[_sharedClient baseURL] absoluteString] isEqualToString:[[PLAController sharedController] playUrl]]) {
+    [_sharedClient release];
+    _sharedClient = [[self alloc] initWithBaseURL:[NSURL URLWithString:[[PLAController sharedController] playUrl]]];
+  }
+  
   return _sharedClient;
 }
 
