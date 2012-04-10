@@ -8,6 +8,7 @@
 
 #import "PLATrack.h"
 #import "PLAPlayClient.h"
+#import "PLAController.h"
 
 @implementation PLATrack
 @synthesize trackId, name, album, artist, queued, starred;
@@ -50,7 +51,7 @@
 }
 
 - (NSString *)albumArtUrl{
-  return [NSString stringWithFormat:@"%@/images/art/%@.png?login=hubot", kPLBaseURLString, trackId];
+  return [NSString stringWithFormat:@"%@/images/art/%@.png?login=hubot", [[PLAController sharedController] playUrl], trackId];
 }
 
 
