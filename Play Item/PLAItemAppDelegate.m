@@ -42,9 +42,9 @@
   [statusItem setAlternateImage:[NSImage imageNamed:@"status-icon-inverted.png"]];
   [statusItem setHighlightMode:YES];
   
-  [self setPlayActionTitle:@"Play"];
+  [self setPlayActionTitle:@"Log In to Play"];
   [[self playActionItem] setTarget:self];
-  [[self playActionItem] setAction:@selector(toggelPlayState)];
+  [[self playActionItem] setAction:@selector(presentLogIn)];
   [[self playActionItem] setEnabled:YES];
 
   [[statusMenu itemAtIndex:1] setTarget:self];
@@ -59,21 +59,34 @@
   
   [[PLAController sharedController] setPlayUrl:@"http://localhost:5050"];
 
-  
-  // listen for notifications for updated songs from the CFController and pusher
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateWithTrackInformation) name:@"PLANowPlayingUpdated" object:nil];
-  
-  
-  
-  [PLATrack currentTrackWithBlock:^(PLATrack *track) {
-    [[PLAController sharedController] setCurrentlyPlayingTrack:track];
-    
+  [[PLAController sharedController] logInWithBlock:^(BOOL succeeded) {
     dispatch_async(dispatch_get_main_queue(), ^(void) {
-      [self updateWithTrackInformation];
-    });
-    
-  }];
+      if (succeeded) {
+        // set play button to play
+        [self setPlayActionTitle:@"Play"];
+        [[self playActionItem] setTarget:self];
+        [[self playActionItem] setAction:@selector(togglePlayState)];
+        [[self playActionItem] setEnabled:YES];
 
+        
+        // listen for notifications for updated songs from the CFController and pusher
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateWithTrackInformation) name:@"PLANowPlayingUpdated" object:nil];
+        
+        [PLATrack currentTrackWithBlock:^(PLATrack *track) {
+          [[PLAController sharedController] setCurrentlyPlayingTrack:track];
+          
+          dispatch_async(dispatch_get_main_queue(), ^(void) {
+            [self updateWithTrackInformation];
+          });
+          
+        }];
+      }else{
+        [self presentLogIn];
+      }
+    
+    });
+  }];
+  
     
 //    self.keyTap = [[[SPMediaKeyTap alloc] initWithDelegate:self] autorelease];
 //    [self.keyTap startWatchingMediaKeys];
@@ -103,22 +116,20 @@
   [[self playActionItem] setTitle:actionTitle];
 }
 
-- (IBAction)toggelPlayState{
+- (void)togglePlayState{
   if (streamer && [streamer isPlaying]) {
 		[self destroyStreamer];
     [self setPlayActionTitle:@"Play"];
     [statusItem setImage:[NSImage imageNamed:@"status-icon-off.png"]];
   }else{
-    
-    [[PLAController sharedController] getStreamUrlWithBlock:^(NSString *streamUrl) {
-      dispatch_async(dispatch_get_main_queue(), ^{
-        [self createStreamer:streamUrl];
-        [self setPlayStatus:@"Buffering..."];
-        [streamer start];
-      });
-    }];
-
+    [self setPlayStatus:@"Buffering..."];
+    [self createStreamer];
+    [streamer start];
   }
+}
+
+- (IBAction)presentLogIn{
+  NSLog(@"presenting log in");
 }
 
 - (IBAction)goToPlay{
@@ -128,17 +139,18 @@
 
 #pragma mark - Play Methods
 
-- (void)createStreamer:(NSString *)streamUrl{
+- (void)createStreamer{
 	if (streamer){
 		return;
 	}
+  
+  NSString *streamUrl = [[PLAController sharedController] streamUrl];
   
   NSLog(@"opening stream at: %@", streamUrl);
   
 	[self destroyStreamer];
   
-  NSURL *url = [NSURL URLWithString:streamUrl];
-	streamer = [[AudioStreamer alloc] initWithURL:url];
+	streamer = [[AudioStreamer alloc] initWithURL:[NSURL URLWithString:streamUrl]];
   
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackStateChanged:) name:ASStatusChangedNotification object:streamer];
 }

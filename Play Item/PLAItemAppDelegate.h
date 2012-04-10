@@ -25,7 +25,8 @@
 - (void)setPlayActionTitle:(NSString *)actionTitle;
 - (void)createStreamer;
 - (void)destroyStreamer;
-- (IBAction)togglePlayState;
+- (void)togglePlayState;
 - (IBAction)goToPlay;
+- (IBAction)presentLogIn;
 
 @end
