@@ -51,7 +51,7 @@
 }
 
 - (NSString *)albumArtUrl{
-  return [NSString stringWithFormat:@"%@/images/art/%@.png?login=hubot", [[PLAController sharedController] playUrl], trackId];
+  return [NSString stringWithFormat:@"%@/images/art/%@.png", [[PLAController sharedController] playUrl], trackId];
 }
 
 
