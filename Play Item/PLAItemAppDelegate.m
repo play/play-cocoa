@@ -57,7 +57,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification{
   
-  [PLAController sharedController];
+  [[PLAController sharedController] setPlayUrl:@"http://localhost:5050"];
 
   
   // listen for notifications for updated songs from the CFController and pusher
