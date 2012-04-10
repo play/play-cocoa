@@ -48,7 +48,8 @@
   [[self playActionItem] setEnabled:YES];
 
   [[statusMenu itemAtIndex:1] setTarget:self];
-  [[statusMenu itemAtIndex:1] setAction:@selector(goToPlay)];
+  [[statusMenu itemAtIndex:1] setEnabled:NO];
+  
 
   [self setPlayStatus:@""];
 
@@ -66,7 +67,7 @@
         [self setPlayActionTitle:@"Play"];
         [[self playActionItem] setTarget:self];
         [[self playActionItem] setAction:@selector(togglePlayState)];
-        [[self playActionItem] setEnabled:YES];
+        [[statusMenu itemAtIndex:1] setAction:@selector(goToPlay)];
 
         
         // listen for notifications for updated songs from the CFController and pusher
