@@ -11,6 +11,7 @@
 #import "UIImageView+WebCache.h"
 #import "SDWebImageDownloader.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "PLAController.h"
 
 @implementation PLAPlayerViewController
 @synthesize songLabel, artistLabel, albumArtImageView, playButton, nowPlayingView, sliderView, statusLabel, currentTrack;
@@ -38,6 +39,27 @@
   [super viewDidLoad];
   
   [self hideNowPlaying:NO];
+  
+  // listen for notifications for updated songs from the CFController and pusher
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateViewsWithTrackInformation) name:@"PLANowPlayingUpdated" object:nil];
+  
+  [PLATrack currentTrackWithBlock:^(PLATrack *track) {
+    [[PLAController sharedController] setCurrentlyPlayingTrack:track];
+
+    dispatch_async(dispatch_get_main_queue(), ^(void) {
+      [self updateViewsWithTrackInformation];
+    });
+    
+  }];
+
+}
+
+- (void)updateViewsWithTrackInformation{
+  PLATrack *currentlyPlayingTrack = [[PLAController sharedController] currentlyPlayingTrack];
+  
+  [albumArtImageView setImage:[UIImage imageNamed:@"default_album.png"]];
+  [self updateMetaData];
+  [SDWebImageDownloader downloaderWithURL:[NSURL URLWithString:[currentlyPlayingTrack albumArtUrl]] delegate:self];
 }
 
 - (void)viewDidUnload{
@@ -58,8 +80,7 @@
   UIApplication *application = [UIApplication sharedApplication];
   [application beginReceivingRemoteControlEvents];
 	[self becomeFirstResponder]; // this enables listening for events
-	NSNotification *notification = [NSNotification notificationWithName:ASStatusChangedNotification object:self];
-	[[NSNotificationCenter defaultCenter] postNotification:notification];
+	[[NSNotificationCenter defaultCenter] postNotificationName:ASStatusChangedNotification object:self];  
 }
 
 
@@ -145,9 +166,6 @@
 	streamer = [[AudioStreamer alloc] initWithURL:url];
 	  
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackStateChanged:) name:ASStatusChangedNotification object:streamer];
-#ifdef SHOUTCAST_METADATA
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(metadataChanged:) name:ASUpdateMetadataNotification object:streamer];
-#endif
 }
 
 - (void)destroyStreamer{
@@ -192,37 +210,24 @@
 	}
 }
 
-#ifdef SHOUTCAST_METADATA
-- (void)metadataChanged:(NSNotification *)aNotification{
-  [PLATrack currentTrackWithBlock:^(PLATrack *track) {
-    self.currentTrack = track;
-    
-    dispatch_async(dispatch_get_main_queue(), ^(void) {
-      [albumArtImageView setImage:[UIImage imageNamed:@"default_album.png"]];
-      [self updateMetaData];
-      [SDWebImageDownloader downloaderWithURL:[NSURL URLWithString:[currentTrack albumArtUrl]] delegate:self];
-    });
-    
-  }];
-}
-#endif
-
 - (void)imageDownloader:(SDWebImageDownloader *)imageDownloader didFinishWithImage:(UIImage *)image{
   [albumArtImageView setImage:image];
   [self updateMetaData];  
 }
 
 - (void)updateMetaData{
-  if (currentTrack) {
-    self.songLabel.text = [currentTrack name];
-    self.artistLabel.text = [currentTrack artist];
+  PLATrack *currentlyPlayingTrack = [[PLAController sharedController] currentlyPlayingTrack];
+  
+  if (currentlyPlayingTrack) {
+    self.songLabel.text = [currentlyPlayingTrack name];
+    self.artistLabel.text = [currentlyPlayingTrack artist];
     
     [self adjustLabels];
     [self showNowPlaying:YES];
 
     MPMediaItemArtwork *mediaItemArtwork = [[MPMediaItemArtwork alloc] initWithImage:albumArtImageView.image];
 
-    NSDictionary *nowPlayingMetaDict = [NSDictionary dictionaryWithObjectsAndKeys:[currentTrack name], MPMediaItemPropertyTitle, [currentTrack album], MPMediaItemPropertyAlbumTitle, [currentTrack artist], MPMediaItemPropertyArtist, mediaItemArtwork, MPMediaItemPropertyArtwork, nil];
+    NSDictionary *nowPlayingMetaDict = [NSDictionary dictionaryWithObjectsAndKeys:[currentlyPlayingTrack name], MPMediaItemPropertyTitle, [currentlyPlayingTrack album], MPMediaItemPropertyAlbumTitle, [currentlyPlayingTrack artist], MPMediaItemPropertyArtist, mediaItemArtwork, MPMediaItemPropertyArtwork, nil];
     
     [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:nowPlayingMetaDict];
     

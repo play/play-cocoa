@@ -7,6 +7,8 @@
 //
 
 #import "PLAItemAppDelegate.h"
+#import "PLAController.h"
+#import "PLATrack.h"
 //#import "SPMediaKeyTap.h"
 
 @interface PLAItemAppDelegate ()
@@ -53,6 +55,22 @@
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification{
+  
+  [PLAController sharedController];
+
+  
+  // listen for notifications for updated songs from the CFController and pusher
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateWithTrackInformation) name:@"PLANowPlayingUpdated" object:nil];
+  
+  [PLATrack currentTrackWithBlock:^(PLATrack *track) {
+    [[PLAController sharedController] setCurrentlyPlayingTrack:track];
+    
+    dispatch_async(dispatch_get_main_queue(), ^(void) {
+      [self updateWithTrackInformation];
+    });
+    
+  }];
+
     
 //    self.keyTap = [[[SPMediaKeyTap alloc] initWithDelegate:self] autorelease];
 //    [self.keyTap startWatchingMediaKeys];
@@ -87,7 +105,6 @@
 		[self destroyStreamer];
     [self setPlayActionTitle:@"Play"];
     [statusItem setImage:[NSImage imageNamed:@"status-icon-off.png"]];
-    [self setPlayStatus:@""];
   }else{
 		[self createStreamer];
     [self setPlayStatus:@"Buffering..."];
@@ -109,13 +126,10 @@
   
 	[self destroyStreamer];
   
-  NSURL *url = [NSURL URLWithString:@"http://play.githubapp.com:8000/listen"];
+  NSURL *url = [NSURL URLWithString:@"http://localhost:8000/listen"];
 	streamer = [[AudioStreamer alloc] initWithURL:url];
   
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackStateChanged:) name:ASStatusChangedNotification object:streamer];
-#ifdef SHOUTCAST_METADATA
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(metadataChanged:) name:ASUpdateMetadataNotification object:streamer];
-#endif
 }
 
 - (void)destroyStreamer{
@@ -138,6 +152,7 @@
 	}else if ([streamer isPlaying]){
     [self setPlayActionTitle:@"Stop"];
     [statusItem setImage:[NSImage imageNamed:@"status-icon-on.png"]];
+    [self updateWithTrackInformation];
 	}else if ([streamer isPaused]){
     [self setPlayActionTitle:@"Play"];
     [self setPlayStatus:@""];
@@ -149,26 +164,13 @@
 	}
 }
 
-#ifdef SHOUTCAST_METADATA
-- (void)metadataChanged:(NSNotification *)aNotification{
-  //NSLog(@"Raw meta data = %@", [[aNotification userInfo] objectForKey:@"metadata"]);
-	NSArray *metaParts = [[[aNotification userInfo] objectForKey:@"metadata"] componentsSeparatedByString:@";"];
-	NSString *item;
-
-	NSMutableDictionary *hash = [[NSMutableDictionary alloc] init];
-	for (item in metaParts) {
-		// split the key/value pair
-		NSArray *pair = [item componentsSeparatedByString:@"='"];
-		// don't bother with bad metadata
-		if ([pair count] == 2)
-			[hash setObject:[pair objectAtIndex:1] forKey:[pair objectAtIndex:0]];
-	}
+- (void)updateWithTrackInformation{
+  PLATrack *currentlyPlayingTrack = [[PLAController sharedController] currentlyPlayingTrack];
   
-	// do something with the StreamTitle
-	NSString *streamString = [[hash objectForKey:@"StreamTitle"] stringByReplacingOccurrencesOfString:@"'" withString:@""];
-  [self setPlayStatus:streamString];
+  NSString *playStatusString = [NSString stringWithFormat:@"%@ - %@ - %@", [currentlyPlayingTrack artist], [currentlyPlayingTrack album], [currentlyPlayingTrack name]];
+  
+  [self setPlayStatus:playStatusString];
 }
-#endif
 
 
 #pragma mark -
