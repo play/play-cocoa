@@ -48,9 +48,7 @@
 }
 
 - (void)logInWithBlock:(void(^)(BOOL succeeded))block{
-  NSDictionary *parameters = [NSDictionary dictionaryWithObject:@"7df5ee" forKey:@"token"];
-  
-  [[PLAPlayClient sharedClient] getPath:@"/streaming_info" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+  [[PLAPlayClient sharedClient] getPath:@"/streaming_info" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
     self.streamUrl = [responseObject objectForKey:@"stream_url"];
     self.pusherKey = [responseObject objectForKey:@"pusher_key"];
     

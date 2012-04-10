@@ -39,9 +39,7 @@
 }
 
 + (void)currentTrackWithBlock:(void(^)(PLATrack *track))block{
-  NSDictionary *parameters = [NSDictionary dictionaryWithObject:@"7df5ee" forKey:@"token"];
-
-  [[PLAPlayClient sharedClient] getPath:@"/now_playing" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+  [[PLAPlayClient sharedClient] getPath:@"/now_playing" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
     PLATrack *track = [[[PLATrack alloc] initWithAttributes:responseObject] autorelease];
     block(track);
   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
