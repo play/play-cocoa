@@ -35,7 +35,8 @@
 - (void)hideNowPlaying:(BOOL)animated;
 - (void)showNowPlaying:(BOOL)animated;
 - (void)adjustLabels;
-- (void)createStreamer:(NSString *)streamUrl;
+- (void)setUpForStreaming;
+- (void)createStreamer;
 - (void)destroyStreamer;
 - (IBAction)togglePlayState:(id)sender;
 - (void)updateMetaData;
