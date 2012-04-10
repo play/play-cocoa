@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		306D109514E5189E009053C0 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 306D109414E5189E009053C0 /* Carbon.framework */; };
 		E058E22415332C4C0079B226 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E058E21F15332C4C0079B226 /* Default.png */; };
 		E058E22515332C4C0079B226 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E058E22015332C4C0079B226 /* Default@2x.png */; };
 		E058E22615332C4C0079B226 /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = E058E22115332C4C0079B226 /* icon-72.png */; };
 		E058E22715332C4C0079B226 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E058E22215332C4C0079B226 /* icon.png */; };
 		E058E22815332C4C0079B226 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E058E22315332C4C0079B226 /* icon@2x.png */; };
 		E058E242153334860079B226 /* Pusher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E058E22C153334860079B226 /* Pusher.framework */; };
-		E058E244153334860079B226 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = E058E22E153334860079B226 /* README.txt */; };
 		E058E245153334860079B226 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = E058E22E153334860079B226 /* README.txt */; };
 		E058E247153334860079B226 /* libPusher-combined.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E058E23F153334860079B226 /* libPusher-combined.a */; };
 		E058E25715333AB50079B226 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E058E2551533381F0079B226 /* SystemConfiguration.framework */; };
@@ -28,6 +26,16 @@
 		E058E277153376E80079B226 /* PLATrack.m in Sources */ = {isa = PBXBuildFile; fileRef = E058E273153376E80079B226 /* PLATrack.m */; };
 		E058E27A153377160079B226 /* PLAController.m in Sources */ = {isa = PBXBuildFile; fileRef = E058E279153377160079B226 /* PLAController.m */; };
 		E058E27B153377160079B226 /* PLAController.m in Sources */ = {isa = PBXBuildFile; fileRef = E058E279153377160079B226 /* PLAController.m */; };
+		E058E284153390A00079B226 /* Pusher.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E058E22C153334860079B226 /* Pusher.framework */; };
+		E05AEBEE1533D97E0094566C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05AEBED1533D97E0094566C /* Foundation.framework */; };
+		E05AEBF01533D9840094566C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05AEBEF1533D9840094566C /* Cocoa.framework */; };
+		E05AEBF21533D98B0094566C /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05AEBF11533D98B0094566C /* AppKit.framework */; };
+		E05AEBF41533D9930094566C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05AEBF31533D9930094566C /* Security.framework */; };
+		E05AEBF61533D9990094566C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05AEBF51533D9990094566C /* AudioToolbox.framework */; };
+		E05AEBF81533D9AA0094566C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05AEBF71533D9AA0094566C /* SystemConfiguration.framework */; };
+		E05AEBFC1533DA340094566C /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E05AEBFB1533DA340094566C /* libicucore.dylib */; };
+		E05AEBFE1533DA580094566C /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05AEBFD1533DA580094566C /* CoreAudio.framework */; };
+		E05AEC001533DAD00094566C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05AEBFF1533DAD00094566C /* AVFoundation.framework */; };
 		E0783F301533187E003EA138 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EE21533187D003EA138 /* AFHTTPClient.m */; };
 		E0783F311533187E003EA138 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EE41533187D003EA138 /* AFHTTPRequestOperation.m */; };
 		E0783F321533187E003EA138 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EE61533187D003EA138 /* AFImageRequestOperation.m */; };
@@ -59,11 +67,6 @@
 		E0783F7B15331ADF003EA138 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EF11533187D003EA138 /* AFURLConnectionOperation.m */; };
 		E0783F7C15331ADF003EA138 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EF31533187D003EA138 /* AFXMLRequestOperation.m */; };
 		E0783F7D15331ADF003EA138 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EF51533187D003EA138 /* UIImageView+AFNetworking.m */; };
-		E09B1E4D14E3FD4C001BD57E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E09B1E4C14E3FD4C001BD57E /* Cocoa.framework */; };
-		E09B1E6A14E3FDDA001BD57E /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E09B1E6914E3FDDA001BD57E /* CoreServices.framework */; };
-		E09B1E8114E3FFC8001BD57E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E09B1E8014E3FFC8001BD57E /* AudioToolbox.framework */; };
-		E09B1E8314E3FFE4001BD57E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E09B1E8214E3FFE4001BD57E /* AVFoundation.framework */; };
-		E09B1E8514E3FFEF001BD57E /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E09B1E8414E3FFEF001BD57E /* CoreAudio.framework */; };
 		E0C965BE1533279D001D52BF /* PLAItemAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E0C965AD1533279D001D52BF /* PLAItemAppDelegate.m */; };
 		E0C965BF1533279D001D52BF /* IgnoredAudioProcesses.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0C965AF1533279D001D52BF /* IgnoredAudioProcesses.plist */; };
 		E0C965C01533279D001D52BF /* Play-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0C965B01533279D001D52BF /* Play-Info.plist */; };
@@ -100,8 +103,20 @@
 		E0CAF64A15332631007EE510 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CAF64915332631007EE510 /* Security.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E058E2831533909A0079B226 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E058E284153390A00079B226 /* Pusher.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		306D109414E5189E009053C0 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		E058E21F15332C4C0079B226 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		E058E22015332C4C0079B226 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		E058E22115332C4C0079B226 /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72.png"; sourceTree = "<group>"; };
@@ -138,6 +153,15 @@
 		E058E279153377160079B226 /* PLAController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAController.m; sourceTree = "<group>"; };
 		E058E2811533837E0079B226 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		E058E2821533837E0079B226 /* ReachabilityAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachabilityAppDelegate.h; sourceTree = "<group>"; };
+		E05AEBED1533D97E0094566C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E05AEBEF1533D9840094566C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		E05AEBF11533D98B0094566C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		E05AEBF31533D9930094566C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		E05AEBF51533D9990094566C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		E05AEBF71533D9AA0094566C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E05AEBFB1533DA340094566C /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		E05AEBFD1533DA580094566C /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		E05AEBFF1533DAD00094566C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E0783E9A1533168C003EA138 /* Play iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Play iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0783EE11533187D003EA138 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		E0783EE21533187D003EA138 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
@@ -185,14 +209,6 @@
 		E0783F0E1533187D003EA138 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
 		E0783F0F1533187D003EA138 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		E09B1E4814E3FD4C001BD57E /* Play.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Play.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E09B1E4C14E3FD4C001BD57E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		E09B1E4F14E3FD4C001BD57E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		E09B1E5014E3FD4C001BD57E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		E09B1E5114E3FD4C001BD57E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		E09B1E6914E3FDDA001BD57E /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
-		E09B1E8014E3FFC8001BD57E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		E09B1E8214E3FFE4001BD57E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		E09B1E8414E3FFEF001BD57E /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		E0C965AC1533279D001D52BF /* PLAItemAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAItemAppDelegate.h; sourceTree = "<group>"; };
 		E0C965AD1533279D001D52BF /* PLAItemAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAItemAppDelegate.m; sourceTree = "<group>"; };
 		E0C965AF1533279D001D52BF /* IgnoredAudioProcesses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = IgnoredAudioProcesses.plist; sourceTree = "<group>"; };
@@ -258,12 +274,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				306D109514E5189E009053C0 /* Carbon.framework in Frameworks */,
-				E09B1E8514E3FFEF001BD57E /* CoreAudio.framework in Frameworks */,
-				E09B1E8314E3FFE4001BD57E /* AVFoundation.framework in Frameworks */,
-				E09B1E8114E3FFC8001BD57E /* AudioToolbox.framework in Frameworks */,
-				E09B1E6A14E3FDDA001BD57E /* CoreServices.framework in Frameworks */,
-				E09B1E4D14E3FD4C001BD57E /* Cocoa.framework in Frameworks */,
+				E05AEC001533DAD00094566C /* AVFoundation.framework in Frameworks */,
+				E05AEBFE1533DA580094566C /* CoreAudio.framework in Frameworks */,
+				E05AEBFC1533DA340094566C /* libicucore.dylib in Frameworks */,
+				E05AEBF81533D9AA0094566C /* SystemConfiguration.framework in Frameworks */,
+				E05AEBF61533D9990094566C /* AudioToolbox.framework in Frameworks */,
+				E05AEBF41533D9930094566C /* Security.framework in Frameworks */,
+				E05AEBF21533D98B0094566C /* AppKit.framework in Frameworks */,
+				E05AEBF01533D9840094566C /* Cocoa.framework in Frameworks */,
+				E05AEBEE1533D97E0094566C /* Foundation.framework in Frameworks */,
 				E058E242153334860079B226 /* Pusher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,7 +442,6 @@
 		E09B1E3D14E3FD4C001BD57E = {
 			isa = PBXGroup;
 			children = (
-				E058E26115333B360079B226 /* libicucore.dylib */,
 				E0783EDF1533187D003EA138 /* vendor */,
 				E058E26F153376E80079B226 /* Play Client */,
 				E0C965A91533279D001D52BF /* Play Item */,
@@ -446,25 +464,17 @@
 		E09B1E4B14E3FD4C001BD57E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				306D109414E5189E009053C0 /* Carbon.framework */,
-				E09B1E8414E3FFEF001BD57E /* CoreAudio.framework */,
-				E09B1E8214E3FFE4001BD57E /* AVFoundation.framework */,
-				E09B1E8014E3FFC8001BD57E /* AudioToolbox.framework */,
-				E09B1E6914E3FDDA001BD57E /* CoreServices.framework */,
-				E09B1E4C14E3FD4C001BD57E /* Cocoa.framework */,
-				E09B1E4E14E3FD4C001BD57E /* Other Frameworks */,
+				E05AEBFB1533DA340094566C /* libicucore.dylib */,
+				E05AEBED1533D97E0094566C /* Foundation.framework */,
+				E05AEBF11533D98B0094566C /* AppKit.framework */,
+				E05AEBF71533D9AA0094566C /* SystemConfiguration.framework */,
+				E05AEBF31533D9930094566C /* Security.framework */,
+				E05AEBFF1533DAD00094566C /* AVFoundation.framework */,
+				E05AEBF51533D9990094566C /* AudioToolbox.framework */,
+				E05AEBFD1533DA580094566C /* CoreAudio.framework */,
+				E05AEBEF1533D9840094566C /* Cocoa.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E09B1E4E14E3FD4C001BD57E /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E09B1E4F14E3FD4C001BD57E /* AppKit.framework */,
-				E09B1E5014E3FD4C001BD57E /* CoreData.framework */,
-				E09B1E5114E3FD4C001BD57E /* Foundation.framework */,
-			);
-			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
 		E0C965A91533279D001D52BF /* Play Item */ = {
@@ -586,6 +596,7 @@
 		E0CAF64B15332643007EE510 /* iOS Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E058E26115333B360079B226 /* libicucore.dylib */,
 				E058E25C15333ADB0079B226 /* CoreGraphics.framework */,
 				E058E25A15333AD10079B226 /* Foundation.framework */,
 				E058E25815333AC80079B226 /* UIKit.framework */,
@@ -627,6 +638,7 @@
 				E09B1E4414E3FD4C001BD57E /* Sources */,
 				E09B1E4514E3FD4C001BD57E /* Frameworks */,
 				E09B1E4614E3FD4C001BD57E /* Resources */,
+				E058E2831533909A0079B226 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -706,7 +718,6 @@
 				E0C965C61533279D001D52BF /* status-icon-inverted.png in Resources */,
 				E0C965C71533279D001D52BF /* status-icon-off.png in Resources */,
 				E0C965C81533279D001D52BF /* status-icon-on.png in Resources */,
-				E058E244153334860079B226 /* README.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -917,7 +928,6 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Play/vendor\"",
 					"\"$(SRCROOT)/vendor\"",
 					"\"$(SRCROOT)/vendor/libPusher/OS X\"",
 				);
@@ -926,9 +936,11 @@
 				INFOPLIST_FILE = "Play Item/Supporting Files/Play-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/vendor/libPusher/iOS\"",
+					"\"$(SRCROOT)/vendor/libPusher/OS X\"",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = "-DTARGET_OS_IPHONE=NO";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -939,7 +951,6 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Play/vendor\"",
 					"\"$(SRCROOT)/vendor\"",
 					"\"$(SRCROOT)/vendor/libPusher/OS X\"",
 				);
@@ -948,9 +959,11 @@
 				INFOPLIST_FILE = "Play Item/Supporting Files/Play-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/vendor/libPusher/iOS\"",
+					"\"$(SRCROOT)/vendor/libPusher/OS X\"",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = "-DTARGET_OS_IPHONE=NO";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
