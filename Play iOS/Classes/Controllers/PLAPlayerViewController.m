@@ -13,6 +13,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "PLAController.h"
 #import "PLALogInViewControllerViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation PLAPlayerViewController
 @synthesize songLabel, artistLabel, albumArtImageView, playButton, nowPlayingView, sliderView, statusLabel, currentTrack;
@@ -40,7 +41,20 @@
   [super viewDidLoad];
   
   [self hideNowPlaying:NO];
+  albumArtImageView.layer.masksToBounds = YES;
   
+  
+  CGRect nowPlayingViewFrame = nowPlayingView.frame;
+  
+  
+  
+  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+    nowPlayingViewFrame.size.height = 126.0;
+  }else{
+    nowPlayingViewFrame.size.height = 246.0;
+  }
+
+  [nowPlayingView setFrame:nowPlayingViewFrame];
   
   [[PLAController sharedController] logInWithBlock:^(BOOL succeeded) {
     dispatch_async(dispatch_get_main_queue(), ^(void) {
@@ -112,8 +126,6 @@
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
-  return interfaceOrientation == UIInterfaceOrientationPortrait;
-    // Return YES for supported orientations
   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
       return (interfaceOrientation == UIInterfaceOrientationPortrait);
   } else {
@@ -132,12 +144,12 @@
   if (animated) {
     duration = 0.3;
   }
+  
+  
 
   [UIView animateWithDuration:duration delay:0.0 options:UIViewAnimationCurveEaseOut animations:^{
-    [sliderView setFrame:CGRectMake(sliderView.frame.origin.x, 170.0, sliderView.frame.size.width, sliderView.frame.size.height)];
-  } completion:^(BOOL finished) {
-  }];
-
+    sliderView.transform = CGAffineTransformIdentity;
+  } completion:^(BOOL finished) {}];
 }
 
 - (void)showNowPlaying:(BOOL)animated{
@@ -146,19 +158,47 @@
     duration = 0.3;
   }
   
+  float yDistance;
+  
+  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+    yDistance = 125.0;
+  }else{
+    yDistance = 244.0;
+  }
+  
   [UIView animateWithDuration:duration delay:0.0 options:UIViewAnimationCurveEaseIn animations:^{
-    [sliderView setFrame:CGRectMake(sliderView.frame.origin.x, 290.0, sliderView.frame.size.width, sliderView.frame.size.height)];
-  } completion:^(BOOL finished) {
-  }];
+    
+    sliderView.transform = CGAffineTransformMakeTranslation(0, yDistance);
+
+    
+  } completion:^(BOOL finished) {}];
 }
 
 - (void)adjustLabels{
   CGRect songLabelFrame = songLabel.frame;
   CGRect artistLabelFrame = artistLabel.frame;
+  CGRect albumArtImageViewFrame = albumArtImageView.frame;
   
-  songLabelFrame.origin.x = 10.0;
-  songLabelFrame.origin.y = 10.0;
-  songLabelFrame.size.width = 192.0;
+  CGFloat padding;
+  
+  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+    [songLabel setFont:[UIFont systemFontOfSize:17.0]];
+    [artistLabel setFont:[UIFont systemFontOfSize:13.0]];
+    albumArtImageViewFrame.size = CGSizeMake(100.0, 100.0);
+    padding = 10.0;
+  }else{
+    [songLabel setFont:[UIFont systemFontOfSize:38.0]];
+    [artistLabel setFont:[UIFont systemFontOfSize:32.0]];
+    albumArtImageViewFrame.size = CGSizeMake(200.0, 200.0);
+    padding = 20.0;
+  }
+    
+  albumArtImageViewFrame.origin.y = padding + 3.0;
+  albumArtImageViewFrame.origin.x = nowPlayingView.bounds.size.width - albumArtImageViewFrame.size.width - padding;
+  
+  songLabelFrame.origin.x = padding;
+  songLabelFrame.origin.y = padding;
+  songLabelFrame.size.width = albumArtImageViewFrame.origin.x - padding - 10.0;
   
   CGSize maximumSongLabelSize = CGSizeMake(songLabelFrame.size.width,9999);
   CGSize expectedSongLabelSize = [[songLabel text] sizeWithFont:[songLabel font] constrainedToSize:maximumSongLabelSize lineBreakMode:[songLabel lineBreakMode]]; 
@@ -168,7 +208,7 @@
 
   artistLabelFrame.origin.x = songLabelFrame.origin.x;
   artistLabelFrame.origin.y = songLabelFrame.origin.y + songLabelFrame.size.height + 2.0;
-  artistLabelFrame.size.width = 192.0;
+  artistLabelFrame.size.width = albumArtImageViewFrame.origin.x - padding - 10.0;
   
   CGSize maximumArtistLabelSize = CGSizeMake(artistLabelFrame.size.width,9999);
   CGSize expectedArtistLabelSize = [[artistLabel text] sizeWithFont:[artistLabel font] constrainedToSize:maximumArtistLabelSize lineBreakMode:[artistLabel lineBreakMode]]; 
@@ -178,6 +218,7 @@
   
   self.songLabel.frame = songLabelFrame;
   self.artistLabel.frame = artistLabelFrame;
+  self.albumArtImageView.frame = albumArtImageViewFrame;
 }
 
 #pragma mark - Play Methods
@@ -220,10 +261,12 @@
 		[self destroyStreamer];
     [playButton setImage:[UIImage imageNamed:@"button-play.png"] forState:UIControlStateNormal];
     [statusLabel setHidden:YES];
+    [self showNowPlaying:YES];
   }else{
     [self createStreamer];
     [statusLabel setHidden:NO];
     [streamer start];
+    [self hideNowPlaying:YES];
   }
 }
 
@@ -237,7 +280,7 @@
   NSDictionary *userInfo = [aNotification userInfo];
   
   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Stream Error" message:[userInfo objectForKey:@"message"] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-  [alert show];
+//  [alert show];
   [alert release];
 }
 
