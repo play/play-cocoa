@@ -58,29 +58,10 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification{
   
-  [[PLAController sharedController] setPlayUrl:@"http://localhost:5050"];
-
   [[PLAController sharedController] logInWithBlock:^(BOOL succeeded) {
     dispatch_async(dispatch_get_main_queue(), ^(void) {
       if (succeeded) {
-        // set play button to play
-        [self setPlayActionTitle:@"Play"];
-        [[self playActionItem] setTarget:self];
-        [[self playActionItem] setAction:@selector(togglePlayState)];
-        [[statusMenu itemAtIndex:1] setAction:@selector(goToPlay)];
-
-        
-        // listen for notifications for updated songs from the CFController and pusher
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateWithTrackInformation) name:@"PLANowPlayingUpdated" object:nil];
-        
-        [PLATrack currentTrackWithBlock:^(PLATrack *track) {
-          [[PLAController sharedController] setCurrentlyPlayingTrack:track];
-          
-          dispatch_async(dispatch_get_main_queue(), ^(void) {
-            [self updateWithTrackInformation];
-          });
-          
-        }];
+        [self didLogIn];
       }else{
         [self presentLogIn];
       }
@@ -92,6 +73,27 @@
 //    self.keyTap = [[[SPMediaKeyTap alloc] initWithDelegate:self] autorelease];
 //    [self.keyTap startWatchingMediaKeys];
 
+}
+
+- (void)didLogIn{
+  // set play button to play
+  [self setPlayActionTitle:@"Play"];
+  [[self playActionItem] setTarget:self];
+  [[self playActionItem] setAction:@selector(togglePlayState)];
+  [[statusMenu itemAtIndex:1] setAction:@selector(goToPlay)];
+  
+  
+  // listen for notifications for updated songs from the CFController and pusher
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateWithTrackInformation) name:@"PLANowPlayingUpdated" object:nil];
+  
+  [PLATrack currentTrackWithBlock:^(PLATrack *track) {
+    [[PLAController sharedController] setCurrentlyPlayingTrack:track];
+    
+    dispatch_async(dispatch_get_main_queue(), ^(void) {
+      [self updateWithTrackInformation];
+    });
+    
+  }];
 }
 
 - (NSMenuItem *)playStatusItem{
