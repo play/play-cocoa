@@ -51,20 +51,31 @@
   [[PLAPlayClient sharedClient] getPath:@"/streaming_info" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
     self.streamUrl = [responseObject objectForKey:@"stream_url"];
     self.pusherKey = [responseObject objectForKey:@"pusher_key"];
-    
-    self.pusherClient = [PTPusher pusherWithKey:pusherKey delegate:self encrypted:NO];
-    [pusherClient setReconnectAutomatically:YES];
-    [pusherClient setReconnectDelay:30];
 
-    PTPusherChannel *channel = [pusherClient subscribeToChannelNamed:@"now_playing_updates"];
-    [channel bindToEventNamed:@"update_now_playing" target:self action:@selector(channelEventPushed:)];
-    
+    [self setUpPusher];
+    [self subscribeToChannels];
+
     block(YES);
   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
     NSLog(@"error: %@", error);
     block(NO);
   }];
 
+}
+
+- (void)setUpPusher{
+  self.pusherClient = [PTPusher pusherWithKey:pusherKey delegate:self encrypted:NO];
+  [pusherClient setReconnectAutomatically:YES];
+  [pusherClient setReconnectDelay:30];  
+}
+
+- (void)subscribeToChannels{
+  if (pusherClient) {
+    NSLog(@"subscribing to channels");
+    PTPusherChannel *channel = [pusherClient subscribeToChannelNamed:@"now_playing_updates"];
+    [channel bindToEventNamed:@"update_now_playing" target:self action:@selector(channelEventPushed:)];
+
+  }
 }
 
 #pragma mark - Settings
