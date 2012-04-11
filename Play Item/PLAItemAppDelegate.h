@@ -30,6 +30,7 @@
 - (void)createStreamer;
 - (void)destroyStreamer;
 - (void)togglePlayState;
+- (void)didLogIn;
 - (IBAction)goToPlay;
 - (IBAction)presentLogIn;
 

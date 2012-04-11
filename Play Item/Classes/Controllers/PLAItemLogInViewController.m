@@ -21,17 +21,15 @@
   [super dealloc];
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
-  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-  if (self) {
-    self.view;
-    [window setLevel:NSFloatingWindowLevel];
-
-    [playUrlTextField setStringValue:[[PLAController sharedController] playUrl]];
-    [authTokenTextField setStringValue:[[PLAController sharedController] authToken]];
-  }
-  
-  return self;
+- (void)awakeFromNib
+{
+	[window setLevel:NSFloatingWindowLevel];
+	
+	NSString *playURL = [[PLAController sharedController] playUrl]; //A URL which isn't NSURL… quit trolling maddox
+    [playUrlTextField setStringValue:(playURL ?: @"")];
+	
+	NSString *token = [[PLAController sharedController] authToken];
+    [authTokenTextField setStringValue:(token ?: @"")];
 }
 
 - (IBAction)logIn:(id)sender{
