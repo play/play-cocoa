@@ -8,16 +8,20 @@
 
 #import <Cocoa/Cocoa.h>
 #import "AudioStreamer.h"
+#import "PLAItemLogInViewController.h"
 
 @interface PLAItemAppDelegate : NSObject <NSApplicationDelegate>{
   NSStatusItem *statusItem;
   NSMenu *statusMenu;
   AudioStreamer *streamer;
+  PLAItemLogInViewController *logInViewController;
 }
 
 @property (strong) NSStatusItem *statusItem;
 @property (strong) IBOutlet NSMenu *statusMenu;
 @property (assign) IBOutlet NSWindow *window;
+@property (strong) PLAItemLogInViewController *logInViewController;
+
 
 - (NSMenuItem *)playStatusItem;
 - (NSMenuItem *)playActionItem;

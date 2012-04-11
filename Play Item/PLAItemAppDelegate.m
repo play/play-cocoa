@@ -10,6 +10,7 @@
 #import "PLAController.h"
 #import "PLATrack.h"
 #import "PLAPlayClient.h"
+#import "PLAItemLogInViewController.h"
 //#import "SPMediaKeyTap.h"
 
 @interface PLAItemAppDelegate ()
@@ -23,6 +24,7 @@
 @synthesize window = _window;
 @synthesize statusItem;
 @synthesize statusMenu;
+@synthesize logInViewController;
 
 //@synthesize keyTap = _keyTap;
 
@@ -30,6 +32,7 @@
   [self destroyStreamer];
   [statusItem release];
   [statusMenu release];
+  [logInViewController release];
 //  [_keyTap release], _keyTap = nil;
   [super dealloc];
 }
@@ -50,6 +53,8 @@
   [[statusMenu itemAtIndex:1] setTarget:self];
   [[statusMenu itemAtIndex:1] setEnabled:NO];
   
+  self.logInViewController = [[[PLAItemLogInViewController alloc] initWithNibName:@"PLAItemLogInViewController" bundle:nil] autorelease];
+  [logInViewController.window orderOut:self];
 
   [self setPlayStatus:@""];
 
@@ -133,6 +138,7 @@
 
 - (IBAction)presentLogIn{
   NSLog(@"presenting log in");
+  [logInViewController.window makeKeyAndOrderFront:self];
 }
 
 - (IBAction)goToPlay{
