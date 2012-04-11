@@ -23,16 +23,17 @@
 @property (assign) IBOutlet NSWindow *window;
 @property (strong) PLAItemLogInWindowController *logInWindowController;
 
-
+- (void)didLogIn;
 - (NSMenuItem *)playStatusItem;
 - (NSMenuItem *)playActionItem;
+- (void)updateWithTrackInformation;
 - (void)setPlayStatus:(NSString *)statusString;
 - (void)setPlayActionTitle:(NSString *)actionTitle;
+- (IBAction)presentLogIn:(id)sender;
+- (IBAction)goToPlay:(id)sender;
+- (void)togglePlayState;
 - (void)createStreamer;
 - (void)destroyStreamer;
-- (void)togglePlayState;
-- (void)didLogIn;
-- (IBAction)goToPlay:(id)sender;
-- (IBAction)presentLogIn:(id)sender;
+- (void)playbackStateChanged:(NSNotification *)aNotification;
 
 @end
