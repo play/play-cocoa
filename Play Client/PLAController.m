@@ -143,7 +143,7 @@
   NSLog(@"received error event: %@", errorEvent);
 }
 
-#if TARGET_OS_EMBEDDED
+#if TARGET_OS_IPHONE
 - (void)pusher:(PTPusher *)client connectionDidDisconnect:(PTPusherConnection *)connection{
   Reachability *reachability = [Reachability reachabilityForInternetConnection];
   
