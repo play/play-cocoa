@@ -197,11 +197,14 @@
 	streamer = [[AudioStreamer alloc] initWithURL:url];
 	  
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackStateChanged:) name:ASStatusChangedNotification object:streamer];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(presentStreamerAlert:) name:ASPresentAlertWithTitleNotification object:streamer];
+  
 }
 
 - (void)destroyStreamer{
 	if (streamer){
 		[[NSNotificationCenter defaultCenter] removeObserver:self name:ASStatusChangedNotification object:streamer];
+		[[NSNotificationCenter defaultCenter] removeObserver:self name:ASPresentAlertWithTitleNotification object:streamer];
 		
     self.currentTrack = nil;
     
@@ -225,6 +228,18 @@
 }
 
 #pragma mark - Audio player callbacks
+
+- (void)presentStreamerAlert:(NSNotification *)aNotification{  
+  [self destroyStreamer];
+  [playButton setImage:[UIImage imageNamed:@"button-play.png"] forState:UIControlStateNormal];
+  [statusLabel setHidden:YES];
+
+  NSDictionary *userInfo = [aNotification userInfo];
+  
+  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Stream Error" message:[userInfo objectForKey:@"message"] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+  [alert show];
+  [alert release];
+}
 
 - (void)playbackStateChanged:(NSNotification *)aNotification{
 	if ([streamer isWaiting]){
