@@ -20,7 +20,6 @@
 
 @property (strong) NSStatusItem *statusItem;
 @property (strong) IBOutlet NSMenu *statusMenu;
-@property (assign) IBOutlet NSWindow *window;
 @property (strong) PLAItemLogInWindowController *logInWindowController;
 
 

@@ -24,7 +24,6 @@
 
 @implementation PLAItemAppDelegate
 
-@synthesize window = _window;
 @synthesize statusItem;
 @synthesize statusMenu;
 @synthesize logInWindowController;
@@ -58,8 +57,6 @@
   
   self.logInWindowController = [[[PLAItemLogInWindowController alloc] init] autorelease];
   [self setPlayStatus:@""];
-
-  [_window makeKeyWindow];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification{
