@@ -128,6 +128,7 @@
 #pragma mark - PTPusher Delegate Methods
 
 - (void)pusher:(PTPusher *)client connectionDidConnect:(PTPusherConnection *)connection{
+  NSLog(@"connectionDidConnect");
   client.reconnectAutomatically = YES;
 }
 
@@ -145,29 +146,42 @@
 
 #if TARGET_OS_IPHONE
 - (void)pusher:(PTPusher *)client connectionDidDisconnect:(PTPusherConnection *)connection{
+  NSLog(@"connectionDidDisconnect");
+  
   Reachability *reachability = [Reachability reachabilityForInternetConnection];
   
   if ([reachability currentReachabilityStatus] == NotReachable) {
-    // there is no point in trying to reconnect at this point
+    NSLog(@"NotReachable");
     client.reconnectAutomatically = NO;
     
-    // start observing the reachability status to see when we come back online
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:reachability];
     
     [reachability startNotifier];
+  }else{
+    [PLATrack currentTrackWithBlock:^(PLATrack *track) {
+      self.currentlyPlayingTrack = track;
+      [[NSNotificationCenter defaultCenter] postNotificationName:@"PLANowPlayingUpdated" object:nil];
+      [self setUpPusher];
+      [self subscribeToChannels];
+    }];
   }
 }
 
 - (void)reachabilityChanged:(NSNotification *)note{
+  NSLog(@"reachabilityChanged");
   Reachability *reachability = note.object;
   
   if ([reachability currentReachabilityStatus] != NotReachable) {
-    // we seem to have some kind of network reachability, so try again
-    [pusherClient connect];
-    
-    // we can stop observing reachability changes now
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [reachability stopNotifier];
+    
+    [PLATrack currentTrackWithBlock:^(PLATrack *track) {
+      self.currentlyPlayingTrack = track;
+      [[NSNotificationCenter defaultCenter] postNotificationName:@"PLANowPlayingUpdated" object:nil];
+      [self setUpPusher];
+      [self subscribeToChannels];
+    }];
+
   }
 }
 #endif
