@@ -9,16 +9,15 @@
 #import <Cocoa/Cocoa.h>
 #import "PLAItemWindow.h"
 
-@interface PLAItemLogInViewController : NSViewController{
+@interface PLAItemLogInWindowController : NSWindowController{
   NSTextField *playUrlTextField;
   NSSecureTextField *authTokenTextField;
-  PLAItemWindow *window;
 }
 
 @property (nonatomic, retain) IBOutlet NSTextField *playUrlTextField;
 @property (nonatomic, retain) IBOutlet NSSecureTextField *authTokenTextField;
-@property (nonatomic, retain) IBOutlet PLAItemWindow *window;
 
+- (id)init;
 - (IBAction)logIn:(id)sender;
 
 @end

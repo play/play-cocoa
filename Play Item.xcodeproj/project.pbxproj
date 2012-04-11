@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		E032805E153560680077B17B /* PLAItemWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E032805D153560680077B17B /* PLAItemWindow.m */; };
 		E0328061153561180077B17B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0328060153561180077B17B /* QuartzCore.framework */; };
-		E051B0A71535569C007DC4F7 /* PLAItemLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E051B0A51535569C007DC4F7 /* PLAItemLogInViewController.m */; };
-		E051B0A81535569C007DC4F7 /* PLAItemLogInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E051B0A61535569C007DC4F7 /* PLAItemLogInViewController.xib */; };
+		E051B0A71535569C007DC4F7 /* PLAItemLogInWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E051B0A51535569C007DC4F7 /* PLAItemLogInWindowController.m */; };
+		E051B0A81535569C007DC4F7 /* PLAItemLogInWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E051B0A61535569C007DC4F7 /* PLAItemLogInWindow.xib */; };
 		E058E22415332C4C0079B226 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E058E21F15332C4C0079B226 /* Default.png */; };
 		E058E22515332C4C0079B226 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E058E22015332C4C0079B226 /* Default@2x.png */; };
 		E058E22615332C4C0079B226 /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = E058E22115332C4C0079B226 /* icon-72.png */; };
@@ -125,9 +125,9 @@
 		E032805C153560680077B17B /* PLAItemWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAItemWindow.h; sourceTree = "<group>"; };
 		E032805D153560680077B17B /* PLAItemWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAItemWindow.m; sourceTree = "<group>"; };
 		E0328060153561180077B17B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		E051B0A41535569C007DC4F7 /* PLAItemLogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAItemLogInViewController.h; sourceTree = "<group>"; };
-		E051B0A51535569C007DC4F7 /* PLAItemLogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAItemLogInViewController.m; sourceTree = "<group>"; };
-		E051B0A61535569C007DC4F7 /* PLAItemLogInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PLAItemLogInViewController.xib; sourceTree = "<group>"; };
+		E051B0A41535569C007DC4F7 /* PLAItemLogInWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = PLAItemLogInWindowController.h; sourceTree = "<group>"; };
+		E051B0A51535569C007DC4F7 /* PLAItemLogInWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAItemLogInWindowController.m; sourceTree = "<group>"; };
+		E051B0A61535569C007DC4F7 /* PLAItemLogInWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PLAItemLogInWindow.xib; sourceTree = "<group>"; };
 		E058E21F15332C4C0079B226 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		E058E22015332C4C0079B226 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		E058E22115332C4C0079B226 /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72.png"; sourceTree = "<group>"; };
@@ -515,9 +515,9 @@
 		E0C965AB1533279D001D52BF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E051B0A41535569C007DC4F7 /* PLAItemLogInViewController.h */,
-				E051B0A51535569C007DC4F7 /* PLAItemLogInViewController.m */,
-				E051B0A61535569C007DC4F7 /* PLAItemLogInViewController.xib */,
+				E051B0A41535569C007DC4F7 /* PLAItemLogInWindowController.h */,
+				E051B0A51535569C007DC4F7 /* PLAItemLogInWindowController.m */,
+				E051B0A61535569C007DC4F7 /* PLAItemLogInWindow.xib */,
 				E032805C153560680077B17B /* PLAItemWindow.h */,
 				E032805D153560680077B17B /* PLAItemWindow.m */,
 			);
@@ -740,7 +740,7 @@
 				E0C965C61533279D001D52BF /* status-icon-inverted.png in Resources */,
 				E0C965C71533279D001D52BF /* status-icon-off.png in Resources */,
 				E0C965C81533279D001D52BF /* status-icon-on.png in Resources */,
-				E051B0A81535569C007DC4F7 /* PLAItemLogInViewController.xib in Resources */,
+				E051B0A81535569C007DC4F7 /* PLAItemLogInWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -801,7 +801,7 @@
 				E058E274153376E80079B226 /* PLAPlayClient.m in Sources */,
 				E058E276153376E80079B226 /* PLATrack.m in Sources */,
 				E058E27A153377160079B226 /* PLAController.m in Sources */,
-				E051B0A71535569C007DC4F7 /* PLAItemLogInViewController.m in Sources */,
+				E051B0A71535569C007DC4F7 /* PLAItemLogInWindowController.m in Sources */,
 				E032805E153560680077B17B /* PLAItemWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

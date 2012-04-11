@@ -7,10 +7,13 @@
 //
 
 #import "PLAItemAppDelegate.h"
+
+#import "AudioStreamer.h"
+
 #import "PLAController.h"
-#import "PLATrack.h"
 #import "PLAPlayClient.h"
-#import "PLAItemLogInViewController.h"
+#import "PLAItemLogInWindowController.h"
+#import "PLATrack.h"
 //#import "SPMediaKeyTap.h"
 
 @interface PLAItemAppDelegate ()
@@ -24,7 +27,7 @@
 @synthesize window = _window;
 @synthesize statusItem;
 @synthesize statusMenu;
-@synthesize logInViewController;
+@synthesize logInWindowController;
 
 //@synthesize keyTap = _keyTap;
 
@@ -32,7 +35,7 @@
   [self destroyStreamer];
   [statusItem release];
   [statusMenu release];
-  [logInViewController release];
+  [logInWindowController release];
 //  [_keyTap release], _keyTap = nil;
   [super dealloc];
 }
@@ -53,9 +56,7 @@
   [[statusMenu itemAtIndex:1] setTarget:self];
   [[statusMenu itemAtIndex:1] setEnabled:NO];
   
-  self.logInViewController = [[[PLAItemLogInViewController alloc] initWithNibName:@"PLAItemLogInViewController" bundle:nil] autorelease];
-  [logInViewController.window orderOut:self];
-
+  self.logInWindowController = [[[PLAItemLogInWindowController alloc] init] autorelease];
   [self setPlayStatus:@""];
 
   [_window makeKeyWindow];
@@ -66,9 +67,9 @@
   [[PLAController sharedController] logInWithBlock:^(BOOL succeeded) {
     dispatch_async(dispatch_get_main_queue(), ^(void) {
       if (succeeded) {
-        [self didLogIn];
+		  [self didLogIn];
       }else{
-        [self presentLogIn];
+		  [self presentLogIn:nil];
       }
     
     });
@@ -136,12 +137,11 @@
   }
 }
 
-- (IBAction)presentLogIn{
-  NSLog(@"presenting log in");
-  [logInViewController.window makeKeyAndOrderFront:self];
+- (IBAction)presentLogIn:(id)sender{
+	[self.logInWindowController showWindow:sender];
 }
 
-- (IBAction)goToPlay{
+- (IBAction)goToPlay:(id)sender{
   [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[[PLAController sharedController] playUrl]]];
 }
 

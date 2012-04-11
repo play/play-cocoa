@@ -6,24 +6,28 @@
 //  Copyright (c) 2012 GitHub, Inc. All rights reserved.
 //
 
-#import "PLAItemLogInViewController.h"
+#import "PLAItemLogInWindowController.h"
 #import "PLAController.h"
 #import "PLAItemAppDelegate.h"
 
-@implementation PLAItemLogInViewController
-@synthesize playUrlTextField, authTokenTextField, window;
+@implementation PLAItemLogInWindowController
+@synthesize playUrlTextField, authTokenTextField;
+
+- (id)init
+{	
+	return [super initWithWindowNibName:@"PLAItemLogInWindow"];
+}
 
 - (void)dealloc{
   [playUrlTextField release];
   [authTokenTextField release];
-  [window release];
   
   [super dealloc];
 }
 
 - (void)awakeFromNib
 {
-	[window setLevel:NSFloatingWindowLevel];
+	[self.window setLevel:NSFloatingWindowLevel];
 	
 	NSString *playURL = [[PLAController sharedController] playUrl]; //A URL which isn't NSURL… quit trolling maddox
     [playUrlTextField setStringValue:(playURL ?: @"")];
@@ -39,11 +43,11 @@
   [[PLAController sharedController] logInWithBlock:^(BOOL succeeded) {
     dispatch_async(dispatch_get_main_queue(), ^(void) {
       if (succeeded) {
-        [window orderOut:self];
+		  [self close];
         PLAItemAppDelegate *appDelegate = (PLAItemAppDelegate *)[NSApp delegate];
         [appDelegate didLogIn];
       }else{
-        [window shake];
+        [(PLAItemWindow *)self.window shake];
       }
     });
   }];
