@@ -128,8 +128,8 @@
 		30A3B3B415359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SPInvocationGrabbing.m"; sourceTree = "<group>"; };
 		30A3B3B515359D2E009DA3E0 /* SPMediaKeyTap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMediaKeyTap.h; sourceTree = "<group>"; };
 		30A3B3B615359D2E009DA3E0 /* SPMediaKeyTap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMediaKeyTap.m; sourceTree = "<group>"; };
-		E032805C153560680077B17B /* PLAItemWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAItemWindow.h; sourceTree = "<group>"; };
-		E032805D153560680077B17B /* PLAItemWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAItemWindow.m; sourceTree = "<group>"; };
+		E032805C153560680077B17B /* PLAItemWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLAItemWindow.h; path = Controllers/PLAItemWindow.h; sourceTree = "<group>"; };
+		E032805D153560680077B17B /* PLAItemWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLAItemWindow.m; path = Controllers/PLAItemWindow.m; sourceTree = "<group>"; };
 		E0328060153561180077B17B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E051B0A41535569C007DC4F7 /* PLAItemLogInWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAItemLogInWindowController.h; sourceTree = "<group>"; };
 		E051B0A51535569C007DC4F7 /* PLAItemLogInWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAItemLogInWindowController.m; sourceTree = "<group>"; };
@@ -229,8 +229,8 @@
 		E0783F0E1533187D003EA138 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
 		E0783F0F1533187D003EA138 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		E09B1E4814E3FD4C001BD57E /* Play.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Play.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E0C965AC1533279D001D52BF /* PLAItemAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAItemAppDelegate.h; sourceTree = "<group>"; };
-		E0C965AD1533279D001D52BF /* PLAItemAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAItemAppDelegate.m; sourceTree = "<group>"; };
+		E0C965AC1533279D001D52BF /* PLAItemAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLAItemAppDelegate.h; path = ../PLAItemAppDelegate.h; sourceTree = "<group>"; };
+		E0C965AD1533279D001D52BF /* PLAItemAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLAItemAppDelegate.m; path = ../PLAItemAppDelegate.m; sourceTree = "<group>"; };
 		E0C965AF1533279D001D52BF /* IgnoredAudioProcesses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = IgnoredAudioProcesses.plist; sourceTree = "<group>"; };
 		E0C965B01533279D001D52BF /* Play-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Play-Info.plist"; sourceTree = "<group>"; };
 		E0C965B11533279D001D52BF /* Play-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Play-Prefix.pch"; sourceTree = "<group>"; };
@@ -327,6 +327,15 @@
 				30A3B3B415359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m */,
 			);
 			path = SPInvocationGrabbing;
+			sourceTree = "<group>";
+		};
+		30A3B3BC1535C4C6009DA3E0 /* Custom UI */ = {
+			isa = PBXGroup;
+			children = (
+				E032805C153560680077B17B /* PLAItemWindow.h */,
+				E032805D153560680077B17B /* PLAItemWindow.m */,
+			);
+			name = "Custom UI";
 			sourceTree = "<group>";
 		};
 		E058E22A153334860079B226 /* libPusher */ = {
@@ -521,8 +530,6 @@
 		E0C965A91533279D001D52BF /* Play Item */ = {
 			isa = PBXGroup;
 			children = (
-				E0C965AC1533279D001D52BF /* PLAItemAppDelegate.h */,
-				E0C965AD1533279D001D52BF /* PLAItemAppDelegate.m */,
 				E0C965BA1533279D001D52BF /* images */,
 				E0C965AA1533279D001D52BF /* Classes */,
 				E0C965AE1533279D001D52BF /* Supporting Files */,
@@ -533,6 +540,9 @@
 		E0C965AA1533279D001D52BF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E0C965AC1533279D001D52BF /* PLAItemAppDelegate.h */,
+				E0C965AD1533279D001D52BF /* PLAItemAppDelegate.m */,
+				30A3B3BC1535C4C6009DA3E0 /* Custom UI */,
 				E0C965AB1533279D001D52BF /* Controllers */,
 			);
 			path = Classes;
@@ -544,8 +554,6 @@
 				E051B0A41535569C007DC4F7 /* PLAItemLogInWindowController.h */,
 				E051B0A51535569C007DC4F7 /* PLAItemLogInWindowController.m */,
 				E051B0A61535569C007DC4F7 /* PLAItemLogInWindow.xib */,
-				E032805C153560680077B17B /* PLAItemWindow.h */,
-				E032805D153560680077B17B /* PLAItemWindow.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
