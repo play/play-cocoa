@@ -81,7 +81,6 @@
 		E0C965C71533279D001D52BF /* status-icon-off.png in Resources */ = {isa = PBXBuildFile; fileRef = E0C965BC1533279D001D52BF /* status-icon-off.png */; };
 		E0C965C81533279D001D52BF /* status-icon-on.png in Resources */ = {isa = PBXBuildFile; fileRef = E0C965BD1533279D001D52BF /* status-icon-on.png */; };
 		E0C965E3153327A6001D52BF /* PLAPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0C965CD153327A6001D52BF /* PLAPlayerViewController.m */; };
-		E0C965E4153327A6001D52BF /* PLAPlayerViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0C965CE153327A6001D52BF /* PLAPlayerViewController_iPad.xib */; };
 		E0C965E5153327A6001D52BF /* PLAPlayerViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0C965CF153327A6001D52BF /* PLAPlayerViewController_iPhone.xib */; };
 		E0C965E6153327A6001D52BF /* PLAIOSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E0C965D1153327A6001D52BF /* PLAIOSAppDelegate.m */; };
 		E0C965E7153327A6001D52BF /* Play-iOS-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0C965D3153327A6001D52BF /* Play-iOS-Info.plist */; };
@@ -229,7 +228,6 @@
 		E0C965BD1533279D001D52BF /* status-icon-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "status-icon-on.png"; sourceTree = "<group>"; };
 		E0C965CC153327A6001D52BF /* PLAPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAPlayerViewController.h; sourceTree = "<group>"; };
 		E0C965CD153327A6001D52BF /* PLAPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAPlayerViewController.m; sourceTree = "<group>"; };
-		E0C965CE153327A6001D52BF /* PLAPlayerViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PLAPlayerViewController_iPad.xib; sourceTree = "<group>"; };
 		E0C965CF153327A6001D52BF /* PLAPlayerViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PLAPlayerViewController_iPhone.xib; sourceTree = "<group>"; };
 		E0C965D0153327A6001D52BF /* PLAIOSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAIOSAppDelegate.h; sourceTree = "<group>"; };
 		E0C965D1153327A6001D52BF /* PLAIOSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAIOSAppDelegate.m; sourceTree = "<group>"; };
@@ -562,7 +560,6 @@
 				E05AEC0D1534B6BE0094566C /* PLALogInViewControllerViewController.xib */,
 				E0C965CC153327A6001D52BF /* PLAPlayerViewController.h */,
 				E0C965CD153327A6001D52BF /* PLAPlayerViewController.m */,
-				E0C965CE153327A6001D52BF /* PLAPlayerViewController_iPad.xib */,
 				E0C965CF153327A6001D52BF /* PLAPlayerViewController_iPhone.xib */,
 			);
 			path = Controllers;
@@ -690,7 +687,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0C965E4153327A6001D52BF /* PLAPlayerViewController_iPad.xib in Resources */,
 				E0C965E5153327A6001D52BF /* PLAPlayerViewController_iPhone.xib in Resources */,
 				E0C965E7153327A6001D52BF /* Play-iOS-Info.plist in Resources */,
 				E0C965E8153327A6001D52BF /* InfoPlist.strings in Resources */,
