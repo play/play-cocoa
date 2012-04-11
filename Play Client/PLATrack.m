@@ -48,10 +48,6 @@
   }];  
 }
 
-- (NSString *)albumArtUrl{
-  return [NSString stringWithFormat:@"%@/images/art/%@.png", [[PLAController sharedController] playUrl], trackId];
-}
-
 #pragma mark -
 #pragma mark Accessors
 

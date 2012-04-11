@@ -100,7 +100,7 @@
   
   [albumArtImageView setImage:[UIImage imageNamed:@"default_album.png"]];
   [self updateMetaData];
-  [SDWebImageDownloader downloaderWithURL:[NSURL URLWithString:[currentlyPlayingTrack albumArtUrl]] delegate:self];
+  [SDWebImageDownloader downloaderWithURL:[currentlyPlayingTrack albumArtUrl] delegate:self];
 }
 
 - (void)viewDidUnload{
