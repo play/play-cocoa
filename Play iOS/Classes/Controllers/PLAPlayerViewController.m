@@ -314,7 +314,7 @@
   NSDictionary *userInfo = [aNotification userInfo];
   
   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Stream Error" message:[userInfo objectForKey:@"message"] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-  //  [alert show];
+  [alert show];
   [alert release];
 }
 
