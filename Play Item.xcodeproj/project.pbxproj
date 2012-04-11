@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30A3B3BA15359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A3B3B415359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m */; };
+		30A3B3BB15359D2E009DA3E0 /* SPMediaKeyTap.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A3B3B615359D2E009DA3E0 /* SPMediaKeyTap.m */; };
 		E032805E153560680077B17B /* PLAItemWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E032805D153560680077B17B /* PLAItemWindow.m */; };
 		E0328061153561180077B17B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0328060153561180077B17B /* QuartzCore.framework */; };
 		E051B0A71535569C007DC4F7 /* PLAItemLogInWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E051B0A51535569C007DC4F7 /* PLAItemLogInWindowController.m */; };
@@ -122,10 +124,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		30A3B3B315359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SPInvocationGrabbing.h"; sourceTree = "<group>"; };
+		30A3B3B415359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SPInvocationGrabbing.m"; sourceTree = "<group>"; };
+		30A3B3B515359D2E009DA3E0 /* SPMediaKeyTap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMediaKeyTap.h; sourceTree = "<group>"; };
+		30A3B3B615359D2E009DA3E0 /* SPMediaKeyTap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMediaKeyTap.m; sourceTree = "<group>"; };
 		E032805C153560680077B17B /* PLAItemWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAItemWindow.h; sourceTree = "<group>"; };
 		E032805D153560680077B17B /* PLAItemWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAItemWindow.m; sourceTree = "<group>"; };
 		E0328060153561180077B17B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		E051B0A41535569C007DC4F7 /* PLAItemLogInWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = PLAItemLogInWindowController.h; sourceTree = "<group>"; };
+		E051B0A41535569C007DC4F7 /* PLAItemLogInWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAItemLogInWindowController.h; sourceTree = "<group>"; };
 		E051B0A51535569C007DC4F7 /* PLAItemLogInWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAItemLogInWindowController.m; sourceTree = "<group>"; };
 		E051B0A61535569C007DC4F7 /* PLAItemLogInWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PLAItemLogInWindow.xib; sourceTree = "<group>"; };
 		E058E21F15332C4C0079B226 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -304,6 +310,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30A3B3AE15359D2E009DA3E0 /* SPMediaKeyTap */ = {
+			isa = PBXGroup;
+			children = (
+				30A3B3AF15359D2E009DA3E0 /* SPInvocationGrabbing */,
+				30A3B3B515359D2E009DA3E0 /* SPMediaKeyTap.h */,
+				30A3B3B615359D2E009DA3E0 /* SPMediaKeyTap.m */,
+			);
+			path = SPMediaKeyTap;
+			sourceTree = "<group>";
+		};
+		30A3B3AF15359D2E009DA3E0 /* SPInvocationGrabbing */ = {
+			isa = PBXGroup;
+			children = (
+				30A3B3B315359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.h */,
+				30A3B3B415359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m */,
+			);
+			path = SPInvocationGrabbing;
+			sourceTree = "<group>";
+		};
 		E058E22A153334860079B226 /* libPusher */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,6 +408,7 @@
 				E0783EE01533187D003EA138 /* AFNetworking */,
 				E0783EF61533187D003EA138 /* AudioStreamer */,
 				E0783EFB1533187D003EA138 /* SDWebImage */,
+				30A3B3AE15359D2E009DA3E0 /* SPMediaKeyTap */,
 				E0783F0E1533187D003EA138 /* SFHFKeychainUtils.h */,
 				E0783F0F1533187D003EA138 /* SFHFKeychainUtils.m */,
 			);
@@ -803,6 +829,8 @@
 				E058E27A153377160079B226 /* PLAController.m in Sources */,
 				E051B0A71535569C007DC4F7 /* PLAItemLogInWindowController.m in Sources */,
 				E032805E153560680077B17B /* PLAItemWindow.m in Sources */,
+				30A3B3BA15359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m in Sources */,
+				30A3B3BB15359D2E009DA3E0 /* SPMediaKeyTap.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
