@@ -194,10 +194,7 @@
   }
   
   [UIView animateWithDuration:duration delay:0.0 options:UIViewAnimationCurveEaseIn animations:^{
-    
     sliderView.transform = CGAffineTransformMakeTranslation(0, yDistance);
-
-    
   } completion:^(BOOL finished) {}];
 }
 
