@@ -25,7 +25,7 @@
 @property (nonatomic, assign) BOOL queued;
 
 - (id)initWithAttributes:(NSDictionary *)attributes;
-- (NSString *)albumArtUrl;
 + (void)currentTrackWithBlock:(void(^)(PLATrack *track))block;
+- (NSString *)albumArtUrl;
 
 @end
