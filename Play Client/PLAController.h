@@ -26,15 +26,14 @@
 
 + (PLAController *)sharedController;
 
-- (void)updateNowPlaying:(NSDictionary *)nowPlayingDict;
-
+- (void)logInWithBlock:(void(^)(BOOL succeeded))block;
+- (void)setUpPusher;
+- (void)subscribeToChannels;
 - (void)setPlayUrl:(NSString *)url;
 - (NSString *)playUrl;
-- (void)setPusherKey:(NSString *)key;
-- (NSString *)pusherKey;
 - (void)setAuthToken:(NSString *)token;
 - (NSString *)authToken;
-- (void)logInWithBlock:(void(^)(BOOL succeeded))block;
 - (void)updateNowPlaying:(NSDictionary *)nowPlayingDict;
+- (void)channelEventPushed:(PTPusherEvent *)channelEvent;
 
 @end

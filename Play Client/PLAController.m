@@ -63,6 +63,8 @@
 
 }
 
+#pragma mark - Pusher Bootstrap
+
 - (void)setUpPusher{
   self.pusherClient = [PTPusher pusherWithKey:pusherKey delegate:self encrypted:NO];
   [pusherClient setReconnectAutomatically:YES];
@@ -74,7 +76,6 @@
     NSLog(@"subscribing to channels");
     PTPusherChannel *channel = [pusherClient subscribeToChannelNamed:@"now_playing_updates"];
     [channel bindToEventNamed:@"update_now_playing" target:self action:@selector(channelEventPushed:)];
-
   }
 }
 
@@ -116,10 +117,9 @@
   [[NSNotificationCenter defaultCenter] postNotificationName:@"PLANowPlayingUpdated" object:nil];
 }
 
-#pragma mark - Channel Even handler
+#pragma mark - Channel Event handler
 
 - (void)channelEventPushed:(PTPusherEvent *)channelEvent{
-  NSLog(@"name: %@", [channelEvent name]);
   if ([[channelEvent name] isEqualToString:@"update_now_playing"]) {
     [self updateNowPlaying:(NSDictionary *)[channelEvent data]];
   }
@@ -159,19 +159,23 @@
     [reachability startNotifier];
   }else{
     [PLATrack currentTrackWithBlock:^(PLATrack *track) {
-      self.currentlyPlayingTrack = track;
-      [[NSNotificationCenter defaultCenter] postNotificationName:@"PLANowPlayingUpdated" object:nil];
-      [self setUpPusher];
-      [self subscribeToChannels];
+      dispatch_async(dispatch_get_main_queue(), ^(void) {
+        self.currentlyPlayingTrack = track;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"PLANowPlayingUpdated" object:nil];
+        [self setUpPusher];
+        [self subscribeToChannels];
+      });
     }];
   }
   
 #else
   [PLATrack currentTrackWithBlock:^(PLATrack *track) {
-    self.currentlyPlayingTrack = track;
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"PLANowPlayingUpdated" object:nil];
-    [self setUpPusher];
-    [self subscribeToChannels];
+    dispatch_async(dispatch_get_main_queue(), ^(void) {
+      self.currentlyPlayingTrack = track;
+      [[NSNotificationCenter defaultCenter] postNotificationName:@"PLANowPlayingUpdated" object:nil];
+      [self setUpPusher];
+      [self subscribeToChannels];
+    });
   }];
 #endif
 }

@@ -23,6 +23,11 @@
 - (void)viewDidLoad{
   [super viewDidLoad];
   
+  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+    [self.view setBackgroundColor:[UIColor scrollViewTexturedBackgroundColor]];
+  }
+
+  
   if ([[PLAController sharedController] playUrl]) {
     [playUrlTextField setText:[[PLAController sharedController] playUrl]];
   }
@@ -30,7 +35,6 @@
   if ([[PLAController sharedController] authToken]) {
     [playTokenTextField setText:[[PLAController sharedController] authToken]];
   }
-
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -46,7 +50,11 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
-  return (interfaceOrientation == UIInterfaceOrientationPortrait);
+  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+  } else {
+    return YES;
+  }
 }
 
 - (void)logIn{

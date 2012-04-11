@@ -32,13 +32,18 @@
 @property (retain, nonatomic) IBOutlet UILabel *statusLabel;
 @property (retain, nonatomic) PLATrack *currentTrack;
 
+- (void)setUpForStreaming;
+- (void)presentLogIn;
+- (void)updateMetaData;
+- (void)updateViewsWithTrackInformation;
 - (void)hideNowPlaying:(BOOL)animated;
 - (void)showNowPlaying:(BOOL)animated;
 - (void)adjustLabels;
-- (void)setUpForStreaming;
+- (IBAction)togglePlayState:(id)sender;
 - (void)createStreamer;
 - (void)destroyStreamer;
-- (IBAction)togglePlayState:(id)sender;
-- (void)updateMetaData;
+- (void)playbackStateChanged:(NSNotification *)aNotification;
+- (void)presentStreamerAlert:(NSNotification *)aNotification;
+
 
 @end

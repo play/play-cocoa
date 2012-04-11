@@ -43,23 +43,18 @@
   [self hideNowPlaying:NO];
   albumArtImageView.layer.masksToBounds = YES;
   
-  
   CGRect nowPlayingViewFrame = nowPlayingView.frame;
-  
-  
   
   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
     nowPlayingViewFrame.size.height = 126.0;
   }else{
     nowPlayingViewFrame.size.height = 246.0;
   }
-
   [nowPlayingView setFrame:nowPlayingViewFrame];
   
   [[PLAController sharedController] logInWithBlock:^(BOOL succeeded) {
     dispatch_async(dispatch_get_main_queue(), ^(void) {
       if (succeeded) {
-        NSLog(@"log in succeeded: %d", succeeded);
         [self setUpForStreaming];
       }else{
         [self presentLogIn];
@@ -67,40 +62,6 @@
       
     });
   }];
-}
-
-- (void)setUpForStreaming{
-  // listen for notifications for updated songs from the CFController and pusher
-  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateViewsWithTrackInformation) name:@"PLANowPlayingUpdated" object:nil];
-  
-  [PLATrack currentTrackWithBlock:^(PLATrack *track) {
-    [[PLAController sharedController] setCurrentlyPlayingTrack:track];
-    
-    dispatch_async(dispatch_get_main_queue(), ^(void) {
-      [self updateViewsWithTrackInformation];
-    });
-    
-  }];
-}
-
-- (void)presentLogIn{
-  NSLog(@"present log in");
-  PLALogInViewControllerViewController *controller = [[PLALogInViewControllerViewController alloc] initWithNibName:@"PLALogInViewControllerViewController" bundle:nil];
-  controller.modalPresentationStyle = UIModalPresentationFullScreen;
-  controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-  
-  [self presentViewController:controller animated:YES completion:^{
-    NSLog(@"did present view controller");
-    [controller release];
-  }];
-}
-
-- (void)updateViewsWithTrackInformation{
-  PLATrack *currentlyPlayingTrack = [[PLAController sharedController] currentlyPlayingTrack];
-  
-  [albumArtImageView setImage:[UIImage imageNamed:@"default_album.png"]];
-  [self updateMetaData];
-  [SDWebImageDownloader downloaderWithURL:[currentlyPlayingTrack albumArtUrl] delegate:self];
 }
 
 - (void)viewDidUnload{
@@ -124,7 +85,6 @@
 	[[NSNotificationCenter defaultCenter] postNotificationName:ASStatusChangedNotification object:self];  
 }
 
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
       return (interfaceOrientation == UIInterfaceOrientationPortrait);
@@ -133,10 +93,79 @@
   }
 }
 
+#pragma mark - Bootstrapping methods
+
+- (void)setUpForStreaming{
+  // listen for notifications for updated songs from the CFController and pusher
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateViewsWithTrackInformation) name:@"PLANowPlayingUpdated" object:nil];
+  
+  [PLATrack currentTrackWithBlock:^(PLATrack *track) {
+    [[PLAController sharedController] setCurrentlyPlayingTrack:track];
+    
+    dispatch_async(dispatch_get_main_queue(), ^(void) {
+      [self updateViewsWithTrackInformation];
+    });
+    
+  }];
+}
+
+#pragma mark - Actionable methods
+
+- (void)presentLogIn{
+  PLALogInViewControllerViewController *controller = [[PLALogInViewControllerViewController alloc] initWithNibName:@"PLALogInViewControllerViewController" bundle:nil];
+  
+  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+    controller.modalPresentationStyle = UIModalPresentationFullScreen;
+    controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+  } else {
+    controller.modalPresentationStyle = UIModalPresentationFormSheet;
+    controller.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+  }
+  
+  [self presentViewController:controller animated:YES completion:^{
+    [controller release];
+  }];
+}
+
 #pragma mark - View State methods
 
 - (BOOL)canBecomeFirstResponder {
 	return YES;
+}
+
+- (void)updateViewsWithTrackInformation{
+  PLATrack *currentlyPlayingTrack = [[PLAController sharedController] currentlyPlayingTrack];
+  
+  // start downloading the album art first
+  // we'll update the view metadata once we have the actual art to prevent
+  // a flash and have everything just be cleaner
+  [SDWebImageDownloader downloaderWithURL:[NSURL URLWithString:[currentlyPlayingTrack albumArtUrl]] delegate:self];
+}
+
+- (void)updateMetaData{
+  PLATrack *currentlyPlayingTrack = [[PLAController sharedController] currentlyPlayingTrack];
+  
+  if (currentlyPlayingTrack) {
+    self.songLabel.text = [currentlyPlayingTrack name];
+    self.artistLabel.text = [currentlyPlayingTrack artist];
+    
+    [self adjustLabels];
+    [self showNowPlaying:YES];
+    
+    MPMediaItemArtwork *mediaItemArtwork = [[MPMediaItemArtwork alloc] initWithImage:albumArtImageView.image];
+    
+    NSDictionary *nowPlayingMetaDict = [NSDictionary dictionaryWithObjectsAndKeys:[currentlyPlayingTrack name], MPMediaItemPropertyTitle, [currentlyPlayingTrack album], MPMediaItemPropertyAlbumTitle, [currentlyPlayingTrack artist], MPMediaItemPropertyArtist, mediaItemArtwork, MPMediaItemPropertyArtwork, nil];
+    
+    [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:nowPlayingMetaDict];
+    
+    [mediaItemArtwork release];
+  }else{
+    self.songLabel.text = @"";
+    self.artistLabel.text = @"";
+    [self hideNowPlaying:NO];
+    
+    [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:nil];
+  }
 }
 
 - (void)hideNowPlaying:(BOOL)animated{
@@ -145,8 +174,6 @@
     duration = 0.3;
   }
   
-  
-
   [UIView animateWithDuration:duration delay:0.0 options:UIViewAnimationCurveEaseOut animations:^{
     sliderView.transform = CGAffineTransformIdentity;
   } completion:^(BOOL finished) {}];
@@ -167,10 +194,7 @@
   }
   
   [UIView animateWithDuration:duration delay:0.0 options:UIViewAnimationCurveEaseIn animations:^{
-    
     sliderView.transform = CGAffineTransformMakeTranslation(0, yDistance);
-
-    
   } completion:^(BOOL finished) {}];
 }
 
@@ -223,6 +247,18 @@
 
 #pragma mark - Play Methods
 
+- (IBAction)togglePlayState:(id)sender{
+  if ([streamer isPlaying]) {
+		[self destroyStreamer];
+    [playButton setImage:[UIImage imageNamed:@"button-play.png"] forState:UIControlStateNormal];
+    [statusLabel setHidden:YES];
+  }else{
+    [self createStreamer];
+    [statusLabel setHidden:NO];
+    [streamer start];
+  }
+}
+
 - (void)createStreamer{
 	if (streamer){
 		return;
@@ -239,7 +275,6 @@
 	  
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackStateChanged:) name:ASStatusChangedNotification object:streamer];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(presentStreamerAlert:) name:ASPresentAlertWithTitleNotification object:streamer];
-  
 }
 
 - (void)destroyStreamer{
@@ -255,32 +290,7 @@
 	}
 }
 
-
-- (IBAction)togglePlayState:(id)sender{
-  if ([streamer isPlaying]) {
-		[self destroyStreamer];
-    [playButton setImage:[UIImage imageNamed:@"button-play.png"] forState:UIControlStateNormal];
-    [statusLabel setHidden:YES];
-  }else{
-    [self createStreamer];
-    [statusLabel setHidden:NO];
-    [streamer start];
-  }
-}
-
 #pragma mark - Audio player callbacks
-
-- (void)presentStreamerAlert:(NSNotification *)aNotification{  
-  [self destroyStreamer];
-  [playButton setImage:[UIImage imageNamed:@"button-play.png"] forState:UIControlStateNormal];
-  [statusLabel setHidden:YES];
-
-  NSDictionary *userInfo = [aNotification userInfo];
-  
-  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Stream Error" message:[userInfo objectForKey:@"message"] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-//  [alert show];
-  [alert release];
-}
 
 - (void)playbackStateChanged:(NSNotification *)aNotification{
 	if ([streamer isWaiting]){
@@ -296,40 +306,27 @@
 	}
 }
 
+- (void)presentStreamerAlert:(NSNotification *)aNotification{  
+  [self destroyStreamer];
+  [playButton setImage:[UIImage imageNamed:@"button-play.png"] forState:UIControlStateNormal];
+  [statusLabel setHidden:YES];
+  
+  NSDictionary *userInfo = [aNotification userInfo];
+  
+  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Stream Error" message:[userInfo objectForKey:@"message"] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+  [alert show];
+  [alert release];
+}
+
+#pragma mark - SDWebImageDownloader Callback
+
 - (void)imageDownloader:(SDWebImageDownloader *)imageDownloader didFinishWithImage:(UIImage *)image{
   [albumArtImageView setImage:image];
   [self updateMetaData];  
 }
 
-- (void)updateMetaData{
-  PLATrack *currentlyPlayingTrack = [[PLAController sharedController] currentlyPlayingTrack];
-  
-  if (currentlyPlayingTrack) {
-    self.songLabel.text = [currentlyPlayingTrack name];
-    self.artistLabel.text = [currentlyPlayingTrack artist];
-    
-    [self adjustLabels];
-    [self showNowPlaying:YES];
+#pragma mark - Remote Control Events
 
-    MPMediaItemArtwork *mediaItemArtwork = [[MPMediaItemArtwork alloc] initWithImage:albumArtImageView.image];
-
-    NSDictionary *nowPlayingMetaDict = [NSDictionary dictionaryWithObjectsAndKeys:[currentlyPlayingTrack name], MPMediaItemPropertyTitle, [currentlyPlayingTrack album], MPMediaItemPropertyAlbumTitle, [currentlyPlayingTrack artist], MPMediaItemPropertyArtist, mediaItemArtwork, MPMediaItemPropertyArtwork, nil];
-    
-    [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:nowPlayingMetaDict];
-    
-    [mediaItemArtwork release];
-  }else{
-    self.songLabel.text = @"";
-    self.artistLabel.text = @"";
-    [self hideNowPlaying:NO];
-
-    [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:nil];
-  }
-}
-
-
-
-#pragma mark Remote Control Events
 - (void)remoteControlReceivedWithEvent:(UIEvent *)event {
 	switch (event.subtype) {
 		case UIEventSubtypeRemoteControlTogglePlayPause:
@@ -354,10 +351,6 @@
 	}
   
   [self updateMetaData];
-}
-
-- (void)didReceiveMemoryWarning{
-  [super didReceiveMemoryWarning];
 }
 
 @end

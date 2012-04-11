@@ -64,9 +64,9 @@
   [[PLAController sharedController] logInWithBlock:^(BOOL succeeded) {
     dispatch_async(dispatch_get_main_queue(), ^(void) {
       if (succeeded) {
-		  [self didLogIn];
+        [self didLogIn];
       }else{
-		  [self presentLogIn:nil];
+        [self presentLogIn:nil];
       }
     
     });
@@ -99,12 +99,24 @@
   }];
 }
 
+#pragma mark - Status Item Getters
+
 - (NSMenuItem *)playStatusItem{
   return [statusMenu itemAtIndex:4];
 }
 
 - (NSMenuItem *)playActionItem{
   return [statusMenu itemAtIndex:0];
+}
+
+#pragma mark - View State Methods
+
+- (void)updateWithTrackInformation{
+  PLATrack *currentlyPlayingTrack = [[PLAController sharedController] currentlyPlayingTrack];
+  
+  NSString *playStatusString = [NSString stringWithFormat:@"%@ - %@ - %@", [currentlyPlayingTrack artist], [currentlyPlayingTrack album], [currentlyPlayingTrack name]];
+  
+  [self setPlayStatus:playStatusString];
 }
 
 - (void)setPlayStatus:(NSString *)statusString{
@@ -122,6 +134,17 @@
   [[self playActionItem] setTitle:actionTitle];
 }
 
+- (IBAction)presentLogIn:(id)sender{
+	[self.logInWindowController showWindow:sender];
+}
+
+- (IBAction)goToPlay:(id)sender{
+  [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[[PLAController sharedController] playUrl]]];
+}
+
+
+#pragma mark - Play Methods
+
 - (void)togglePlayState{
   if (streamer && [streamer isPlaying]) {
 		[self destroyStreamer];
@@ -133,17 +156,6 @@
     [streamer start];
   }
 }
-
-- (IBAction)presentLogIn:(id)sender{
-	[self.logInWindowController showWindow:sender];
-}
-
-- (IBAction)goToPlay:(id)sender{
-  [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[[PLAController sharedController] playUrl]]];
-}
-
-
-#pragma mark - Play Methods
 
 - (void)createStreamer{
 	if (streamer){
@@ -191,14 +203,6 @@
     [self setPlayStatus:@""];
     [statusItem setImage:[NSImage imageNamed:@"status-icon-off.png"]];
 	}
-}
-
-- (void)updateWithTrackInformation{
-  PLATrack *currentlyPlayingTrack = [[PLAController sharedController] currentlyPlayingTrack];
-  
-  NSString *playStatusString = [NSString stringWithFormat:@"%@ - %@ - %@", [currentlyPlayingTrack artist], [currentlyPlayingTrack album], [currentlyPlayingTrack name]];
-  
-  [self setPlayStatus:playStatusString];
 }
 
 
