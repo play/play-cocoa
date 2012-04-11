@@ -55,8 +55,8 @@
     self.pusherClient = [PTPusher pusherWithKey:pusherKey delegate:self encrypted:NO];
     [pusherClient setReconnectAutomatically:YES];
     [pusherClient setReconnectDelay:30];
+
     PTPusherChannel *channel = [pusherClient subscribeToChannelNamed:@"now_playing_updates"];
-    
     [channel bindToEventNamed:@"update_now_playing" target:self action:@selector(channelEventPushed:)];
     
     block(YES);
