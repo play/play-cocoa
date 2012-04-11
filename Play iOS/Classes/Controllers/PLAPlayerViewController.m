@@ -261,12 +261,10 @@
 		[self destroyStreamer];
     [playButton setImage:[UIImage imageNamed:@"button-play.png"] forState:UIControlStateNormal];
     [statusLabel setHidden:YES];
-    [self showNowPlaying:YES];
   }else{
     [self createStreamer];
     [statusLabel setHidden:NO];
     [streamer start];
-    [self hideNowPlaying:YES];
   }
 }
 
