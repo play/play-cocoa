@@ -144,10 +144,10 @@
   NSLog(@"received error event: %@", errorEvent);
 }
 
-#if TARGET_OS_IPHONE
 - (void)pusher:(PTPusher *)client connectionDidDisconnect:(PTPusherConnection *)connection{
   NSLog(@"connectionDidDisconnect");
   
+#if TARGET_OS_EMBEDDED
   Reachability *reachability = [Reachability reachabilityForInternetConnection];
   
   if ([reachability currentReachabilityStatus] == NotReachable) {
@@ -165,8 +165,18 @@
       [self subscribeToChannels];
     }];
   }
+  
+#else
+  [PLATrack currentTrackWithBlock:^(PLATrack *track) {
+    self.currentlyPlayingTrack = track;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"PLANowPlayingUpdated" object:nil];
+    [self setUpPusher];
+    [self subscribeToChannels];
+  }];
+#endif
 }
 
+#if TARGET_OS_EMBEDDED
 - (void)reachabilityChanged:(NSNotification *)note{
   NSLog(@"reachabilityChanged");
   Reachability *reachability = note.object;
@@ -185,7 +195,6 @@
   }
 }
 #endif
-
 
 
 
