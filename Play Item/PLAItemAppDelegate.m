@@ -14,11 +14,11 @@
 #import "PLAPlayClient.h"
 #import "PLAItemLogInWindowController.h"
 #import "PLATrack.h"
-//#import "SPMediaKeyTap.h"
+#import "SPMediaKeyTap.h"
 
 @interface PLAItemAppDelegate ()
 
-//@property (nonatomic, retain) SPMediaKeyTap *keyTap;
+@property (nonatomic, retain) SPMediaKeyTap *keyTap;
 
 @end
 
@@ -29,14 +29,14 @@
 @synthesize statusMenu;
 @synthesize logInWindowController;
 
-//@synthesize keyTap = _keyTap;
+@synthesize keyTap = _keyTap;
 
 - (void)dealloc{
   [self destroyStreamer];
   [statusItem release];
   [statusMenu release];
   [logInWindowController release];
-//  [_keyTap release], _keyTap = nil;
+  [_keyTap release], _keyTap = nil;
   [super dealloc];
 }
 
@@ -76,8 +76,8 @@
   }];
   
     
-//    self.keyTap = [[[SPMediaKeyTap alloc] initWithDelegate:self] autorelease];
-//    [self.keyTap startWatchingMediaKeys];
+    self.keyTap = [[[SPMediaKeyTap alloc] initWithDelegate:self] autorelease];
+    [self.keyTap startWatchingMediaKeys];
 
 }
 
@@ -206,22 +206,22 @@
 
 
 #pragma mark -
-//#pragma mark SPMediaKeyTap Delegate
-//
-//-(void)mediaKeyTap:(SPMediaKeyTap*)keyTap receivedMediaKeyEvent:(NSEvent*)event;
-//{
-//    if ([event type] != NSSystemDefined || [event subtype] != SPSystemDefinedEventMediaKeys)
-//        return;
-//    
-//	int keyCode = (([event data1] & 0xFFFF0000) >> 16);
-//	int keyFlags = ([event data1] & 0x0000FFFF);
-//	int keyState = (((keyFlags & 0xFF00) >> 8)) == 0xA;
-//	int keyRepeat = (keyFlags & 0x1);
-//    
-//    if (keyState != 1 || keyRepeat > 1 || keyCode != NX_KEYTYPE_PLAY) //Only supporting play/pause for now
-//        return;
-//    
-//    [self toggelPlayState];
-//}
+#pragma mark SPMediaKeyTap Delegate
+
+-(void)mediaKeyTap:(SPMediaKeyTap*)keyTap receivedMediaKeyEvent:(NSEvent*)event;
+{
+    if ([event type] != NSSystemDefined || [event subtype] != SPSystemDefinedEventMediaKeys)
+        return;
+    
+	int keyCode = (([event data1] & 0xFFFF0000) >> 16);
+	int keyFlags = ([event data1] & 0x0000FFFF);
+	int keyState = (((keyFlags & 0xFF00) >> 8)) == 0xA;
+	int keyRepeat = (keyFlags & 0x1);
+    
+    if (keyState != 1 || keyRepeat > 1 || keyCode != NX_KEYTYPE_PLAY) //Only supporting play/pause for now
+        return;
+    
+    [self toggelPlayState];
+}
 
 @end
