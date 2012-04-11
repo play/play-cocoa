@@ -133,6 +133,15 @@
 	return YES;
 }
 
+- (void)updateViewsWithTrackInformation{
+  PLATrack *currentlyPlayingTrack = [[PLAController sharedController] currentlyPlayingTrack];
+  
+  // start downloading the album art first
+  // we'll update the view metadata once we have the actual art to prevent
+  // a flash and have everything just be cleaner
+  [SDWebImageDownloader downloaderWithURL:[NSURL URLWithString:[currentlyPlayingTrack albumArtUrl]] delegate:self];
+}
+
 - (void)updateMetaData{
   PLATrack *currentlyPlayingTrack = [[PLAController sharedController] currentlyPlayingTrack];
   
@@ -157,14 +166,6 @@
     
     [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:nil];
   }
-}
-
-- (void)updateViewsWithTrackInformation{
-  PLATrack *currentlyPlayingTrack = [[PLAController sharedController] currentlyPlayingTrack];
-  
-  [albumArtImageView setImage:[UIImage imageNamed:@"default_album.png"]];
-  [self updateMetaData];
-  [SDWebImageDownloader downloaderWithURL:[NSURL URLWithString:[currentlyPlayingTrack albumArtUrl]] delegate:self];
 }
 
 - (void)hideNowPlaying:(BOOL)animated{
