@@ -86,8 +86,14 @@
 - (void)presentLogIn{
   NSLog(@"present log in");
   PLALogInViewControllerViewController *controller = [[PLALogInViewControllerViewController alloc] initWithNibName:@"PLALogInViewControllerViewController" bundle:nil];
-  controller.modalPresentationStyle = UIModalPresentationFullScreen;
-  controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+  
+  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+    controller.modalPresentationStyle = UIModalPresentationFullScreen;
+    controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+  } else {
+    controller.modalPresentationStyle = UIModalPresentationFormSheet;
+    controller.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+  }
   
   [self presentViewController:controller animated:YES completion:^{
     NSLog(@"did present view controller");
