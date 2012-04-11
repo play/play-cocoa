@@ -52,5 +52,13 @@
   return [NSString stringWithFormat:@"%@/images/art/%@.png", [[PLAController sharedController] playUrl], trackId];
 }
 
+#pragma mark -
+#pragma mark Accessors
+
+- (NSURL *)albumArtURL
+{
+	NSString *urlString = [NSString stringWithFormat:@"%@/images/art/%@.png", [[PLAController sharedController] playUrl], trackId];
+	return [NSURL URLWithString:urlString];
+}
 
 @end

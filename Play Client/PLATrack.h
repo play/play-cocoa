@@ -23,9 +23,9 @@
 @property (nonatomic, retain) NSString *artist;
 @property (nonatomic, assign) BOOL starred;
 @property (nonatomic, assign) BOOL queued;
+@property (nonatomic, readonly) NSURL *albumArtURL;
 
 - (id)initWithAttributes:(NSDictionary *)attributes;
-- (NSString *)albumArtUrl;
 + (void)currentTrackWithBlock:(void(^)(PLATrack *track))block;
 
 @end
