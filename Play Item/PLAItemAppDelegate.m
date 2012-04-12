@@ -93,6 +93,16 @@
   }];
 }
 
+- (IBAction)toggleWindow:(id)sender
+{
+	if (self.queueWindowController.window.isVisible) {
+		[self.queueWindowController close];
+	} else {
+		[self.queueWindowController showWindow:sender];
+	}
+}
+
+
 #pragma mark - View State Methods
 
 - (IBAction)presentLogIn:(id)sender{
