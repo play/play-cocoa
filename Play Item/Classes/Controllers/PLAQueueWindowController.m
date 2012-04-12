@@ -13,6 +13,7 @@
 @interface PLAQueueWindowController ()
 
 @property (retain) NSArray *queue;
+@property (retain) PLATrack *currentTrack;
 
 - (void)updateQueue;
 
@@ -21,6 +22,7 @@
 @implementation PLAQueueWindowController
 
 @synthesize queue = _queue;
+@synthesize currentTrack = _currentTrack;
 
 - (id)init
 {	
@@ -36,6 +38,7 @@
 - (void)dealloc
 {
 	[_queue release], _queue = nil;
+	[_currentTrack release], _currentTrack = nil;
 	[super dealloc];
 }
 

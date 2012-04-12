@@ -13,12 +13,14 @@
 #import "PLAController.h"
 #import "PLAPlayClient.h"
 #import "PLAItemLogInWindowController.h"
+#import "PLAQueueWindowController.h"
 #import "PLATrack.h"
 #import "SPMediaKeyTap.h"
 
 @interface PLAItemAppDelegate ()
 
 @property (nonatomic, retain) SPMediaKeyTap *keyTap;
+@property (nonatomic, readonly) PLAQueueWindowController *queueWindowController;
 
 @end
 
@@ -29,6 +31,18 @@
 @synthesize logInWindowController;
 
 @synthesize keyTap = _keyTap;
+@synthesize queueWindowController = _queueWindowController;
+
+- (id)init
+{	
+	self = [super init];
+	if (self == nil)
+		return nil;
+	
+	_queueWindowController = [[PLAQueueWindowController alloc] init];
+
+	return self;
+}
 
 - (void)dealloc{
   [self destroyStreamer];
@@ -36,6 +50,7 @@
   [statusMenu release];
   [logInWindowController release];
   [_keyTap release], _keyTap = nil;
+	[_queueWindowController release], _queueWindowController = nil;
   [super dealloc];
 }
 
@@ -74,7 +89,9 @@
   
     self.keyTap = [[[SPMediaKeyTap alloc] initWithDelegate:self] autorelease];
     [self.keyTap startWatchingMediaKeys];
-
+	
+	//TEST
+	[self.queueWindowController showWindow:nil];
 }
 
 - (void)didLogIn{
