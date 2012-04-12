@@ -13,13 +13,18 @@
 @implementation PLATrack
 @synthesize trackId, name, album, artist, queued, starred;
 
-- (void)dealloc{
-  [trackId release];
-  [name release];
-  [album release];
-  [artist release];
-  
-  [super dealloc];
++ (void)currentTrackWithBlock:(void(^)(PLATrack *track, NSError *error))block{
+	[[PLAPlayClient sharedClient] getPath:@"/now_playing" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		PLATrack *track = [[[PLATrack alloc] initWithAttributes:responseObject] autorelease];
+		block(track, nil);
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		block(nil, error);
+	}];  
+}
+
++ (void)currentQueueWithBlock:(void(^)(NSArray *tracks, NSError *error))block
+{
+	
 }
 
 - (id)initWithAttributes:(NSDictionary *)attributes {
@@ -38,14 +43,13 @@
   return self;
 }
 
-+ (void)currentTrackWithBlock:(void(^)(PLATrack *track))block{
-  [[PLAPlayClient sharedClient] getPath:@"/now_playing" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-    PLATrack *track = [[[PLATrack alloc] initWithAttributes:responseObject] autorelease];
-    block(track);
-  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-    NSLog(@"error: %@", error);
-    block(nil);
-  }];  
+- (void)dealloc{
+	[trackId release];
+	[name release];
+	[album release];
+	[artist release];
+	
+	[super dealloc];
 }
 
 #pragma mark -
