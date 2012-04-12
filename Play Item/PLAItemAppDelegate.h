@@ -11,28 +11,16 @@
 @class AudioStreamer;
 @class PLAItemLogInWindowController;
 
-@interface PLAItemAppDelegate : NSObject <NSApplicationDelegate>{
-  NSStatusItem *statusItem;
-  NSMenu *statusMenu;
-  AudioStreamer *streamer;
-  PLAItemLogInWindowController *logInWindowController;
-}
+@interface PLAItemAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (strong) NSStatusItem *statusItem;
-@property (strong) IBOutlet NSMenu *statusMenu;
 @property (strong) PLAItemLogInWindowController *logInWindowController;
 
 - (void)didLogIn;
-- (NSMenuItem *)playStatusItem;
-- (NSMenuItem *)playActionItem;
-- (void)updateWithTrackInformation;
-- (void)setPlayStatus:(NSString *)statusString;
-- (void)setPlayActionTitle:(NSString *)actionTitle;
 - (IBAction)presentLogIn:(id)sender;
 - (IBAction)goToPlay:(id)sender;
 - (void)togglePlayState;
 - (void)createStreamer;
 - (void)destroyStreamer;
-- (void)playbackStateChanged:(NSNotification *)aNotification;
 
 @end

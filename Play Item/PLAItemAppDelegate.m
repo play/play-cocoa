@@ -21,14 +21,15 @@
 
 @property (nonatomic, retain) SPMediaKeyTap *keyTap;
 @property (nonatomic, readonly) PLAQueueWindowController *queueWindowController;
+@property (nonatomic, retain) AudioStreamer *streamer;
 
 @end
 
 @implementation PLAItemAppDelegate
 
-@synthesize statusItem;
-@synthesize statusMenu;
-@synthesize logInWindowController;
+@synthesize statusItem = _statusItem;
+@synthesize logInWindowController = _logInWindowController;
+@synthesize streamer = _streamer;
 
 @synthesize keyTap = _keyTap;
 @synthesize queueWindowController = _queueWindowController;
@@ -46,9 +47,9 @@
 
 - (void)dealloc{
   [self destroyStreamer];
-  [statusItem release];
-  [statusMenu release];
-  [logInWindowController release];
+  [_statusItem release];
+
+	[_logInWindowController release];
   [_keyTap release], _keyTap = nil;
 	[_queueWindowController release], _queueWindowController = nil;
   [super dealloc];
@@ -56,22 +57,12 @@
 
 -(void)awakeFromNib{
   self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-  [statusItem setMenu:statusMenu];
-  [statusItem setAction:@selector(toggleWindow:)];
-  [statusItem setImage:[NSImage imageNamed:@"status-icon-off.png"]];
-  [statusItem setAlternateImage:[NSImage imageNamed:@"status-icon-inverted.png"]];
-  [statusItem setHighlightMode:YES];
-  
-  [self setPlayActionTitle:@"Log In to Play"];
-  [[self playActionItem] setTarget:self];
-  [[self playActionItem] setAction:@selector(presentLogIn)];
-  [[self playActionItem] setEnabled:YES];
-
-  [[statusMenu itemAtIndex:1] setTarget:self];
-  [[statusMenu itemAtIndex:1] setEnabled:NO];
+  [_statusItem setAction:@selector(toggleWindow:)];
+  [_statusItem setImage:[NSImage imageNamed:@"status-icon-off.png"]];
+  [_statusItem setAlternateImage:[NSImage imageNamed:@"status-icon-inverted.png"]];
+  [_statusItem setHighlightMode:YES];
   
   self.logInWindowController = [[[PLAItemLogInWindowController alloc] init] autorelease];
-  [self setPlayStatus:@""];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification{
@@ -89,66 +80,20 @@
   
     self.keyTap = [[[SPMediaKeyTap alloc] initWithDelegate:self] autorelease];
     [self.keyTap startWatchingMediaKeys];
-	
-	//TEST
-	[self.queueWindowController showWindow:nil];
 }
 
 - (void)didLogIn{
   // set play button to play
-  [self setPlayActionTitle:@"Play"];
-  [[self playActionItem] setTarget:self];
-  [[self playActionItem] setAction:@selector(togglePlayState)];
-  [[statusMenu itemAtIndex:1] setAction:@selector(goToPlay)];
-  
   
   // listen for notifications for updated songs from the CFController and pusher
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateWithTrackInformation) name:PLANowPlayingUpdated object:nil];
   
   [PLATrack currentTrackWithBlock:^(PLATrack *track, NSError *err) {
     [[PLAController sharedController] setCurrentlyPlayingTrack:track];
-    
-    dispatch_async(dispatch_get_main_queue(), ^(void) {
-      [self updateWithTrackInformation];
-    });
-    
   }];
 }
 
-#pragma mark - Status Item Getters
-
-- (NSMenuItem *)playStatusItem{
-  return [statusMenu itemAtIndex:4];
-}
-
-- (NSMenuItem *)playActionItem{
-  return [statusMenu itemAtIndex:0];
-}
-
 #pragma mark - View State Methods
-
-- (void)updateWithTrackInformation{
-  PLATrack *currentlyPlayingTrack = [[PLAController sharedController] currentlyPlayingTrack];
-  
-  NSString *playStatusString = [NSString stringWithFormat:@"%@ - %@ - %@", [currentlyPlayingTrack artist], [currentlyPlayingTrack album], [currentlyPlayingTrack name]];
-  
-  [self setPlayStatus:playStatusString];
-}
-
-- (void)setPlayStatus:(NSString *)statusString{
-  if (statusString && statusString.length > 0) {
-    [[self playStatusItem] setHidden:NO];
-    [[statusMenu itemAtIndex:3] setHidden:NO];
-    [[self playStatusItem] setTitle:statusString];
-  }else{
-    [[self playStatusItem] setHidden:YES];
-    [[statusMenu itemAtIndex:3] setHidden:YES];
-  }
-}
-
-- (void)setPlayActionTitle:(NSString *)actionTitle{
-  [[self playActionItem] setTitle:actionTitle];
-}
 
 - (IBAction)presentLogIn:(id)sender{
 	[self.logInWindowController showWindow:sender];
@@ -162,19 +107,16 @@
 #pragma mark - Play Methods
 
 - (void)togglePlayState{
-  if (streamer && [streamer isPlaying]) {
+  if (self.streamer && [self.streamer isPlaying]) {
 		[self destroyStreamer];
-    [self setPlayActionTitle:@"Play"];
-    [statusItem setImage:[NSImage imageNamed:@"status-icon-off.png"]];
   }else{
-    [self setPlayStatus:@"Buffering..."];
     [self createStreamer];
-    [streamer start];
+    [self.streamer start];
   }
 }
 
 - (void)createStreamer{
-	if (streamer){
+	if (self.streamer){
 		return;
 	}
   
@@ -184,43 +126,19 @@
   
 	[self destroyStreamer];
   
-	streamer = [[AudioStreamer alloc] initWithURL:[NSURL URLWithString:streamUrl]];
+	self.streamer = [[AudioStreamer alloc] initWithURL:[NSURL URLWithString:streamUrl]];
   
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackStateChanged:) name:ASStatusChangedNotification object:streamer];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackStateChanged:) name:ASStatusChangedNotification object:self.streamer];
 }
 
 - (void)destroyStreamer{
-	if (streamer){
-		[[NSNotificationCenter defaultCenter] removeObserver:self name:ASStatusChangedNotification object:streamer];
+	if (self.streamer){
+		[[NSNotificationCenter defaultCenter] removeObserver:self name:ASStatusChangedNotification object:self.streamer];
 		
-		[streamer stop];
-		[streamer release];
-		streamer = nil;
+		[self.streamer stop];
+		self.streamer = nil;
 	}
 }
-
-
-#pragma mark - Audio player callbacks
-
-- (void)playbackStateChanged:(NSNotification *)aNotification{
-	if ([streamer isWaiting]){
-    [self setPlayActionTitle:@"Play"];
-    [statusItem setImage:[NSImage imageNamed:@"status-icon-off.png"]];
-	}else if ([streamer isPlaying]){
-    [self setPlayActionTitle:@"Stop"];
-    [statusItem setImage:[NSImage imageNamed:@"status-icon-on.png"]];
-    [self updateWithTrackInformation];
-	}else if ([streamer isPaused]){
-    [self setPlayActionTitle:@"Play"];
-    [self setPlayStatus:@""];
-    [statusItem setImage:[NSImage imageNamed:@"status-icon-off.png"]];
-	}else if ([streamer isIdle]){
-    [self setPlayActionTitle:@"Play"];
-    [self setPlayStatus:@""];
-    [statusItem setImage:[NSImage imageNamed:@"status-icon-off.png"]];
-	}
-}
-
 
 #pragma mark -
 #pragma mark SPMediaKeyTap Delegate
@@ -238,7 +156,7 @@
     if (keyState != 1 || keyRepeat > 1 || keyCode != NX_KEYTYPE_PLAY) //Only supporting play/pause for now
         return;
     
-    [self toggelPlayState];
+    [self togglePlayState];
 }
 
 @end
