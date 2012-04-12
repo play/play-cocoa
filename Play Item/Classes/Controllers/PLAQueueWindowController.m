@@ -26,13 +26,7 @@
 
 - (id)init
 {	
-	self = [super initWithWindowNibName:@"PLAQueueWindow"];
-	if (self == nil)
-		return nil;
-	
-	_queue = [[NSMutableArray alloc] init];
-
-	return self;
+	return [super initWithWindowNibName:@"PLAQueueWindow"];
 }
 
 - (void)dealloc
@@ -51,6 +45,16 @@
 
 - (void)updateQueue
 {
+	[PLATrack currentTrackWithBlock: ^ (PLATrack *track, NSError *err) 
+	{
+		if (track == nil) {
+			NSLog(@"Could not get current track: %@", err);
+			return;
+		}
+		
+		self.currentTrack = track;
+	}];
+	
 	[PLATrack currentQueueWithBlock: ^ (NSArray *tracks, NSError *err) 
 	{
 		if (tracks == nil) {
