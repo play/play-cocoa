@@ -169,7 +169,7 @@
   }
   
 #else
-  [PLATrack currentTrackWithBlock:^(PLATrack *track) {
+  [PLATrack currentTrackWithBlock:^(PLATrack *track, NSError *err) {
     dispatch_async(dispatch_get_main_queue(), ^(void) {
       self.currentlyPlayingTrack = track;
       [[NSNotificationCenter defaultCenter] postNotificationName:@"PLANowPlayingUpdated" object:nil];

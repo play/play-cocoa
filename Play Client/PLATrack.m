@@ -24,7 +24,16 @@
 
 + (void)currentQueueWithBlock:(void(^)(NSArray *tracks, NSError *error))block
 {
-	
+	[[PLAPlayClient sharedClient] getPath:@"/queue" parameters:nil 
+	success: ^ (AFHTTPRequestOperation *operation, id responseObject) 
+	{
+		NSArray *songs = [responseObject valueForKey:@"songs"];
+		block(songs, nil);
+	} 
+	failure: ^ (AFHTTPRequestOperation *operation, NSError *error) 
+	{
+		block(nil, error);
+	}];
 }
 
 - (id)initWithAttributes:(NSDictionary *)attributes {

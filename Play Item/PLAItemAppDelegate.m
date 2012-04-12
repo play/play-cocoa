@@ -72,7 +72,9 @@
     });
   }];
   
-    
+    [PLATrack currentQueueWithBlock:^(NSArray *tracks, NSError *err) {
+		NSLog(@"%@", err);
+	}];
     self.keyTap = [[[SPMediaKeyTap alloc] initWithDelegate:self] autorelease];
     [self.keyTap startWatchingMediaKeys];
 
@@ -89,7 +91,7 @@
   // listen for notifications for updated songs from the CFController and pusher
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateWithTrackInformation) name:@"PLANowPlayingUpdated" object:nil];
   
-  [PLATrack currentTrackWithBlock:^(PLATrack *track) {
+  [PLATrack currentTrackWithBlock:^(PLATrack *track, NSError *err) {
     [[PLAController sharedController] setCurrentlyPlayingTrack:track];
     
     dispatch_async(dispatch_get_main_queue(), ^(void) {
