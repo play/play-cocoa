@@ -58,6 +58,19 @@
   return self;
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+	PLATrack *copy = [[PLATrack alloc] init];
+	copy.trackId = self.trackId;
+	copy.name = self.name;
+	copy.album = self.album;
+	copy.artist = self.artist;
+	copy.queued = self.queued;
+	copy.starred = self.starred;
+	
+	return copy;
+}
+
 - (void)dealloc{
 	[trackId release];
 	[name release];
