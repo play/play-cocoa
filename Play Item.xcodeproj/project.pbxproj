@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3088A983153702D200E7B8DB /* LIEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3088A980153702D200E7B8DB /* LIEffect.m */; };
+		3088A984153702D200E7B8DB /* LIFlipEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3088A982153702D200E7B8DB /* LIFlipEffect.m */; };
 		30A3B3BA15359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A3B3B415359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m */; };
 		30A3B3BB15359D2E009DA3E0 /* SPMediaKeyTap.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A3B3B615359D2E009DA3E0 /* SPMediaKeyTap.m */; };
 		30A3B3C31535C5D7009DA3E0 /* PLAQueueWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A3B3C11535C5D7009DA3E0 /* PLAQueueWindowController.m */; };
@@ -126,6 +128,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3088A97F153702D200E7B8DB /* LIEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIEffect.h; sourceTree = "<group>"; };
+		3088A980153702D200E7B8DB /* LIEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIEffect.m; sourceTree = "<group>"; };
+		3088A981153702D200E7B8DB /* LIFlipEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIFlipEffect.h; sourceTree = "<group>"; };
+		3088A982153702D200E7B8DB /* LIFlipEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIFlipEffect.m; sourceTree = "<group>"; };
 		30A3B3B315359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SPInvocationGrabbing.h"; sourceTree = "<group>"; };
 		30A3B3B415359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SPInvocationGrabbing.m"; sourceTree = "<group>"; };
 		30A3B3B515359D2E009DA3E0 /* SPMediaKeyTap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMediaKeyTap.h; sourceTree = "<group>"; };
@@ -315,6 +321,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3088A97E153702D200E7B8DB /* LIFlipEffect */ = {
+			isa = PBXGroup;
+			children = (
+				3088A97F153702D200E7B8DB /* LIEffect.h */,
+				3088A980153702D200E7B8DB /* LIEffect.m */,
+				3088A981153702D200E7B8DB /* LIFlipEffect.h */,
+				3088A982153702D200E7B8DB /* LIFlipEffect.m */,
+			);
+			path = LIFlipEffect;
+			sourceTree = "<group>";
+		};
 		30A3B3AE15359D2E009DA3E0 /* SPMediaKeyTap */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,6 +440,7 @@
 				E0783EF61533187D003EA138 /* AudioStreamer */,
 				E0783EFB1533187D003EA138 /* SDWebImage */,
 				30A3B3AE15359D2E009DA3E0 /* SPMediaKeyTap */,
+				3088A97E153702D200E7B8DB /* LIFlipEffect */,
 				E0783F0E1533187D003EA138 /* SFHFKeychainUtils.h */,
 				E0783F0F1533187D003EA138 /* SFHFKeychainUtils.m */,
 			);
@@ -849,6 +867,8 @@
 				30A3B3BA15359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m in Sources */,
 				30A3B3BB15359D2E009DA3E0 /* SPMediaKeyTap.m in Sources */,
 				30A3B3C31535C5D7009DA3E0 /* PLAQueueWindowController.m in Sources */,
+				3088A983153702D200E7B8DB /* LIEffect.m in Sources */,
+				3088A984153702D200E7B8DB /* LIFlipEffect.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
