@@ -8,9 +8,13 @@
 
 #import "PLAQueueWindowController.h"
 
+#import "PLATrack.h"
+
 @interface PLAQueueWindowController ()
 
-@property (readonly) NSMutableArray *queue;
+@property (retain) NSArray *queue;
+
+- (void)updateQueue;
 
 @end
 
@@ -38,8 +42,21 @@
 - (void)windowDidLoad
 {
     [super windowDidLoad];
-    
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+	
+	[self updateQueue];
+}
+
+- (void)updateQueue
+{
+	[PLATrack currentQueueWithBlock: ^ (NSArray *tracks, NSError *err) 
+	{
+		if (tracks == nil) {
+			NSLog(@"Could not get current queue: %@", err);
+			return;
+		}
+		
+		self.queue = tracks;
+	 }];
 }
 
 @end
