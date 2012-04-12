@@ -27,6 +27,5 @@
 
 - (id)initWithAttributes:(NSDictionary *)attributes;
 + (void)currentTrackWithBlock:(void(^)(PLATrack *track))block;
-- (NSString *)albumArtUrl;
 
 @end
