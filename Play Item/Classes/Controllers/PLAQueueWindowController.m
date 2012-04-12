@@ -8,6 +8,7 @@
 
 #import "PLAQueueWindowController.h"
 
+#import "PLAItemAppDelegate.h"
 #import "PLATrack.h"
 
 @interface PLAQueueWindowController ()
@@ -64,6 +65,14 @@
 		
 		self.queue = tracks;
 	 }];
+}
+
+#pragma mark -
+#pragma mark Actions
+
+- (IBAction)togglePlay:(id)sender
+{
+	[[NSApp delegate] togglePlayState];
 }
 
 @end

@@ -12,4 +12,6 @@
 
 - (id)init;
 
+- (IBAction)togglePlay:(id)sender;
+
 @end
