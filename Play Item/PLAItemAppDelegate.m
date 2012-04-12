@@ -57,10 +57,10 @@
 
 -(void)awakeFromNib{
   self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-  [_statusItem setAction:@selector(toggleWindow:)];
-  [_statusItem setImage:[NSImage imageNamed:@"status-icon-off.png"]];
-  [_statusItem setAlternateImage:[NSImage imageNamed:@"status-icon-inverted.png"]];
-  [_statusItem setHighlightMode:YES];
+  [self.statusItem setAction:@selector(toggleWindow:)];
+  [self.statusItem setImage:[NSImage imageNamed:@"status-icon-off.png"]];
+  [self.statusItem setAlternateImage:[NSImage imageNamed:@"status-icon-inverted.png"]];
+  [self.statusItem setHighlightMode:YES];
   
   self.logInWindowController = [[[PLAItemLogInWindowController alloc] init] autorelease];
 }
