@@ -10,13 +10,29 @@
 
 @interface PLAQueueWindowController ()
 
+@property (readonly) NSMutableArray *queue;
+
 @end
 
 @implementation PLAQueueWindowController
 
+@synthesize queue = _queue;
+
 - (id)init
+{	
+	self = [super initWithWindowNibName:@"PLAQueueWindow"];
+	if (self == nil)
+		return nil;
+	
+	_queue = [[NSMutableArray alloc] init];
+
+	return self;
+}
+
+- (void)dealloc
 {
-    return [super initWithWindowNibName:@"PLAQueueWindow"];
+	[_queue release], _queue = nil;
+	[super dealloc];
 }
 
 - (void)windowDidLoad
