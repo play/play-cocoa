@@ -72,9 +72,6 @@
     });
   }];
   
-    [PLATrack currentQueueWithBlock:^(NSArray *tracks, NSError *err) {
-		NSLog(@"%@", err);
-	}];
     self.keyTap = [[[SPMediaKeyTap alloc] initWithDelegate:self] autorelease];
     [self.keyTap startWatchingMediaKeys];
 
