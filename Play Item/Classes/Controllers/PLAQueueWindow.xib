@@ -483,8 +483,8 @@
 									<string key="NSReuseIdentifierKey">_NS:1505</string>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSTextFieldCell" key="NSCell" id="459437421">
-										<int key="NSCellFlags">68288064</int>
-										<int key="NSCellFlags2">272630784</int>
+										<int key="NSCellFlags">67239488</int>
+										<int key="NSCellFlags2">272631872</int>
 										<string key="NSContents">Song Title</string>
 										<reference key="NSSupport" ref="552443278"/>
 										<string key="NSCellIdentifier">_NS:1505</string>
@@ -502,8 +502,8 @@
 									<string key="NSReuseIdentifierKey">_NS:1505</string>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSTextFieldCell" key="NSCell" id="881439240">
-										<int key="NSCellFlags">68288064</int>
-										<int key="NSCellFlags2">272630784</int>
+										<int key="NSCellFlags">67239488</int>
+										<int key="NSCellFlags2">272631872</int>
 										<string key="NSContents">Artist name - Album Title</string>
 										<reference key="NSSupport" ref="552443278"/>
 										<string key="NSCellIdentifier">_NS:1505</string>
