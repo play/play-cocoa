@@ -10,7 +10,7 @@
 		30A3B3BA15359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A3B3B415359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m */; };
 		30A3B3BB15359D2E009DA3E0 /* SPMediaKeyTap.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A3B3B615359D2E009DA3E0 /* SPMediaKeyTap.m */; };
 		30A3B3C31535C5D7009DA3E0 /* PLAQueueWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A3B3C11535C5D7009DA3E0 /* PLAQueueWindowController.m */; };
-		30A3B3C41535C5D7009DA3E0 /* PLAQueueWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30A3B3C21535C5D7009DA3E0 /* PLAQueueWindowController.xib */; };
+		30A3B3C41535C5D7009DA3E0 /* PLAQueueWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30A3B3C21535C5D7009DA3E0 /* PLAQueueWindow.xib */; };
 		E032805E153560680077B17B /* PLAItemWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E032805D153560680077B17B /* PLAItemWindow.m */; };
 		E0328061153561180077B17B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0328060153561180077B17B /* QuartzCore.framework */; };
 		E051B0A71535569C007DC4F7 /* PLAItemLogInWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E051B0A51535569C007DC4F7 /* PLAItemLogInWindowController.m */; };
@@ -132,7 +132,7 @@
 		30A3B3B615359D2E009DA3E0 /* SPMediaKeyTap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMediaKeyTap.m; sourceTree = "<group>"; };
 		30A3B3C01535C5D7009DA3E0 /* PLAQueueWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAQueueWindowController.h; sourceTree = "<group>"; };
 		30A3B3C11535C5D7009DA3E0 /* PLAQueueWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAQueueWindowController.m; sourceTree = "<group>"; };
-		30A3B3C21535C5D7009DA3E0 /* PLAQueueWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PLAQueueWindowController.xib; sourceTree = "<group>"; };
+		30A3B3C21535C5D7009DA3E0 /* PLAQueueWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PLAQueueWindow.xib; sourceTree = "<group>"; };
 		E032805C153560680077B17B /* PLAItemWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLAItemWindow.h; path = Controllers/PLAItemWindow.h; sourceTree = "<group>"; };
 		E032805D153560680077B17B /* PLAItemWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLAItemWindow.m; path = Controllers/PLAItemWindow.m; sourceTree = "<group>"; };
 		E0328060153561180077B17B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -561,7 +561,7 @@
 				E051B0A61535569C007DC4F7 /* PLAItemLogInWindow.xib */,
 				30A3B3C01535C5D7009DA3E0 /* PLAQueueWindowController.h */,
 				30A3B3C11535C5D7009DA3E0 /* PLAQueueWindowController.m */,
-				30A3B3C21535C5D7009DA3E0 /* PLAQueueWindowController.xib */,
+				30A3B3C21535C5D7009DA3E0 /* PLAQueueWindow.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -783,7 +783,7 @@
 				E0C965C71533279D001D52BF /* status-icon-off.png in Resources */,
 				E0C965C81533279D001D52BF /* status-icon-on.png in Resources */,
 				E051B0A81535569C007DC4F7 /* PLAItemLogInWindow.xib in Resources */,
-				30A3B3C41535C5D7009DA3E0 /* PLAQueueWindowController.xib in Resources */,
+				30A3B3C41535C5D7009DA3E0 /* PLAQueueWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

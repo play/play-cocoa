@@ -14,14 +14,9 @@
 
 @implementation PLAQueueWindowController
 
-- (id)initWithWindow:(NSWindow *)window
+- (id)init
 {
-    self = [super initWithWindow:window];
-    if (self) {
-        // Initialization code here.
-    }
-    
-    return self;
+    return [super initWithWindowNibName:@"PLAQueueWindow"];
 }
 
 - (void)windowDidLoad

@@ -10,4 +10,6 @@
 
 @interface PLAQueueWindowController : NSWindowController
 
+- (id)init;
+
 @end
