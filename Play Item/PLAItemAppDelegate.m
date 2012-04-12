@@ -98,6 +98,20 @@
 	if (self.queueWindowController.window.isVisible) {
 		[self.queueWindowController close];
 	} else {
+		NSWindow *statusItemWindow = [[NSApp currentEvent] window]; //Bit of a cheat, but we know here that the last click was in the status item (remember that all menu items are rendered as windows)
+		NSRect statusItemScreenRect = [statusItemWindow frame]; 
+		CGFloat midX = NSMidX(statusItemScreenRect);
+		CGFloat windowWidth = NSWidth(self.queueWindowController.window.frame);
+		CGFloat windowHeight = NSHeight(self.queueWindowController.window.frame);
+		NSRect windowFrame = NSMakeRect(floor(midX - (windowWidth / 2.0)), floor(NSMaxY(statusItemScreenRect) - windowHeight - [[NSApp mainMenu] menuBarHeight]), windowWidth, windowHeight);
+		
+		//Check we aren't going to go off screen
+		CGFloat screenMaxX = NSMaxX([[statusItemWindow screen] frame]);
+		if (NSMaxX(windowFrame) > screenMaxX) {
+			windowFrame.origin.x = floor(screenMaxX - windowWidth);
+		}
+		
+		[self.queueWindowController.window setFrameOrigin:windowFrame.origin];
 		[self.queueWindowController showWindow:sender];
 	}
 }
