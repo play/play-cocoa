@@ -10,11 +10,13 @@
 
 @class AudioStreamer;
 @class PLAItemLogInWindowController;
+@class LIFlipEffect;
 
 @interface PLAItemAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (strong) NSStatusItem *statusItem;
 @property (strong) PLAItemLogInWindowController *logInWindowController;
+@property (nonatomic, readonly) LIFlipEffect *flipEffect;
 
 - (void)didLogIn;
 - (IBAction)presentLogIn:(id)sender;

@@ -43,8 +43,8 @@
   [[PLAController sharedController] logInWithBlock:^(BOOL succeeded) {
     dispatch_async(dispatch_get_main_queue(), ^(void) {
       if (succeeded) {
-		  [self close];
-        PLAItemAppDelegate *appDelegate = (PLAItemAppDelegate *)[NSApp delegate];
+        PLAItemAppDelegate *appDelegate = [NSApp delegate];
+		[[appDelegate flipEffect] run];
         [appDelegate didLogIn];
       }else{
         [(PLAItemWindow *)self.window shake];

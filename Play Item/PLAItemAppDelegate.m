@@ -10,6 +10,7 @@
 
 #import "AudioStreamer.h"
 
+#import "LIFlipEffect.h"
 #import "PLAController.h"
 #import "PLAPlayClient.h"
 #import "PLAItemLogInWindowController.h"
@@ -33,6 +34,7 @@
 
 @synthesize keyTap = _keyTap;
 @synthesize queueWindowController = _queueWindowController;
+@synthesize flipEffect = _flipEffect;
 
 - (id)init
 {	
@@ -41,6 +43,9 @@
 		return nil;
 	
 	_queueWindowController = [[PLAQueueWindowController alloc] init];
+	_logInWindowController = [[PLAItemLogInWindowController alloc] init];
+	
+	_flipEffect = [[LIFlipEffect alloc] initFromWindow:_queueWindowController.window toWindow:_logInWindowController.window];
 
 	return self;
 }
@@ -60,9 +65,7 @@
   [self.statusItem setAction:@selector(toggleWindow:)];
   [self.statusItem setImage:[NSImage imageNamed:@"status-icon-off.png"]];
   [self.statusItem setAlternateImage:[NSImage imageNamed:@"status-icon-inverted.png"]];
-  [self.statusItem setHighlightMode:YES];
-  
-  self.logInWindowController = [[[PLAItemLogInWindowController alloc] init] autorelease];
+  [self.statusItem setHighlightMode:YES];  
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification{
@@ -72,6 +75,7 @@
       if (succeeded) {
         [self didLogIn];
       }else{
+		  [self.queueWindowController showWindow:self]; //Make sure the flip animation happens in the right place
         [self presentLogIn:nil];
       }
     
@@ -83,8 +87,6 @@
 }
 
 - (void)didLogIn{
-  // set play button to play
-  
   // listen for notifications for updated songs from the CFController and pusher
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateWithTrackInformation) name:PLANowPlayingUpdated object:nil];
   
@@ -120,7 +122,7 @@
 #pragma mark - View State Methods
 
 - (IBAction)presentLogIn:(id)sender{
-	[self.logInWindowController showWindow:sender];
+	[self.flipEffect run];
 }
 
 - (IBAction)goToPlay:(id)sender{
