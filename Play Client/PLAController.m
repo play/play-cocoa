@@ -7,12 +7,16 @@
 //
 
 #import "PLAController.h"
-#import "PTPusherChannel.h"
+
 #import "PLAPlayClient.h"
+#import "PLATrack.h"
+#import "PTPusherChannel.h"
 
 #if TARGET_OS_EMBEDDED
 #import "Reachability.h"
 #endif
+
+NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
 
 @implementation PLAController
 
@@ -114,7 +118,7 @@
   
   self.queuedTracks = [NSArray arrayWithArray:tracks];
   
-  [[NSNotificationCenter defaultCenter] postNotificationName:@"PLANowPlayingUpdated" object:nil];
+  [[NSNotificationCenter defaultCenter] postNotificationName:PLANowPlayingUpdated object:nil];
 }
 
 #pragma mark - Channel Event handler
@@ -161,7 +165,7 @@
     [PLATrack currentTrackWithBlock:^(PLATrack *track) {
       dispatch_async(dispatch_get_main_queue(), ^(void) {
         self.currentlyPlayingTrack = track;
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"PLANowPlayingUpdated" object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:PLANowPlayingUpdated object:nil];
         [self setUpPusher];
         [self subscribeToChannels];
       });
@@ -172,7 +176,7 @@
   [PLATrack currentTrackWithBlock:^(PLATrack *track, NSError *err) {
     dispatch_async(dispatch_get_main_queue(), ^(void) {
       self.currentlyPlayingTrack = track;
-      [[NSNotificationCenter defaultCenter] postNotificationName:@"PLANowPlayingUpdated" object:nil];
+      [[NSNotificationCenter defaultCenter] postNotificationName:PLANowPlayingUpdated object:nil];
       [self setUpPusher];
       [self subscribeToChannels];
     });
@@ -191,7 +195,7 @@
     
     [PLATrack currentTrackWithBlock:^(PLATrack *track) {
       self.currentlyPlayingTrack = track;
-      [[NSNotificationCenter defaultCenter] postNotificationName:@"PLANowPlayingUpdated" object:nil];
+      [[NSNotificationCenter defaultCenter] postNotificationName:PLANowPlayingUpdated object:nil];
       [self setUpPusher];
       [self subscribeToChannels];
     }];

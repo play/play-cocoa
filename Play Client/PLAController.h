@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PLATrack.h"
 #import "PTPusher.h"
+
+extern NSString *const PLANowPlayingUpdated;
+
+@class PLATrack;
 
 @interface PLAController : NSObject <PTPusherDelegate>{
   NSArray *queuedTracks;
