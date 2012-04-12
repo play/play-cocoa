@@ -27,8 +27,14 @@
 	[[PLAPlayClient sharedClient] getPath:@"/queue" parameters:nil 
 	success: ^ (AFHTTPRequestOperation *operation, id responseObject) 
 	{
-		NSArray *songs = [responseObject valueForKey:@"songs"];
-		block(songs, nil);
+		NSArray *songDicts = [responseObject valueForKey:@"songs"];
+		NSMutableArray *trackObjects = [NSMutableArray array];
+		for (id song in songDicts) {
+			PLATrack *track = [[[PLATrack alloc] initWithAttributes:song] autorelease];
+			[trackObjects addObject:track];
+		}
+		
+		block(trackObjects, nil);
 	} 
 	failure: ^ (AFHTTPRequestOperation *operation, NSError *error) 
 	{
