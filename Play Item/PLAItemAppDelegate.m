@@ -87,9 +87,6 @@
 }
 
 - (void)didLogIn{
-  // listen for notifications for updated songs from the CFController and pusher
-  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateWithTrackInformation) name:PLANowPlayingUpdated object:nil];
-  
   [PLATrack currentTrackWithBlock:^(PLATrack *track, NSError *err) {
     [[PLAController sharedController] setCurrentlyPlayingTrack:track];
   }];
