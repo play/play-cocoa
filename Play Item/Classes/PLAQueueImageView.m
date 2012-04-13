@@ -10,6 +10,8 @@
 
 CGFloat const PLAQueueImageViewCornerRadius = 3.0;
 CGFloat const PLAQueueImageViewImageInset = 3.0;
+CGFloat const PLAQueueImageViewHighlightCurveStartXOffset = 5.0;
+CGFloat const PLAQueueImageViewHighlightCurveEndYOffset = 5.0;
 
 @implementation PLAQueueImageView
 
@@ -29,6 +31,19 @@ CGFloat const PLAQueueImageViewImageInset = 3.0;
 	
 	NSRect imageRect = NSInsetRect(drawingBounds, PLAQueueImageViewImageInset, PLAQueueImageViewImageInset);
 	[self.image drawInRect:imageRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
+	
+	NSBezierPath *highlightPath = [NSBezierPath bezierPath];
+	[highlightPath moveToPoint:NSMakePoint(floor(NSMinX(imageRect) + PLAQueueImageViewHighlightCurveStartXOffset), NSMinY(imageRect))];
+	NSPoint controlPoint = NSMakePoint(NSMidX(imageRect), NSMidY(imageRect));
+	[highlightPath curveToPoint:NSMakePoint(NSMaxX(imageRect), floor(NSMaxY(imageRect) - PLAQueueImageViewHighlightCurveEndYOffset)) controlPoint1:controlPoint controlPoint2:controlPoint];
+	
+	[highlightPath lineToPoint:NSMakePoint(NSMaxX(imageRect), NSMaxY(imageRect))];
+	[highlightPath lineToPoint:NSMakePoint(NSMinX(imageRect), NSMaxY(imageRect))];
+	[highlightPath lineToPoint:NSMakePoint(NSMinX(imageRect), NSMinY(imageRect))];
+	[highlightPath closePath];
+	
+	[[NSColor redColor] set];
+	[highlightPath fill];
 	
 	[NSGraphicsContext restoreGraphicsState];
 }
