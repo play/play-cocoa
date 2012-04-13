@@ -12,6 +12,9 @@
 @class PLAItemLogInWindowController;
 @class LIFlipEffect;
 
+extern NSString *const PLAItemStartedPlayingNotificationName;
+extern NSString *const PLAItemStoppedPlayingNotificationName;
+
 @interface PLAItemAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (strong) NSStatusItem *statusItem;

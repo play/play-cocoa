@@ -18,6 +18,9 @@
 #import "PLATrack.h"
 #import "SPMediaKeyTap.h"
 
+NSString *const PLAItemStartedPlayingNotificationName = @"PLAItemStartedPlayingNotificationName";
+NSString *const PLAItemStoppedPlayingNotificationName = @"PLAItemStoppedPlayingNotificationName";
+
 @interface PLAItemAppDelegate ()
 
 @property (nonatomic, retain) SPMediaKeyTap *keyTap;
@@ -160,6 +163,15 @@
 		
 		[self.streamer stop];
 		self.streamer = nil;
+	}
+}
+
+- (void)playbackStateChanged:(NSNotification *)aNotification
+{
+	if ([self.streamer isPlaying]) {
+		[[NSNotificationCenter defaultCenter] postNotificationName:PLAItemStartedPlayingNotificationName object:self];
+	} else {
+		[[NSNotificationCenter defaultCenter] postNotificationName:PLAItemStoppedPlayingNotificationName object:self];
 	}
 }
 
