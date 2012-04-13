@@ -17,5 +17,7 @@
 - (id)init;
 
 - (IBAction)togglePlay:(id)sender;
+- (IBAction)downloadCurrentSong:(id)sender;
+- (IBAction)downloadCurrentSongAlbum:(id)sender;
 
 @end

@@ -13,10 +13,13 @@
 #import "PLAShadowTextField.h"
 #import "PLATrack.h"
 
+#import "AFNetworking.h"
+
 @interface PLAQueueWindowController ()
 
 @property (retain) NSArray *queue;
 @property (retain) PLATrack *currentTrack;
+@property (nonatomic, readonly) NSOperationQueue *downloadQueue;
 
 - (void)updateQueue;
 
@@ -28,16 +31,24 @@
 
 @synthesize queue = _queue;
 @synthesize currentTrack = _currentTrack;
+@synthesize downloadQueue = _downloadQueue;
 
 - (id)init
 {	
-	return [super initWithWindowNibName:@"PLAQueueWindow"];
+	self = [super initWithWindowNibName:@"PLAQueueWindow"];
+	if (self == nil)
+		return nil;
+	
+	_downloadQueue = [[NSOperationQueue alloc] init];
+
+	return self;
 }
 
 - (void)dealloc
 {
 	[_queue release], _queue = nil;
 	[_currentTrack release], _currentTrack = nil;
+	[_downloadQueue release], _downloadQueue = nil;
 	[super dealloc];
 }
 
@@ -80,6 +91,24 @@
 - (IBAction)togglePlay:(id)sender
 {
 	[[NSApp delegate] togglePlayState];
+}
+
+- (IBAction)downloadCurrentSong:(id)sender
+{
+	if (self.currentTrack == nil)
+		return;
+	
+	NSArray *downloadFolderPaths = NSSearchPathForDirectoriesInDomains(NSDownloadsDirectory, NSUserDomainMask, YES);
+	if (downloadFolderPaths.count < 1) {
+		NSBeep();
+		return;
+	}
+	
+	NSURL *targetURL = [[NSURL fileURLWithPath:[downloadFolderPaths objectAtIndex:0]] URLByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.m4a", self.currentTrack.name, self.currentTrack.artist]]; //I'm just guessing m4a… there should probably be a smart way to get the format
+	NSOutputStream *outStream = [NSOutputStream outputStreamWithURL:targetURL append:NO];
+	AFHTTPRequestOperation *downloadOperation = [[[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:self.currentTrack.downloadURL]] autorelease];
+	downloadOperation.outputStream = outStream;
+	[self.downloadQueue addOperation:downloadOperation];
 }
 
 #pragma mark -
