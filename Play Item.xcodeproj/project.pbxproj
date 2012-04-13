@@ -23,6 +23,8 @@
 		30EE1B4A1538460000AD9DF2 /* play-button-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EE1B461538460000AD9DF2 /* play-button-on.png */; };
 		30EE1B4D15384AB000AD9DF2 /* now-playing-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EE1B4C15384AB000AD9DF2 /* now-playing-background.png */; };
 		30EE1B5015384CF400AD9DF2 /* PLAQueueImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EE1B4F15384CF400AD9DF2 /* PLAQueueImageView.m */; };
+		30EE1B9B15386BFF00AD9DF2 /* PLAShadowTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EE1B9A15386BFF00AD9DF2 /* PLAShadowTextField.m */; };
+		30EE1B9E15386F8000AD9DF2 /* PLAQueueWhiteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EE1B9D15386F8000AD9DF2 /* PLAQueueWhiteTextField.m */; };
 		E032805E153560680077B17B /* PLAItemWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E032805D153560680077B17B /* PLAItemWindow.m */; };
 		E0328061153561180077B17B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0328060153561180077B17B /* QuartzCore.framework */; };
 		E051B0A71535569C007DC4F7 /* PLAItemLogInWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E051B0A51535569C007DC4F7 /* PLAItemLogInWindowController.m */; };
@@ -158,6 +160,10 @@
 		30EE1B4C15384AB000AD9DF2 /* now-playing-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "now-playing-background.png"; sourceTree = "<group>"; };
 		30EE1B4E15384CF400AD9DF2 /* PLAQueueImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAQueueImageView.h; sourceTree = "<group>"; };
 		30EE1B4F15384CF400AD9DF2 /* PLAQueueImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAQueueImageView.m; sourceTree = "<group>"; };
+		30EE1B9915386BFF00AD9DF2 /* PLAShadowTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAShadowTextField.h; sourceTree = "<group>"; };
+		30EE1B9A15386BFF00AD9DF2 /* PLAShadowTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAShadowTextField.m; sourceTree = "<group>"; };
+		30EE1B9C15386F8000AD9DF2 /* PLAQueueWhiteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAQueueWhiteTextField.h; sourceTree = "<group>"; };
+		30EE1B9D15386F8000AD9DF2 /* PLAQueueWhiteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAQueueWhiteTextField.m; sourceTree = "<group>"; };
 		E032805C153560680077B17B /* PLAItemWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLAItemWindow.h; path = Controllers/PLAItemWindow.h; sourceTree = "<group>"; };
 		E032805D153560680077B17B /* PLAItemWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLAItemWindow.m; path = Controllers/PLAItemWindow.m; sourceTree = "<group>"; };
 		E0328060153561180077B17B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -376,6 +382,10 @@
 				30EE1B3F153840FD00AD9DF2 /* PLAHeaderBarBackgroundView.m */,
 				30EE1B4E15384CF400AD9DF2 /* PLAQueueImageView.h */,
 				30EE1B4F15384CF400AD9DF2 /* PLAQueueImageView.m */,
+				30EE1B9915386BFF00AD9DF2 /* PLAShadowTextField.h */,
+				30EE1B9A15386BFF00AD9DF2 /* PLAShadowTextField.m */,
+				30EE1B9C15386F8000AD9DF2 /* PLAQueueWhiteTextField.h */,
+				30EE1B9D15386F8000AD9DF2 /* PLAQueueWhiteTextField.m */,
 			);
 			name = "Custom UI";
 			sourceTree = "<group>";
@@ -925,6 +935,8 @@
 				3088A984153702D200E7B8DB /* LIFlipEffect.m in Sources */,
 				30EE1B40153840FD00AD9DF2 /* PLAHeaderBarBackgroundView.m in Sources */,
 				30EE1B5015384CF400AD9DF2 /* PLAQueueImageView.m in Sources */,
+				30EE1B9B15386BFF00AD9DF2 /* PLAShadowTextField.m in Sources */,
+				30EE1B9E15386F8000AD9DF2 /* PLAQueueWhiteTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

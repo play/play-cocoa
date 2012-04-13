@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class PLAShadowTextField;
+
 @interface PLAQueueWindowController : NSWindowController
 
 @property (nonatomic, retain) IBOutlet NSButton *playButton; 

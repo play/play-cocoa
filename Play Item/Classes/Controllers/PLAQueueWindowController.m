@@ -10,6 +10,7 @@
 
 #import "PLAItemAppDelegate.h"
 #import "PLAController.h"
+#import "PLAShadowTextField.h"
 #import "PLATrack.h"
 
 @interface PLAQueueWindowController ()
@@ -43,7 +44,7 @@
 - (void)windowDidLoad
 {
     [super windowDidLoad];
-	
+		
 	[self updateQueue];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateQueue) name:PLANowPlayingUpdated object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackStarted:) name:PLAItemStartedPlayingNotificationName object:nil];
