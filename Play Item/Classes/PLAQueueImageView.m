@@ -42,8 +42,14 @@ CGFloat const PLAQueueImageViewHighlightCurveEndYOffset = 5.0;
 	[highlightPath lineToPoint:NSMakePoint(NSMinX(imageRect), NSMinY(imageRect))];
 	[highlightPath closePath];
 	
-	[[NSColor redColor] set];
-	[highlightPath fill];
+	static NSGradient *highlightGrad = nil;
+	if (highlightGrad == nil) {
+		NSColor *startColor = [NSColor colorWithCalibratedWhite:1.0 alpha:0.2];
+		NSColor *endColor = [NSColor colorWithCalibratedWhite:1.0 alpha:0.0];
+		highlightGrad = [[NSGradient alloc] initWithStartingColor:startColor endingColor:endColor];
+	}
+	
+	[highlightGrad drawInBezierPath:highlightPath angle:270.0];
 	
 	[NSGraphicsContext restoreGraphicsState];
 }
