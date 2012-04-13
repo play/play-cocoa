@@ -108,6 +108,13 @@
 	NSOutputStream *outStream = [NSOutputStream outputStreamWithURL:targetURL append:NO];
 	AFHTTPRequestOperation *downloadOperation = [[[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:self.currentTrack.downloadURL]] autorelease];
 	downloadOperation.outputStream = outStream;
+	[downloadOperation setCompletionBlockWithSuccess: ^ (AFHTTPRequestOperation *operation, id responseObject) 
+	{
+		//Um… do something? I guess?
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) 
+	{
+		NSBeep(); // :trollface: we should probably be way better with errors
+	}];
 	[self.downloadQueue addOperation:downloadOperation];
 }
 
