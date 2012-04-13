@@ -29,6 +29,10 @@ CGFloat const PLAQueueImageViewHighlightCurveEndYOffset = 5.0;
 	}
 	[backingGrad drawInBezierPath:outerClip angle:90.0];
 	
+	CGFloat y = NSMinY(self.bounds) + 0.5;
+	[[NSColor colorWithCalibratedWhite:1.0 alpha:0.4] set];
+	[NSBezierPath strokeLineFromPoint:NSMakePoint(NSMinX(self.bounds) + PLAQueueImageViewCornerRadius, y) toPoint:NSMakePoint(NSMaxX(self.bounds) - PLAQueueImageViewCornerRadius, y)];
+	
 	NSRect imageRect = NSInsetRect(drawingBounds, PLAQueueImageViewImageInset, PLAQueueImageViewImageInset);
 	[self.image drawInRect:imageRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
 	
