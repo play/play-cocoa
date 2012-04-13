@@ -13,6 +13,9 @@
 		30A3B3BB15359D2E009DA3E0 /* SPMediaKeyTap.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A3B3B615359D2E009DA3E0 /* SPMediaKeyTap.m */; };
 		30A3B3C31535C5D7009DA3E0 /* PLAQueueWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A3B3C11535C5D7009DA3E0 /* PLAQueueWindowController.m */; };
 		30A3B3C41535C5D7009DA3E0 /* PLAQueueWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30A3B3C21535C5D7009DA3E0 /* PLAQueueWindow.xib */; };
+		30EE1B3A15383D4700AD9DF2 /* status-icon-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EE1B3815383D4700AD9DF2 /* status-icon-off.png */; };
+		30EE1B3B15383D4700AD9DF2 /* status-icon-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EE1B3915383D4700AD9DF2 /* status-icon-on.png */; };
+		30EE1B3D15383E8000AD9DF2 /* status-icon-inverted.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EE1B3C15383E8000AD9DF2 /* status-icon-inverted.png */; };
 		E032805E153560680077B17B /* PLAItemWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E032805D153560680077B17B /* PLAItemWindow.m */; };
 		E0328061153561180077B17B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0328060153561180077B17B /* QuartzCore.framework */; };
 		E051B0A71535569C007DC4F7 /* PLAItemLogInWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E051B0A51535569C007DC4F7 /* PLAItemLogInWindowController.m */; };
@@ -87,9 +90,6 @@
 		E0C965C31533279D001D52BF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0C965B61533279D001D52BF /* MainMenu.xib */; };
 		E0C965C41533279D001D52BF /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = E0C965B81533279D001D52BF /* icon.icns */; };
 		E0C965C51533279D001D52BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E0C965B91533279D001D52BF /* main.m */; };
-		E0C965C61533279D001D52BF /* status-icon-inverted.png in Resources */ = {isa = PBXBuildFile; fileRef = E0C965BB1533279D001D52BF /* status-icon-inverted.png */; };
-		E0C965C71533279D001D52BF /* status-icon-off.png in Resources */ = {isa = PBXBuildFile; fileRef = E0C965BC1533279D001D52BF /* status-icon-off.png */; };
-		E0C965C81533279D001D52BF /* status-icon-on.png in Resources */ = {isa = PBXBuildFile; fileRef = E0C965BD1533279D001D52BF /* status-icon-on.png */; };
 		E0C965E3153327A6001D52BF /* PLAPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0C965CD153327A6001D52BF /* PLAPlayerViewController.m */; };
 		E0C965E5153327A6001D52BF /* PLAPlayerViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0C965CF153327A6001D52BF /* PLAPlayerViewController_iPhone.xib */; };
 		E0C965E6153327A6001D52BF /* PLAIOSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E0C965D1153327A6001D52BF /* PLAIOSAppDelegate.m */; };
@@ -139,6 +139,9 @@
 		30A3B3C01535C5D7009DA3E0 /* PLAQueueWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAQueueWindowController.h; sourceTree = "<group>"; };
 		30A3B3C11535C5D7009DA3E0 /* PLAQueueWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAQueueWindowController.m; sourceTree = "<group>"; };
 		30A3B3C21535C5D7009DA3E0 /* PLAQueueWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PLAQueueWindow.xib; sourceTree = "<group>"; };
+		30EE1B3815383D4700AD9DF2 /* status-icon-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "status-icon-off.png"; sourceTree = "<group>"; };
+		30EE1B3915383D4700AD9DF2 /* status-icon-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "status-icon-on.png"; sourceTree = "<group>"; };
+		30EE1B3C15383E8000AD9DF2 /* status-icon-inverted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "status-icon-inverted.png"; sourceTree = "<group>"; };
 		E032805C153560680077B17B /* PLAItemWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLAItemWindow.h; path = Controllers/PLAItemWindow.h; sourceTree = "<group>"; };
 		E032805D153560680077B17B /* PLAItemWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLAItemWindow.m; path = Controllers/PLAItemWindow.m; sourceTree = "<group>"; };
 		E0328060153561180077B17B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -250,9 +253,6 @@
 		E0C965B71533279D001D52BF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		E0C965B81533279D001D52BF /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		E0C965B91533279D001D52BF /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E0C965BB1533279D001D52BF /* status-icon-inverted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "status-icon-inverted.png"; sourceTree = "<group>"; };
-		E0C965BC1533279D001D52BF /* status-icon-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "status-icon-off.png"; sourceTree = "<group>"; };
-		E0C965BD1533279D001D52BF /* status-icon-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "status-icon-on.png"; sourceTree = "<group>"; };
 		E0C965CC153327A6001D52BF /* PLAPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAPlayerViewController.h; sourceTree = "<group>"; };
 		E0C965CD153327A6001D52BF /* PLAPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAPlayerViewController.m; sourceTree = "<group>"; };
 		E0C965CF153327A6001D52BF /* PLAPlayerViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PLAPlayerViewController_iPhone.xib; sourceTree = "<group>"; };
@@ -602,9 +602,9 @@
 		E0C965BA1533279D001D52BF /* images */ = {
 			isa = PBXGroup;
 			children = (
-				E0C965BB1533279D001D52BF /* status-icon-inverted.png */,
-				E0C965BC1533279D001D52BF /* status-icon-off.png */,
-				E0C965BD1533279D001D52BF /* status-icon-on.png */,
+				30EE1B3C15383E8000AD9DF2 /* status-icon-inverted.png */,
+				30EE1B3815383D4700AD9DF2 /* status-icon-off.png */,
+				30EE1B3915383D4700AD9DF2 /* status-icon-on.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -797,11 +797,11 @@
 				E0C965C21533279D001D52BF /* InfoPlist.strings in Resources */,
 				E0C965C31533279D001D52BF /* MainMenu.xib in Resources */,
 				E0C965C41533279D001D52BF /* icon.icns in Resources */,
-				E0C965C61533279D001D52BF /* status-icon-inverted.png in Resources */,
-				E0C965C71533279D001D52BF /* status-icon-off.png in Resources */,
-				E0C965C81533279D001D52BF /* status-icon-on.png in Resources */,
 				E051B0A81535569C007DC4F7 /* PLAItemLogInWindow.xib in Resources */,
 				30A3B3C41535C5D7009DA3E0 /* PLAQueueWindow.xib in Resources */,
+				30EE1B3A15383D4700AD9DF2 /* status-icon-off.png in Resources */,
+				30EE1B3B15383D4700AD9DF2 /* status-icon-on.png in Resources */,
+				30EE1B3D15383E8000AD9DF2 /* status-icon-inverted.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
