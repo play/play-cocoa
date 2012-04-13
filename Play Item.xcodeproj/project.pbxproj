@@ -22,6 +22,7 @@
 		30EE1B491538460000AD9DF2 /* play-button-on-pushed.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EE1B451538460000AD9DF2 /* play-button-on-pushed.png */; };
 		30EE1B4A1538460000AD9DF2 /* play-button-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EE1B461538460000AD9DF2 /* play-button-on.png */; };
 		30EE1B4D15384AB000AD9DF2 /* now-playing-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EE1B4C15384AB000AD9DF2 /* now-playing-background.png */; };
+		30EE1B5015384CF400AD9DF2 /* PLAQueueImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EE1B4F15384CF400AD9DF2 /* PLAQueueImageView.m */; };
 		E032805E153560680077B17B /* PLAItemWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E032805D153560680077B17B /* PLAItemWindow.m */; };
 		E0328061153561180077B17B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0328060153561180077B17B /* QuartzCore.framework */; };
 		E051B0A71535569C007DC4F7 /* PLAItemLogInWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E051B0A51535569C007DC4F7 /* PLAItemLogInWindowController.m */; };
@@ -155,6 +156,8 @@
 		30EE1B451538460000AD9DF2 /* play-button-on-pushed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-button-on-pushed.png"; sourceTree = "<group>"; };
 		30EE1B461538460000AD9DF2 /* play-button-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-button-on.png"; sourceTree = "<group>"; };
 		30EE1B4C15384AB000AD9DF2 /* now-playing-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "now-playing-background.png"; sourceTree = "<group>"; };
+		30EE1B4E15384CF400AD9DF2 /* PLAQueueImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAQueueImageView.h; sourceTree = "<group>"; };
+		30EE1B4F15384CF400AD9DF2 /* PLAQueueImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAQueueImageView.m; sourceTree = "<group>"; };
 		E032805C153560680077B17B /* PLAItemWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLAItemWindow.h; path = Controllers/PLAItemWindow.h; sourceTree = "<group>"; };
 		E032805D153560680077B17B /* PLAItemWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLAItemWindow.m; path = Controllers/PLAItemWindow.m; sourceTree = "<group>"; };
 		E0328060153561180077B17B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -371,6 +374,8 @@
 				E032805D153560680077B17B /* PLAItemWindow.m */,
 				30EE1B3E153840FD00AD9DF2 /* PLAHeaderBarBackgroundView.h */,
 				30EE1B3F153840FD00AD9DF2 /* PLAHeaderBarBackgroundView.m */,
+				30EE1B4E15384CF400AD9DF2 /* PLAQueueImageView.h */,
+				30EE1B4F15384CF400AD9DF2 /* PLAQueueImageView.m */,
 			);
 			name = "Custom UI";
 			sourceTree = "<group>";
@@ -919,6 +924,7 @@
 				3088A983153702D200E7B8DB /* LIEffect.m in Sources */,
 				3088A984153702D200E7B8DB /* LIFlipEffect.m in Sources */,
 				30EE1B40153840FD00AD9DF2 /* PLAHeaderBarBackgroundView.m in Sources */,
+				30EE1B5015384CF400AD9DF2 /* PLAQueueImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
