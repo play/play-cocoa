@@ -58,6 +58,7 @@
 	
 	[self.window setOpaque:NO];
 	self.window.backgroundColor = [NSColor clearColor];
+	[self.window setLevel:NSFloatingWindowLevel];
 		
 	[self updateQueue];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateQueue) name:PLANowPlayingUpdated object:nil];
