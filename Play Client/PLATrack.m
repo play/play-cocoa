@@ -85,7 +85,13 @@
 
 - (NSURL *)albumArtURL
 {
-	NSString *urlString = [NSString stringWithFormat:@"%@/images/art/%@.png", [[PLAController sharedController] playUrl], trackId];
+	NSString *urlString = [NSString stringWithFormat:@"%@/images/art/%@.png", [[PLAController sharedController] playUrl], self.trackId];
+	return [NSURL URLWithString:urlString];
+}
+
+- (NSURL *)downloadURL
+{
+	NSString *urlString = [NSString stringWithFormat:@"%@/song/%@/download", [[PLAController sharedController] playUrl], self.trackId];
 	return [NSURL URLWithString:urlString];
 }
 
