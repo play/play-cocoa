@@ -10,6 +10,8 @@
 
 @interface PLAQueueWindowController : NSWindowController
 
+@property (nonatomic, retain) IBOutlet NSButton *playButton; 
+
 - (id)init;
 
 - (IBAction)togglePlay:(id)sender;

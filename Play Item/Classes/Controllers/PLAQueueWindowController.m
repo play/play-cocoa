@@ -23,6 +23,8 @@
 
 @implementation PLAQueueWindowController
 
+@synthesize playButton = _playButton;
+
 @synthesize queue = _queue;
 @synthesize currentTrack = _currentTrack;
 
@@ -44,6 +46,8 @@
 	
 	[self updateQueue];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateQueue) name:PLANowPlayingUpdated object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackStarted:) name:PLAItemStartedPlayingNotificationName object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackStopped:) name:PLAItemStoppedPlayingNotificationName object:nil];
 }
 
 - (void)updateQueue
@@ -75,6 +79,21 @@
 - (IBAction)togglePlay:(id)sender
 {
 	[[NSApp delegate] togglePlayState];
+}
+
+#pragma mark -
+#pragma mark Notification Callbacks
+
+- (void)playbackStarted:(NSNotification *)note
+{
+	self.playButton.image = [NSImage imageNamed:@"play-button-on"];
+	self.playButton.alternateImage = [NSImage imageNamed:@"play-button-on-pushed"];
+}
+
+- (void)playbackStopped:(NSNotification *)note
+{
+	self.playButton.image = [NSImage imageNamed:@"play-button-off"];
+	self.playButton.alternateImage = [NSImage imageNamed:@"play-button-off-pushed"];
 }
 
 @end
