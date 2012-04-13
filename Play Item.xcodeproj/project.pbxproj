@@ -27,6 +27,7 @@
 		30EE1B9E15386F8000AD9DF2 /* PLAQueueWhiteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EE1B9D15386F8000AD9DF2 /* PLAQueueWhiteTextField.m */; };
 		30EE1BA21538834A00AD9DF2 /* note-pink-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EE1BA01538834A00AD9DF2 /* note-pink-down.png */; };
 		30EE1BA31538834A00AD9DF2 /* note-pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EE1BA11538834A00AD9DF2 /* note-pink.png */; };
+		30FCE81F1538CCA600E70B42 /* PLAQueueDarkAlbumTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FCE81E1538CCA600E70B42 /* PLAQueueDarkAlbumTextField.m */; };
 		E032805E153560680077B17B /* PLAItemWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E032805D153560680077B17B /* PLAItemWindow.m */; };
 		E0328061153561180077B17B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0328060153561180077B17B /* QuartzCore.framework */; };
 		E051B0A71535569C007DC4F7 /* PLAItemLogInWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E051B0A51535569C007DC4F7 /* PLAItemLogInWindowController.m */; };
@@ -168,6 +169,8 @@
 		30EE1B9D15386F8000AD9DF2 /* PLAQueueWhiteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAQueueWhiteTextField.m; sourceTree = "<group>"; };
 		30EE1BA01538834A00AD9DF2 /* note-pink-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "note-pink-down.png"; sourceTree = "<group>"; };
 		30EE1BA11538834A00AD9DF2 /* note-pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "note-pink.png"; sourceTree = "<group>"; };
+		30FCE81D1538CCA600E70B42 /* PLAQueueDarkAlbumTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAQueueDarkAlbumTextField.h; sourceTree = "<group>"; };
+		30FCE81E1538CCA600E70B42 /* PLAQueueDarkAlbumTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAQueueDarkAlbumTextField.m; sourceTree = "<group>"; };
 		E032805C153560680077B17B /* PLAItemWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLAItemWindow.h; path = Controllers/PLAItemWindow.h; sourceTree = "<group>"; };
 		E032805D153560680077B17B /* PLAItemWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLAItemWindow.m; path = Controllers/PLAItemWindow.m; sourceTree = "<group>"; };
 		E0328060153561180077B17B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -390,6 +393,8 @@
 				30EE1B9A15386BFF00AD9DF2 /* PLAShadowTextField.m */,
 				30EE1B9C15386F8000AD9DF2 /* PLAQueueWhiteTextField.h */,
 				30EE1B9D15386F8000AD9DF2 /* PLAQueueWhiteTextField.m */,
+				30FCE81D1538CCA600E70B42 /* PLAQueueDarkAlbumTextField.h */,
+				30FCE81E1538CCA600E70B42 /* PLAQueueDarkAlbumTextField.m */,
 			);
 			name = "Custom UI";
 			sourceTree = "<group>";
@@ -953,6 +958,7 @@
 				30EE1B5015384CF400AD9DF2 /* PLAQueueImageView.m in Sources */,
 				30EE1B9B15386BFF00AD9DF2 /* PLAShadowTextField.m in Sources */,
 				30EE1B9E15386F8000AD9DF2 /* PLAQueueWhiteTextField.m in Sources */,
+				30FCE81F1538CCA600E70B42 /* PLAQueueDarkAlbumTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
