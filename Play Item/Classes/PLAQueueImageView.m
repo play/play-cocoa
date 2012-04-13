@@ -27,6 +27,9 @@ CGFloat const PLAQueueImageViewImageInset = 3.0;
 	}
 	[backingGrad drawInBezierPath:outerClip angle:90.0];
 	
+	NSRect imageRect = NSInsetRect(drawingBounds, PLAQueueImageViewImageInset, PLAQueueImageViewImageInset);
+	[self.image drawInRect:imageRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
+	
 	[NSGraphicsContext restoreGraphicsState];
 }
 
