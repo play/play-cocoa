@@ -11,6 +11,7 @@
 		3080FCF11539D1890058D7EA /* note-grey-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 3080FCEF1539D1890058D7EA /* note-grey-down.png */; };
 		3080FCF21539D1890058D7EA /* note-grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 3080FCF01539D1890058D7EA /* note-grey.png */; };
 		3080FCF51539DA590058D7EA /* record.png in Resources */ = {isa = PBXBuildFile; fileRef = 3080FCF41539DA590058D7EA /* record.png */; };
+		3080FCF81539DAD90058D7EA /* PLARecordImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3080FCF71539DAD90058D7EA /* PLARecordImageView.m */; };
 		3088A983153702D200E7B8DB /* LIEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3088A980153702D200E7B8DB /* LIEffect.m */; };
 		3088A984153702D200E7B8DB /* LIFlipEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3088A982153702D200E7B8DB /* LIFlipEffect.m */; };
 		30A3B3BA15359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A3B3B415359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m */; };
@@ -149,6 +150,8 @@
 		3080FCEF1539D1890058D7EA /* note-grey-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "note-grey-down.png"; sourceTree = "<group>"; };
 		3080FCF01539D1890058D7EA /* note-grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "note-grey.png"; sourceTree = "<group>"; };
 		3080FCF41539DA590058D7EA /* record.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = record.png; sourceTree = "<group>"; };
+		3080FCF61539DAD90058D7EA /* PLARecordImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLARecordImageView.h; sourceTree = "<group>"; };
+		3080FCF71539DAD90058D7EA /* PLARecordImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLARecordImageView.m; sourceTree = "<group>"; };
 		3088A97F153702D200E7B8DB /* LIEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIEffect.h; sourceTree = "<group>"; };
 		3088A980153702D200E7B8DB /* LIEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIEffect.m; sourceTree = "<group>"; };
 		3088A981153702D200E7B8DB /* LIFlipEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIFlipEffect.h; sourceTree = "<group>"; };
@@ -406,6 +409,8 @@
 				30FCE81E1538CCA600E70B42 /* PLAQueueDarkAlbumTextField.m */,
 				30122ACC1539AFE300A2E507 /* PLAQueueTableCellView.h */,
 				30122ACD1539AFE300A2E507 /* PLAQueueTableCellView.m */,
+				3080FCF61539DAD90058D7EA /* PLARecordImageView.h */,
+				3080FCF71539DAD90058D7EA /* PLARecordImageView.m */,
 			);
 			name = "Custom UI";
 			sourceTree = "<group>";
@@ -977,6 +982,7 @@
 				30EE1B9E15386F8000AD9DF2 /* PLAQueueWhiteTextField.m in Sources */,
 				30FCE81F1538CCA600E70B42 /* PLAQueueDarkAlbumTextField.m in Sources */,
 				30122ACE1539AFE300A2E507 /* PLAQueueTableCellView.m in Sources */,
+				3080FCF81539DAD90058D7EA /* PLARecordImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
