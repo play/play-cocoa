@@ -8,7 +8,7 @@
 
 #import "PLARecordImageView.h"
 
-
+static CGFloat PLARecordImageViewStickerDiamater = 30.0;
 
 @implementation PLARecordImageView
 
@@ -18,7 +18,10 @@
     NSImage *recordImage = [NSImage imageNamed:@"record"];
 	[recordImage drawInRect:self.bounds fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
 	
-	
+	NSRect middleStickerRect = NSMakeRect(floor(NSMidX(self.bounds) - (PLARecordImageViewStickerDiamater / 2.0)), floor(NSMidY(self.bounds) - (PLARecordImageViewStickerDiamater / 2.0)), PLARecordImageViewStickerDiamater, PLARecordImageViewStickerDiamater);
+	NSBezierPath *circleClip = [NSBezierPath bezierPathWithOvalInRect:middleStickerRect];
+	[circleClip setClip];
+	[self.image drawInRect:middleStickerRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
 }
 
 @end
