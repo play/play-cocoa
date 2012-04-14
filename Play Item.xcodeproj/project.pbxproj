@@ -12,6 +12,10 @@
 		3080FCF21539D1890058D7EA /* note-grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 3080FCF01539D1890058D7EA /* note-grey.png */; };
 		3080FCF51539DA590058D7EA /* record.png in Resources */ = {isa = PBXBuildFile; fileRef = 3080FCF41539DA590058D7EA /* record.png */; };
 		3080FCF81539DAD90058D7EA /* PLARecordImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3080FCF71539DAD90058D7EA /* PLARecordImageView.m */; };
+		3080FCFD1539FF0E0058D7EA /* play-button-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 3080FCF91539FF0E0058D7EA /* play-button-down.png */; };
+		3080FCFE1539FF0E0058D7EA /* play-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 3080FCFA1539FF0E0058D7EA /* play-button.png */; };
+		3080FCFF1539FF0E0058D7EA /* stop-button-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 3080FCFB1539FF0E0058D7EA /* stop-button-down.png */; };
+		3080FD001539FF0E0058D7EA /* stop-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 3080FCFC1539FF0E0058D7EA /* stop-button.png */; };
 		3088A983153702D200E7B8DB /* LIEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3088A980153702D200E7B8DB /* LIEffect.m */; };
 		3088A984153702D200E7B8DB /* LIFlipEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3088A982153702D200E7B8DB /* LIFlipEffect.m */; };
 		30A3B3BA15359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A3B3B415359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m */; };
@@ -22,10 +26,6 @@
 		30EE1B3B15383D4700AD9DF2 /* status-icon-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EE1B3915383D4700AD9DF2 /* status-icon-on.png */; };
 		30EE1B3D15383E8000AD9DF2 /* status-icon-inverted.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EE1B3C15383E8000AD9DF2 /* status-icon-inverted.png */; };
 		30EE1B40153840FD00AD9DF2 /* PLAHeaderBarBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EE1B3F153840FD00AD9DF2 /* PLAHeaderBarBackgroundView.m */; };
-		30EE1B471538460000AD9DF2 /* play-button-off-pushed.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EE1B431538460000AD9DF2 /* play-button-off-pushed.png */; };
-		30EE1B481538460000AD9DF2 /* play-button-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EE1B441538460000AD9DF2 /* play-button-off.png */; };
-		30EE1B491538460000AD9DF2 /* play-button-on-pushed.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EE1B451538460000AD9DF2 /* play-button-on-pushed.png */; };
-		30EE1B4A1538460000AD9DF2 /* play-button-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EE1B461538460000AD9DF2 /* play-button-on.png */; };
 		30EE1B4D15384AB000AD9DF2 /* now-playing-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EE1B4C15384AB000AD9DF2 /* now-playing-background.png */; };
 		30EE1B5015384CF400AD9DF2 /* PLAQueueImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EE1B4F15384CF400AD9DF2 /* PLAQueueImageView.m */; };
 		30EE1B9B15386BFF00AD9DF2 /* PLAShadowTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EE1B9A15386BFF00AD9DF2 /* PLAShadowTextField.m */; };
@@ -152,6 +152,10 @@
 		3080FCF41539DA590058D7EA /* record.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = record.png; sourceTree = "<group>"; };
 		3080FCF61539DAD90058D7EA /* PLARecordImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLARecordImageView.h; sourceTree = "<group>"; };
 		3080FCF71539DAD90058D7EA /* PLARecordImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLARecordImageView.m; sourceTree = "<group>"; };
+		3080FCF91539FF0E0058D7EA /* play-button-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-button-down.png"; sourceTree = "<group>"; };
+		3080FCFA1539FF0E0058D7EA /* play-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-button.png"; sourceTree = "<group>"; };
+		3080FCFB1539FF0E0058D7EA /* stop-button-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stop-button-down.png"; sourceTree = "<group>"; };
+		3080FCFC1539FF0E0058D7EA /* stop-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stop-button.png"; sourceTree = "<group>"; };
 		3088A97F153702D200E7B8DB /* LIEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIEffect.h; sourceTree = "<group>"; };
 		3088A980153702D200E7B8DB /* LIEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIEffect.m; sourceTree = "<group>"; };
 		3088A981153702D200E7B8DB /* LIFlipEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIFlipEffect.h; sourceTree = "<group>"; };
@@ -168,10 +172,6 @@
 		30EE1B3C15383E8000AD9DF2 /* status-icon-inverted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "status-icon-inverted.png"; sourceTree = "<group>"; };
 		30EE1B3E153840FD00AD9DF2 /* PLAHeaderBarBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAHeaderBarBackgroundView.h; sourceTree = "<group>"; };
 		30EE1B3F153840FD00AD9DF2 /* PLAHeaderBarBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAHeaderBarBackgroundView.m; sourceTree = "<group>"; };
-		30EE1B431538460000AD9DF2 /* play-button-off-pushed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-button-off-pushed.png"; sourceTree = "<group>"; };
-		30EE1B441538460000AD9DF2 /* play-button-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-button-off.png"; sourceTree = "<group>"; };
-		30EE1B451538460000AD9DF2 /* play-button-on-pushed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-button-on-pushed.png"; sourceTree = "<group>"; };
-		30EE1B461538460000AD9DF2 /* play-button-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-button-on.png"; sourceTree = "<group>"; };
 		30EE1B4C15384AB000AD9DF2 /* now-playing-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "now-playing-background.png"; sourceTree = "<group>"; };
 		30EE1B4E15384CF400AD9DF2 /* PLAQueueImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAQueueImageView.h; sourceTree = "<group>"; };
 		30EE1B4F15384CF400AD9DF2 /* PLAQueueImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAQueueImageView.m; sourceTree = "<group>"; };
@@ -428,10 +428,10 @@
 		30EE1B42153845F600AD9DF2 /* Play Button */ = {
 			isa = PBXGroup;
 			children = (
-				30EE1B431538460000AD9DF2 /* play-button-off-pushed.png */,
-				30EE1B441538460000AD9DF2 /* play-button-off.png */,
-				30EE1B451538460000AD9DF2 /* play-button-on-pushed.png */,
-				30EE1B461538460000AD9DF2 /* play-button-on.png */,
+				3080FCF91539FF0E0058D7EA /* play-button-down.png */,
+				3080FCFA1539FF0E0058D7EA /* play-button.png */,
+				3080FCFB1539FF0E0058D7EA /* stop-button-down.png */,
+				3080FCFC1539FF0E0058D7EA /* stop-button.png */,
 			);
 			name = "Play Button";
 			sourceTree = "<group>";
@@ -899,16 +899,16 @@
 				30EE1B3A15383D4700AD9DF2 /* status-icon-off.png in Resources */,
 				30EE1B3B15383D4700AD9DF2 /* status-icon-on.png in Resources */,
 				30EE1B3D15383E8000AD9DF2 /* status-icon-inverted.png in Resources */,
-				30EE1B471538460000AD9DF2 /* play-button-off-pushed.png in Resources */,
-				30EE1B481538460000AD9DF2 /* play-button-off.png in Resources */,
-				30EE1B491538460000AD9DF2 /* play-button-on-pushed.png in Resources */,
-				30EE1B4A1538460000AD9DF2 /* play-button-on.png in Resources */,
 				30EE1B4D15384AB000AD9DF2 /* now-playing-background.png in Resources */,
 				30EE1BA21538834A00AD9DF2 /* note-pink-down.png in Resources */,
 				30EE1BA31538834A00AD9DF2 /* note-pink.png in Resources */,
 				3080FCF11539D1890058D7EA /* note-grey-down.png in Resources */,
 				3080FCF21539D1890058D7EA /* note-grey.png in Resources */,
 				3080FCF51539DA590058D7EA /* record.png in Resources */,
+				3080FCFD1539FF0E0058D7EA /* play-button-down.png in Resources */,
+				3080FCFE1539FF0E0058D7EA /* play-button.png in Resources */,
+				3080FCFF1539FF0E0058D7EA /* stop-button-down.png in Resources */,
+				3080FD001539FF0E0058D7EA /* stop-button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

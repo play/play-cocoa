@@ -137,14 +137,14 @@ NSURL *(^downloadsFolderLocation)() = ^
 
 - (void)playbackStarted:(NSNotification *)note
 {
-	self.playButton.image = [NSImage imageNamed:@"play-button-on"];
-	self.playButton.alternateImage = [NSImage imageNamed:@"play-button-on-pushed"];
+	self.playButton.image = [NSImage imageNamed:@"stop-button"];
+	self.playButton.alternateImage = [NSImage imageNamed:@"stop-button-down"];
 }
 
 - (void)playbackStopped:(NSNotification *)note
 {
-	self.playButton.image = [NSImage imageNamed:@"play-button-off"];
-	self.playButton.alternateImage = [NSImage imageNamed:@"play-button-off-pushed"];
+	self.playButton.image = [NSImage imageNamed:@"play-button"];
+	self.playButton.alternateImage = [NSImage imageNamed:@"play-button-down"];
 }
 
 @end
