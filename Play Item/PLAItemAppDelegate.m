@@ -24,7 +24,6 @@ NSString *const PLAItemStoppedPlayingNotificationName = @"PLAItemStoppedPlayingN
 @interface PLAItemAppDelegate ()
 
 @property (nonatomic, retain) SPMediaKeyTap *keyTap;
-@property (nonatomic, readonly) PLAQueueWindowController *queueWindowController;
 @property (nonatomic, retain) AudioStreamer *streamer;
 
 @end

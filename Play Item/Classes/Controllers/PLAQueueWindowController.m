@@ -22,6 +22,7 @@
 @property (nonatomic, readonly) NSOperationQueue *downloadQueue;
 
 - (void)updateQueue;
+- (void)downloadTrack:(PLATrack *)track;
 
 @end
 
@@ -97,9 +98,9 @@
 	[[NSApp delegate] togglePlayState];
 }
 
-- (IBAction)downloadCurrentSong:(id)sender
+- (void)downloadTrack:(PLATrack *)track
 {
-	if (self.currentTrack == nil)
+	if (track == nil)
 		return;
 	
 	NSArray *downloadFolderPaths = NSSearchPathForDirectoriesInDomains(NSDownloadsDirectory, NSUserDomainMask, YES);
@@ -108,17 +109,17 @@
 		return;
 	}
 	
-	NSURL *targetURL = [[NSURL fileURLWithPath:[downloadFolderPaths objectAtIndex:0]] URLByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.m4a", self.currentTrack.name, self.currentTrack.artist]]; //I'm just guessing m4a… there should probably be a smart way to get the format
+	NSURL *targetURL = [[NSURL fileURLWithPath:[downloadFolderPaths objectAtIndex:0]] URLByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.m4a", track.name, track.artist]]; //I'm just guessing m4a… there should probably be a smart way to get the format
 	NSOutputStream *outStream = [NSOutputStream outputStreamWithURL:targetURL append:NO];
-	AFHTTPRequestOperation *downloadOperation = [[[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:self.currentTrack.downloadURL]] autorelease];
+	AFHTTPRequestOperation *downloadOperation = [[[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:track.downloadURL]] autorelease];
 	downloadOperation.outputStream = outStream;
 	[downloadOperation setCompletionBlockWithSuccess: ^ (AFHTTPRequestOperation *operation, id responseObject) 
-	{
-		//Um… do something? I guess?
-	} failure:^(AFHTTPRequestOperation *operation, NSError *error) 
-	{
-		NSBeep(); // :trollface: we should probably be way better with errors
-	}];
+	 {
+		 //Um… do something? I guess?
+	 } failure:^(AFHTTPRequestOperation *operation, NSError *error) 
+	 {
+		 NSBeep(); // :trollface: we should probably be way better with errors
+	 }];
 	[self.downloadQueue addOperation:downloadOperation];
 }
 

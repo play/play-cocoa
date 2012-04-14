@@ -10,6 +10,7 @@
 
 @class AudioStreamer;
 @class PLAItemLogInWindowController;
+@class PLAQueueWindowController;
 @class LIFlipEffect;
 
 extern NSString *const PLAItemStartedPlayingNotificationName;
@@ -19,6 +20,7 @@ extern NSString *const PLAItemStoppedPlayingNotificationName;
 
 @property (strong) NSStatusItem *statusItem;
 @property (strong) PLAItemLogInWindowController *logInWindowController;
+@property (nonatomic, readonly) PLAQueueWindowController *queueWindowController;
 @property (nonatomic, readonly) LIFlipEffect *flipEffect;
 
 - (void)didLogIn;

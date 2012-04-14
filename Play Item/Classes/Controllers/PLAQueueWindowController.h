@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @class PLAShadowTextField;
+@class PLATrack;
 
 @interface PLAQueueWindowController : NSWindowController
 
@@ -17,7 +18,7 @@
 - (id)init;
 
 - (IBAction)togglePlay:(id)sender;
-- (IBAction)downloadCurrentSong:(id)sender;
-- (IBAction)downloadCurrentSongAlbum:(id)sender;
+
+- (void)downloadTrack:(PLATrack *)track;
 
 @end
