@@ -98,18 +98,27 @@
 	[[NSApp delegate] togglePlayState];
 }
 
+NSURL *(^downloadsFolderLocation)() = ^ 
+{
+	NSArray *downloadFolderPaths = NSSearchPathForDirectoriesInDomains(NSDownloadsDirectory, NSUserDomainMask, YES);
+	if (downloadFolderPaths.count < 1)
+		return (NSURL *)nil;
+	
+	return [NSURL fileURLWithPath:[downloadFolderPaths objectAtIndex:0]];
+};
+
 - (void)downloadTrack:(PLATrack *)track
 {
 	if (track == nil)
 		return;
 	
-	NSArray *downloadFolderPaths = NSSearchPathForDirectoriesInDomains(NSDownloadsDirectory, NSUserDomainMask, YES);
-	if (downloadFolderPaths.count < 1) {
+	NSURL *downloadsFolder = downloadsFolderLocation();
+	if (downloadsFolder == nil) {
 		NSBeep();
 		return;
 	}
 	
-	NSURL *targetURL = [[NSURL fileURLWithPath:[downloadFolderPaths objectAtIndex:0]] URLByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.m4a", track.name, track.artist]]; //I'm just guessing m4a… there should probably be a smart way to get the format
+	NSURL *targetURL = [downloadsFolder URLByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.m4a", track.name, track.artist]]; //I'm just guessing m4a… there should probably be a smart way to get the format
 	NSOutputStream *outStream = [NSOutputStream outputStreamWithURL:targetURL append:NO];
 	AFHTTPRequestOperation *downloadOperation = [[[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:track.downloadURL]] autorelease];
 	downloadOperation.outputStream = outStream;
