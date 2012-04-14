@@ -10,6 +10,7 @@
 		30122ACE1539AFE300A2E507 /* PLAQueueTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30122ACD1539AFE300A2E507 /* PLAQueueTableCellView.m */; };
 		3080FCF11539D1890058D7EA /* note-grey-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 3080FCEF1539D1890058D7EA /* note-grey-down.png */; };
 		3080FCF21539D1890058D7EA /* note-grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 3080FCF01539D1890058D7EA /* note-grey.png */; };
+		3080FCF51539DA590058D7EA /* record.png in Resources */ = {isa = PBXBuildFile; fileRef = 3080FCF41539DA590058D7EA /* record.png */; };
 		3088A983153702D200E7B8DB /* LIEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3088A980153702D200E7B8DB /* LIEffect.m */; };
 		3088A984153702D200E7B8DB /* LIFlipEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3088A982153702D200E7B8DB /* LIFlipEffect.m */; };
 		30A3B3BA15359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A3B3B415359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m */; };
@@ -147,6 +148,7 @@
 		30122ACD1539AFE300A2E507 /* PLAQueueTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAQueueTableCellView.m; sourceTree = "<group>"; };
 		3080FCEF1539D1890058D7EA /* note-grey-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "note-grey-down.png"; sourceTree = "<group>"; };
 		3080FCF01539D1890058D7EA /* note-grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "note-grey.png"; sourceTree = "<group>"; };
+		3080FCF41539DA590058D7EA /* record.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = record.png; sourceTree = "<group>"; };
 		3088A97F153702D200E7B8DB /* LIEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIEffect.h; sourceTree = "<group>"; };
 		3088A980153702D200E7B8DB /* LIEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIEffect.m; sourceTree = "<group>"; };
 		3088A981153702D200E7B8DB /* LIFlipEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIFlipEffect.h; sourceTree = "<group>"; };
@@ -690,6 +692,7 @@
 		E0C965BA1533279D001D52BF /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3080FCF41539DA590058D7EA /* record.png */,
 				30EE1B9F1538834200AD9DF2 /* Download Song */,
 				30EE1B4B15384AA700AD9DF2 /* Now Playing */,
 				30EE1B42153845F600AD9DF2 /* Play Button */,
@@ -900,6 +903,7 @@
 				30EE1BA31538834A00AD9DF2 /* note-pink.png in Resources */,
 				3080FCF11539D1890058D7EA /* note-grey-down.png in Resources */,
 				3080FCF21539D1890058D7EA /* note-grey.png in Resources */,
+				3080FCF51539DA590058D7EA /* record.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
