@@ -9,6 +9,7 @@
 #import "PLARecordImageView.h"
 
 static CGFloat PLARecordImageViewStickerDiamater = 30.0;
+static CGFloat PLARecordImageViewSpindleDiamater = 3.0;
 
 @implementation PLARecordImageView
 
@@ -18,10 +19,20 @@ static CGFloat PLARecordImageViewStickerDiamater = 30.0;
     NSImage *recordImage = [NSImage imageNamed:@"record"];
 	[recordImage drawInRect:self.bounds fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
 	
-	NSRect middleStickerRect = NSMakeRect(floor(NSMidX(self.bounds) - (PLARecordImageViewStickerDiamater / 2.0)), floor(NSMidY(self.bounds) - (PLARecordImageViewStickerDiamater / 2.0)), PLARecordImageViewStickerDiamater, PLARecordImageViewStickerDiamater);
+	NSRect (^centralRectOfDiamater)(CGFloat) = ^ (CGFloat diamater)
+	{
+		return NSMakeRect(floor(NSMidX(self.bounds) - (diamater / 2.0)), floor(NSMidY(self.bounds) - (diamater / 2.0)), diamater, diamater);
+	};
+	
+	NSRect middleStickerRect = centralRectOfDiamater(PLARecordImageViewStickerDiamater);
 	NSBezierPath *circleClip = [NSBezierPath bezierPathWithOvalInRect:middleStickerRect];
 	[circleClip setClip];
 	[self.image drawInRect:middleStickerRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
+	
+	NSRect spindleRect = centralRectOfDiamater(PLARecordImageViewSpindleDiamater);
+	NSBezierPath *spindle = [NSBezierPath bezierPathWithOvalInRect:spindleRect];
+	[[NSColor blackColor] set];
+	[spindle fill];
 }
 
 @end
