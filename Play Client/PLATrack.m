@@ -10,6 +10,8 @@
 #import "PLAPlayClient.h"
 #import "PLAController.h"
 
+#import "AFNetworking.h"
+
 @implementation PLATrack
 @synthesize trackId, name, album, artist, queued, starred;
 
@@ -93,6 +95,24 @@
 {
 	NSString *urlString = [NSString stringWithFormat:@"%@/song/%@/download", [[PLAController sharedController] playUrl], self.trackId];
 	return [NSURL URLWithString:urlString];
+}
+
+#pragma mark -
+#pragma mark Operations
+
+- (void)toggleStarredWithCompletionBlock:(void(^)(BOOL success, NSError *err))completionBlock
+{
+	NSString *method = (self.starred ? @"DELETE" : @"POST");
+	NSMutableURLRequest *request = [[PLAPlayClient sharedClient] requestWithMethod:method path:@"/star" parameters:[NSDictionary dictionaryWithObject:self.trackId forKey:@"id"]];
+	AFHTTPRequestOperation *operation = [[[AFHTTPRequestOperation alloc] initWithRequest:request] autorelease];
+	[operation setCompletionBlockWithSuccess: ^ (AFHTTPRequestOperation *operation, id responseObject) 
+	{
+		completionBlock(YES, nil);
+	} failure: ^ (AFHTTPRequestOperation *operation, NSError *error) 
+	{
+		completionBlock(NO, error);
+	}];
+	[[PLAPlayClient sharedClient] enqueueHTTPRequestOperation:operation];
 }
 
 @end

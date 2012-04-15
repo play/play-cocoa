@@ -30,5 +30,6 @@
 + (void)currentQueueWithBlock:(void(^)(NSArray *tracks, NSError *err))block;
 
 - (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)toggleStarredWithCompletionBlock:(void(^)(BOOL success, NSError *err))completionBlock;
 
 @end
