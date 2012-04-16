@@ -144,9 +144,36 @@ NSURL *(^downloadsFolderLocation)() = ^
 		 //Um… do something? I guess?
 	 } failure:^(AFHTTPRequestOperation *operation, NSError *error) 
 	 {
+		 NSLog(@"%@", error);
 		 NSBeep(); // :trollface: we should probably be way better with errors
 	 }];
 	[self.downloadQueue addOperation:downloadOperation];
+}
+
+- (void)downloadAlbumFromTrack:(PLATrack *)track //Being a tad lazy here… should probably abstract this out somewhat… needs to ship it!
+{
+	if (track == nil)
+		return;
+	
+	NSURL *downloadsFolder = downloadsFolderLocation();
+	if (downloadsFolder == nil) {
+		NSBeep();
+		return;
+	}
+	
+	NSURL *targetURL = [downloadsFolder URLByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.zip", track.artist, track.album]];
+	NSOutputStream *outStream = [NSOutputStream outputStreamWithURL:targetURL append:NO];
+	AFHTTPRequestOperation *downloadOperation = [[[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:track.albumDownloadURL]] autorelease];
+	downloadOperation.outputStream = outStream;
+	[downloadOperation setCompletionBlockWithSuccess: ^ (AFHTTPRequestOperation *operation, id responseObject) 
+	 {
+	 } failure:^(AFHTTPRequestOperation *operation, NSError *error) 
+	 {
+		 NSLog(@"%@", error);
+		 NSBeep();
+	 }];
+	[self.downloadQueue addOperation:downloadOperation];
+
 }
 
 #pragma mark -
