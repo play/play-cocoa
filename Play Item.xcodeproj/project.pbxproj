@@ -24,6 +24,10 @@
 		30836C2B153C6AD600987A13 /* starred-pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 30836C27153C6AD600987A13 /* starred-pink.png */; };
 		30836C2C153C6AD600987A13 /* unstarred-pink-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 30836C28153C6AD600987A13 /* unstarred-pink-down.png */; };
 		30836C2D153C6AD600987A13 /* unstarred-pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 30836C29153C6AD600987A13 /* unstarred-pink.png */; };
+		30836C33153C6DA400987A13 /* record-grey-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 30836C2F153C6DA400987A13 /* record-grey-down.png */; };
+		30836C34153C6DA400987A13 /* record-grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 30836C30153C6DA400987A13 /* record-grey.png */; };
+		30836C35153C6DA400987A13 /* record-pink-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 30836C31153C6DA400987A13 /* record-pink-down.png */; };
+		30836C36153C6DA400987A13 /* record-pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 30836C32153C6DA400987A13 /* record-pink.png */; };
 		3088A983153702D200E7B8DB /* LIEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3088A980153702D200E7B8DB /* LIEffect.m */; };
 		3088A984153702D200E7B8DB /* LIFlipEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3088A982153702D200E7B8DB /* LIFlipEffect.m */; };
 		30A3B3BA15359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A3B3B415359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m */; };
@@ -172,6 +176,10 @@
 		30836C27153C6AD600987A13 /* starred-pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "starred-pink.png"; sourceTree = "<group>"; };
 		30836C28153C6AD600987A13 /* unstarred-pink-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unstarred-pink-down.png"; sourceTree = "<group>"; };
 		30836C29153C6AD600987A13 /* unstarred-pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unstarred-pink.png"; sourceTree = "<group>"; };
+		30836C2F153C6DA400987A13 /* record-grey-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "record-grey-down.png"; sourceTree = "<group>"; };
+		30836C30153C6DA400987A13 /* record-grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "record-grey.png"; sourceTree = "<group>"; };
+		30836C31153C6DA400987A13 /* record-pink-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "record-pink-down.png"; sourceTree = "<group>"; };
+		30836C32153C6DA400987A13 /* record-pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "record-pink.png"; sourceTree = "<group>"; };
 		3088A97F153702D200E7B8DB /* LIEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIEffect.h; sourceTree = "<group>"; };
 		3088A980153702D200E7B8DB /* LIEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIEffect.m; sourceTree = "<group>"; };
 		3088A981153702D200E7B8DB /* LIFlipEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIFlipEffect.h; sourceTree = "<group>"; };
@@ -391,6 +399,17 @@
 				30836C29153C6AD600987A13 /* unstarred-pink.png */,
 			);
 			name = "Star Button";
+			sourceTree = "<group>";
+		};
+		30836C2E153C6D9400987A13 /* Download Album */ = {
+			isa = PBXGroup;
+			children = (
+				30836C2F153C6DA400987A13 /* record-grey-down.png */,
+				30836C30153C6DA400987A13 /* record-grey.png */,
+				30836C31153C6DA400987A13 /* record-pink-down.png */,
+				30836C32153C6DA400987A13 /* record-pink.png */,
+			);
+			name = "Download Album";
 			sourceTree = "<group>";
 		};
 		3088A97E153702D200E7B8DB /* LIFlipEffect */ = {
@@ -729,6 +748,7 @@
 			isa = PBXGroup;
 			children = (
 				3080FCF41539DA590058D7EA /* record.png */,
+				30836C2E153C6D9400987A13 /* Download Album */,
 				30836C14153C5F4900987A13 /* Star Button */,
 				30EE1B9F1538834200AD9DF2 /* Download Song */,
 				30EE1B4B15384AA700AD9DF2 /* Now Playing */,
@@ -949,6 +969,10 @@
 				30836C2B153C6AD600987A13 /* starred-pink.png in Resources */,
 				30836C2C153C6AD600987A13 /* unstarred-pink-down.png in Resources */,
 				30836C2D153C6AD600987A13 /* unstarred-pink.png in Resources */,
+				30836C33153C6DA400987A13 /* record-grey-down.png in Resources */,
+				30836C34153C6DA400987A13 /* record-grey.png in Resources */,
+				30836C35153C6DA400987A13 /* record-pink-down.png in Resources */,
+				30836C36153C6DA400987A13 /* record-pink.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
