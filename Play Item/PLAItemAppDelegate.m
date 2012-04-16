@@ -121,6 +121,7 @@ NSString *const PLAItemStoppedPlayingNotificationName = @"PLAItemStoppedPlayingN
 #pragma mark - View State Methods
 
 - (IBAction)presentLogIn:(id)sender{
+	[self.queueWindowController showWindow:sender];
 	[self.flipEffect run];
 }
 
