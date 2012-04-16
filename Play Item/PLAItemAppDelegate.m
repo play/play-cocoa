@@ -36,7 +36,6 @@ NSString *const PLAItemStoppedPlayingNotificationName = @"PLAItemStoppedPlayingN
 
 @synthesize keyTap = _keyTap;
 @synthesize queueWindowController = _queueWindowController;
-@synthesize flipEffect = _flipEffect;
 
 - (id)init
 {	
@@ -46,8 +45,6 @@ NSString *const PLAItemStoppedPlayingNotificationName = @"PLAItemStoppedPlayingN
 	
 	_queueWindowController = [[PLAQueueWindowController alloc] init];
 	_logInWindowController = [[PLAItemLogInWindowController alloc] init];
-	
-	_flipEffect = [[LIFlipEffect alloc] initFromWindow:_queueWindowController.window toWindow:_logInWindowController.window];
 
 	return self;
 }
@@ -78,7 +75,7 @@ NSString *const PLAItemStoppedPlayingNotificationName = @"PLAItemStoppedPlayingN
         [self didLogIn];
       }else{
 		  [self.queueWindowController showWindow:self]; //Make sure the flip animation happens in the right place
-        [self presentLogIn:nil];
+        [self flipWindow:nil];
       }
     
     });
@@ -120,9 +117,11 @@ NSString *const PLAItemStoppedPlayingNotificationName = @"PLAItemStoppedPlayingN
 
 #pragma mark - View State Methods
 
-- (IBAction)presentLogIn:(id)sender{
+- (IBAction)flipWindow:(id)sender{
 	[self.queueWindowController showWindow:sender];
-	[self.flipEffect run];
+	
+	LIFlipEffect *flipEffect = [[LIFlipEffect alloc] initFromWindow:self.queueWindowController.window toWindow:self.logInWindowController.window];
+	[flipEffect run];
 }
 
 - (IBAction)goToPlay:(id)sender{

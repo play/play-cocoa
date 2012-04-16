@@ -115,6 +115,11 @@
 	}];
 }
 
+- (IBAction)showPrefs:(id)sender
+{
+	[[NSApp delegate] flipWindow:sender];
+}
+
 NSURL *(^downloadsFolderLocation)() = ^ 
 {
 	NSArray *downloadFolderPaths = NSSearchPathForDirectoriesInDomains(NSDownloadsDirectory, NSUserDomainMask, YES);

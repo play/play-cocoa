@@ -44,7 +44,7 @@
     dispatch_async(dispatch_get_main_queue(), ^(void) {
       if (succeeded) {
         PLAItemAppDelegate *appDelegate = [NSApp delegate];
-		[[appDelegate flipEffect] run];
+		[appDelegate flipWindow:sender];
         [appDelegate didLogIn];
       }else{
         [(PLAItemWindow *)self.window shake];
