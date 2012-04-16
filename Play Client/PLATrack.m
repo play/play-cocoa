@@ -108,10 +108,12 @@
 	[operation setCompletionBlockWithSuccess: ^ (AFHTTPRequestOperation *operation, id responseObject) 
 	{
 		self.starred = !self.starred;
-		completionBlock(YES, nil);
+		if (completionBlock != nil)
+			completionBlock(YES, nil);
 	} failure: ^ (AFHTTPRequestOperation *operation, NSError *error) 
 	{
-		completionBlock(NO, error);
+		if (completionBlock != nil)
+			completionBlock(NO, error);
 	}];
 	[[PLAPlayClient sharedClient] enqueueHTTPRequestOperation:operation];
 }
