@@ -22,6 +22,7 @@
 @property (nonatomic, readonly) NSOperationQueue *downloadQueue;
 
 - (void)updateQueue;
+- (void)updateNowPlayingStarImage;
 - (void)downloadTrack:(PLATrack *)track;
 
 @end
@@ -29,6 +30,7 @@
 @implementation PLAQueueWindowController
 
 @synthesize playButton = _playButton;
+@synthesize nowPlayingStarButton = _nowPlayingStarButton;
 
 @synthesize queue = _queue;
 @synthesize currentTrack = _currentTrack;
@@ -77,6 +79,7 @@
 		}
 		
 		self.currentTrack = track;
+		[self updateNowPlayingStarImage];
 	}];
 	
 	[PLATrack currentQueueWithBlock: ^ (NSArray *tracks, NSError *err) 
@@ -90,12 +93,26 @@
 	 }];
 }
 
+- (void)updateNowPlayingStarImage
+{
+	self.nowPlayingStarButton.image = [NSImage imageNamed:(self.currentTrack.starred ? @"starred-pink" : @"unstarred-pink")];
+	self.nowPlayingStarButton.alternateImage = [NSImage imageNamed:(self.currentTrack.starred ? @"starred-pink-down" : @"unstarred-pink-down")];
+}
+
 #pragma mark -
 #pragma mark Actions
 
 - (IBAction)togglePlay:(id)sender
 {
 	[[NSApp delegate] togglePlayState];
+}
+
+- (IBAction)toggleNowPlayingStar:(id)sender
+{
+	[self.currentTrack toggleStarredWithCompletionBlock:^(BOOL success, NSError *err) {
+		if (success)
+			[self updateNowPlayingStarImage];
+	}];
 }
 
 NSURL *(^downloadsFolderLocation)() = ^ 

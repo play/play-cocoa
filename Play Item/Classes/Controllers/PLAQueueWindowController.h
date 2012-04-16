@@ -13,11 +13,13 @@
 
 @interface PLAQueueWindowController : NSWindowController <NSTableViewDelegate>
 
-@property (nonatomic, retain) IBOutlet NSButton *playButton; 
+@property (nonatomic, assign) IBOutlet NSButton *playButton; 
+@property (nonatomic, assign) IBOutlet NSButton *nowPlayingStarButton;
 
 - (id)init;
 
 - (IBAction)togglePlay:(id)sender;
+- (IBAction)toggleNowPlayingStar:(id)sender;
 
 - (void)downloadTrack:(PLATrack *)track;
 
