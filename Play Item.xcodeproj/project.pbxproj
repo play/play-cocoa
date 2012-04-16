@@ -20,6 +20,10 @@
 		30836C23153C61A200987A13 /* starred-grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 30836C1F153C61A200987A13 /* starred-grey.png */; };
 		30836C24153C61A200987A13 /* unstarred-grey-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 30836C20153C61A200987A13 /* unstarred-grey-down.png */; };
 		30836C25153C61A200987A13 /* unstarred-grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 30836C21153C61A200987A13 /* unstarred-grey.png */; };
+		30836C2A153C6AD600987A13 /* starred-pink-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 30836C26153C6AD600987A13 /* starred-pink-down.png */; };
+		30836C2B153C6AD600987A13 /* starred-pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 30836C27153C6AD600987A13 /* starred-pink.png */; };
+		30836C2C153C6AD600987A13 /* unstarred-pink-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 30836C28153C6AD600987A13 /* unstarred-pink-down.png */; };
+		30836C2D153C6AD600987A13 /* unstarred-pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 30836C29153C6AD600987A13 /* unstarred-pink.png */; };
 		3088A983153702D200E7B8DB /* LIEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3088A980153702D200E7B8DB /* LIEffect.m */; };
 		3088A984153702D200E7B8DB /* LIFlipEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3088A982153702D200E7B8DB /* LIFlipEffect.m */; };
 		30A3B3BA15359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A3B3B415359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m */; };
@@ -164,6 +168,10 @@
 		30836C1F153C61A200987A13 /* starred-grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "starred-grey.png"; sourceTree = "<group>"; };
 		30836C20153C61A200987A13 /* unstarred-grey-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unstarred-grey-down.png"; sourceTree = "<group>"; };
 		30836C21153C61A200987A13 /* unstarred-grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unstarred-grey.png"; sourceTree = "<group>"; };
+		30836C26153C6AD600987A13 /* starred-pink-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "starred-pink-down.png"; sourceTree = "<group>"; };
+		30836C27153C6AD600987A13 /* starred-pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "starred-pink.png"; sourceTree = "<group>"; };
+		30836C28153C6AD600987A13 /* unstarred-pink-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unstarred-pink-down.png"; sourceTree = "<group>"; };
+		30836C29153C6AD600987A13 /* unstarred-pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unstarred-pink.png"; sourceTree = "<group>"; };
 		3088A97F153702D200E7B8DB /* LIEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIEffect.h; sourceTree = "<group>"; };
 		3088A980153702D200E7B8DB /* LIEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIEffect.m; sourceTree = "<group>"; };
 		3088A981153702D200E7B8DB /* LIFlipEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIFlipEffect.h; sourceTree = "<group>"; };
@@ -377,6 +385,10 @@
 				30836C1F153C61A200987A13 /* starred-grey.png */,
 				30836C20153C61A200987A13 /* unstarred-grey-down.png */,
 				30836C21153C61A200987A13 /* unstarred-grey.png */,
+				30836C26153C6AD600987A13 /* starred-pink-down.png */,
+				30836C27153C6AD600987A13 /* starred-pink.png */,
+				30836C28153C6AD600987A13 /* unstarred-pink-down.png */,
+				30836C29153C6AD600987A13 /* unstarred-pink.png */,
 			);
 			name = "Star Button";
 			sourceTree = "<group>";
@@ -933,6 +945,10 @@
 				30836C23153C61A200987A13 /* starred-grey.png in Resources */,
 				30836C24153C61A200987A13 /* unstarred-grey-down.png in Resources */,
 				30836C25153C61A200987A13 /* unstarred-grey.png in Resources */,
+				30836C2A153C6AD600987A13 /* starred-pink-down.png in Resources */,
+				30836C2B153C6AD600987A13 /* starred-pink.png in Resources */,
+				30836C2C153C6AD600987A13 /* unstarred-pink-down.png in Resources */,
+				30836C2D153C6AD600987A13 /* unstarred-pink.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
