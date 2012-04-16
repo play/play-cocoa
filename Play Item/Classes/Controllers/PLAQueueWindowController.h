@@ -22,5 +22,6 @@
 - (IBAction)toggleNowPlayingStar:(id)sender;
 
 - (void)downloadTrack:(PLATrack *)track;
+- (void)downloadAlbumFromTrack:(PLATrack *)track;
 
 @end

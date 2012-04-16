@@ -25,7 +25,7 @@ NSString *PLAQueueTableCellViewObjectValueObservationContext = @"PLAQueueTableCe
 
 - (IBAction)downloadAlbum:(id)sender
 {
-	
+	[[[NSApp delegate] queueWindowController] downloadAlbumFromTrack:self.objectValue];
 }
 
 - (IBAction)toggleStar:(id)sender
