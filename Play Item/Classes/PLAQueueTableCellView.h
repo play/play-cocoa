@@ -10,6 +10,8 @@
 
 @interface PLAQueueTableCellView : NSTableCellView
 
+@property (nonatomic, assign) IBOutlet NSButton *starButton;
+
 - (IBAction)downloadTrack:(id)sender;
 - (IBAction)downloadAlbum:(id)sender;
 - (IBAction)toggleStar:(id)sender;
