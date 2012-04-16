@@ -18,33 +18,6 @@ NSString *PLAQueueTableCellViewObjectValueObservationContext = @"PLAQueueTableCe
 
 @synthesize starButton = _starButton;
 
-- (void)setup
-{
-	[self addObserver:self forKeyPath:@"objectValue" options:0 context:&PLAQueueTableCellViewObjectValueObservationContext];
-}
-
-- (id)initWithFrame:(NSRect)frameRect
-{	
-	self = [super initWithFrame:frameRect];
-	if (self == nil)
-		return nil;
-	
-	[self setup];
-
-	return self;
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{	
-	self = [super initWithCoder:aDecoder];
-	if (self == nil)
-		return nil;
-	
-	[self setup];
-
-	return self;
-}
-
 - (IBAction)downloadTrack:(id)sender
 {
 	[[[NSApp delegate] queueWindowController] downloadTrack:self.objectValue];
@@ -57,7 +30,10 @@ NSString *PLAQueueTableCellViewObjectValueObservationContext = @"PLAQueueTableCe
 
 - (IBAction)toggleStar:(id)sender
 {
-	[self.objectValue toggleStarredWithCompletionBlock:nil];		
+	[self.objectValue toggleStarredWithCompletionBlock: ^ (BOOL success, NSError *err) {
+		if (success)
+			[self updateStarImage];
+	}];		
 }
 
 #pragma mark -
@@ -70,15 +46,12 @@ NSString *PLAQueueTableCellViewObjectValueObservationContext = @"PLAQueueTableCe
 }
 
 #pragma mark -
-#pragma mark KVO
+#pragma mark Accessors
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+- (void)setObjectValue:(id)objectValue
 {
-    if (context == &PLAQueueTableCellViewObjectValueObservationContext) {
-        [self updateStarImage];
-    } else {
-        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-    }
+	[super setObjectValue:objectValue];
+	[self updateStarImage];
 }
 
 @end
