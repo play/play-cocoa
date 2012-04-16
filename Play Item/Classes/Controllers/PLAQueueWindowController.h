@@ -11,7 +11,7 @@
 @class PLAShadowTextField;
 @class PLATrack;
 
-@interface PLAQueueWindowController : NSWindowController
+@interface PLAQueueWindowController : NSWindowController <NSTableViewDelegate>
 
 @property (nonatomic, retain) IBOutlet NSButton *playButton; 
 

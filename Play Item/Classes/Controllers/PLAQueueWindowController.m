@@ -147,4 +147,12 @@ NSURL *(^downloadsFolderLocation)() = ^
 	self.playButton.alternateImage = [NSImage imageNamed:@"play-button-down"];
 }
 
+#pragma mark -
+#pragma mark TableView Delegate
+
+- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row
+{
+	return NO;
+}
+
 @end
