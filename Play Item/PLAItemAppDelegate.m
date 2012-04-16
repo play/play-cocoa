@@ -10,13 +10,14 @@
 
 #import "AudioStreamer.h"
 
-#import "LIFlipEffect.h"
 #import "PLAController.h"
 #import "PLAPlayClient.h"
 #import "PLAItemLogInWindowController.h"
 #import "PLAQueueWindowController.h"
 #import "PLATrack.h"
 #import "SPMediaKeyTap.h"
+
+#import "NSWindow_Flipr.h"
 
 NSString *const PLAItemStartedPlayingNotificationName = @"PLAItemStartedPlayingNotificationName";
 NSString *const PLAItemStoppedPlayingNotificationName = @"PLAItemStoppedPlayingNotificationName";
@@ -75,14 +76,14 @@ NSString *const PLAItemStoppedPlayingNotificationName = @"PLAItemStoppedPlayingN
         [self didLogIn];
       }else{
 		  [self.queueWindowController showWindow:self]; //Make sure the flip animation happens in the right place
-        [self flipWindow:nil];
+        [self flipWindowToLogin];
       }
     
     });
   }];
   
-    self.keyTap = [[[SPMediaKeyTap alloc] initWithDelegate:self] autorelease];
-    [self.keyTap startWatchingMediaKeys];
+    //self.keyTap = [[[SPMediaKeyTap alloc] initWithDelegate:self] autorelease];
+    //[self.keyTap startWatchingMediaKeys];
 }
 
 - (void)didLogIn{
@@ -117,17 +118,19 @@ NSString *const PLAItemStoppedPlayingNotificationName = @"PLAItemStoppedPlayingN
 
 #pragma mark - View State Methods
 
-- (IBAction)flipWindow:(id)sender{
-	[self.queueWindowController showWindow:sender];
-	
-	LIFlipEffect *flipEffect = [[LIFlipEffect alloc] initFromWindow:self.queueWindowController.window toWindow:self.logInWindowController.window];
-	[flipEffect run];
+- (void)flipWindowToLogin
+{
+	[self.queueWindowController.window flipToShowWindow:self.logInWindowController.window forward:YES];
+}
+
+- (void)flipWindowToQueue
+{
+	[self.logInWindowController.window flipToShowWindow:self.queueWindowController.window forward:YES];
 }
 
 - (IBAction)goToPlay:(id)sender{
   [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[[PLAController sharedController] playUrl]]];
 }
-
 
 #pragma mark - Play Methods
 

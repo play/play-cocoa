@@ -22,7 +22,8 @@ extern NSString *const PLAItemStoppedPlayingNotificationName;
 @property (nonatomic, readonly) PLAQueueWindowController *queueWindowController;
 
 - (void)didLogIn;
-- (IBAction)flipWindow:(id)sender;
+- (void)flipWindowToLogin;
+- (void)flipWindowToQueue;
 - (IBAction)goToPlay:(id)sender;
 - (void)togglePlayState;
 - (void)createStreamer;

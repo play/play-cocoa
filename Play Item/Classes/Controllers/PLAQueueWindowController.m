@@ -117,7 +117,7 @@
 
 - (IBAction)showPrefs:(id)sender
 {
-	[[NSApp delegate] flipWindow:sender];
+	[[NSApp delegate] flipWindowToLogin];
 }
 
 NSURL *(^downloadsFolderLocation)() = ^ 
