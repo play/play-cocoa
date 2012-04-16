@@ -107,6 +107,7 @@
 	AFHTTPRequestOperation *operation = [[[AFHTTPRequestOperation alloc] initWithRequest:request] autorelease];
 	[operation setCompletionBlockWithSuccess: ^ (AFHTTPRequestOperation *operation, id responseObject) 
 	{
+		self.starred = !self.starred;
 		completionBlock(YES, nil);
 	} failure: ^ (AFHTTPRequestOperation *operation, NSError *error) 
 	{
