@@ -97,6 +97,12 @@
 	return [NSURL URLWithString:urlString];
 }
 
+- (NSURL *)albumDownloadURL
+{
+	NSString *urlString = [NSString stringWithFormat:@"%@/artist/%@/album/%@/download", [[PLAController sharedController] playUrl], self.artist, self.album];
+	return [NSURL URLWithString:urlString];
+}
+
 #pragma mark -
 #pragma mark Operations
 
