@@ -20,7 +20,6 @@ extern NSString *const PLAItemStoppedPlayingNotificationName;
 @property (strong) NSStatusItem *statusItem;
 @property (strong) PLAItemLogInWindowController *logInWindowController;
 @property (nonatomic, readonly) PLAQueueWindowController *queueWindowController;
-@property (nonatomic, readonly, retain) AudioStreamer *streamer;
 
 - (void)didLogIn;
 - (void)flipWindowToLogin;

@@ -21,9 +21,6 @@
 @property (retain) NSArray *queue;
 @property (retain) PLATrack *currentTrack;
 @property (nonatomic, readonly) NSOperationQueue *downloadQueue;
-@property (nonatomic) double streamDuration;
-@property (nonatomic) double streamProgress;
-@property (nonatomic, retain) NSTimer *streamProgressTimer;
 
 - (void)updateQueue;
 - (void)updateNowPlayingStarImage;
@@ -41,7 +38,6 @@
 @synthesize queue = _queue;
 @synthesize currentTrack = _currentTrack;
 @synthesize downloadQueue = _downloadQueue;
-@synthesize streamProgressTimer = _streamProgressTimer;
 
 - (id)init
 {	
@@ -59,7 +55,6 @@
 	[_queue release], _queue = nil;
 	[_currentTrack release], _currentTrack = nil;
 	[_downloadQueue release], _downloadQueue = nil;
-	[_streamProgressTimer release], _streamProgressTimer = nil;
 	[super dealloc];
 }
 
@@ -99,9 +94,6 @@
 		
 		self.queue = tracks;
 	 }];
-	
-	self.streamDuration = [[[NSApp delegate] streamer] duration];
-	self.streamProgress = 0.0;
 }
 
 - (void)updateNowPlayingStarImage
@@ -199,25 +191,12 @@ NSURL *(^downloadsFolderLocation)() = ^
 {
 	self.playButton.image = [NSImage imageNamed:@"stop-button"];
 	self.playButton.alternateImage = [NSImage imageNamed:@"stop-button-down"];
-	self.streamProgressTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateProgress:) userInfo:nil repeats:YES];
-	[self.streamProgressTimer fire];
 }
 
 - (void)playbackStopped:(NSNotification *)note
 {
 	self.playButton.image = [NSImage imageNamed:@"play-button"];
 	self.playButton.alternateImage = [NSImage imageNamed:@"play-button-down"];
-	[self.streamProgressTimer invalidate];
-	self.streamProgressTimer = nil;
-}
-
-#pragma mark -
-#pragma mark Timer Handling
-
-- (void)updateProgress:(NSTimer *)timer
-{
-	double progress = [[[NSApp delegate] streamer] progress];
-	self.streamProgress = progress; //I pretty much hate everything about this
 }
 
 #pragma mark -
