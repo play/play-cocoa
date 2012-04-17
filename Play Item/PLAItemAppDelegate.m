@@ -82,8 +82,8 @@ NSString *const PLAItemStoppedPlayingNotificationName = @"PLAItemStoppedPlayingN
     });
   }];
   
-    //self.keyTap = [[[SPMediaKeyTap alloc] initWithDelegate:self] autorelease];
-    //[self.keyTap startWatchingMediaKeys];
+    self.keyTap = [[[SPMediaKeyTap alloc] initWithDelegate:self] autorelease];
+    [self.keyTap startWatchingMediaKeys];
 }
 
 - (void)didLogIn{
