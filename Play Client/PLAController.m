@@ -56,13 +56,16 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
     self.streamUrl = [responseObject objectForKey:@"stream_url"];
     self.pusherKey = [responseObject objectForKey:@"pusher_key"];
 
-    [self setUpPusher];
+	if (self.pusherClient == nil)
+		[self setUpPusher];
     [self subscribeToChannels];
 
-    block(YES);
+	if (block != nil)
+	  block(YES);
   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
     NSLog(@"error: %@", error);
-    block(NO);
+	  if (block != nil)
+		  block(NO);
   }];
 
 }
