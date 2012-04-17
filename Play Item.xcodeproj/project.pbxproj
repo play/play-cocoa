@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30083B3C153D83F300E795DA /* XFloatSecondsToHMSStringTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 30083B3B153D83F300E795DA /* XFloatSecondsToHMSStringTransformer.m */; };
 		30122ACE1539AFE300A2E507 /* PLAQueueTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30122ACD1539AFE300A2E507 /* PLAQueueTableCellView.m */; };
 		3080FCF11539D1890058D7EA /* note-grey-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 3080FCEF1539D1890058D7EA /* note-grey-down.png */; };
 		3080FCF21539D1890058D7EA /* note-grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 3080FCF01539D1890058D7EA /* note-grey.png */; };
@@ -156,6 +157,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		30083B3A153D83F300E795DA /* XFloatSecondsToHMSStringTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XFloatSecondsToHMSStringTransformer.h; path = vendor/XFloatSecondsToHMSStringTransformer/XFloatSecondsToHMSStringTransformer.h; sourceTree = SOURCE_ROOT; };
+		30083B3B153D83F300E795DA /* XFloatSecondsToHMSStringTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XFloatSecondsToHMSStringTransformer.m; path = vendor/XFloatSecondsToHMSStringTransformer/XFloatSecondsToHMSStringTransformer.m; sourceTree = SOURCE_ROOT; };
 		30122ACC1539AFE300A2E507 /* PLAQueueTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAQueueTableCellView.h; sourceTree = "<group>"; };
 		30122ACD1539AFE300A2E507 /* PLAQueueTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAQueueTableCellView.m; sourceTree = "<group>"; };
 		3080FCEF1539D1890058D7EA /* note-grey-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "note-grey-down.png"; sourceTree = "<group>"; };
@@ -383,6 +386,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30083B38153D83B500E795DA /* Value Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				30083B3A153D83F300E795DA /* XFloatSecondsToHMSStringTransformer.h */,
+				30083B3B153D83F300E795DA /* XFloatSecondsToHMSStringTransformer.m */,
+			);
+			name = "Value Transformers";
+			sourceTree = "<group>";
+		};
 		30836C14153C5F4900987A13 /* Star Button */ = {
 			isa = PBXGroup;
 			children = (
@@ -705,6 +717,7 @@
 			children = (
 				E0C965AC1533279D001D52BF /* PLAItemAppDelegate.h */,
 				E0C965AD1533279D001D52BF /* PLAItemAppDelegate.m */,
+				30083B38153D83B500E795DA /* Value Transformers */,
 				30A3B3BC1535C4C6009DA3E0 /* Custom UI */,
 				E0C965AB1533279D001D52BF /* Controllers */,
 			);
@@ -1041,6 +1054,7 @@
 				30122ACE1539AFE300A2E507 /* PLAQueueTableCellView.m in Sources */,
 				3080FCF81539DAD90058D7EA /* PLARecordImageView.m in Sources */,
 				30836C3F153C864900987A13 /* NSWindow_Flipr.m in Sources */,
+				30083B3C153D83F300E795DA /* XFloatSecondsToHMSStringTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
