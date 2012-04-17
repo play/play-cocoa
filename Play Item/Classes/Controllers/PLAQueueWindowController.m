@@ -99,6 +99,11 @@
 	self.nowPlayingStarButton.alternateImage = [NSImage imageNamed:(self.currentTrack.starred ? @"starred-pink-down" : @"unstarred-pink-down")];
 }
 
+- (PLAItemAppDelegate *)appDelegate
+{
+	return [NSApp delegate];
+}
+
 #pragma mark -
 #pragma mark Actions
 

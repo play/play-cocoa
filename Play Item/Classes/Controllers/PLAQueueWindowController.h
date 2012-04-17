@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class PLAItemAppDelegate;
 @class PLAShadowTextField;
 @class PLATrack;
 
@@ -15,6 +16,8 @@
 
 @property (nonatomic, assign) IBOutlet NSButton *playButton; 
 @property (nonatomic, assign) IBOutlet NSButton *nowPlayingStarButton;
+
+@property (nonatomic, readonly) PLAItemAppDelegate *appDelegate; //used for bindings
 
 - (id)init;
 
