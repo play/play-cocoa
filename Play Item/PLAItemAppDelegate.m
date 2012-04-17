@@ -165,6 +165,8 @@ NSString *const PLAItemStoppedPlayingNotificationName = @"PLAItemStoppedPlayingN
 		
 		[self.streamer stop];
 		self.streamer = nil;
+		
+		[[NSNotificationCenter defaultCenter] postNotificationName:PLAItemStoppedPlayingNotificationName object:self];
 	}
 }
 
