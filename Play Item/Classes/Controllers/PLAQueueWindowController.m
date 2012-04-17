@@ -199,7 +199,8 @@ NSURL *(^downloadsFolderLocation)() = ^
 {
 	self.playButton.image = [NSImage imageNamed:@"stop-button"];
 	self.playButton.alternateImage = [NSImage imageNamed:@"stop-button-down"];
-	self.streamProgressTimer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(updateProgress:) userInfo:nil repeats:YES];
+	self.streamProgressTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateProgress:) userInfo:nil repeats:YES];
+	[self.streamProgressTimer fire];
 }
 
 - (void)playbackStopped:(NSNotification *)note
@@ -215,7 +216,8 @@ NSURL *(^downloadsFolderLocation)() = ^
 
 - (void)updateProgress:(NSTimer *)timer
 {
-	self.streamProgress = [[[NSApp delegate] streamer] progress]; //I pretty much hate everything about this
+	double progress = [[[NSApp delegate] streamer] progress];
+	self.streamProgress = progress; //I pretty much hate everything about this
 }
 
 #pragma mark -
