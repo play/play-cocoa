@@ -20,6 +20,8 @@
 @property (retain) NSArray *queue;
 @property (retain) PLATrack *currentTrack;
 @property (nonatomic, readonly) NSOperationQueue *downloadQueue;
+@property (nonatomic) double streamDuration;
+@property (nonatomic) double streamProgress;
 
 - (void)updateQueue;
 - (void)updateNowPlayingStarImage;
@@ -31,6 +33,8 @@
 
 @synthesize playButton = _playButton;
 @synthesize nowPlayingStarButton = _nowPlayingStarButton;
+@synthesize streamDuration = _streamDuration;
+@synthesize streamProgress = _streamProgress;
 
 @synthesize queue = _queue;
 @synthesize currentTrack = _currentTrack;
@@ -91,17 +95,15 @@
 		
 		self.queue = tracks;
 	 }];
+	
+	self.streamDuration = [[NSApp delegate] streamDuration];
+	self.streamProgress = 0.0;
 }
 
 - (void)updateNowPlayingStarImage
 {
 	self.nowPlayingStarButton.image = [NSImage imageNamed:(self.currentTrack.starred ? @"starred-pink" : @"unstarred-pink")];
 	self.nowPlayingStarButton.alternateImage = [NSImage imageNamed:(self.currentTrack.starred ? @"starred-pink-down" : @"unstarred-pink-down")];
-}
-
-- (PLAItemAppDelegate *)appDelegate
-{
-	return [NSApp delegate];
 }
 
 #pragma mark -

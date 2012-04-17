@@ -17,7 +17,9 @@
 @property (nonatomic, assign) IBOutlet NSButton *playButton; 
 @property (nonatomic, assign) IBOutlet NSButton *nowPlayingStarButton;
 
-@property (nonatomic, readonly) PLAItemAppDelegate *appDelegate; //used for bindings
+//used for bindings
+@property (nonatomic, readonly) double streamProgress;
+@property (nonatomic, readonly) double streamDuration;
 
 - (id)init;
 
