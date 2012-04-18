@@ -79,7 +79,7 @@ NSString *const PLAItemStoppedPlayingNotificationName = @"PLAItemStoppedPlayingN
         [self didLogIn];
       }else{
 		  [self.queueWindowController showWindow:self]; //Make sure the flip animation happens in the right place
-        [self flipWindowToLogin];
+		  [self flipWindowToLogin];
       }
     
     });
@@ -100,18 +100,29 @@ NSString *const PLAItemStoppedPlayingNotificationName = @"PLAItemStoppedPlayingN
 	if (self.queueWindowController.window.isVisible) {
 		[self.queueWindowController close];
 	} else {
-		NSWindow *statusItemWindow = [[NSApp currentEvent] window]; //Bit of a cheat, but we know here that the last click was in the status item (remember that all menu items are rendered as windows)
+		NSDisableScreenUpdates();
+		NSImage *image = self.statusItem.image;
+		NSImage *alternateImage = self.statusItem.alternateImage;
+		id target = self.statusItem.target;
+		SEL action = self.statusItem.action;
+		NSView *dummyView = [[[NSView alloc] initWithFrame:NSZeroRect] autorelease];
+		self.statusItem.view = dummyView;
+		NSWindow *statusItemWindow = [dummyView window]; //Bit of a cheat, but we know here that the last click was in the status item (remember that all menu items are rendered as windows)
+		
+		//Apparently setting a view has a number of nasty circumstances, repatch everything here
+		self.statusItem.view = nil;
+		self.statusItem.image = image;
+		self.statusItem.alternateImage = alternateImage;
+		self.statusItem.highlightMode = YES;
+		self.statusItem.target = target;
+		self.statusItem.action = action;
+		NSEnableScreenUpdates();
+		
 		NSRect statusItemScreenRect = [statusItemWindow frame]; 
 		CGFloat midX = NSMidX(statusItemScreenRect);
 		CGFloat windowWidth = NSWidth(self.queueWindowController.window.frame);
 		CGFloat windowHeight = NSHeight(self.queueWindowController.window.frame);
-		NSRect windowFrame = NSMakeRect(floor(midX - (windowWidth / 2.0)), floor(NSMaxY(statusItemScreenRect) - windowHeight - [[NSApp mainMenu] menuBarHeight]), windowWidth, windowHeight);
-		
-		//Check we aren't going to go off screen
-		CGFloat screenMaxX = NSMaxX([[statusItemWindow screen] frame]);
-		if (NSMaxX(windowFrame) > screenMaxX) {
-			windowFrame.origin.x = floor(screenMaxX - windowWidth);
-		}
+		NSRect windowFrame = NSMakeRect(floor(midX - (windowWidth / 2.0)), floor(NSMinY(statusItemScreenRect) - windowHeight - [[NSApp mainMenu] menuBarHeight]), windowWidth, windowHeight);
 		
 		[self.queueWindowController.window setFrameOrigin:windowFrame.origin];
 		[self.queueWindowController showWindow:sender];
