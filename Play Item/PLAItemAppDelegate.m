@@ -27,6 +27,7 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 
 @property (nonatomic, retain) SPMediaKeyTap *keyTap;
 @property (nonatomic, retain) AudioStreamer *streamer;
+@property (nonatomic, retain) NSWindowController *currentWindowController;
 
 @end
 
@@ -38,6 +39,7 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 
 @synthesize keyTap = _keyTap;
 @synthesize queueWindowController = _queueWindowController;
+@synthesize currentWindowController = _currentWindowController;
 
 - (id)init
 {	
@@ -58,6 +60,7 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 	[_logInWindowController release];
   [_keyTap release], _keyTap = nil;
 	[_queueWindowController release], _queueWindowController = nil;
+	[_currentWindowController release], _currentWindowController = nil;
   [super dealloc];
 }
 
@@ -75,8 +78,9 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification{
   
 	//pre-load the queue and login windows.
-	(void)self.queueWindowController.window;
+	self.currentWindowController = self.queueWindowController;
 	(void)self.logInWindowController.window;
+	(void)self.currentWindowController.window;
 	
   [[PLAController sharedController] logInWithBlock:^(BOOL succeeded) {
     dispatch_async(dispatch_get_main_queue(), ^(void) {
@@ -103,8 +107,8 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 
 - (IBAction)toggleWindow:(id)sender
 {
-	if (self.queueWindowController.window.isVisible) {
-		[self.queueWindowController close];
+	if (self.currentWindowController.window.isVisible) {
+		[self.currentWindowController close];
 	} else {
 		NSDisableScreenUpdates();
 		NSImage *image = self.statusItem.image;
@@ -130,8 +134,8 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 		CGFloat windowHeight = NSHeight(self.queueWindowController.window.frame);
 		NSRect windowFrame = NSMakeRect(floor(midX - (windowWidth / 2.0)), floor(NSMinY(statusItemScreenRect) - windowHeight - [[NSApp mainMenu] menuBarHeight]), windowWidth, windowHeight);
 		
-		[self.queueWindowController.window setFrameOrigin:windowFrame.origin];
-		[self.queueWindowController showWindow:sender];
+		[self.currentWindowController.window setFrameOrigin:windowFrame.origin];
+		[self.currentWindowController showWindow:sender];
 		[NSApp activateIgnoringOtherApps:YES];
 	}
 }
@@ -141,11 +145,13 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 
 - (void)flipWindowToLogin
 {
+	self.currentWindowController = self.logInWindowController;
 	[self.queueWindowController.window flipToShowWindow:self.logInWindowController.window forward:YES];
 }
 
 - (void)flipWindowToQueue
 {
+	self.currentWindowController = self.queueWindowController;
 	[self.logInWindowController.window flipToShowWindow:self.queueWindowController.window forward:YES];
 }
 
