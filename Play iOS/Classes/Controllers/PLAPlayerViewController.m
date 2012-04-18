@@ -111,7 +111,7 @@
 
 #pragma mark - Actionable methods
 
-- (void)presentLogIn{
+- (IBAction)presentLogIn{
   PLALogInViewControllerViewController *controller = [[PLALogInViewControllerViewController alloc] initWithNibName:@"PLALogInViewControllerViewController" bundle:nil];
   
   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
