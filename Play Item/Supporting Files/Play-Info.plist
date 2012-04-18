@@ -35,6 +35,6 @@
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>ATSApplicationFontsPath</key>
-	<string>Fonts/</string>
+	<string>Fonts</string>
 </dict>
 </plist>
