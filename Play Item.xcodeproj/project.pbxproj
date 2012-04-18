@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		30083B3C153D83F300E795DA /* XFloatSecondsToHMSStringTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 30083B3B153D83F300E795DA /* XFloatSecondsToHMSStringTransformer.m */; };
 		30122ACE1539AFE300A2E507 /* PLAQueueTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30122ACD1539AFE300A2E507 /* PLAQueueTableCellView.m */; };
+		30161765153F35FC0060CBDD /* OpenSans-LightItalic.ttf in Copy Fonts */ = {isa = PBXBuildFile; fileRef = 30161760153F35C20060CBDD /* OpenSans-LightItalic.ttf */; };
+		30161766153F35FC0060CBDD /* OpenSans-Semibold.ttf in Copy Fonts */ = {isa = PBXBuildFile; fileRef = 30161761153F35C20060CBDD /* OpenSans-Semibold.ttf */; };
 		3080FCF11539D1890058D7EA /* note-grey-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 3080FCEF1539D1890058D7EA /* note-grey-down.png */; };
 		3080FCF21539D1890058D7EA /* note-grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 3080FCF01539D1890058D7EA /* note-grey.png */; };
 		3080FCF51539DA590058D7EA /* record.png in Resources */ = {isa = PBXBuildFile; fileRef = 3080FCF41539DA590058D7EA /* record.png */; };
@@ -71,7 +73,7 @@
 		E058E277153376E80079B226 /* PLATrack.m in Sources */ = {isa = PBXBuildFile; fileRef = E058E273153376E80079B226 /* PLATrack.m */; };
 		E058E27A153377160079B226 /* PLAController.m in Sources */ = {isa = PBXBuildFile; fileRef = E058E279153377160079B226 /* PLAController.m */; };
 		E058E27B153377160079B226 /* PLAController.m in Sources */ = {isa = PBXBuildFile; fileRef = E058E279153377160079B226 /* PLAController.m */; };
-		E058E284153390A00079B226 /* Pusher.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E058E22C153334860079B226 /* Pusher.framework */; };
+		E058E284153390A00079B226 /* Pusher.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = E058E22C153334860079B226 /* Pusher.framework */; };
 		E05AEBEE1533D97E0094566C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05AEBED1533D97E0094566C /* Foundation.framework */; };
 		E05AEBF01533D9840094566C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05AEBEF1533D9840094566C /* Cocoa.framework */; };
 		E05AEBF21533D98B0094566C /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05AEBF11533D98B0094566C /* AppKit.framework */; };
@@ -147,14 +149,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		E058E2831533909A0079B226 /* CopyFiles */ = {
+		30161764153F35DF0060CBDD /* Copy Fonts */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Fonts;
+			dstSubfolderSpec = 7;
+			files = (
+				30161765153F35FC0060CBDD /* OpenSans-LightItalic.ttf in Copy Fonts */,
+				30161766153F35FC0060CBDD /* OpenSans-Semibold.ttf in Copy Fonts */,
+			);
+			name = "Copy Fonts";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E058E2831533909A0079B226 /* Copy Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E058E284153390A00079B226 /* Pusher.framework in CopyFiles */,
+				E058E284153390A00079B226 /* Pusher.framework in Copy Frameworks */,
 			);
+			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -164,6 +179,8 @@
 		30083B3B153D83F300E795DA /* XFloatSecondsToHMSStringTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XFloatSecondsToHMSStringTransformer.m; path = vendor/XFloatSecondsToHMSStringTransformer/XFloatSecondsToHMSStringTransformer.m; sourceTree = SOURCE_ROOT; };
 		30122ACC1539AFE300A2E507 /* PLAQueueTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAQueueTableCellView.h; sourceTree = "<group>"; };
 		30122ACD1539AFE300A2E507 /* PLAQueueTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAQueueTableCellView.m; sourceTree = "<group>"; };
+		30161760153F35C20060CBDD /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		30161761153F35C20060CBDD /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		3080FCEF1539D1890058D7EA /* note-grey-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "note-grey-down.png"; sourceTree = "<group>"; };
 		3080FCF01539D1890058D7EA /* note-grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "note-grey.png"; sourceTree = "<group>"; };
 		3080FCF41539DA590058D7EA /* record.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = record.png; sourceTree = "<group>"; };
@@ -400,6 +417,15 @@
 				30083B3B153D83F300E795DA /* XFloatSecondsToHMSStringTransformer.m */,
 			);
 			name = "Value Transformers";
+			sourceTree = "<group>";
+		};
+		3016175F153F35C20060CBDD /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				30161760153F35C20060CBDD /* OpenSans-LightItalic.ttf */,
+				30161761153F35C20060CBDD /* OpenSans-Semibold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		30836C14153C5F4900987A13 /* Star Button */ = {
@@ -723,6 +749,7 @@
 		E0C965A91533279D001D52BF /* Play Item */ = {
 			isa = PBXGroup;
 			children = (
+				3016175F153F35C20060CBDD /* Fonts */,
 				E0C965BA1533279D001D52BF /* images */,
 				E0C965AA1533279D001D52BF /* Classes */,
 				E0C965AE1533279D001D52BF /* Supporting Files */,
@@ -896,7 +923,8 @@
 				E09B1E4414E3FD4C001BD57E /* Sources */,
 				E09B1E4514E3FD4C001BD57E /* Frameworks */,
 				E09B1E4614E3FD4C001BD57E /* Resources */,
-				E058E2831533909A0079B226 /* CopyFiles */,
+				E058E2831533909A0079B226 /* Copy Frameworks */,
+				30161764153F35DF0060CBDD /* Copy Fonts */,
 			);
 			buildRules = (
 			);
