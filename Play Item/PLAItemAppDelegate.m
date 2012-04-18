@@ -73,6 +73,10 @@ NSString *const PLAItemStoppedPlayingNotificationName = @"PLAItemStoppedPlayingN
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification{
   
+	//pre-load the queue and login windows.
+	(void)self.queueWindowController.window;
+	(void)self.logInWindowController.window;
+	
   [[PLAController sharedController] logInWithBlock:^(BOOL succeeded) {
     dispatch_async(dispatch_get_main_queue(), ^(void) {
       if (succeeded) {

@@ -37,9 +37,6 @@
 }
 
 - (IBAction)logIn:(id)sender{
-  [[PLAController sharedController] setPlayUrl:playUrlTextField.stringValue];
-  [[PLAController sharedController] setAuthToken:authTokenTextField.stringValue];
-  
   [[PLAController sharedController] logInWithBlock:^(BOOL succeeded) {
     dispatch_async(dispatch_get_main_queue(), ^(void) {
       if (succeeded) {
@@ -51,6 +48,18 @@
       }
     });
   }];
+}
+
+- (IBAction)getToken:(id)sender 
+{
+	NSURL *playURL = [NSURL URLWithString:[[PLAController sharedController] playUrl]];
+	if (playURL == nil) {
+		NSBeep();
+		return;
+	}
+	
+	NSURL *tokenURL = [playURL URLByAppendingPathComponent:@"token"];
+	[[NSWorkspace sharedWorkspace] openURL:tokenURL];
 }
 
 @end

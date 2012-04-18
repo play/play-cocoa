@@ -19,5 +19,6 @@
 
 - (id)init;
 - (IBAction)logIn:(id)sender;
+- (IBAction)getToken:(id)sender;
 
 @end
