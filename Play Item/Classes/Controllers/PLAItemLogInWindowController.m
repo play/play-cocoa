@@ -18,13 +18,6 @@
 	return [super initWithWindowNibName:@"PLAItemLogInWindow"];
 }
 
-- (void)dealloc{
-  [playUrlTextField release];
-  [authTokenTextField release];
-  
-  [super dealloc];
-}
-
 - (void)awakeFromNib
 {
 	[self.window setLevel:NSFloatingWindowLevel];

@@ -14,6 +14,7 @@
 
 extern NSString *const PLAItemStartedPlayingNotificationName;
 extern NSString *const PLAItemStoppedPlayingNotificationName;
+extern NSString *const PLAItemLoggedInNotificationName;
 
 @interface PLAItemAppDelegate : NSObject <NSApplicationDelegate>
 

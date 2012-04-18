@@ -21,6 +21,7 @@
 
 NSString *const PLAItemStartedPlayingNotificationName = @"PLAItemStartedPlayingNotificationName";
 NSString *const PLAItemStoppedPlayingNotificationName = @"PLAItemStoppedPlayingNotificationName";
+NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationName";
 
 @interface PLAItemAppDelegate ()
 
@@ -94,6 +95,7 @@ NSString *const PLAItemStoppedPlayingNotificationName = @"PLAItemStoppedPlayingN
 }
 
 - (void)didLogIn{
+	[[NSNotificationCenter defaultCenter] postNotificationName:PLAItemLoggedInNotificationName object:self];
   [PLATrack currentTrackWithBlock:^(PLATrack *track, NSError *err) {
     [[PLAController sharedController] setCurrentlyPlayingTrack:track];
   }];
@@ -130,6 +132,7 @@ NSString *const PLAItemStoppedPlayingNotificationName = @"PLAItemStoppedPlayingN
 		
 		[self.queueWindowController.window setFrameOrigin:windowFrame.origin];
 		[self.queueWindowController showWindow:sender];
+		[NSApp activateIgnoringOtherApps:YES];
 	}
 }
 
