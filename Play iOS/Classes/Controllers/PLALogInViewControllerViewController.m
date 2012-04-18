@@ -30,21 +30,6 @@
   
   pageControlBeingUsed = NO;
   
-  CGFloat pageWidth = self.view.bounds.size.width;
-  
-  [pagingScrollView setContentSize:CGSizeMake(pageWidth * 2, 200.0)];
-  [pagingScrollView setPagingEnabled:YES];
-  
-  [urlView setFrame:CGRectMake(0, 0, pageWidth, 200.0)];  
-  [tokenView setFrame:CGRectMake(pageWidth, 0, pageWidth, 200.0)];
-  
-  [pagingScrollView addSubview:urlView];
-  [pagingScrollView addSubview:tokenView];
-  
-  [pageControl setNumberOfPages:2];
-  
-
-  
   if ([[PLAController sharedController] playUrl]) {
     [playUrlTextField setText:[[PLAController sharedController] playUrl]];
   }
@@ -54,9 +39,30 @@
   }
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+  [super viewWillAppear:animated];
+
+  CGFloat pageWidth = self.view.bounds.size.width;
+  
+  [pagingScrollView setContentSize:CGSizeMake(pageWidth * 2, 200.0)];
+  [pagingScrollView setPagingEnabled:YES];
+  
+  
+  [urlView setFrame:CGRectMake(0, 0, pageWidth, 200.0)];  
+  [tokenView setFrame:CGRectMake(pageWidth, 0, pageWidth, 200.0)];
+  
+  [pagingScrollView addSubview:urlView];
+  [pagingScrollView addSubview:tokenView];
+  
+  [pageControl setNumberOfPages:2];
+}
+
 - (void)viewDidAppear:(BOOL)animated{
   [super viewDidAppear:animated];
   
+  CGFloat pageWidth = self.view.bounds.size.width;
+  NSLog(@"pageWidth: %f", pageWidth);
+
   [playUrlTextField becomeFirstResponder];
 }
 
