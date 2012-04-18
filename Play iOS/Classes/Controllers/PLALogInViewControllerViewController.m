@@ -119,9 +119,17 @@
 - (void)setUpTokenView{
   [urlButton setTitle:[NSString stringWithFormat:@"%@ →", playUrlTextField.text] forState:UIControlStateNormal];
   
-  pageControl.currentPage = 2;
+  pageControl.currentPage = 1;
   [self changePage];
 
+}
+
+- (void)setFirstResponder{
+  if (pageControl.currentPage == 0) {
+    [playUrlTextField becomeFirstResponder];
+  }else if (pageControl.currentPage == 1) {
+    [playTokenTextField becomeFirstResponder];
+  }
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
@@ -130,6 +138,12 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
   pageControlBeingUsed = NO;
+
+  [self setFirstResponder];
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
+  [self setFirstResponder];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
@@ -140,6 +154,7 @@
     self.pageControl.currentPage = page;
   }
 }
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
   if (textField == playUrlTextField) {
