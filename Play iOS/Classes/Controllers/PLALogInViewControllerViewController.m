@@ -11,11 +11,16 @@
 #import "PLAPlayerViewController.h"
 
 @implementation PLALogInViewControllerViewController
-@synthesize playUrlTextField, playTokenTextField;
+@synthesize pagingScrollView, pageControl, urlView, tokenView, playUrlTextField, playTokenTextField, urlButton;
 
 - (void)dealloc {
   [playUrlTextField release];
   [playTokenTextField release];
+  [pagingScrollView release];
+  [pageControl release];
+  [tokenView release];
+  [urlView release];
+  [urlButton release];
   [super dealloc];
 }
 
@@ -23,9 +28,21 @@
 - (void)viewDidLoad{
   [super viewDidLoad];
   
-  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-    [self.view setBackgroundColor:[UIColor scrollViewTexturedBackgroundColor]];
-  }
+  pageControlBeingUsed = NO;
+  
+  CGFloat pageWidth = self.view.bounds.size.width;
+  
+  [pagingScrollView setContentSize:CGSizeMake(pageWidth * 2, 200.0)];
+  [pagingScrollView setPagingEnabled:YES];
+  
+  [urlView setFrame:CGRectMake(0, 0, pageWidth, 200.0)];  
+  [tokenView setFrame:CGRectMake(pageWidth, 0, pageWidth, 200.0)];
+  
+  [pagingScrollView addSubview:urlView];
+  [pagingScrollView addSubview:tokenView];
+  
+  [pageControl setNumberOfPages:2];
+  
 
   
   if ([[PLAController sharedController] playUrl]) {
@@ -46,6 +63,11 @@
 - (void)viewDidUnload{
   self.playUrlTextField = nil;
   self.playTokenTextField = nil;
+  self.pagingScrollView = nil;
+  self.pageControl = nil;
+  self.urlView = nil;
+  self.tokenView = nil;
+  self.urlButton = nil;
   [super viewDidUnload];
 }
 
@@ -75,9 +97,47 @@
   }];
 }
 
+- (IBAction)changePage {
+  pageControlBeingUsed = YES;
+  CGRect frame;
+  frame.origin.x = self.pagingScrollView.frame.size.width * self.pageControl.currentPage;
+  frame.origin.y = 0;
+  frame.size = self.pagingScrollView.frame.size;
+  [self.pagingScrollView scrollRectToVisible:frame animated:YES];
+}
+
+- (IBAction)goToPlayToken{
+  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/token?back_to=play-ios://", playUrlTextField.text]]];
+}
+
+- (void)setUpTokenView{
+  [urlButton setTitle:[NSString stringWithFormat:@"%@ →", playUrlTextField.text] forState:UIControlStateNormal];
+  
+  pageControl.currentPage = 2;
+  [self changePage];
+
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+  pageControlBeingUsed = NO;
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+  pageControlBeingUsed = NO;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)sender {
+  if (!pageControlBeingUsed) {
+    // Update the page when more than 50% of the previous/next page is visible
+    CGFloat pageWidth = self.pagingScrollView.frame.size.width;
+    int page = floor((self.pagingScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    self.pageControl.currentPage = page;
+  }
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
   if (textField == playUrlTextField) {
-    [playTokenTextField becomeFirstResponder];
+    [self setUpTokenView];
   }else{
     [self logIn];
   }
