@@ -78,7 +78,7 @@ NSString *const PLAItemStoppedPlayingNotificationName = @"PLAItemStoppedPlayingN
       if (succeeded) {
         [self didLogIn];
       }else{
-		  [self.queueWindowController showWindow:self]; //Make sure the flip animation happens in the right place
+		  [self toggleWindow:nil]; //Make sure the flip animation happens in the right place
 		  [self flipWindowToLogin];
       }
     
