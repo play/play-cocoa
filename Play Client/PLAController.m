@@ -165,7 +165,7 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
     
     [reachability startNotifier];
   }else{
-    [PLATrack currentTrackWithBlock:^(PLATrack *track) {
+    [PLATrack currentTrackWithBlock:^(PLATrack *track, NSError *error) {
       dispatch_async(dispatch_get_main_queue(), ^(void) {
         self.currentlyPlayingTrack = track;
         [[NSNotificationCenter defaultCenter] postNotificationName:PLANowPlayingUpdated object:nil];
@@ -196,7 +196,7 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [reachability stopNotifier];
     
-    [PLATrack currentTrackWithBlock:^(PLATrack *track) {
+    [PLATrack currentTrackWithBlock:^(PLATrack *track, NSError *error) {
       self.currentlyPlayingTrack = track;
       [[NSNotificationCenter defaultCenter] postNotificationName:PLANowPlayingUpdated object:nil];
       [self setUpPusher];
