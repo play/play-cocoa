@@ -32,6 +32,7 @@
 		30836C3F153C864900987A13 /* NSWindow_Flipr.m in Sources */ = {isa = PBXBuildFile; fileRef = 30836C3E153C864900987A13 /* NSWindow_Flipr.m */; };
 		309006E9153E08E000FB297F /* cog-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 309006E7153E08E000FB297F /* cog-down.png */; };
 		309006EA153E08E000FB297F /* cog.png in Resources */ = {isa = PBXBuildFile; fileRef = 309006E8153E08E000FB297F /* cog.png */; };
+		309A9E8D153F246B00D664F3 /* PLALoginHeaderBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 309A9E8C153F246B00D664F3 /* PLALoginHeaderBackgroundView.m */; };
 		30A3B3BA15359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A3B3B415359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m */; };
 		30A3B3BB15359D2E009DA3E0 /* SPMediaKeyTap.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A3B3B615359D2E009DA3E0 /* SPMediaKeyTap.m */; };
 		30A3B3C31535C5D7009DA3E0 /* PLAQueueWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A3B3C11535C5D7009DA3E0 /* PLAQueueWindowController.m */; };
@@ -188,6 +189,8 @@
 		30836C3E153C864900987A13 /* NSWindow_Flipr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSWindow_Flipr.m; sourceTree = "<group>"; };
 		309006E7153E08E000FB297F /* cog-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cog-down.png"; sourceTree = "<group>"; };
 		309006E8153E08E000FB297F /* cog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cog.png; sourceTree = "<group>"; };
+		309A9E8B153F246B00D664F3 /* PLALoginHeaderBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLALoginHeaderBackgroundView.h; sourceTree = "<group>"; };
+		309A9E8C153F246B00D664F3 /* PLALoginHeaderBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLALoginHeaderBackgroundView.m; sourceTree = "<group>"; };
 		30A3B3B315359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SPInvocationGrabbing.h"; sourceTree = "<group>"; };
 		30A3B3B415359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SPInvocationGrabbing.m"; sourceTree = "<group>"; };
 		30A3B3B515359D2E009DA3E0 /* SPMediaKeyTap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMediaKeyTap.h; sourceTree = "<group>"; };
@@ -481,6 +484,8 @@
 				30122ACD1539AFE300A2E507 /* PLAQueueTableCellView.m */,
 				3080FCF61539DAD90058D7EA /* PLARecordImageView.h */,
 				3080FCF71539DAD90058D7EA /* PLARecordImageView.m */,
+				309A9E8B153F246B00D664F3 /* PLALoginHeaderBackgroundView.h */,
+				309A9E8C153F246B00D664F3 /* PLALoginHeaderBackgroundView.m */,
 			);
 			name = "Custom UI";
 			sourceTree = "<group>";
@@ -1071,6 +1076,7 @@
 				3080FCF81539DAD90058D7EA /* PLARecordImageView.m in Sources */,
 				30836C3F153C864900987A13 /* NSWindow_Flipr.m in Sources */,
 				30083B3C153D83F300E795DA /* XFloatSecondsToHMSStringTransformer.m in Sources */,
+				309A9E8D153F246B00D664F3 /* PLALoginHeaderBackgroundView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
