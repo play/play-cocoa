@@ -58,7 +58,6 @@
 		self.playUrlTextField.stringValue = urlString; //bindings don't have a chance to update here
 	}
 		
-	
 	NSURL *playURL = [NSURL URLWithString:[[PLAController sharedController] playUrl]];
 	if (playURL == nil) {
 		NSBeep();
