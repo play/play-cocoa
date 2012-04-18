@@ -52,6 +52,13 @@
 
 - (IBAction)getToken:(id)sender 
 {
+	if ([self.playUrlTextField.stringValue rangeOfString:@"http://"].location != 0 && [self.playUrlTextField.stringValue rangeOfString:@"https://"].location != 0) {
+		NSString *urlString = [NSString stringWithFormat:@"http://%@", self.playUrlTextField.stringValue];
+		[[PLAController sharedController] setPlayUrl:urlString];
+		self.playUrlTextField.stringValue = urlString; //bindings don't have a chance to update here
+	}
+		
+	
 	NSURL *playURL = [NSURL URLWithString:[[PLAController sharedController] playUrl]];
 	if (playURL == nil) {
 		NSBeep();
