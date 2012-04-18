@@ -65,7 +65,10 @@ NSString *const PLAItemStoppedPlayingNotificationName = @"PLAItemStoppedPlayingN
   [self.statusItem setAction:@selector(toggleWindow:)];
   [self.statusItem setImage:[NSImage imageNamed:@"status-icon-off.png"]];
   [self.statusItem setAlternateImage:[NSImage imageNamed:@"status-icon-inverted.png"]];
-  [self.statusItem setHighlightMode:YES];  
+  [self.statusItem setHighlightMode:YES];
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackStarted:) name:PLAItemStartedPlayingNotificationName object:self];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackStopped:) name:PLAItemStoppedPlayingNotificationName object:self];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification{
@@ -196,6 +199,19 @@ NSString *const PLAItemStoppedPlayingNotificationName = @"PLAItemStoppedPlayingN
         return;
     
     [self togglePlayState];
+}
+
+#pragma mark -
+#pragma mark Notification Callbacks
+
+- (void)playbackStarted:(NSNotification *)note
+{
+	self.statusItem.image = [NSImage imageNamed:@"status-icon-on.png"];
+}
+
+- (void)playbackStopped:(NSNotification *)note
+{
+	self.statusItem.image = [NSImage imageNamed:@"status-icon-off.png"];
 }
 
 @end
