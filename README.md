@@ -41,16 +41,16 @@ This is a streaming client for Play that runs on your iPhone/iPad. It supports b
 
 You have a couple of choices for installing Play Item.
 
-With Xcode installed, download or clone down this repository, open the project, set your target for `Play Item` and build it.
+With Xcode installed, download or clone down this repository, open the project, set your target to `Play Item` and build it.
 
-If you have no idea what I just said, just go the [Downloads](https://github.com/play/play-cocoa/downloads) section of this repository and download the most recent version of Play Item.
+If you have no idea what I just said, just go to the [Downloads](https://github.com/play/play-cocoa/downloads) section of this repository and download the most recent version of Play Item.
 
 
 ### Play iOS
 
 Installing Play iOS is a little tricker. You must have an Apple developer account to get iOS applications on to your device.
 
-If you have one, just download or clone down this repository, open the project, set your target for `Play iOS` and run it with your device plugged in and selected. Play iOS will install directly to your device and be ready to be used!
+If you have one, just download or clone down this repository, open the project, set your target to `Play iOS` and run it with your device plugged in and selected. Play iOS will install directly to your device and be ready to be used!
 
 
 ## Contributing
