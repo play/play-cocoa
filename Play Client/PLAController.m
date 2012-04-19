@@ -87,10 +87,12 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
     [channel removeBinding:updateNowPlayingPusherChannelBinding];
     self.updateNowPlayingPusherChannelBinding = nil;
     
-    [pusherClient setDelegate:nil];
-    [pusherClient unsubscribeFromChannel:channel];
-    [pusherClient setReconnectAutomatically:NO];
-    [pusherClient disconnect];
+    [self.pusherClient setDelegate:nil];
+    [self.pusherClient unsubscribeFromChannel:channel];
+    [self.pusherClient setReconnectAutomatically:NO];
+    [self.pusherClient disconnect];
+	  [self.pusherClient retain]; //intentional leak. For some when these object die they occasionally wreak havoc with a hard-as-shit crash.
+	  self.pusherClient = nil;
   }
 
   self.pusherClient = [PTPusher pusherWithKey:pusherKey delegate:self encrypted:NO];
