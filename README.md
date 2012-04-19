@@ -33,7 +33,7 @@ This is a streaming client for Play that runs on your iPhone/iPad. It supports b
 * Displays currently playing track
 * Background audio
 * Lock screen album art & play controls
-* AirPlay (along with Bluetooth) streaming. Supports sending metadata and album art
+* AirPlay (along with Bluetooth) streaming. Supports sending metadata and album art.
 
 ## Obtaining/Installing
 
