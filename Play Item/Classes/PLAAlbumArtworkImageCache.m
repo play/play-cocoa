@@ -20,6 +20,7 @@ CGFloat const PLAAlbumArtworkImageCacheImageSize = 47.0;
 
 @property (nonatomic, readonly) NSOperationQueue *artworkDownloadQueue;
 
+- (NSURL *)localImageLocationForURL:(NSURL *)url;
 - (NSImage *)cachedImageForURL:(NSURL *)url;
 
 @end
@@ -85,14 +86,19 @@ CGFloat const PLAAlbumArtworkImageCacheImageSize = 47.0;
 	AFHTTPRequestOperation *requestOperation = [[[AFHTTPRequestOperation alloc] initWithRequest:artworkRequest] autorelease];
 	[requestOperation setCompletionBlockWithSuccess: ^ (AFHTTPRequestOperation *operation, id responseObject) 
 	{
-		NSImage *image = [[NSImage alloc] initWithData:responseObject];
-		if (image == nil) {
+		NSBitmapImageRep *imageRep = [NSBitmapImageRep imageRepWithData:responseObject];
+		if (imageRep == nil) {
 			callCompletionBlockWithImageError(nil, [NSError errorWithDomain:@"org.play.play-item" code:-1 userInfo:[NSDictionary dictionaryWithObject:NSLocalizedString(@"Could not create image from downloaded data.", nil) forKey:NSLocalizedDescriptionKey]]);
 			return;
 		}
 		
-		image.size = NSMakeSize(PLAAlbumArtworkImageCacheImageSize, PLAAlbumArtworkImageCacheImageSize);
-		callCompletionBlockWithImageError(image, nil);
+		imageRep.size = NSMakeSize(PLAAlbumArtworkImageCacheImageSize, PLAAlbumArtworkImageCacheImageSize);
+		NSData *imageData = [imageRep representationUsingType:NSPNGFileType properties:nil];
+		[imageData writeToURL:[self localImageLocationForURL:imageURL] atomically:YES];
+		
+		NSImage *returnImage = [[[NSImage alloc] initWithSize:imageRep.size] autorelease];
+		[returnImage addRepresentation:imageRep];
+		callCompletionBlockWithImageError(returnImage, nil);
 		
 	} failure: ^ (AFHTTPRequestOperation *operation, NSError *error) 
 	{
@@ -100,6 +106,19 @@ CGFloat const PLAAlbumArtworkImageCacheImageSize = 47.0;
 	}];
 	
 	[self.artworkDownloadQueue addOperation:requestOperation];
+}
+
+#pragma mark -
+#pragma mark Helpers
+
+- (NSURL *)localImageLocationForURL:(NSURL *)url
+{
+	
+}
+
+- (NSImage *)cachedImageForURL:(NSURL *)url
+{
+	
 }
 
 @end
