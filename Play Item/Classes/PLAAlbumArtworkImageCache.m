@@ -113,12 +113,18 @@ CGFloat const PLAAlbumArtworkImageCacheImageSize = 47.0;
 
 - (NSURL *)localImageLocationForURL:(NSURL *)url
 {
+	NSString *fileName = [url lastPathComponent]; //The stub is what we are going to use… we should probably take a PLATrack and key it against the artist and album name… but this will do for now.
 	
+	NSString *cachesFolderPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+	cachesFolderPath = [[cachesFolderPath stringByAppendingPathComponent:@"org.play.play-item"] stringByAppendingPathComponent:@"Artwork"];
+	NSURL *returnLocation = [[NSURL fileURLWithPath:cachesFolderPath] URLByAppendingPathComponent:fileName];
+	
+	return returnLocation;
 }
 
 - (NSImage *)cachedImageForURL:(NSURL *)url
 {
-	
+	return [[[NSImage alloc] initWithContentsOfURL:[self localImageLocationForURL:url]] autorelease]; //This does the smart thing and returns nil if no image exists at that path
 }
 
 @end
