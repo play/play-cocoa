@@ -184,6 +184,11 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
       [self subscribeToChannels];
     });
   }];
+	
+	[PLATrack currentQueueWithBlock:^(NSArray *tracks, NSError *err) {
+		if (tracks != nil)
+			self.queuedTracks = tracks;
+	}];
 #endif
 }
 

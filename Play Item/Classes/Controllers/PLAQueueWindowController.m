@@ -77,26 +77,10 @@
 
 - (void)updateQueue
 {
-	[PLATrack currentTrackWithBlock: ^ (PLATrack *track, NSError *err) 
-	{
-		if (track == nil) {
-			NSLog(@"Could not get current track: %@", err);
-			return;
-		}
-		
-		self.currentTrack = track;
-		[self updateNowPlayingStarImage];
-	}];
+	self.currentTrack = [[PLAController sharedController] currentlyPlayingTrack];
+	self.queue = [[PLAController sharedController] queuedTracks];
 	
-	[PLATrack currentQueueWithBlock: ^ (NSArray *tracks, NSError *err) 
-	{
-		if (tracks == nil) {
-			NSLog(@"Could not get current queue: %@", err);
-			return;
-		}
-		
-		self.queue = tracks;
-	 }];
+	[self updateNowPlayingStarImage];
 }
 
 - (void)updateNowPlayingStarImage

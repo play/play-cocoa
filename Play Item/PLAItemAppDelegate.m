@@ -102,7 +102,13 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 	[[NSNotificationCenter defaultCenter] postNotificationName:PLAItemLoggedInNotificationName object:self];
   [PLATrack currentTrackWithBlock:^(PLATrack *track, NSError *err) {
     [[PLAController sharedController] setCurrentlyPlayingTrack:track];
+	  [[NSNotificationCenter defaultCenter] postNotificationName:PLANowPlayingUpdated object:nil];
   }];
+	
+	[PLATrack currentQueueWithBlock:^(NSArray *tracks, NSError *err) {
+		[PLAController sharedController].queuedTracks = tracks;
+		[[NSNotificationCenter defaultCenter] postNotificationName:PLANowPlayingUpdated object:nil];
+	}];		
 }
 
 - (IBAction)toggleWindow:(id)sender
