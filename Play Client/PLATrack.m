@@ -67,7 +67,7 @@
   queued = [[attributes valueForKeyPath:@"queued"] boolValue];
   starred = [[attributes valueForKeyPath:@"starred"] boolValue];
 	
-	[[PLAAlbumArtworkImageCache sharedCache] imageForURL:self.albumArtURL withCompletionBlock: ^ (NSImage *image, NSError *error) 
+	[[PLAAlbumArtworkImageCache sharedCache] imageForTrack:self withCompletionBlock: ^ (NSImage *image, NSError *error) 
 	{
 		self.albumArtwork = image;
 	}];

@@ -8,6 +8,8 @@
 
 #import "PLAAlbumArtworkImageCache.h"
 
+#import "PLATrack.h"
+
 #import "AFNetworking.h"
 
 //***************************************************************************
@@ -20,8 +22,8 @@ CGFloat const PLAAlbumArtworkImageCacheImageSize = 47.0;
 
 @property (nonatomic, readonly) NSOperationQueue *artworkDownloadQueue;
 
-- (NSURL *)localImageLocationForURL:(NSURL *)url;
-- (NSImage *)cachedImageForURL:(NSURL *)url;
+- (NSURL *)localImageLocationForTrack:(PLATrack *)track;
+- (NSImage *)cachedImageForTrack:(PLATrack *)track;
 
 @end
 
@@ -62,9 +64,9 @@ CGFloat const PLAAlbumArtworkImageCacheImageSize = 47.0;
 #pragma mark -
 #pragma mark API
 
-- (void)imageForURL:(NSURL *)imageURL withCompletionBlock:(void(^)(NSImage *image, NSError *error))completionBlock
+- (void)imageForTrack:(PLATrack *)track withCompletionBlock:(void(^)(NSImage *image, NSError *error))completionBlock
 {
-	NSImage *localImage = [self cachedImageForURL:imageURL];
+	NSImage *localImage = [self cachedImageForTrack:track];
 	if (localImage != nil) {
 		if (completionBlock != nil)
 			completionBlock(localImage, nil);
@@ -82,6 +84,7 @@ CGFloat const PLAAlbumArtworkImageCacheImageSize = 47.0;
 		});
 	};
 	
+	NSURL *imageURL = track.albumArtURL;
 	NSURLRequest *artworkRequest = [NSURLRequest requestWithURL:imageURL];
 	AFHTTPRequestOperation *requestOperation = [[[AFHTTPRequestOperation alloc] initWithRequest:artworkRequest] autorelease];
 	[requestOperation setCompletionBlockWithSuccess: ^ (AFHTTPRequestOperation *operation, id responseObject) 
@@ -95,7 +98,7 @@ CGFloat const PLAAlbumArtworkImageCacheImageSize = 47.0;
 		imageRep.size = NSMakeSize(PLAAlbumArtworkImageCacheImageSize, PLAAlbumArtworkImageCacheImageSize);
 		NSData *imageData = [imageRep representationUsingType:NSPNGFileType properties:nil];
 		NSError *err = nil;
-		NSURL *localURL = [self localImageLocationForURL:imageURL];
+		NSURL *localURL = [self localImageLocationForTrack:track];
 		if (![imageData writeToURL:localURL options:NSDataWritingAtomic error:&err])
 			NSLog(@"Could not write to local caches dir at URL %@ for this reason: %@", localURL, [err localizedDescription]);
 		
@@ -114,9 +117,17 @@ CGFloat const PLAAlbumArtworkImageCacheImageSize = 47.0;
 #pragma mark -
 #pragma mark Helpers
 
-- (NSURL *)localImageLocationForURL:(NSURL *)url
+- (NSURL *)localImageLocationForTrack:(PLATrack *)track
 {
-	NSString *fileName = [url lastPathComponent]; //The stub is what we are going to use… we should probably take a PLATrack and key it against the artist and album name… but this will do for now.
+	NSString *(^normalizeString)(NSString *) = ^ (NSString *string) 
+	{
+		return [string stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+	};
+	
+	NSString *artist = normalizeString(track.artist);
+	NSString *album = normalizeString(track.album);
+	
+	NSString *fileName = [NSString stringWithFormat:@"%@-%@.png", artist, album];
 	
 	NSString *cachesFolderPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
 	cachesFolderPath = [[cachesFolderPath stringByAppendingPathComponent:@"org.play.play-item"] stringByAppendingPathComponent:@"Artwork"];
@@ -132,9 +143,9 @@ CGFloat const PLAAlbumArtworkImageCacheImageSize = 47.0;
 	return returnLocation;
 }
 
-- (NSImage *)cachedImageForURL:(NSURL *)url
+- (NSImage *)cachedImageForTrack:(PLATrack *)track
 {
-	return [[[NSImage alloc] initWithContentsOfURL:[self localImageLocationForURL:url]] autorelease]; //This does the smart thing and returns nil if no image exists at that path
+	return [[[NSImage alloc] initWithContentsOfURL:[self localImageLocationForTrack:track]] autorelease]; //This does the smart thing and returns nil if no image exists at that path
 }
 
 @end

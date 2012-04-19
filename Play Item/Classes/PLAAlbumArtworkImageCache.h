@@ -8,10 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class PLATrack;
+
 @interface PLAAlbumArtworkImageCache : NSObject
 
 + (id)sharedCache;
 
-- (void)imageForURL:(NSURL *)imageURL withCompletionBlock:(void(^)(NSImage *image, NSError *error))completionBlock; //image is nil in the event of error
+- (void)imageForTrack:(PLATrack *)track withCompletionBlock:(void(^)(NSImage *image, NSError *error))completionBlock; //image is nil in the event of error
 
 @end
