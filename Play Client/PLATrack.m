@@ -8,22 +8,29 @@
 
 #import "PLATrack.h"
 
+#if !TARGET_OS_IPHONE
 #import "PLAAlbumArtworkImageCache.h"
+#endif
+
 #import "PLAController.h"
 #import "PLAPlayClient.h"
 
 #import "AFNetworking.h"
 
+#if !TARGET_OS_IPHONE
 @interface PLATrack ()
 
 @property (nonatomic, retain) NSImage *albumArtwork;
 
 @end
+#endif
 
 @implementation PLATrack
 @synthesize trackId, name, album, artist, queued, starred;
 
+#if !TARGET_OS_IPHONE
 @synthesize albumArtwork = _albumArtwork;
+#endif
 
 + (void)currentTrackWithBlock:(void(^)(PLATrack *track, NSError *error))block{
 	[[PLAPlayClient sharedClient] getPath:@"/now_playing" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -67,10 +74,12 @@
   queued = [[attributes valueForKeyPath:@"queued"] boolValue];
   starred = [[attributes valueForKeyPath:@"starred"] boolValue];
 	
+#if !TARGET_OS_IPHONE
 	[[PLAAlbumArtworkImageCache sharedCache] imageForTrack:self withCompletionBlock: ^ (NSImage *image, NSError *error) 
 	{
 		self.albumArtwork = image;
 	}];
+#endif
   
   return self;
 }
@@ -84,8 +93,10 @@
 	copy.artist = self.artist;
 	copy.queued = self.queued;
 	copy.starred = self.starred;
-	copy.albumArtwork = self.albumArtwork;
 	
+#if !TARGET_OS_IPHONE
+	copy.albumArtwork = self.albumArtwork;
+#endif
 	return copy;
 }
 
@@ -95,7 +106,9 @@
 	[album release];
 	[artist release];
 	
+#if !TARGET_OS_IPHONE
 	[_albumArtwork release], _albumArtwork = nil;
+#endif
 	
 	[super dealloc];
 }
