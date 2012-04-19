@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30063DD615401FA6005FA7B4 /* PLAAlbumArtworkImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 30063DD515401FA6005FA7B4 /* PLAAlbumArtworkImageCache.m */; };
 		30083B3C153D83F300E795DA /* XFloatSecondsToHMSStringTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 30083B3B153D83F300E795DA /* XFloatSecondsToHMSStringTransformer.m */; };
 		30122ACE1539AFE300A2E507 /* PLAQueueTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30122ACD1539AFE300A2E507 /* PLAQueueTableCellView.m */; };
 		3080FCF11539D1890058D7EA /* note-grey-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 3080FCEF1539D1890058D7EA /* note-grey-down.png */; };
@@ -185,6 +186,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		30063DD415401FA6005FA7B4 /* PLAAlbumArtworkImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; path = PLAAlbumArtworkImageCache.h; sourceTree = "<group>"; };
+		30063DD515401FA6005FA7B4 /* PLAAlbumArtworkImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAAlbumArtworkImageCache.m; sourceTree = "<group>"; };
 		30083B3A153D83F300E795DA /* XFloatSecondsToHMSStringTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XFloatSecondsToHMSStringTransformer.h; path = vendor/XFloatSecondsToHMSStringTransformer/XFloatSecondsToHMSStringTransformer.h; sourceTree = SOURCE_ROOT; };
 		30083B3B153D83F300E795DA /* XFloatSecondsToHMSStringTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XFloatSecondsToHMSStringTransformer.m; path = vendor/XFloatSecondsToHMSStringTransformer/XFloatSecondsToHMSStringTransformer.m; sourceTree = SOURCE_ROOT; };
 		30122ACC1539AFE300A2E507 /* PLAQueueTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAQueueTableCellView.h; sourceTree = "<group>"; };
@@ -783,6 +786,8 @@
 			children = (
 				E0C965AC1533279D001D52BF /* PLAItemAppDelegate.h */,
 				E0C965AD1533279D001D52BF /* PLAItemAppDelegate.m */,
+				30063DD415401FA6005FA7B4 /* PLAAlbumArtworkImageCache.h */,
+				30063DD515401FA6005FA7B4 /* PLAAlbumArtworkImageCache.m */,
 				30083B38153D83B500E795DA /* Value Transformers */,
 				30A3B3BC1535C4C6009DA3E0 /* Custom UI */,
 				E0C965AB1533279D001D52BF /* Controllers */,
@@ -1135,6 +1140,7 @@
 				30836C3F153C864900987A13 /* NSWindow_Flipr.m in Sources */,
 				30083B3C153D83F300E795DA /* XFloatSecondsToHMSStringTransformer.m in Sources */,
 				309A9E8D153F246B00D664F3 /* PLALoginHeaderBackgroundView.m in Sources */,
+				30063DD615401FA6005FA7B4 /* PLAAlbumArtworkImageCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
