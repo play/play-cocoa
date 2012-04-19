@@ -343,7 +343,7 @@
 		E0783F0D1533187D003EA138 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		E0783F0E1533187D003EA138 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
 		E0783F0F1533187D003EA138 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
-		E09B1E4814E3FD4C001BD57E /* Play.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Play.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E09B1E4814E3FD4C001BD57E /* Play Item.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Play Item.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0C965AC1533279D001D52BF /* PLAItemAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLAItemAppDelegate.h; path = ../PLAItemAppDelegate.h; sourceTree = "<group>"; };
 		E0C965AD1533279D001D52BF /* PLAItemAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLAItemAppDelegate.m; path = ../PLAItemAppDelegate.m; sourceTree = "<group>"; };
 		E0C965AF1533279D001D52BF /* IgnoredAudioProcesses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = IgnoredAudioProcesses.plist; sourceTree = "<group>"; };
@@ -745,7 +745,7 @@
 		E09B1E4914E3FD4C001BD57E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E09B1E4814E3FD4C001BD57E /* Play.app */,
+				E09B1E4814E3FD4C001BD57E /* Play Item.app */,
 				E0783E9A1533168C003EA138 /* Play iOS.app */,
 			);
 			name = Products;
@@ -954,7 +954,7 @@
 			);
 			name = "Play Item";
 			productName = Play;
-			productReference = E09B1E4814E3FD4C001BD57E /* Play.app */;
+			productReference = E09B1E4814E3FD4C001BD57E /* Play Item.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1293,7 +1293,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Play Item/Supporting Files/Play-Prefix.pch";
-				INFOPLIST_FILE = "Play Item/Supporting Files/Play-Info.plist";
+				INFOPLIST_FILE = "Play Item/Supporting Files/Play-Item-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor/libPusher/OS X\"",
@@ -1316,7 +1316,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Play Item/Supporting Files/Play-Prefix.pch";
-				INFOPLIST_FILE = "Play Item/Supporting Files/Play-Info.plist";
+				INFOPLIST_FILE = "Play Item/Supporting Files/Play-Item-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor/libPusher/OS X\"",
