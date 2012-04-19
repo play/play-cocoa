@@ -127,7 +127,7 @@
 		E0783F7D15331ADF003EA138 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EF51533187D003EA138 /* UIImageView+AFNetworking.m */; };
 		E0C965BE1533279D001D52BF /* PLAItemAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E0C965AD1533279D001D52BF /* PLAItemAppDelegate.m */; };
 		E0C965BF1533279D001D52BF /* IgnoredAudioProcesses.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0C965AF1533279D001D52BF /* IgnoredAudioProcesses.plist */; };
-		E0C965C01533279D001D52BF /* Play-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0C965B01533279D001D52BF /* Play-Info.plist */; };
+		E0C965C01533279D001D52BF /* Play-Item-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0C965B01533279D001D52BF /* Play-Item-Info.plist */; };
 		E0C965C11533279D001D52BF /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = E0C965B21533279D001D52BF /* Credits.rtf */; };
 		E0C965C21533279D001D52BF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E0C965B41533279D001D52BF /* InfoPlist.strings */; };
 		E0C965C31533279D001D52BF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0C965B61533279D001D52BF /* MainMenu.xib */; };
@@ -347,7 +347,7 @@
 		E0C965AC1533279D001D52BF /* PLAItemAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLAItemAppDelegate.h; path = ../PLAItemAppDelegate.h; sourceTree = "<group>"; };
 		E0C965AD1533279D001D52BF /* PLAItemAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLAItemAppDelegate.m; path = ../PLAItemAppDelegate.m; sourceTree = "<group>"; };
 		E0C965AF1533279D001D52BF /* IgnoredAudioProcesses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = IgnoredAudioProcesses.plist; sourceTree = "<group>"; };
-		E0C965B01533279D001D52BF /* Play-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Play-Info.plist"; sourceTree = "<group>"; };
+		E0C965B01533279D001D52BF /* Play-Item-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Play-Item-Info.plist"; sourceTree = "<group>"; };
 		E0C965B11533279D001D52BF /* Play-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Play-Prefix.pch"; sourceTree = "<group>"; };
 		E0C965B31533279D001D52BF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		E0C965B51533279D001D52BF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -807,7 +807,7 @@
 			isa = PBXGroup;
 			children = (
 				E0C965AF1533279D001D52BF /* IgnoredAudioProcesses.plist */,
-				E0C965B01533279D001D52BF /* Play-Info.plist */,
+				E0C965B01533279D001D52BF /* Play-Item-Info.plist */,
 				E0C965B11533279D001D52BF /* Play-Prefix.pch */,
 				E0C965B21533279D001D52BF /* Credits.rtf */,
 				E0C965B41533279D001D52BF /* InfoPlist.strings */,
@@ -938,9 +938,9 @@
 			productReference = E0783E9A1533168C003EA138 /* Play iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E09B1E4714E3FD4C001BD57E /* Play */ = {
+		E09B1E4714E3FD4C001BD57E /* Play Item */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E09B1E6614E3FD4C001BD57E /* Build configuration list for PBXNativeTarget "Play" */;
+			buildConfigurationList = E09B1E6614E3FD4C001BD57E /* Build configuration list for PBXNativeTarget "Play Item" */;
 			buildPhases = (
 				E09B1E4414E3FD4C001BD57E /* Sources */,
 				E09B1E4514E3FD4C001BD57E /* Frameworks */,
@@ -952,7 +952,7 @@
 			);
 			dependencies = (
 			);
-			name = Play;
+			name = "Play Item";
 			productName = Play;
 			productReference = E09B1E4814E3FD4C001BD57E /* Play.app */;
 			productType = "com.apple.product-type.application";
@@ -979,7 +979,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E09B1E4714E3FD4C001BD57E /* Play */,
+				E09B1E4714E3FD4C001BD57E /* Play Item */,
 				E0783E991533168C003EA138 /* Play iOS */,
 			);
 		};
@@ -1022,7 +1022,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0C965BF1533279D001D52BF /* IgnoredAudioProcesses.plist in Resources */,
-				E0C965C01533279D001D52BF /* Play-Info.plist in Resources */,
+				E0C965C01533279D001D52BF /* Play-Item-Info.plist in Resources */,
 				E0C965C11533279D001D52BF /* Credits.rtf in Resources */,
 				E0C965C21533279D001D52BF /* InfoPlist.strings in Resources */,
 				E0C965C31533279D001D52BF /* MainMenu.xib in Resources */,
@@ -1350,7 +1350,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E09B1E6614E3FD4C001BD57E /* Build configuration list for PBXNativeTarget "Play" */ = {
+		E09B1E6614E3FD4C001BD57E /* Build configuration list for PBXNativeTarget "Play Item" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E09B1E6714E3FD4C001BD57E /* Debug */,
