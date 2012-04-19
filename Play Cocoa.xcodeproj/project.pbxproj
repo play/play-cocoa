@@ -944,7 +944,7 @@
 				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "GitHub, Inc.";
 			};
-			buildConfigurationList = E09B1E4214E3FD4C001BD57E /* Build configuration list for PBXProject "Play Item" */;
+			buildConfigurationList = E09B1E4214E3FD4C001BD57E /* Build configuration list for PBXProject "Play Cocoa" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1311,7 +1311,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E09B1E4214E3FD4C001BD57E /* Build configuration list for PBXProject "Play Item" */ = {
+		E09B1E4214E3FD4C001BD57E /* Build configuration list for PBXProject "Play Cocoa" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E09B1E6414E3FD4C001BD57E /* Debug */,
