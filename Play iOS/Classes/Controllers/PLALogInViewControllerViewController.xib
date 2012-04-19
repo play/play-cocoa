@@ -265,7 +265,7 @@
 						<reference key="IBUIFontDescription" ref="133415968"/>
 						<reference key="IBUIFont" ref="238021930"/>
 					</object>
-					<object class="IBUILabel" id="14758401">
+					<object class="IBUILabel" id="626938289">
 						<reference key="NSNextResponder" ref="850627116"/>
 						<int key="NSvFlags">290</int>
 						<string key="NSFrame">{{20, 6}, {280, 45}}</string>
@@ -296,7 +296,7 @@
 				<string key="NSFrameSize">{320, 200}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="14758401"/>
+				<reference key="NSNextKeyView" ref="626938289"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<reference key="IBUIBackgroundColor" ref="906928392"/>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -388,7 +388,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">welcomeLabel</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="14758401"/>
+						<reference key="destination" ref="626938289"/>
 					</object>
 					<int key="connectionID">34</int>
 				</object>
@@ -478,7 +478,7 @@
 						<reference key="object" ref="850627116"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="1035969997"/>
-							<reference ref="14758401"/>
+							<reference ref="626938289"/>
 							<reference ref="1028673755"/>
 						</array>
 						<reference key="parent" ref="0"/>
@@ -522,7 +522,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">33</int>
-						<reference key="object" ref="14758401"/>
+						<reference key="object" ref="626938289"/>
 						<reference key="parent" ref="850627116"/>
 					</object>
 				</array>
