@@ -76,5 +76,11 @@
 			</array>
 		</dict>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>OpenSans-LightItalic.ttf</string>
+		<string>OpenSans-Semibold.ttf</string>
+		<string>OpenSans-Italic.ttf</string>
+	</array>
 </dict>
 </plist>

@@ -89,6 +89,9 @@
 		E0761BB9153F928600CB3E2F /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E0761BB5153F928600CB3E2F /* OpenSans-Semibold.ttf */; };
 		E0761BBA153F929200CB3E2F /* OpenSans-LightItalic.ttf in Copy Fonts */ = {isa = PBXBuildFile; fileRef = E0761BB4153F928600CB3E2F /* OpenSans-LightItalic.ttf */; };
 		E0761BBB153F929300CB3E2F /* OpenSans-Semibold.ttf in Copy Fonts */ = {isa = PBXBuildFile; fileRef = E0761BB5153F928600CB3E2F /* OpenSans-Semibold.ttf */; };
+		E0761BBD153F977500CB3E2F /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E0761BBC153F977500CB3E2F /* OpenSans-Italic.ttf */; };
+		E0761BBE153F977500CB3E2F /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E0761BBC153F977500CB3E2F /* OpenSans-Italic.ttf */; };
+		E0761BBF153F98BF00CB3E2F /* OpenSans-Italic.ttf in Copy Fonts */ = {isa = PBXBuildFile; fileRef = E0761BBC153F977500CB3E2F /* OpenSans-Italic.ttf */; };
 		E0783F301533187E003EA138 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EE21533187D003EA138 /* AFHTTPClient.m */; };
 		E0783F311533187E003EA138 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EE41533187D003EA138 /* AFHTTPRequestOperation.m */; };
 		E0783F321533187E003EA138 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EE61533187D003EA138 /* AFImageRequestOperation.m */; };
@@ -160,6 +163,7 @@
 			dstSubfolderSpec = 7;
 			files = (
 				E0761BBA153F929200CB3E2F /* OpenSans-LightItalic.ttf in Copy Fonts */,
+				E0761BBF153F98BF00CB3E2F /* OpenSans-Italic.ttf in Copy Fonts */,
 				E0761BBB153F929300CB3E2F /* OpenSans-Semibold.ttf in Copy Fonts */,
 			);
 			name = "Copy Fonts";
@@ -289,6 +293,7 @@
 		E05AEC0D1534B6BE0094566C /* PLALogInViewControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PLALogInViewControllerViewController.xib; sourceTree = "<group>"; };
 		E0761BB4153F928600CB3E2F /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
 		E0761BB5153F928600CB3E2F /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		E0761BBC153F977500CB3E2F /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
 		E0783E9A1533168C003EA138 /* Play iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Play iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0783EE11533187D003EA138 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		E0783EE21533187D003EA138 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
@@ -625,6 +630,7 @@
 		E0761BB3153F928600CB3E2F /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				E0761BBC153F977500CB3E2F /* OpenSans-Italic.ttf */,
 				E0761BB4153F928600CB3E2F /* OpenSans-LightItalic.ttf */,
 				E0761BB5153F928600CB3E2F /* OpenSans-Semibold.ttf */,
 			);
@@ -994,6 +1000,7 @@
 				E05AEC0F1534B6BE0094566C /* PLALogInViewControllerViewController.xib in Resources */,
 				E0761BB7153F928600CB3E2F /* OpenSans-LightItalic.ttf in Resources */,
 				E0761BB9153F928600CB3E2F /* OpenSans-Semibold.ttf in Resources */,
+				E0761BBE153F977500CB3E2F /* OpenSans-Italic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1038,6 +1045,7 @@
 				309006EA153E08E000FB297F /* cog.png in Resources */,
 				E0761BB6153F928600CB3E2F /* OpenSans-LightItalic.ttf in Resources */,
 				E0761BB8153F928600CB3E2F /* OpenSans-Semibold.ttf in Resources */,
+				E0761BBD153F977500CB3E2F /* OpenSans-Italic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

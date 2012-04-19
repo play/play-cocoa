@@ -206,13 +206,13 @@
   CGFloat padding;
   
   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-    [songLabel setFont:[UIFont systemFontOfSize:17.0]];
-    [artistLabel setFont:[UIFont systemFontOfSize:13.0]];
+    [songLabel setFont:[UIFont fontWithName:@"OpenSans-Semibold" size:20.0]];
+    [artistLabel setFont:[UIFont fontWithName:@"OpenSansLight-Italic" size:17.0]];
     albumArtImageViewFrame.size = CGSizeMake(100.0, 100.0);
     padding = 10.0;
   }else{
-    [songLabel setFont:[UIFont systemFontOfSize:38.0]];
-    [artistLabel setFont:[UIFont systemFontOfSize:32.0]];
+    [songLabel setFont:[UIFont fontWithName:@"OpenSans-Semibold" size:38.0]];
+    [artistLabel setFont:[UIFont fontWithName:@"OpenSansLight-Italic" size:32.0]];
     albumArtImageViewFrame.size = CGSizeMake(200.0, 200.0);
     padding = 20.0;
   }
