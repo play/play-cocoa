@@ -57,7 +57,6 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
     self.streamUrl = [responseObject objectForKey:@"stream_url"];
     self.pusherKey = [responseObject objectForKey:@"pusher_key"];
 
-	if (self.pusherClient == nil)
 		[self setUpPusher];
     [self subscribeToChannels];
 
@@ -82,6 +81,18 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
 }
 
 - (void)setUpPusher{
+  if (pusherClient) {
+    NSLog(@"destroying pusherClient to be ready to create a new one");
+    PTPusherChannel *channel = [self nowPlayingPusherChannel];
+    [channel removeBinding:updateNowPlayingPusherChannelBinding];
+    self.updateNowPlayingPusherChannelBinding = nil;
+    
+    [pusherClient setDelegate:nil];
+    [pusherClient unsubscribeFromChannel:channel];
+    [pusherClient setReconnectAutomatically:NO];
+    [pusherClient disconnect];
+  }
+
   self.pusherClient = [PTPusher pusherWithKey:pusherKey delegate:self encrypted:NO];
   [pusherClient setReconnectAutomatically:YES];
   [pusherClient setReconnectDelay:30];  
