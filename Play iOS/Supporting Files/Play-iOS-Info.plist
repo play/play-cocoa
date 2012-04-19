@@ -65,5 +65,16 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>org.play.play-ios</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>play-ios</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

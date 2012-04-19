@@ -97,9 +97,9 @@
 
 - (void)setUpForStreaming{
   // listen for notifications for updated songs from the CFController and pusher
-  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateViewsWithTrackInformation) name:@"PLANowPlayingUpdated" object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateViewsWithTrackInformation) name:PLANowPlayingUpdated object:nil];
   
-  [PLATrack currentTrackWithBlock:^(PLATrack *track) {
+  [PLATrack currentTrackWithBlock:^(PLATrack *track, NSError *error) {
     [[PLAController sharedController] setCurrentlyPlayingTrack:track];
     
     dispatch_async(dispatch_get_main_queue(), ^(void) {
@@ -111,7 +111,7 @@
 
 #pragma mark - Actionable methods
 
-- (void)presentLogIn{
+- (IBAction)presentLogIn{
   PLALogInViewControllerViewController *controller = [[PLALogInViewControllerViewController alloc] initWithNibName:@"PLALogInViewControllerViewController" bundle:nil];
   
   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
@@ -139,7 +139,7 @@
   // start downloading the album art first
   // we'll update the view metadata once we have the actual art to prevent
   // a flash and have everything just be cleaner
-  [SDWebImageDownloader downloaderWithURL:[NSURL URLWithString:[currentlyPlayingTrack albumArtUrl]] delegate:self];
+  [SDWebImageDownloader downloaderWithURL:[currentlyPlayingTrack albumArtURL] delegate:self];
 }
 
 - (void)updateMetaData{

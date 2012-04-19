@@ -7,12 +7,16 @@
 //
 
 #import "PLAController.h"
-#import "PTPusherChannel.h"
+
 #import "PLAPlayClient.h"
+#import "PLATrack.h"
+#import "PTPusherChannel.h"
 
 #if TARGET_OS_EMBEDDED
 #import "Reachability.h"
 #endif
+
+NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
 
 @implementation PLAController
 
@@ -52,13 +56,16 @@
     self.streamUrl = [responseObject objectForKey:@"stream_url"];
     self.pusherKey = [responseObject objectForKey:@"pusher_key"];
 
-    [self setUpPusher];
+	if (self.pusherClient == nil)
+		[self setUpPusher];
     [self subscribeToChannels];
 
-    block(YES);
+	if (block != nil)
+	  block(YES);
   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
     NSLog(@"error: %@", error);
-    block(NO);
+	  if (block != nil)
+		  block(NO);
   }];
 
 }
@@ -114,7 +121,7 @@
   
   self.queuedTracks = [NSArray arrayWithArray:tracks];
   
-  [[NSNotificationCenter defaultCenter] postNotificationName:@"PLANowPlayingUpdated" object:nil];
+  [[NSNotificationCenter defaultCenter] postNotificationName:PLANowPlayingUpdated object:nil];
 }
 
 #pragma mark - Channel Event handler
@@ -158,10 +165,10 @@
     
     [reachability startNotifier];
   }else{
-    [PLATrack currentTrackWithBlock:^(PLATrack *track) {
+    [PLATrack currentTrackWithBlock:^(PLATrack *track, NSError *error) {
       dispatch_async(dispatch_get_main_queue(), ^(void) {
         self.currentlyPlayingTrack = track;
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"PLANowPlayingUpdated" object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:PLANowPlayingUpdated object:nil];
         [self setUpPusher];
         [self subscribeToChannels];
       });
@@ -169,10 +176,10 @@
   }
   
 #else
-  [PLATrack currentTrackWithBlock:^(PLATrack *track) {
+  [PLATrack currentTrackWithBlock:^(PLATrack *track, NSError *err) {
     dispatch_async(dispatch_get_main_queue(), ^(void) {
       self.currentlyPlayingTrack = track;
-      [[NSNotificationCenter defaultCenter] postNotificationName:@"PLANowPlayingUpdated" object:nil];
+      [[NSNotificationCenter defaultCenter] postNotificationName:PLANowPlayingUpdated object:nil];
       [self setUpPusher];
       [self subscribeToChannels];
     });
@@ -189,9 +196,9 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [reachability stopNotifier];
     
-    [PLATrack currentTrackWithBlock:^(PLATrack *track) {
+    [PLATrack currentTrackWithBlock:^(PLATrack *track, NSError *error) {
       self.currentlyPlayingTrack = track;
-      [[NSNotificationCenter defaultCenter] postNotificationName:@"PLANowPlayingUpdated" object:nil];
+      [[NSNotificationCenter defaultCenter] postNotificationName:PLANowPlayingUpdated object:nil];
       [self setUpPusher];
       [self subscribeToChannels];
     }];

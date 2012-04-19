@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PLATrack : NSObject{
+@interface PLATrack : NSObject <NSCopying> {
   NSString *trackId;
   NSString *name;
   NSString *album;
@@ -23,9 +23,14 @@
 @property (nonatomic, retain) NSString *artist;
 @property (nonatomic, assign) BOOL starred;
 @property (nonatomic, assign) BOOL queued;
+@property (nonatomic, readonly) NSURL *albumArtURL;
+@property (nonatomic, readonly) NSURL *downloadURL;
+@property (nonatomic, readonly) NSURL *albumDownloadURL;
+
++ (void)currentTrackWithBlock:(void(^)(PLATrack *track, NSError *err))block;
++ (void)currentQueueWithBlock:(void(^)(NSArray *tracks, NSError *err))block;
 
 - (id)initWithAttributes:(NSDictionary *)attributes;
-+ (void)currentTrackWithBlock:(void(^)(PLATrack *track))block;
-- (NSString *)albumArtUrl;
+- (void)toggleStarredWithCompletionBlock:(void(^)(BOOL success, NSError *err))completionBlock;
 
 @end

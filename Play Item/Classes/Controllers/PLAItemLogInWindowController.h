@@ -14,10 +14,11 @@
   NSSecureTextField *authTokenTextField;
 }
 
-@property (nonatomic, retain) IBOutlet NSTextField *playUrlTextField;
-@property (nonatomic, retain) IBOutlet NSSecureTextField *authTokenTextField;
+@property (nonatomic, assign) IBOutlet NSTextField *playUrlTextField;
+@property (nonatomic, assign) IBOutlet NSSecureTextField *authTokenTextField;
 
 - (id)init;
 - (IBAction)logIn:(id)sender;
+- (IBAction)getToken:(id)sender;
 
 @end

@@ -18,13 +18,6 @@
 	return [super initWithWindowNibName:@"PLAItemLogInWindow"];
 }
 
-- (void)dealloc{
-  [playUrlTextField release];
-  [authTokenTextField release];
-  
-  [super dealloc];
-}
-
 - (void)awakeFromNib
 {
 	[self.window setLevel:NSFloatingWindowLevel];
@@ -37,20 +30,35 @@
 }
 
 - (IBAction)logIn:(id)sender{
-  [[PLAController sharedController] setPlayUrl:playUrlTextField.stringValue];
-  [[PLAController sharedController] setAuthToken:authTokenTextField.stringValue];
-  
   [[PLAController sharedController] logInWithBlock:^(BOOL succeeded) {
     dispatch_async(dispatch_get_main_queue(), ^(void) {
       if (succeeded) {
-		  [self close];
-        PLAItemAppDelegate *appDelegate = (PLAItemAppDelegate *)[NSApp delegate];
+        PLAItemAppDelegate *appDelegate = [NSApp delegate];
+		[appDelegate flipWindowToQueue];
         [appDelegate didLogIn];
       }else{
         [(PLAItemWindow *)self.window shake];
       }
     });
   }];
+}
+
+- (IBAction)getToken:(id)sender 
+{
+	if ([self.playUrlTextField.stringValue rangeOfString:@"http://"].location != 0 && [self.playUrlTextField.stringValue rangeOfString:@"https://"].location != 0) {
+		NSString *urlString = [NSString stringWithFormat:@"http://%@", self.playUrlTextField.stringValue];
+		[[PLAController sharedController] setPlayUrl:urlString];
+		self.playUrlTextField.stringValue = urlString; //bindings don't have a chance to update here
+	}
+		
+	NSURL *playURL = [NSURL URLWithString:[[PLAController sharedController] playUrl]];
+	if (playURL == nil) {
+		NSBeep();
+		return;
+	}
+	
+	NSURL *tokenURL = [playURL URLByAppendingPathComponent:@"token"];
+	[[NSWorkspace sharedWorkspace] openURL:tokenURL];
 }
 
 @end
