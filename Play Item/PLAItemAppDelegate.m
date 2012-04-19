@@ -100,15 +100,19 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 
 - (void)didLogIn{
 	[[NSNotificationCenter defaultCenter] postNotificationName:PLAItemLoggedInNotificationName object:self];
+  
   [PLATrack currentTrackWithBlock:^(PLATrack *track, NSError *err) {
     [[PLAController sharedController] setCurrentlyPlayingTrack:track];
-	  [[NSNotificationCenter defaultCenter] postNotificationName:PLANowPlayingUpdated object:nil];
+
+    dispatch_async(dispatch_get_main_queue(), ^(void) {
+      [PLATrack currentQueueWithBlock:^(NSArray *tracks, NSError *err) {
+        [PLAController sharedController].queuedTracks = tracks;
+        [[NSNotificationCenter defaultCenter] postNotificationName:PLANowPlayingUpdated object:nil];
+      }];		
+    });
+
   }];
 	
-	[PLATrack currentQueueWithBlock:^(NSArray *tracks, NSError *err) {
-		[PLAController sharedController].queuedTracks = tracks;
-		[[NSNotificationCenter defaultCenter] postNotificationName:PLANowPlayingUpdated object:nil];
-	}];		
 }
 
 - (IBAction)toggleWindow:(id)sender
