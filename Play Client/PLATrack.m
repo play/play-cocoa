@@ -7,13 +7,23 @@
 //
 
 #import "PLATrack.h"
-#import "PLAPlayClient.h"
+
+#import "PLAAlbumArtworkImageCache.h"
 #import "PLAController.h"
+#import "PLAPlayClient.h"
 
 #import "AFNetworking.h"
 
+@interface PLATrack ()
+
+@property (nonatomic, retain) NSImage *albumArtwork;
+
+@end
+
 @implementation PLATrack
 @synthesize trackId, name, album, artist, queued, starred;
+
+@synthesize albumArtwork = _albumArtwork;
 
 + (void)currentTrackWithBlock:(void(^)(PLATrack *track, NSError *error))block{
 	[[PLAPlayClient sharedClient] getPath:@"/now_playing" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -56,6 +66,11 @@
   self.artist = [attributes valueForKeyPath:@"artist"];
   queued = [[attributes valueForKeyPath:@"queued"] boolValue];
   starred = [[attributes valueForKeyPath:@"starred"] boolValue];
+	
+	[[PLAAlbumArtworkImageCache sharedCache] imageForURL:self.albumArtURL withCompletionBlock: ^ (NSImage *image, NSError *error) 
+	{
+		self.albumArtwork = image;
+	}];
   
   return self;
 }
@@ -69,6 +84,7 @@
 	copy.artist = self.artist;
 	copy.queued = self.queued;
 	copy.starred = self.starred;
+	copy.albumArtwork = self.albumArtwork;
 	
 	return copy;
 }
@@ -78,6 +94,8 @@
 	[name release];
 	[album release];
 	[artist release];
+	
+	[_albumArtwork release], _albumArtwork = nil;
 	
 	[super dealloc];
 }

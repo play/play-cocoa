@@ -94,7 +94,10 @@ CGFloat const PLAAlbumArtworkImageCacheImageSize = 47.0;
 		
 		imageRep.size = NSMakeSize(PLAAlbumArtworkImageCacheImageSize, PLAAlbumArtworkImageCacheImageSize);
 		NSData *imageData = [imageRep representationUsingType:NSPNGFileType properties:nil];
-		[imageData writeToURL:[self localImageLocationForURL:imageURL] atomically:YES];
+		NSError *err = nil;
+		NSURL *localURL = [self localImageLocationForURL:imageURL];
+		if (![imageData writeToURL:localURL options:NSDataWritingAtomic error:&err])
+			NSLog(@"Could not write to local caches dir at URL %@ for this reason: %@", localURL, [err localizedDescription]);
 		
 		NSImage *returnImage = [[[NSImage alloc] initWithSize:imageRep.size] autorelease];
 		[returnImage addRepresentation:imageRep];
@@ -117,6 +120,13 @@ CGFloat const PLAAlbumArtworkImageCacheImageSize = 47.0;
 	
 	NSString *cachesFolderPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
 	cachesFolderPath = [[cachesFolderPath stringByAppendingPathComponent:@"org.play.play-item"] stringByAppendingPathComponent:@"Artwork"];
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		NSFileManager *manager = [[NSFileManager alloc] init]; //file manager is not thread safe, so let's create our own
+		if (![manager fileExistsAtPath:cachesFolderPath])
+			[manager createDirectoryAtPath:cachesFolderPath withIntermediateDirectories:YES attributes:nil error:NULL];
+	});
+	
 	NSURL *returnLocation = [[NSURL fileURLWithPath:cachesFolderPath] URLByAppendingPathComponent:fileName];
 	
 	return returnLocation;

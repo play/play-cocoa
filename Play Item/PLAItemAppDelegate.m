@@ -94,8 +94,8 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
     });
   }];
   
-    self.keyTap = [[[SPMediaKeyTap alloc] initWithDelegate:self] autorelease];
-    [self.keyTap startWatchingMediaKeys];
+//    self.keyTap = [[[SPMediaKeyTap alloc] initWithDelegate:self] autorelease];
+//    [self.keyTap startWatchingMediaKeys];
 }
 
 - (void)didLogIn{

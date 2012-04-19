@@ -875,19 +875,19 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">valueURL: objectValue.albumArtURL</string>
+						<string key="label">value: objectValue.albumArtwork</string>
 						<reference key="source" ref="337677062"/>
 						<reference key="destination" ref="434286003"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="337677062"/>
 							<reference key="NSDestination" ref="434286003"/>
-							<string key="NSLabel">valueURL: objectValue.albumArtURL</string>
-							<string key="NSBinding">valueURL</string>
-							<string key="NSKeyPath">objectValue.albumArtURL</string>
+							<string key="NSLabel">value: objectValue.albumArtwork</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">objectValue.albumArtwork</string>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">172</int>
+					<int key="connectionID">2715</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -939,19 +939,19 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">valueURL: currentTrack.albumArtURL</string>
+						<string key="label">value: currentTrack.albumArtwork</string>
 						<reference key="source" ref="730487346"/>
 						<reference key="destination" ref="1001"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="730487346"/>
 							<reference key="NSDestination" ref="1001"/>
-							<string key="NSLabel">valueURL: currentTrack.albumArtURL</string>
-							<string key="NSBinding">valueURL</string>
-							<string key="NSKeyPath">currentTrack.albumArtURL</string>
+							<string key="NSLabel">value: currentTrack.albumArtwork</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">currentTrack.albumArtwork</string>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">269</int>
+					<int key="connectionID">2714</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -3444,7 +3444,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">2701</int>
+			<int key="maxID">2715</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

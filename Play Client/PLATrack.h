@@ -26,6 +26,7 @@
 @property (nonatomic, readonly) NSURL *albumArtURL;
 @property (nonatomic, readonly) NSURL *downloadURL;
 @property (nonatomic, readonly) NSURL *albumDownloadURL;
+@property (nonatomic, readonly, retain) NSImage *albumArtwork; //starts off as nil, then gets downloaded in the background and set. KVO compliant.
 
 + (void)currentTrackWithBlock:(void(^)(PLATrack *track, NSError *err))block;
 + (void)currentQueueWithBlock:(void(^)(NSArray *tracks, NSError *err))block;
