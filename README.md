@@ -5,12 +5,12 @@ This project houses both the OS X desktop menu item Play client as well as the t
 
 ## Play Item
 
-Play Item is a streaming client for Play that runs on Mac OS X 10.7 and up. It simply lives in your menu bar allowing you to start and stop the stream. It also shows the current track playing.
+Play Item is a streaming client for Play that runs on Mac OS X 10.7 and up. It simply lives in your menu bar allowing you to start and stop the stream. It also shows the current track playing and what is currently queued.
 
-![](http://f.cl.ly/items/0Q3Z2o23261A070I3f0z/Image%202012.02.09%203:11:57%20PM.png)
+![](http://f.cl.ly/items/3J2U1Z2x033R3p1I1J0b/play-item.png)
 
 ## Play iOS
 
 This is a streaming client for Play that runs on your iPhone/iPad. It supports background audio as well as the media keys when backgrounded.
 
-![](http://cl.ly/1l1v443E060m1t051F47/Screen%20Shot%202012-02-10%20at%2011.09.15%20AM.png)
+![](http://f.cl.ly/items/1Z1W3P351q2V1m2v3n12/play-ios-iphone.png) ![](http://f.cl.ly/items/2Z0O09320f142y3x163q/play-ios-ipad.png)
