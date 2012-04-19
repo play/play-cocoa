@@ -20,7 +20,6 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
 
 @implementation PLAController
 
-@synthesize queuedTracks, currentlyPlayingTrack, pusherClient, streamUrl, pusherKey;
 @synthesize queuedTracks, currentlyPlayingTrack, pusherClient, updateNowPlayingPusherChannelBinding, streamUrl, pusherKey;
 
 - (void) dealloc{
