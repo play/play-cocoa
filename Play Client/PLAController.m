@@ -21,11 +21,13 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
 @implementation PLAController
 
 @synthesize queuedTracks, currentlyPlayingTrack, pusherClient, streamUrl, pusherKey;
+@synthesize queuedTracks, currentlyPlayingTrack, pusherClient, updateNowPlayingPusherChannelBinding, streamUrl, pusherKey;
 
 - (void) dealloc{
   [queuedTracks release];
   [currentlyPlayingTrack release];
   [pusherClient release];
+  [updateNowPlayingPusherChannelBinding release];
   [streamUrl release];
   [pusherKey release];
 
@@ -72,6 +74,14 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
 
 #pragma mark - Pusher Bootstrap
 
+- (PTPusherChannel *)nowPlayingPusherChannel{
+  if (pusherClient) {
+    return [pusherClient subscribeToChannelNamed:@"now_playing_updates"];
+  }
+  
+  return nil;
+}
+
 - (void)setUpPusher{
   self.pusherClient = [PTPusher pusherWithKey:pusherKey delegate:self encrypted:NO];
   [pusherClient setReconnectAutomatically:YES];
@@ -81,8 +91,8 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
 - (void)subscribeToChannels{
   if (pusherClient) {
     NSLog(@"subscribing to channels");
-    PTPusherChannel *channel = [pusherClient subscribeToChannelNamed:@"now_playing_updates"];
-    [channel bindToEventNamed:@"update_now_playing" target:self action:@selector(channelEventPushed:)];
+    PTPusherChannel *channel = [self nowPlayingPusherChannel];
+    self.updateNowPlayingPusherChannelBinding = [channel bindToEventNamed:@"update_now_playing" target:self action:@selector(channelEventPushed:)];
   }
 }
 

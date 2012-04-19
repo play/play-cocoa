@@ -17,19 +17,22 @@ extern NSString *const PLANowPlayingUpdated;
   NSArray *queuedTracks;
   PLATrack *currentlyPlayingTrack;
   PTPusher *pusherClient;
-  NSString *streamUrl;
   NSString *pusherKey;
+  NSString *streamUrl;
+  PTPusherEventBinding *updateNowPlayingPusherChannelBinding;
 }
 
 @property (nonatomic, retain) NSArray *queuedTracks;
 @property (nonatomic, retain) PLATrack *currentlyPlayingTrack;
 @property (nonatomic, retain) PTPusher *pusherClient;
+@property (nonatomic, retain) PTPusherEventBinding *updateNowPlayingPusherChannelBinding;
 @property (nonatomic, retain) NSString *streamUrl;
 @property (nonatomic, retain) NSString *pusherKey;
 
 + (PLAController *)sharedController;
 
 - (void)logInWithBlock:(void(^)(BOOL succeeded))block;
+- (PTPusherChannel *)nowPlayingPusherChannel;
 - (void)setUpPusher;
 - (void)subscribeToChannels;
 - (void)setPlayUrl:(NSString *)url;
