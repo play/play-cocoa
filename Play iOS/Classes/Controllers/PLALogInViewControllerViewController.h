@@ -15,6 +15,9 @@
   UIView *urlView;
   UIView *tokenView;
   UIButton *urlButton;
+  UILabel *welcomeLabel;
+  UILabel *urlInstructionLabel;
+  UILabel *tokenInstructionLabel;
   
   UITextField *playUrlTextField;
   UITextField *playTokenTextField;
@@ -27,6 +30,9 @@
 @property (retain, nonatomic) IBOutlet UIView *urlView;
 @property (retain, nonatomic) IBOutlet UIView *tokenView;
 @property (retain, nonatomic) IBOutlet UIButton *urlButton;
+@property (retain, nonatomic) IBOutlet UILabel *welcomeLabel;
+@property (retain, nonatomic) IBOutlet UILabel *urlInstructionLabel;
+@property (retain, nonatomic) IBOutlet UILabel *tokenInstructionLabel;
 
 @property (retain, nonatomic) IBOutlet UITextField *playUrlTextField;
 @property (retain, nonatomic) IBOutlet UITextField *playTokenTextField;

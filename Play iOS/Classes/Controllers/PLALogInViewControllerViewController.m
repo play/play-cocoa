@@ -11,7 +11,7 @@
 #import "PLAPlayerViewController.h"
 
 @implementation PLALogInViewControllerViewController
-@synthesize pagingScrollView, pageControl, urlView, tokenView, playUrlTextField, playTokenTextField, urlButton;
+@synthesize pagingScrollView, pageControl, urlView, tokenView, welcomeLabel, urlInstructionLabel, tokenInstructionLabel, playUrlTextField, playTokenTextField, urlButton;
 
 - (void)dealloc {
   [playUrlTextField release];
@@ -21,6 +21,9 @@
   [tokenView release];
   [urlView release];
   [urlButton release];
+  [welcomeLabel release];
+  [tokenInstructionLabel release];
+  [urlInstructionLabel release];
   [super dealloc];
 }
 
@@ -29,6 +32,11 @@
   [super viewDidLoad];
   
   pageControlBeingUsed = NO;
+  NSLog(@"font names: %@", [UIFont fontNamesForFamilyName:@"Open Sans"]);
+
+  [welcomeLabel setFont:[UIFont fontWithName:@"OpenSans-Semibold" size:24.0]];
+  [urlInstructionLabel setFont:[UIFont fontWithName:@"OpenSans" size:18.0]];
+  [tokenInstructionLabel setFont:[UIFont fontWithName:@"OpenSans" size:18.0]];
   
   if ([[PLAController sharedController] playUrl]) {
     [playUrlTextField setText:[[PLAController sharedController] playUrl]];
@@ -74,6 +82,9 @@
   self.urlView = nil;
   self.tokenView = nil;
   self.urlButton = nil;
+  self.welcomeLabel = nil;
+  self.urlInstructionLabel = nil;
+  self.tokenInstructionLabel = nil;
   [super viewDidUnload];
 }
 
