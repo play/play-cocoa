@@ -139,20 +139,44 @@
 
 - (void)toggleStarredWithCompletionBlock:(void(^)(BOOL success, NSError *err))completionBlock
 {
-	NSString *method = (self.starred ? @"DELETE" : @"POST");
-	NSMutableURLRequest *request = [[PLAPlayClient sharedClient] requestWithMethod:method path:@"/star" parameters:[NSDictionary dictionaryWithObject:self.trackId forKey:@"id"]];
-	AFHTTPRequestOperation *operation = [[[AFHTTPRequestOperation alloc] initWithRequest:request] autorelease];
-	[operation setCompletionBlockWithSuccess: ^ (AFHTTPRequestOperation *operation, id responseObject) 
-	{
-		self.starred = !self.starred;
+  if (self.starred) {
+    [self unstarWithCompletionBlock:^(BOOL success, NSError *err) {
+      if (completionBlock != nil)
+        completionBlock(success, err);
+    }];
+  }else{
+    [self starWithCompletionBlock:^(BOOL success, NSError *err) {
+      if (completionBlock != nil)
+        completionBlock(success, err);
+    }];
+  }
+}
+
+- (void)starWithCompletionBlock:(void(^)(BOOL success, NSError *err))completionBlock
+{
+  NSLog(@"starring");
+  [[PLAPlayClient sharedClient] postPath:@"/star" parameters:[NSDictionary dictionaryWithObject:self.trackId forKey:@"id"] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    self.starred = YES;
 		if (completionBlock != nil)
 			completionBlock(YES, nil);
-	} failure: ^ (AFHTTPRequestOperation *operation, NSError *error) 
-	{
+
+  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 		if (completionBlock != nil)
 			completionBlock(NO, error);
-	}];
-	[[PLAPlayClient sharedClient] enqueueHTTPRequestOperation:operation];
+  }];
+}
+
+- (void)unstarWithCompletionBlock:(void(^)(BOOL success, NSError *err))completionBlock
+{
+  [[PLAPlayClient sharedClient] deletePath:@"/star" parameters:[NSDictionary dictionaryWithObject:self.trackId forKey:@"id"] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    self.starred = NO;
+		if (completionBlock != nil)
+			completionBlock(YES, nil);
+    
+  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		if (completionBlock != nil)
+			completionBlock(NO, error);
+  }];
 }
 
 @end

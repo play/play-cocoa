@@ -36,5 +36,6 @@
 
 - (id)initWithAttributes:(NSDictionary *)attributes;
 - (void)toggleStarredWithCompletionBlock:(void(^)(BOOL success, NSError *err))completionBlock;
-
+- (void)starWithCompletionBlock:(void(^)(BOOL success, NSError *err))completionBlock;
+- (void)unstarWithCompletionBlock:(void(^)(BOOL success, NSError *err))completionBlock;
 @end
