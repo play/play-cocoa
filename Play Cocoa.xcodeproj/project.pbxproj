@@ -86,6 +86,7 @@
 		E05AEC0F1534B6BE0094566C /* PLALogInViewControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E05AEC0D1534B6BE0094566C /* PLALogInViewControllerViewController.xib */; };
 		E06844A0153F9C1E009C6B3F /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E068449F153F9C1E009C6B3F /* OpenSans-Regular.ttf */; };
 		E06844A1153F9C1E009C6B3F /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E068449F153F9C1E009C6B3F /* OpenSans-Regular.ttf */; };
+		E072471C15408F7600F64C2B /* icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E072471B15408F7600F64C2B /* icon-72@2x.png */; };
 		E0761BB6153F928600CB3E2F /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E0761BB4153F928600CB3E2F /* OpenSans-LightItalic.ttf */; };
 		E0761BB7153F928600CB3E2F /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E0761BB4153F928600CB3E2F /* OpenSans-LightItalic.ttf */; };
 		E0761BB8153F928600CB3E2F /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E0761BB5153F928600CB3E2F /* OpenSans-Semibold.ttf */; };
@@ -186,7 +187,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		30063DD415401FA6005FA7B4 /* PLAAlbumArtworkImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; path = PLAAlbumArtworkImageCache.h; sourceTree = "<group>"; };
+		30063DD415401FA6005FA7B4 /* PLAAlbumArtworkImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAAlbumArtworkImageCache.h; sourceTree = "<group>"; };
 		30063DD515401FA6005FA7B4 /* PLAAlbumArtworkImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAAlbumArtworkImageCache.m; sourceTree = "<group>"; };
 		30083B3A153D83F300E795DA /* XFloatSecondsToHMSStringTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XFloatSecondsToHMSStringTransformer.h; path = vendor/XFloatSecondsToHMSStringTransformer/XFloatSecondsToHMSStringTransformer.h; sourceTree = SOURCE_ROOT; };
 		30083B3B153D83F300E795DA /* XFloatSecondsToHMSStringTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XFloatSecondsToHMSStringTransformer.m; path = vendor/XFloatSecondsToHMSStringTransformer/XFloatSecondsToHMSStringTransformer.m; sourceTree = SOURCE_ROOT; };
@@ -297,6 +298,7 @@
 		E05AEC0C1534B6BE0094566C /* PLALogInViewControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLALogInViewControllerViewController.m; sourceTree = "<group>"; };
 		E05AEC0D1534B6BE0094566C /* PLALogInViewControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PLALogInViewControllerViewController.xib; sourceTree = "<group>"; };
 		E068449F153F9C1E009C6B3F /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		E072471B15408F7600F64C2B /* icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72@2x.png"; sourceTree = "<group>"; };
 		E0761BB4153F928600CB3E2F /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
 		E0761BB5153F928600CB3E2F /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		E0761BBC153F977500CB3E2F /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
@@ -889,6 +891,7 @@
 				E058E21F15332C4C0079B226 /* Default.png */,
 				E058E22015332C4C0079B226 /* Default@2x.png */,
 				E058E22115332C4C0079B226 /* icon-72.png */,
+				E072471B15408F7600F64C2B /* icon-72@2x.png */,
 				E058E22215332C4C0079B226 /* icon.png */,
 				E058E22315332C4C0079B226 /* icon@2x.png */,
 				E0C965D9153327A6001D52BF /* bottom-shadow.png */,
@@ -1019,6 +1022,7 @@
 				E0761BB9153F928600CB3E2F /* OpenSans-Semibold.ttf in Resources */,
 				E0761BBE153F977500CB3E2F /* OpenSans-Italic.ttf in Resources */,
 				E06844A1153F9C1E009C6B3F /* OpenSans-Regular.ttf in Resources */,
+				E072471C15408F7600F64C2B /* icon-72@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
