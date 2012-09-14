@@ -85,13 +85,28 @@
 	[[NSNotificationCenter defaultCenter] postNotificationName:ASStatusChangedNotification object:self];  
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
+- (NSUInteger)supportedInterfaceOrientations {
   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-      return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return UIInterfaceOrientationMaskPortrait;
   } else {
-      return YES;
+    return UIInterfaceOrientationMaskAll;
   }
 }
+
+- (BOOL) shouldAutorotate {
+  return YES;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
+  NSLog(@"SHOULD AUTOROTATE");
+  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+  } else {
+    return YES;
+  }
+}
+
+
 
 #pragma mark - Bootstrapping methods
 
