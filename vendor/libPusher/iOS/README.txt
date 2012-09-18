@@ -30,16 +30,23 @@ These instructions use the combined library:
 
 4. Drag the contents of the headers directory into your project.
 
-5. You should now be able to #import "PTPusher.h" and compile.
+5. Link with the following libraries/frameworks:
+
+* libicucore.dylib
+* CFNetwork.framework
+* Security.framework
+* SystemConfiguration.framework
+
+6. You should now be able to #import "PTPusher.h" and compile.
 
 ===============================================================================
 Notes
 ===============================================================================
 
-libPusher uses the JSONKit library and the static library contains a compiled version of JSONKit.m.
+If you are upgrading, libPusher no longer uses the JSONKit library and the static library no longer contains a compiled version of JSONKit.m.
 
-If you are using JSONKit in your project already, you will need to remove JSONKit.m otherwise you will get linker errors when you build due to the duplicate symbols. You MUST however keep JSONKit.h in your project in order to use it in your own source code.
+By default, libPusher now uses NSJSONSerialization which is available on iOS 5.0 or OSX 10.7 and later. If you require support for older platforms, libPusher still has support for JSONKit as a fallback option, but you are required to link JSONKit to your app separately.
 
 For more information, see:
-https://github.com/lukeredpath/libPusher/
+https://github.com/lukeredpath/libPusher/wiki/Adding-libPusher-to-your-project
 
