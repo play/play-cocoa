@@ -116,7 +116,7 @@ NSURL *(^downloadsFolderLocation)() = ^
 	if (downloadFolderPaths.count < 1)
 		return (NSURL *)nil;
 	
-	return [NSURL fileURLWithPath:[downloadFolderPaths objectAtIndex:0]];
+	return (NSURL *)[NSURL fileURLWithPath:[downloadFolderPaths objectAtIndex:0]];
 };
 
 - (void)downloadTrack:(PLATrack *)track
