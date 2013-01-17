@@ -93,26 +93,26 @@
 		E0761BBD153F977500CB3E2F /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E0761BBC153F977500CB3E2F /* OpenSans-Italic.ttf */; };
 		E0761BBE153F977500CB3E2F /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E0761BBC153F977500CB3E2F /* OpenSans-Italic.ttf */; };
 		E0761BBF153F98BF00CB3E2F /* OpenSans-Italic.ttf in Copy Fonts */ = {isa = PBXBuildFile; fileRef = E0761BBC153F977500CB3E2F /* OpenSans-Italic.ttf */; };
-		E0783F301533187E003EA138 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EE21533187D003EA138 /* AFHTTPClient.m */; };
-		E0783F311533187E003EA138 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EE41533187D003EA138 /* AFHTTPRequestOperation.m */; };
-		E0783F321533187E003EA138 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EE61533187D003EA138 /* AFImageRequestOperation.m */; };
-		E0783F331533187E003EA138 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EE81533187D003EA138 /* AFJSONRequestOperation.m */; };
-		E0783F341533187E003EA138 /* AFJSONUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EEA1533187D003EA138 /* AFJSONUtilities.m */; };
-		E0783F351533187E003EA138 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EEC1533187D003EA138 /* AFNetworkActivityIndicatorManager.m */; };
-		E0783F361533187E003EA138 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EEF1533187D003EA138 /* AFPropertyListRequestOperation.m */; };
-		E0783F371533187E003EA138 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EF11533187D003EA138 /* AFURLConnectionOperation.m */; };
-		E0783F381533187E003EA138 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EF31533187D003EA138 /* AFXMLRequestOperation.m */; };
-		E0783F391533187E003EA138 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EF51533187D003EA138 /* UIImageView+AFNetworking.m */; };
-		E0783F3A1533187E003EA138 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EF81533187D003EA138 /* AudioStreamer.m */; };
-		E0783F3B1533187E003EA138 /* UIDevice+Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EFA1533187D003EA138 /* UIDevice+Hardware.m */; };
-		E0783F3C1533187E003EA138 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EFD1533187D003EA138 /* SDImageCache.m */; };
-		E0783F3D1533187E003EA138 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783F011533187D003EA138 /* SDWebImageDecoder.m */; };
-		E0783F3E1533187E003EA138 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783F031533187D003EA138 /* SDWebImageDownloader.m */; };
-		E0783F3F1533187E003EA138 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783F061533187D003EA138 /* SDWebImageManager.m */; };
-		E0783F401533187E003EA138 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783F091533187D003EA138 /* SDWebImagePrefetcher.m */; };
-		E0783F411533187E003EA138 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783F0B1533187D003EA138 /* UIButton+WebCache.m */; };
-		E0783F421533187E003EA138 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783F0D1533187D003EA138 /* UIImageView+WebCache.m */; };
-		E0783F431533187E003EA138 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783F0F1533187D003EA138 /* SFHFKeychainUtils.m */; };
+		E0783F301533187E003EA138 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EE21533187D003EA138 /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E0783F311533187E003EA138 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EE41533187D003EA138 /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E0783F321533187E003EA138 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EE61533187D003EA138 /* AFImageRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E0783F331533187E003EA138 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EE81533187D003EA138 /* AFJSONRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E0783F341533187E003EA138 /* AFJSONUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EEA1533187D003EA138 /* AFJSONUtilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E0783F351533187E003EA138 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EEC1533187D003EA138 /* AFNetworkActivityIndicatorManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E0783F361533187E003EA138 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EEF1533187D003EA138 /* AFPropertyListRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E0783F371533187E003EA138 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EF11533187D003EA138 /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E0783F381533187E003EA138 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EF31533187D003EA138 /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E0783F391533187E003EA138 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EF51533187D003EA138 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E0783F3A1533187E003EA138 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EF81533187D003EA138 /* AudioStreamer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E0783F3B1533187E003EA138 /* UIDevice+Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EFA1533187D003EA138 /* UIDevice+Hardware.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E0783F3C1533187E003EA138 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EFD1533187D003EA138 /* SDImageCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E0783F3D1533187E003EA138 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783F011533187D003EA138 /* SDWebImageDecoder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E0783F3E1533187E003EA138 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783F031533187D003EA138 /* SDWebImageDownloader.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E0783F3F1533187E003EA138 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783F061533187D003EA138 /* SDWebImageManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E0783F401533187E003EA138 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783F091533187D003EA138 /* SDWebImagePrefetcher.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E0783F411533187E003EA138 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783F0B1533187D003EA138 /* UIButton+WebCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E0783F421533187E003EA138 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783F0D1533187D003EA138 /* UIImageView+WebCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E0783F431533187E003EA138 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783F0F1533187D003EA138 /* SFHFKeychainUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E0783F5B15331A1E003EA138 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EF81533187D003EA138 /* AudioStreamer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E0783F7415331ADF003EA138 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EE21533187D003EA138 /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E0783F7515331ADF003EA138 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EE41533187D003EA138 /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -1118,6 +1118,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1149,6 +1150,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

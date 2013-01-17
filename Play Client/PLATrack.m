@@ -99,13 +99,6 @@
 	return copy;
 }
 
-- (void)dealloc{
-	
-#if !TARGET_OS_IPHONE
-	_albumArtwork = nil;
-#endif
-	
-}
 
 #pragma mark -
 #pragma mark Accessors

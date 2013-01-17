@@ -23,15 +23,6 @@
   
   [self destroyStreamer];
 
-  [currentTrack release];
-  [songLabel release];
-  [artistLabel release];
-  [albumArtImageView release];
-  [playButton release];
-  [nowPlayingView release];
-  [sliderView release];
-  [statusLabel release];
-  [super dealloc];
 }
 
 
@@ -138,7 +129,6 @@
   }
   
   [self presentViewController:controller animated:YES completion:^{
-    [controller release];
   }];
 }
 
@@ -173,7 +163,6 @@
     
     [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:nowPlayingMetaDict];
     
-    [mediaItemArtwork release];
   }else{
     self.songLabel.text = @"";
     self.artistLabel.text = @"";
@@ -300,7 +289,6 @@
     self.currentTrack = nil;
     
 		[streamer stop];
-		[streamer release];
 		streamer = nil;
 	}
 }
@@ -330,7 +318,6 @@
   
   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Stream Error" message:userInfo[@"message"] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
   [alert show];
-  [alert release];
 }
 
 #pragma mark - SDWebImageDownloader Callback

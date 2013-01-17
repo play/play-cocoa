@@ -13,19 +13,6 @@
 @implementation PLALogInViewControllerViewController
 @synthesize pagingScrollView, pageControl, urlView, tokenView, welcomeLabel, urlInstructionLabel, tokenInstructionLabel, playUrlTextField, playTokenTextField, urlButton;
 
-- (void)dealloc {
-  [playUrlTextField release];
-  [playTokenTextField release];
-  [pagingScrollView release];
-  [pageControl release];
-  [tokenView release];
-  [urlView release];
-  [urlButton release];
-  [welcomeLabel release];
-  [tokenInstructionLabel release];
-  [urlInstructionLabel release];
-  [super dealloc];
-}
 
 
 - (void)viewDidLoad{
@@ -108,7 +95,6 @@
       }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops!" message:@"Play cannot be reached or your log in details are incorrect. Try again." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
         [alert show];
-        [alert release];
       }
     });
   }];

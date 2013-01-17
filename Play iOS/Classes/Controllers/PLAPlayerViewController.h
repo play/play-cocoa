@@ -23,14 +23,14 @@
 	AudioStreamer *streamer;
 }
 
-@property (retain, nonatomic) IBOutlet UILabel *songLabel;
-@property (retain, nonatomic) IBOutlet UILabel *artistLabel;
-@property (retain, nonatomic) IBOutlet UIImageView *albumArtImageView;
-@property (retain, nonatomic) IBOutlet UIButton *playButton;
-@property (retain, nonatomic) IBOutlet UIView *nowPlayingView;
-@property (retain, nonatomic) IBOutlet UIView *sliderView;
-@property (retain, nonatomic) IBOutlet UILabel *statusLabel;
-@property (retain, nonatomic) PLATrack *currentTrack;
+@property (strong, nonatomic) IBOutlet UILabel *songLabel;
+@property (strong, nonatomic) IBOutlet UILabel *artistLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *albumArtImageView;
+@property (strong, nonatomic) IBOutlet UIButton *playButton;
+@property (strong, nonatomic) IBOutlet UIView *nowPlayingView;
+@property (strong, nonatomic) IBOutlet UIView *sliderView;
+@property (strong, nonatomic) IBOutlet UILabel *statusLabel;
+@property (strong, nonatomic) PLATrack *currentTrack;
 
 - (void)setUpForStreaming;
 - (void)presentLogIn;

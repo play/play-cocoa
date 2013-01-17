@@ -24,17 +24,17 @@
   BOOL pageControlBeingUsed;
 }
 
-@property (retain, nonatomic) IBOutlet UIScrollView *pagingScrollView;
-@property (retain, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (strong, nonatomic) IBOutlet UIScrollView *pagingScrollView;
+@property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 
-@property (retain, nonatomic) IBOutlet UIView *urlView;
-@property (retain, nonatomic) IBOutlet UIView *tokenView;
-@property (retain, nonatomic) IBOutlet UIButton *urlButton;
-@property (retain, nonatomic) IBOutlet UILabel *welcomeLabel;
-@property (retain, nonatomic) IBOutlet UILabel *urlInstructionLabel;
-@property (retain, nonatomic) IBOutlet UILabel *tokenInstructionLabel;
+@property (strong, nonatomic) IBOutlet UIView *urlView;
+@property (strong, nonatomic) IBOutlet UIView *tokenView;
+@property (strong, nonatomic) IBOutlet UIButton *urlButton;
+@property (strong, nonatomic) IBOutlet UILabel *welcomeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *urlInstructionLabel;
+@property (strong, nonatomic) IBOutlet UILabel *tokenInstructionLabel;
 
-@property (retain, nonatomic) IBOutlet UITextField *playUrlTextField;
-@property (retain, nonatomic) IBOutlet UITextField *playTokenTextField;
+@property (strong, nonatomic) IBOutlet UITextField *playUrlTextField;
+@property (strong, nonatomic) IBOutlet UITextField *playTokenTextField;
 
 @end
