@@ -54,13 +54,15 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
 
 #pragma mark - Settings
 
-- (void)setPlayUrl:(NSString *)url{
-  [[NSUserDefaults standardUserDefaults] setObject:url forKey:@"playUrl"];
+- (void)setPlayURL:(NSURL *)url{
+  [[NSUserDefaults standardUserDefaults] setObject:url.absoluteString forKey:@"playUrl"];
   [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-- (NSString *)playUrl{
-  return [[NSUserDefaults standardUserDefaults] objectForKey:@"playUrl"];
+- (NSString *)playURL{
+	NSString *storedString = [[NSUserDefaults standardUserDefaults] objectForKey:@"playUrl"];
+	if (storedString == nil) return nil;
+	return [NSURL URLWithString:storedString];
 }
 
 - (void)setAuthToken:(NSString *)token{

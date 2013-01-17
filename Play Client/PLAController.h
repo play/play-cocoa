@@ -17,12 +17,11 @@ extern NSString *const PLANowPlayingUpdated;
 @property (nonatomic, strong) NSArray *queuedTracks;
 @property (nonatomic, strong) PLATrack *currentlyPlayingTrack;
 @property (nonatomic, strong) NSString *streamUrl;
+@property (nonatomic, copy) NSURL *playURL;
 
 + (PLAController *)sharedController;
 
 - (void)logInWithBlock:(void(^)(BOOL succeeded))block;
-- (void)setPlayUrl:(NSString *)url;
-- (NSString *)playUrl;
 - (void)setAuthToken:(NSString *)token;
 - (NSString *)authToken;
 - (void)updateNowPlaying:(NSDictionary *)nowPlayingDict;

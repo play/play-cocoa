@@ -155,7 +155,7 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 }
 
 - (IBAction)goToPlay:(id)sender{
-  [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[[PLAController sharedController] playUrl]]];
+  [[NSWorkspace sharedWorkspace] openURL:[[PLAController sharedController] playURL]];
 }
 
 #pragma mark - Play Methods

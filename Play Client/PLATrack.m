@@ -105,19 +105,19 @@
 
 - (NSURL *)albumArtURL
 {
-	NSString *urlString = [NSString stringWithFormat:@"%@/images/art/%@.png", [[PLAController sharedController] playUrl], self.trackId];
+	NSString *urlString = [NSString stringWithFormat:@"%@/images/art/%@.png", [[PLAController sharedController] playURL], self.trackId];
 	return [NSURL URLWithString:urlString];
 }
 
 - (NSURL *)downloadURL
 {
-	NSString *urlString = [NSString stringWithFormat:@"%@/song/%@/download", [[PLAController sharedController] playUrl], self.trackId];
+	NSString *urlString = [NSString stringWithFormat:@"%@/song/%@/download", [[PLAController sharedController] playURL], self.trackId];
 	return [NSURL URLWithString:urlString];
 }
 
 - (NSURL *)albumDownloadURL
 {
-	NSString *urlString = [NSString stringWithFormat:@"%@/artist/%@/album/%@/download", [[PLAController sharedController] playUrl], [self.artist stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], [self.album stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+	NSString *urlString = [NSString stringWithFormat:@"%@/artist/%@/album/%@/download", [[PLAController sharedController] playURL], [self.artist stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], [self.album stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 	return [NSURL URLWithString:urlString];
 }
 

@@ -17,13 +17,13 @@
   static dispatch_once_t oncePredicate;
   
   dispatch_once(&oncePredicate, ^{
-    _sharedClient = [[self alloc] initWithBaseURL:[NSURL URLWithString:[[PLAController sharedController] playUrl]]];
+    _sharedClient = [[self alloc] initWithBaseURL:[[PLAController sharedController] playURL]];
   });
   
   // This isn't pretty, but baseURL is readonly. So we can't actually 
   // keep it a singleton and adjust the url based on user input at runtime.
-  if (![[[_sharedClient baseURL] absoluteString] isEqualToString:[[PLAController sharedController] playUrl]]) {
-    _sharedClient = [[self alloc] initWithBaseURL:[NSURL URLWithString:[[PLAController sharedController] playUrl]]];
+  if (![[[_sharedClient baseURL] absoluteString] isEqualToString:[[[PLAController sharedController] playURL] absoluteString]]) {
+    _sharedClient = [[self alloc] initWithBaseURL:[[PLAController sharedController] playURL]];
   }
   
   [_sharedClient setDefaultHeader:@"Authorization" value:[[PLAController sharedController] authToken]];

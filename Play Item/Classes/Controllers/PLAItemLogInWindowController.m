@@ -21,8 +21,8 @@
 {
 	[self.window setLevel:NSFloatingWindowLevel];
 	
-	NSString *playURL = [[PLAController sharedController] playUrl]; //A URL which isn't NSURL… quit trolling maddox
-    [_playUrlTextField setStringValue:(playURL ?: @"")];
+	NSURL *playURL = [[PLAController sharedController] playURL]; //A URL which isn't NSURL… quit trolling maddox
+    [_playUrlTextField setStringValue:(playURL.absoluteString ?: @"")];
 	
 	NSString *token = [[PLAController sharedController] authToken];
     [_authTokenTextField setStringValue:(token ?: @"")];
@@ -46,11 +46,11 @@
 {
 	if ([self.playUrlTextField.stringValue rangeOfString:@"http://"].location != 0 && [self.playUrlTextField.stringValue rangeOfString:@"https://"].location != 0) {
 		NSString *urlString = [NSString stringWithFormat:@"http://%@", self.playUrlTextField.stringValue];
-		[[PLAController sharedController] setPlayUrl:urlString];
+		[[PLAController sharedController] setPlayURL:[NSURL URLWithString:urlString]];
 		self.playUrlTextField.stringValue = urlString; //bindings don't have a chance to update here
 	}
 		
-	NSURL *playURL = [NSURL URLWithString:[[PLAController sharedController] playUrl]];
+	NSURL *playURL = [[PLAController sharedController] playURL];
 	if (playURL == nil) {
 		NSBeep();
 		return;
