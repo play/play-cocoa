@@ -10,8 +10,6 @@
 
 @implementation PLAShadowTextField
 
-@synthesize shadow = _shadow;
-
 - (void)drawRect:(NSRect)dirtyRect
 {
 	if (self.shadow == nil) {

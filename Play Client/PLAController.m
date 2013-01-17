@@ -19,9 +19,6 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
 
 @implementation PLAController
 
-@synthesize queuedTracks, currentlyPlayingTrack, streamUrl;
-
-
 + (PLAController *)sharedController {
   static PLAController *_sharedController = nil;
   static dispatch_once_t oncePredicate;

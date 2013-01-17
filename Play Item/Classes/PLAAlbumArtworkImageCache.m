@@ -31,8 +31,6 @@ CGFloat const PLAAlbumArtworkImageCacheImageSize = 47.0;
 
 @implementation PLAAlbumArtworkImageCache
 
-@synthesize artworkDownloadQueue = _artworkDownloadQueue;
-
 + (id)sharedCache
 {
 	static PLAAlbumArtworkImageCache *sharedCache = nil;

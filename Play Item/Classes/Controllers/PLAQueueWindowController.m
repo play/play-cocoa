@@ -30,15 +30,6 @@
 
 @implementation PLAQueueWindowController
 
-@synthesize playButton = _playButton;
-@synthesize nowPlayingStarButton = _nowPlayingStarButton;
-@synthesize streamDuration = _streamDuration;
-@synthesize streamProgress = _streamProgress;
-
-@synthesize queue = _queue;
-@synthesize currentTrack = _currentTrack;
-@synthesize downloadQueue = _downloadQueue;
-
 - (id)init
 {	
 	self = [super initWithWindowNibName:@"PLAQueueWindow"];

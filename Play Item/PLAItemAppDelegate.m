@@ -33,14 +33,6 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 
 @implementation PLAItemAppDelegate
 
-@synthesize statusItem = _statusItem;
-@synthesize logInWindowController = _logInWindowController;
-@synthesize streamer = _streamer;
-
-@synthesize keyTap = _keyTap;
-@synthesize queueWindowController = _queueWindowController;
-@synthesize currentWindowController = _currentWindowController;
-
 - (id)init
 {	
 	self = [super init];

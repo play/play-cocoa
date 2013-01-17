@@ -11,7 +11,6 @@
 #import "PLAItemAppDelegate.h"
 
 @implementation PLAItemLogInWindowController
-@synthesize playUrlTextField, authTokenTextField;
 
 - (id)init
 {	
@@ -23,10 +22,10 @@
 	[self.window setLevel:NSFloatingWindowLevel];
 	
 	NSString *playURL = [[PLAController sharedController] playUrl]; //A URL which isn't NSURL… quit trolling maddox
-    [playUrlTextField setStringValue:(playURL ?: @"")];
+    [_playUrlTextField setStringValue:(playURL ?: @"")];
 	
 	NSString *token = [[PLAController sharedController] authToken];
-    [authTokenTextField setStringValue:(token ?: @"")];
+    [_authTokenTextField setStringValue:(token ?: @"")];
 }
 
 - (IBAction)logIn:(id)sender{

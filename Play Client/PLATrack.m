@@ -26,7 +26,6 @@
 #endif
 
 @implementation PLATrack
-@synthesize trackId, name, album, artist, queued, starred;
 
 #if !TARGET_OS_IPHONE
 @synthesize albumArtwork = _albumArtwork;
@@ -67,12 +66,12 @@
     return nil;
   }
   
-  self.trackId = [attributes valueForKeyPath:@"id"];
-  self.name = [attributes valueForKeyPath:@"name"];
-  self.album = [attributes valueForKeyPath:@"album"];
-  self.artist = [attributes valueForKeyPath:@"artist"];
-  queued = [[attributes valueForKeyPath:@"queued"] boolValue];
-  starred = [[attributes valueForKeyPath:@"starred"] boolValue];
+  _trackId = [attributes valueForKeyPath:@"id"];
+  _name = [attributes valueForKeyPath:@"name"];
+  _album = [attributes valueForKeyPath:@"album"];
+  _artist = [attributes valueForKeyPath:@"artist"];
+  _queued = [[attributes valueForKeyPath:@"queued"] boolValue];
+  _starred = [[attributes valueForKeyPath:@"starred"] boolValue];
 	
 #if !TARGET_OS_IPHONE
 	[[PLAAlbumArtworkImageCache sharedCache] imageForTrack:self withCompletionBlock: ^ (NSImage *image, NSError *error) 

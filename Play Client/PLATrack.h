@@ -8,14 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PLATrack : NSObject <NSCopying> {
-  NSString *trackId;
-  NSString *name;
-  NSString *album;
-  NSString *artist;
-  BOOL starred;
-  BOOL queued;
-}
+@interface PLATrack : NSObject <NSCopying>
 
 @property (nonatomic, strong) NSString *trackId;
 @property (nonatomic, strong) NSString *name;

@@ -9,10 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "PLAItemWindow.h"
 
-@interface PLAItemLogInWindowController : NSWindowController{
-  NSTextField *__weak playUrlTextField;
-  NSSecureTextField *__weak authTokenTextField;
-}
+@interface PLAItemLogInWindowController : NSWindowController
 
 @property (nonatomic, weak) IBOutlet NSTextField *playUrlTextField;
 @property (nonatomic, weak) IBOutlet NSSecureTextField *authTokenTextField;

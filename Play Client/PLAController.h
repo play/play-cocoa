@@ -12,11 +12,7 @@ extern NSString *const PLANowPlayingUpdated;
 
 @class PLATrack;
 
-@interface PLAController : NSObject {
-  NSArray *queuedTracks;
-  PLATrack *currentlyPlayingTrack;
-  NSString *streamUrl;
-}
+@interface PLAController : NSObject
 
 @property (nonatomic, strong) NSArray *queuedTracks;
 @property (nonatomic, strong) PLATrack *currentlyPlayingTrack;
