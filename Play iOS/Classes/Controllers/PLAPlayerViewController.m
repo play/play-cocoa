@@ -169,7 +169,7 @@
     
     MPMediaItemArtwork *mediaItemArtwork = [[MPMediaItemArtwork alloc] initWithImage:albumArtImageView.image];
     
-    NSDictionary *nowPlayingMetaDict = [NSDictionary dictionaryWithObjectsAndKeys:[currentlyPlayingTrack name], MPMediaItemPropertyTitle, [currentlyPlayingTrack album], MPMediaItemPropertyAlbumTitle, [currentlyPlayingTrack artist], MPMediaItemPropertyArtist, mediaItemArtwork, MPMediaItemPropertyArtwork, nil];
+    NSDictionary *nowPlayingMetaDict = @{MPMediaItemPropertyTitle: [currentlyPlayingTrack name], MPMediaItemPropertyAlbumTitle: [currentlyPlayingTrack album], MPMediaItemPropertyArtist: [currentlyPlayingTrack artist], MPMediaItemPropertyArtwork: mediaItemArtwork};
     
     [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:nowPlayingMetaDict];
     
@@ -328,7 +328,7 @@
   
   NSDictionary *userInfo = [aNotification userInfo];
   
-  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Stream Error" message:[userInfo objectForKey:@"message"] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Stream Error" message:userInfo[@"message"] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
   [alert show];
   [alert release];
 }
