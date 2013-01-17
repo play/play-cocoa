@@ -10,12 +10,12 @@
 #import "PLAItemWindow.h"
 
 @interface PLAItemLogInWindowController : NSWindowController{
-  NSTextField *playUrlTextField;
-  NSSecureTextField *authTokenTextField;
+  NSTextField *__weak playUrlTextField;
+  NSSecureTextField *__weak authTokenTextField;
 }
 
-@property (nonatomic, assign) IBOutlet NSTextField *playUrlTextField;
-@property (nonatomic, assign) IBOutlet NSSecureTextField *authTokenTextField;
+@property (nonatomic, weak) IBOutlet NSTextField *playUrlTextField;
+@property (nonatomic, weak) IBOutlet NSSecureTextField *authTokenTextField;
 
 - (id)init;
 - (IBAction)logIn:(id)sender;

@@ -22,7 +22,7 @@
 	NSMutableDictionary *attributes = [[self.attributedStringValue attributesAtIndex:0 effectiveRange:NULL] mutableCopy];
 	[attributes setObject:self.shadow forKey:NSShadowAttributeName];
 	
-	NSAttributedString *attrString = [[[NSAttributedString alloc] initWithString:self.stringValue attributes:attributes] autorelease];
+	NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:self.stringValue attributes:attributes];
 	[attrString drawInRect:dirtyRect];
 }
 

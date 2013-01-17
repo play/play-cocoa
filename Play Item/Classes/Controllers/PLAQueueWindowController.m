@@ -18,8 +18,8 @@
 
 @interface PLAQueueWindowController ()
 
-@property (retain) NSArray *queue;
-@property (retain) PLATrack *currentTrack;
+@property (strong) NSArray *queue;
+@property (strong) PLATrack *currentTrack;
 @property (nonatomic, readonly) NSOperationQueue *downloadQueue;
 
 - (void)updateQueue;
@@ -52,10 +52,9 @@
 
 - (void)dealloc
 {
-	[_queue release], _queue = nil;
-	[_currentTrack release], _currentTrack = nil;
-	[_downloadQueue release], _downloadQueue = nil;
-	[super dealloc];
+	_queue = nil;
+	_currentTrack = nil;
+	_downloadQueue = nil;
 }
 
 - (void)windowDidLoad
@@ -132,7 +131,7 @@ NSURL *(^downloadsFolderLocation)() = ^
 	
 	NSURL *targetURL = [downloadsFolder URLByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.m4a", track.name, track.artist]]; //I'm just guessing m4a… there should probably be a smart way to get the format
 	NSOutputStream *outStream = [NSOutputStream outputStreamWithURL:targetURL append:NO];
-	AFHTTPRequestOperation *downloadOperation = [[[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:track.downloadURL]] autorelease];
+	AFHTTPRequestOperation *downloadOperation = [[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:track.downloadURL]];
 	downloadOperation.outputStream = outStream;
 	[downloadOperation setCompletionBlockWithSuccess: ^ (AFHTTPRequestOperation *operation, id responseObject) 
 	 {
@@ -158,7 +157,7 @@ NSURL *(^downloadsFolderLocation)() = ^
 	
 	NSURL *targetURL = [downloadsFolder URLByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.zip", track.artist, track.album]];
 	NSOutputStream *outStream = [NSOutputStream outputStreamWithURL:targetURL append:NO];
-	AFHTTPRequestOperation *downloadOperation = [[[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:track.albumDownloadURL]] autorelease];
+	AFHTTPRequestOperation *downloadOperation = [[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:track.albumDownloadURL]];
 	downloadOperation.outputStream = outStream;
 	[downloadOperation setCompletionBlockWithSuccess: ^ (AFHTTPRequestOperation *operation, id responseObject) 
 	 {

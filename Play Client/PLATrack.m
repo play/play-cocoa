@@ -20,7 +20,7 @@
 #if !TARGET_OS_IPHONE
 @interface PLATrack ()
 
-@property (nonatomic, retain) NSImage *albumArtwork;
+@property (nonatomic, strong) NSImage *albumArtwork;
 
 @end
 #endif
@@ -34,7 +34,7 @@
 
 + (void)currentTrackWithBlock:(void(^)(PLATrack *track, NSError *error))block{
 	[[PLAPlayClient sharedClient] getPath:@"/now_playing" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-		PLATrack *track = [[[PLATrack alloc] initWithAttributes:responseObject] autorelease];
+		PLATrack *track = [[PLATrack alloc] initWithAttributes:responseObject];
 		block(track, nil);
 	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 		block(nil, error);
@@ -49,7 +49,7 @@
 		NSArray *songDicts = [responseObject valueForKey:@"songs"];
 		NSMutableArray *trackObjects = [NSMutableArray array];
 		for (id song in songDicts) {
-			PLATrack *track = [[[PLATrack alloc] initWithAttributes:song] autorelease];
+			PLATrack *track = [[PLATrack alloc] initWithAttributes:song];
 			[trackObjects addObject:track];
 		}
 		
@@ -101,16 +101,11 @@
 }
 
 - (void)dealloc{
-	[trackId release];
-	[name release];
-	[album release];
-	[artist release];
 	
 #if !TARGET_OS_IPHONE
-	[_albumArtwork release], _albumArtwork = nil;
+	_albumArtwork = nil;
 #endif
 	
-	[super dealloc];
 }
 
 #pragma mark -

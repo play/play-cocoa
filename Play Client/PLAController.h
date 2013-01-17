@@ -18,9 +18,9 @@ extern NSString *const PLANowPlayingUpdated;
   NSString *streamUrl;
 }
 
-@property (nonatomic, retain) NSArray *queuedTracks;
-@property (nonatomic, retain) PLATrack *currentlyPlayingTrack;
-@property (nonatomic, retain) NSString *streamUrl;
+@property (nonatomic, strong) NSArray *queuedTracks;
+@property (nonatomic, strong) PLATrack *currentlyPlayingTrack;
+@property (nonatomic, strong) NSString *streamUrl;
 
 + (PLAController *)sharedController;
 

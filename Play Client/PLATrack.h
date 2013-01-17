@@ -17,18 +17,18 @@
   BOOL queued;
 }
 
-@property (nonatomic, retain) NSString *trackId;
-@property (nonatomic, retain) NSString *name;
-@property (nonatomic, retain) NSString *album;
-@property (nonatomic, retain) NSString *artist;
+@property (nonatomic, strong) NSString *trackId;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *album;
+@property (nonatomic, strong) NSString *artist;
 @property (nonatomic, assign) BOOL starred;
 @property (nonatomic, assign) BOOL queued;
-@property (nonatomic, readonly) NSURL *albumArtURL;
-@property (nonatomic, readonly) NSURL *downloadURL;
-@property (nonatomic, readonly) NSURL *albumDownloadURL;
+@property (weak, nonatomic, readonly) NSURL *albumArtURL;
+@property (weak, nonatomic, readonly) NSURL *downloadURL;
+@property (weak, nonatomic, readonly) NSURL *albumDownloadURL;
 
 #if !TARGET_OS_IPHONE
-@property (nonatomic, readonly, retain) NSImage *albumArtwork; //starts off as nil, then gets downloaded in the background and set. KVO compliant.
+@property (nonatomic, readonly, strong) NSImage *albumArtwork; //starts off as nil, then gets downloaded in the background and set. KVO compliant.
 #endif
 
 + (void)currentTrackWithBlock:(void(^)(PLATrack *track, NSError *err))block;

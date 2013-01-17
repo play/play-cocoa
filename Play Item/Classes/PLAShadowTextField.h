@@ -10,6 +10,6 @@
 
 @interface PLAShadowTextField : NSTextField
 
-@property (nonatomic, retain) NSShadow *shadow;
+@property (nonatomic, strong) NSShadow *shadow;
 
 @end

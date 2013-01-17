@@ -25,9 +25,9 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 
 @interface PLAItemAppDelegate ()
 
-@property (nonatomic, retain) SPMediaKeyTap *keyTap;
-@property (nonatomic, retain) AudioStreamer *streamer;
-@property (nonatomic, retain) NSWindowController *currentWindowController;
+@property (nonatomic, strong) SPMediaKeyTap *keyTap;
+@property (nonatomic, strong) AudioStreamer *streamer;
+@property (nonatomic, strong) NSWindowController *currentWindowController;
 
 @end
 
@@ -55,13 +55,10 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 
 - (void)dealloc{
   [self destroyStreamer];
-  [_statusItem release];
 
-	[_logInWindowController release];
-  [_keyTap release], _keyTap = nil;
-	[_queueWindowController release], _queueWindowController = nil;
-	[_currentWindowController release], _currentWindowController = nil;
-  [super dealloc];
+  _keyTap = nil;
+	_queueWindowController = nil;
+	_currentWindowController = nil;
 }
 
 -(void)awakeFromNib{
@@ -94,7 +91,7 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
     });
   }];
   
-    self.keyTap = [[[SPMediaKeyTap alloc] initWithDelegate:self] autorelease];
+    self.keyTap = [[SPMediaKeyTap alloc] initWithDelegate:self];
     [self.keyTap startWatchingMediaKeys];
 }
 
@@ -125,7 +122,7 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 		NSImage *alternateImage = self.statusItem.alternateImage;
 		id target = self.statusItem.target;
 		SEL action = self.statusItem.action;
-		NSView *dummyView = [[[NSView alloc] initWithFrame:NSZeroRect] autorelease];
+		NSView *dummyView = [[NSView alloc] initWithFrame:NSZeroRect];
 		self.statusItem.view = dummyView;
 		NSWindow *statusItemWindow = [dummyView window]; //Bit of a cheat, but we know here that the last click was in the status item (remember that all menu items are rendered as windows)
 		

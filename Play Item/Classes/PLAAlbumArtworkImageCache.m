@@ -57,8 +57,7 @@ CGFloat const PLAAlbumArtworkImageCacheImageSize = 47.0;
 
 - (void)dealloc
 {
-	[_artworkDownloadQueue release], _artworkDownloadQueue = nil;
-	[super dealloc];
+	_artworkDownloadQueue = nil;
 }
 
 #pragma mark -
@@ -86,7 +85,7 @@ CGFloat const PLAAlbumArtworkImageCacheImageSize = 47.0;
 	
 	NSURL *imageURL = track.albumArtURL;
 	NSURLRequest *artworkRequest = [NSURLRequest requestWithURL:imageURL];
-	AFHTTPRequestOperation *requestOperation = [[[AFHTTPRequestOperation alloc] initWithRequest:artworkRequest] autorelease];
+	AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:artworkRequest];
 	[requestOperation setCompletionBlockWithSuccess: ^ (AFHTTPRequestOperation *operation, id responseObject) 
 	{
 		NSBitmapImageRep *imageRep = [NSBitmapImageRep imageRepWithData:responseObject];
@@ -102,7 +101,7 @@ CGFloat const PLAAlbumArtworkImageCacheImageSize = 47.0;
 		if (![imageData writeToURL:localURL options:NSDataWritingAtomic error:&err])
 			NSLog(@"Could not write to local caches dir at URL %@ for this reason: %@", localURL, [err localizedDescription]);
 		
-		NSImage *returnImage = [[[NSImage alloc] initWithSize:imageRep.size] autorelease];
+		NSImage *returnImage = [[NSImage alloc] initWithSize:imageRep.size];
 		[returnImage addRepresentation:imageRep];
 		callCompletionBlockWithImageError(returnImage, nil);
 		
@@ -145,7 +144,7 @@ CGFloat const PLAAlbumArtworkImageCacheImageSize = 47.0;
 
 - (NSImage *)cachedImageForTrack:(PLATrack *)track
 {
-	return [[[NSImage alloc] initWithContentsOfURL:[self localImageLocationForTrack:track]] autorelease]; //This does the smart thing and returns nil if no image exists at that path
+	return [[NSImage alloc] initWithContentsOfURL:[self localImageLocationForTrack:track]]; //This does the smart thing and returns nil if no image exists at that path
 }
 
 @end

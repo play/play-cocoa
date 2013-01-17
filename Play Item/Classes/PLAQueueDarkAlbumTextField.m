@@ -12,7 +12,7 @@
 
 - (void)setup
 {
-	self.shadow = [[[NSShadow alloc] init] autorelease];
+	self.shadow = [[NSShadow alloc] init];
 	self.shadow.shadowOffset = NSMakeSize(1.0, -1.0);
 	self.shadow.shadowColor = [NSColor colorWithCalibratedRed:(195.0/255.0) green:(33.0/255.0) blue:(205.0/255.0) alpha:0.56];
 }

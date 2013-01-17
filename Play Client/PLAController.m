@@ -21,13 +21,6 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
 
 @synthesize queuedTracks, currentlyPlayingTrack, streamUrl;
 
-- (void) dealloc{
-  [queuedTracks release];
-  [currentlyPlayingTrack release];
-  [streamUrl release];
-
-  [super dealloc];
-}
 
 + (PLAController *)sharedController {
   static PLAController *_sharedController = nil;
@@ -51,7 +44,6 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
 - (void)logInWithBlock:(void(^)(BOOL succeeded))block{
   [[PLAPlayClient sharedClient] getPath:@"/streaming_info" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
     self.streamUrl = [responseObject objectForKey:@"stream_url"];
-    [self subscribeToChannels];
 
 	if (block != nil)
 	  block(YES);
@@ -87,13 +79,12 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
 
 - (void)updateNowPlaying:(NSDictionary *)nowPlayingDict{
   // record current state
-  self.currentlyPlayingTrack = [[[PLATrack alloc] initWithAttributes:[nowPlayingDict objectForKey:@"now_playing"]] autorelease];
+  self.currentlyPlayingTrack = [[PLATrack alloc] initWithAttributes:[nowPlayingDict objectForKey:@"now_playing"]];
 
   NSMutableArray *tracks = [NSMutableArray array];
   for (NSDictionary *trackDict in [nowPlayingDict objectForKey:@"songs"]) {
     PLATrack *track = [[PLATrack alloc] initWithAttributes:trackDict];
     [tracks addObject:track];
-    [track release];
   }
   
   self.queuedTracks = [NSArray arrayWithArray:tracks];

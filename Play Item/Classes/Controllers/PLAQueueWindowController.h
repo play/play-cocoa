@@ -14,8 +14,8 @@
 
 @interface PLAQueueWindowController : NSWindowController <NSTableViewDelegate>
 
-@property (nonatomic, assign) IBOutlet NSButton *playButton; 
-@property (nonatomic, assign) IBOutlet NSButton *nowPlayingStarButton;
+@property (nonatomic, weak) IBOutlet NSButton *playButton; 
+@property (nonatomic, weak) IBOutlet NSButton *nowPlayingStarButton;
 
 //used for bindings
 @property (nonatomic, readonly) double streamProgress;
