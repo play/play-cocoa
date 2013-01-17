@@ -150,7 +150,7 @@
 - (void)starWithCompletionBlock:(void(^)(BOOL success, NSError *err))completionBlock
 {
   NSLog(@"starring");
-  [[PLAPlayClient sharedClient] postPath:@"/star" parameters:[NSDictionary dictionaryWithObject:self.trackId forKey:@"id"] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+  [[PLAPlayClient sharedClient] postPath:@"/star" parameters:@{@"id": self.trackId} success:^(AFHTTPRequestOperation *operation, id responseObject) {
     self.starred = YES;
 		if (completionBlock != nil)
 			completionBlock(YES, nil);
@@ -163,7 +163,7 @@
 
 - (void)unstarWithCompletionBlock:(void(^)(BOOL success, NSError *err))completionBlock
 {
-  [[PLAPlayClient sharedClient] deletePath:@"/star" parameters:[NSDictionary dictionaryWithObject:self.trackId forKey:@"id"] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+  [[PLAPlayClient sharedClient] deletePath:@"/star" parameters:@{@"id": self.trackId} success:^(AFHTTPRequestOperation *operation, id responseObject) {
     self.starred = NO;
 		if (completionBlock != nil)
 			completionBlock(YES, nil);

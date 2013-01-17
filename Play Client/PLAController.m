@@ -43,7 +43,7 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
 
 - (void)logInWithBlock:(void(^)(BOOL succeeded))block{
   [[PLAPlayClient sharedClient] getPath:@"/streaming_info" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-    self.streamUrl = [responseObject objectForKey:@"stream_url"];
+    self.streamUrl = responseObject[@"stream_url"];
 
 	if (block != nil)
 	  block(YES);
@@ -79,10 +79,10 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
 
 - (void)updateNowPlaying:(NSDictionary *)nowPlayingDict{
   // record current state
-  self.currentlyPlayingTrack = [[PLATrack alloc] initWithAttributes:[nowPlayingDict objectForKey:@"now_playing"]];
+  self.currentlyPlayingTrack = [[PLATrack alloc] initWithAttributes:nowPlayingDict[@"now_playing"]];
 
   NSMutableArray *tracks = [NSMutableArray array];
-  for (NSDictionary *trackDict in [nowPlayingDict objectForKey:@"songs"]) {
+  for (NSDictionary *trackDict in nowPlayingDict[@"songs"]) {
     PLATrack *track = [[PLATrack alloc] initWithAttributes:trackDict];
     [tracks addObject:track];
   }

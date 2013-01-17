@@ -15,7 +15,7 @@
 }
 
 - (void)shake{
-  [self setAnimations:[NSDictionary dictionaryWithObject:[self shakeAnimation:[self frame]] forKey:@"frameOrigin"]];
+  [self setAnimations:@{@"frameOrigin": [self shakeAnimation:[self frame]]}];
   [[self animator] setFrameOrigin:[self frame].origin];  
 }
 

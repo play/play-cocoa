@@ -90,7 +90,7 @@ CGFloat const PLAAlbumArtworkImageCacheImageSize = 47.0;
 	{
 		NSBitmapImageRep *imageRep = [NSBitmapImageRep imageRepWithData:responseObject];
 		if (imageRep == nil) {
-			callCompletionBlockWithImageError(nil, [NSError errorWithDomain:@"org.play.play-item" code:-1 userInfo:[NSDictionary dictionaryWithObject:NSLocalizedString(@"Could not create image from downloaded data.", nil) forKey:NSLocalizedDescriptionKey]]);
+			callCompletionBlockWithImageError(nil, [NSError errorWithDomain:@"org.play.play-item" code:-1 userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"Could not create image from downloaded data.", nil)}]);
 			return;
 		}
 		
@@ -128,7 +128,7 @@ CGFloat const PLAAlbumArtworkImageCacheImageSize = 47.0;
 	
 	NSString *fileName = [NSString stringWithFormat:@"%@-%@.png", artist, album];
 	
-	NSString *cachesFolderPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+	NSString *cachesFolderPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
 	cachesFolderPath = [[cachesFolderPath stringByAppendingPathComponent:@"org.play.play-item"] stringByAppendingPathComponent:@"Artwork"];
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{

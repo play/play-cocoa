@@ -20,7 +20,7 @@
 	}
 	
 	NSMutableDictionary *attributes = [[self.attributedStringValue attributesAtIndex:0 effectiveRange:NULL] mutableCopy];
-	[attributes setObject:self.shadow forKey:NSShadowAttributeName];
+	attributes[NSShadowAttributeName] = self.shadow;
 	
 	NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:self.stringValue attributes:attributes];
 	[attrString drawInRect:dirtyRect];
