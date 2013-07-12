@@ -26,15 +26,15 @@
 #endif
 
 @implementation PLATrack
-@synthesize trackId, name, album, artist, queued, starred;
+@synthesize slug, name, album, albumSlug, artist, artistSlug, albumArtPath, queued, starred;
 
 #if !TARGET_OS_IPHONE
 @synthesize albumArtwork = _albumArtwork;
 #endif
 
 + (void)currentTrackWithBlock:(void(^)(PLATrack *track, NSError *error))block{
-	[[PLAPlayClient sharedClient] getPath:@"/now_playing" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-		PLATrack *track = [[[PLATrack alloc] initWithAttributes:responseObject] autorelease];
+	[[PLAPlayClient sharedClient] getPath:@"/api/now_playing" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		PLATrack *track = [[[PLATrack alloc] initWithAttributes:[responseObject objectForKey:@"now_playing"]] autorelease];
 		block(track, nil);
 	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 		block(nil, error);
@@ -43,7 +43,7 @@
 
 + (void)currentQueueWithBlock:(void(^)(NSArray *tracks, NSError *error))block
 {
-	[[PLAPlayClient sharedClient] getPath:@"/queue" parameters:nil 
+	[[PLAPlayClient sharedClient] getPath:@"/api/queue" parameters:nil 
 	success: ^ (AFHTTPRequestOperation *operation, id responseObject) 
 	{
 		NSArray *songDicts = [responseObject valueForKey:@"songs"];
@@ -67,12 +67,17 @@
     return nil;
   }
   
-  self.trackId = [attributes valueForKeyPath:@"id"];
-  self.name = [attributes valueForKeyPath:@"name"];
-  self.album = [attributes valueForKeyPath:@"album"];
-  self.artist = [attributes valueForKeyPath:@"artist"];
-  queued = [[attributes valueForKeyPath:@"queued"] boolValue];
-  starred = [[attributes valueForKeyPath:@"starred"] boolValue];
+  NSLog(@"attributes: %@", attributes);
+  
+  self.slug = [attributes valueForKeyPath:@"slug"];
+  self.name = [attributes valueForKeyPath:@"title"];
+  self.album = [attributes valueForKeyPath:@"album_name"];
+  self.albumSlug = [attributes valueForKeyPath:@"album_slug"];
+  self.artist = [attributes valueForKeyPath:@"artist_name"];
+  self.artistSlug = [attributes valueForKeyPath:@"artist_slug"];
+  self.albumArtPath = [attributes valueForKeyPath:@"album_art_path"];
+//  queued = [[attributes valueForKeyPath:@"queued"] boolValue];
+//  starred = [[attributes valueForKeyPath:@"starred"] boolValue];
 	
 #if !TARGET_OS_IPHONE
 	[[PLAAlbumArtworkImageCache sharedCache] imageForTrack:self withCompletionBlock: ^ (NSImage *image, NSError *error) 
@@ -87,10 +92,13 @@
 - (id)copyWithZone:(NSZone *)zone
 {
 	PLATrack *copy = [[PLATrack alloc] init];
-	copy.trackId = self.trackId;
+	copy.slug = self.slug;
 	copy.name = self.name;
 	copy.album = self.album;
+	copy.albumSlug = self.albumSlug;
 	copy.artist = self.artist;
+	copy.artistSlug = self.artistSlug;
+	copy.albumArtPath = self.albumArtPath;
 	copy.queued = self.queued;
 	copy.starred = self.starred;
 	
@@ -101,10 +109,13 @@
 }
 
 - (void)dealloc{
-	[trackId release];
+	[slug release];
 	[name release];
 	[album release];
+	[albumSlug release];
 	[artist release];
+	[artistSlug release];
+	[albumArtPath release];
 	
 #if !TARGET_OS_IPHONE
 	[_albumArtwork release], _albumArtwork = nil;
@@ -118,19 +129,19 @@
 
 - (NSURL *)albumArtURL
 {
-	NSString *urlString = [NSString stringWithFormat:@"%@/images/art/%@.png", [[PLAController sharedController] playUrl], self.trackId];
+	NSString *urlString = [NSString stringWithFormat:@"%@%@", [[PLAController sharedController] playUrl], self.albumArtPath];
 	return [NSURL URLWithString:urlString];
 }
 
 - (NSURL *)downloadURL
 {
-	NSString *urlString = [NSString stringWithFormat:@"%@/song/%@/download", [[PLAController sharedController] playUrl], self.trackId];
+	NSString *urlString = [NSString stringWithFormat:@"%@/api/artists/%@/songs/%@/download", [[PLAController sharedController] playUrl], [self.artistSlug stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], [self.albumSlug stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 	return [NSURL URLWithString:urlString];
 }
 
 - (NSURL *)albumDownloadURL
 {
-	NSString *urlString = [NSString stringWithFormat:@"%@/artist/%@/album/%@/download", [[PLAController sharedController] playUrl], [self.artist stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], [self.album stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+	NSString *urlString = [NSString stringWithFormat:@"%@/api/artist/%@/album/%@/download", [[PLAController sharedController] playUrl], [self.artistSlug stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], [self.albumSlug stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 	return [NSURL URLWithString:urlString];
 }
 
@@ -155,7 +166,7 @@
 - (void)starWithCompletionBlock:(void(^)(BOOL success, NSError *err))completionBlock
 {
   NSLog(@"starring");
-  [[PLAPlayClient sharedClient] postPath:@"/star" parameters:[NSDictionary dictionaryWithObject:self.trackId forKey:@"id"] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+  [[PLAPlayClient sharedClient] postPath:@"/star" parameters:[NSDictionary dictionaryWithObject:self.slug forKey:@"id"] success:^(AFHTTPRequestOperation *operation, id responseObject) {
     self.starred = YES;
 		if (completionBlock != nil)
 			completionBlock(YES, nil);
@@ -168,7 +179,7 @@
 
 - (void)unstarWithCompletionBlock:(void(^)(BOOL success, NSError *err))completionBlock
 {
-  [[PLAPlayClient sharedClient] deletePath:@"/star" parameters:[NSDictionary dictionaryWithObject:self.trackId forKey:@"id"] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+  [[PLAPlayClient sharedClient] deletePath:@"/star" parameters:[NSDictionary dictionaryWithObject:self.slug forKey:@"id"] success:^(AFHTTPRequestOperation *operation, id responseObject) {
     self.starred = NO;
 		if (completionBlock != nil)
 			completionBlock(YES, nil);

@@ -9,18 +9,24 @@
 #import <Foundation/Foundation.h>
 
 @interface PLATrack : NSObject <NSCopying> {
-  NSString *trackId;
+  NSString *slug;
   NSString *name;
   NSString *album;
+  NSString *albumSlug;
   NSString *artist;
+  NSString *artistSlug;
+  NSString *albumArtPath;
   BOOL starred;
   BOOL queued;
 }
 
-@property (nonatomic, retain) NSString *trackId;
+@property (nonatomic, retain) NSString *slug;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *album;
+@property (nonatomic, retain) NSString *albumSlug;
 @property (nonatomic, retain) NSString *artist;
+@property (nonatomic, retain) NSString *artistSlug;
+@property (nonatomic, retain) NSString *albumArtPath;
 @property (nonatomic, assign) BOOL starred;
 @property (nonatomic, assign) BOOL queued;
 @property (nonatomic, readonly) NSURL *albumArtURL;
