@@ -25,6 +25,7 @@ extern NSString *const PLANowPlayingUpdated;
 - (void)logInWithBlock:(void(^)(BOOL succeeded))block;
 - (void)setPlayUrl:(NSString *)url;
 - (NSString *)playUrl;
+- (NSString *)streamUrl;
 - (void)setAuthToken:(NSString *)token;
 - (NSString *)authToken;
 - (void)updateNowPlaying:(NSDictionary *)nowPlayingDict;

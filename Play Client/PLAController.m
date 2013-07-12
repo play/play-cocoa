@@ -60,6 +60,8 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
 
 }
 
+- (NSString *)streamUrl{
+  return [NSString stringWithFormat:@"%@:8000", [[PLAController sharedController] playUrl]];
 }
 
 #pragma mark - Settings
