@@ -59,9 +59,6 @@
 		E058E22615332C4C0079B226 /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = E058E22115332C4C0079B226 /* icon-72.png */; };
 		E058E22715332C4C0079B226 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E058E22215332C4C0079B226 /* icon.png */; };
 		E058E22815332C4C0079B226 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E058E22315332C4C0079B226 /* icon@2x.png */; };
-		E058E242153334860079B226 /* Pusher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E058E22C153334860079B226 /* Pusher.framework */; };
-		E058E245153334860079B226 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = E058E22E153334860079B226 /* README.txt */; };
-		E058E247153334860079B226 /* libPusher-combined.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E058E23F153334860079B226 /* libPusher-combined.a */; };
 		E058E25715333AB50079B226 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E058E2551533381F0079B226 /* SystemConfiguration.framework */; };
 		E058E25E15333AE40079B226 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E058E25C15333ADB0079B226 /* CoreGraphics.framework */; };
 		E058E25F15333AE70079B226 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E058E25A15333AD10079B226 /* Foundation.framework */; };
@@ -73,7 +70,6 @@
 		E058E277153376E80079B226 /* PLATrack.m in Sources */ = {isa = PBXBuildFile; fileRef = E058E273153376E80079B226 /* PLATrack.m */; };
 		E058E27A153377160079B226 /* PLAController.m in Sources */ = {isa = PBXBuildFile; fileRef = E058E279153377160079B226 /* PLAController.m */; };
 		E058E27B153377160079B226 /* PLAController.m in Sources */ = {isa = PBXBuildFile; fileRef = E058E279153377160079B226 /* PLAController.m */; };
-		E058E284153390A00079B226 /* Pusher.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = E058E22C153334860079B226 /* Pusher.framework */; };
 		E05AEBEE1533D97E0094566C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05AEBED1533D97E0094566C /* Foundation.framework */; };
 		E05AEBF01533D9840094566C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05AEBEF1533D9840094566C /* Cocoa.framework */; };
 		E05AEBF21533D98B0094566C /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05AEBF11533D98B0094566C /* AppKit.framework */; };
@@ -180,7 +176,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E058E284153390A00079B226 /* Pusher.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,24 +251,6 @@
 		E058E22115332C4C0079B226 /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72.png"; sourceTree = "<group>"; };
 		E058E22215332C4C0079B226 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		E058E22315332C4C0079B226 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
-		E058E22C153334860079B226 /* Pusher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pusher.framework; sourceTree = "<group>"; };
-		E058E22E153334860079B226 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
-		E058E230153334860079B226 /* PTEventListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTEventListener.h; sourceTree = "<group>"; };
-		E058E231153334860079B226 /* PTJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTJSON.h; sourceTree = "<group>"; };
-		E058E232153334860079B226 /* PTJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTJSONParser.h; sourceTree = "<group>"; };
-		E058E233153334860079B226 /* PTPusher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTPusher.h; sourceTree = "<group>"; };
-		E058E234153334860079B226 /* PTPusherAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTPusherAPI.h; sourceTree = "<group>"; };
-		E058E235153334860079B226 /* PTPusherChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTPusherChannel.h; sourceTree = "<group>"; };
-		E058E236153334860079B226 /* PTPusherConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTPusherConnection.h; sourceTree = "<group>"; };
-		E058E237153334860079B226 /* PTPusherDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTPusherDelegate.h; sourceTree = "<group>"; };
-		E058E238153334860079B226 /* PTPusherErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTPusherErrors.h; sourceTree = "<group>"; };
-		E058E239153334860079B226 /* PTPusherEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTPusherEvent.h; sourceTree = "<group>"; };
-		E058E23A153334860079B226 /* PTPusherEventDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTPusherEventDispatcher.h; sourceTree = "<group>"; };
-		E058E23B153334860079B226 /* PTPusherEventPublisher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTPusherEventPublisher.h; sourceTree = "<group>"; };
-		E058E23C153334860079B226 /* PTPusherMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTPusherMacros.h; sourceTree = "<group>"; };
-		E058E23D153334860079B226 /* PTPusherPresenceChannelDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTPusherPresenceChannelDelegate.h; sourceTree = "<group>"; };
-		E058E23E153334860079B226 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
-		E058E23F153334860079B226 /* libPusher-combined.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPusher-combined.a"; sourceTree = "<group>"; };
 		E058E2551533381F0079B226 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		E058E25815333AC80079B226 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		E058E25A15333AD10079B226 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -400,7 +377,6 @@
 				E0CAF64415332610007EE510 /* AudioToolbox.framework in Frameworks */,
 				E0CAF642153325FA007EE510 /* CoreAudio.framework in Frameworks */,
 				E0CAF63B153325DB007EE510 /* MediaPlayer.framework in Frameworks */,
-				E058E247153334860079B226 /* libPusher-combined.a in Frameworks */,
 				E058E25715333AB50079B226 /* SystemConfiguration.framework in Frameworks */,
 				E058E25E15333AE40079B226 /* CoreGraphics.framework in Frameworks */,
 				E058E25F15333AE70079B226 /* Foundation.framework in Frameworks */,
@@ -422,7 +398,6 @@
 				E05AEBF21533D98B0094566C /* AppKit.framework in Frameworks */,
 				E05AEBF01533D9840094566C /* Cocoa.framework in Frameworks */,
 				E05AEBEE1533D97E0094566C /* Foundation.framework in Frameworks */,
-				E058E242153334860079B226 /* Pusher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,55 +541,6 @@
 			name = "Download Song";
 			sourceTree = "<group>";
 		};
-		E058E22A153334860079B226 /* libPusher */ = {
-			isa = PBXGroup;
-			children = (
-				E058E22B153334860079B226 /* OS X */,
-				E058E22D153334860079B226 /* iOS */,
-			);
-			path = libPusher;
-			sourceTree = "<group>";
-		};
-		E058E22B153334860079B226 /* OS X */ = {
-			isa = PBXGroup;
-			children = (
-				E058E22C153334860079B226 /* Pusher.framework */,
-			);
-			path = "OS X";
-			sourceTree = "<group>";
-		};
-		E058E22D153334860079B226 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				E058E22E153334860079B226 /* README.txt */,
-				E058E22F153334860079B226 /* headers */,
-				E058E23F153334860079B226 /* libPusher-combined.a */,
-			);
-			path = iOS;
-			sourceTree = "<group>";
-		};
-		E058E22F153334860079B226 /* headers */ = {
-			isa = PBXGroup;
-			children = (
-				E058E230153334860079B226 /* PTEventListener.h */,
-				E058E231153334860079B226 /* PTJSON.h */,
-				E058E232153334860079B226 /* PTJSONParser.h */,
-				E058E233153334860079B226 /* PTPusher.h */,
-				E058E234153334860079B226 /* PTPusherAPI.h */,
-				E058E235153334860079B226 /* PTPusherChannel.h */,
-				E058E236153334860079B226 /* PTPusherConnection.h */,
-				E058E237153334860079B226 /* PTPusherDelegate.h */,
-				E058E238153334860079B226 /* PTPusherErrors.h */,
-				E058E239153334860079B226 /* PTPusherEvent.h */,
-				E058E23A153334860079B226 /* PTPusherEventDispatcher.h */,
-				E058E23B153334860079B226 /* PTPusherEventPublisher.h */,
-				E058E23C153334860079B226 /* PTPusherMacros.h */,
-				E058E23D153334860079B226 /* PTPusherPresenceChannelDelegate.h */,
-				E058E23E153334860079B226 /* SRWebSocket.h */,
-			);
-			path = headers;
-			sourceTree = "<group>";
-		};
 		E058E26F153376E80079B226 /* Play Client */ = {
 			isa = PBXGroup;
 			children = (
@@ -659,7 +585,6 @@
 			isa = PBXGroup;
 			children = (
 				E058E2801533837E0079B226 /* Reachability */,
-				E058E22A153334860079B226 /* libPusher */,
 				E0783EE01533187D003EA138 /* AFNetworking */,
 				E0783EF61533187D003EA138 /* AudioStreamer */,
 				E0783EFB1533187D003EA138 /* SDWebImage */,
@@ -1019,7 +944,6 @@
 				E058E22615332C4C0079B226 /* icon-72.png in Resources */,
 				E058E22715332C4C0079B226 /* icon.png in Resources */,
 				E058E22815332C4C0079B226 /* icon@2x.png in Resources */,
-				E058E245153334860079B226 /* README.txt in Resources */,
 				E05AEC0F1534B6BE0094566C /* PLALogInViewControllerViewController.xib in Resources */,
 				E0761BB7153F928600CB3E2F /* OpenSans-LightItalic.ttf in Resources */,
 				E0761BB9153F928600CB3E2F /* OpenSans-Semibold.ttf in Resources */,
