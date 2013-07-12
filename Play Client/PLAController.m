@@ -88,8 +88,7 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
 
 - (void)updateNowPlaying:(NSDictionary *)nowPlayingDict{
   // record current state
-  self.currentlyPlayingTrack = [[[PLATrack alloc] initWithAttributes:[nowPlayingDict objectForKey:@"now_playing"]] autorelease];
-
+  
   NSMutableArray *tracks = [NSMutableArray array];
   for (NSDictionary *trackDict in [nowPlayingDict objectForKey:@"songs"]) {
     PLATrack *track = [[PLATrack alloc] initWithAttributes:trackDict];
@@ -97,14 +96,14 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
     [track release];
   }
   
+  if ([tracks count] > 0) {
+    self.currentlyPlayingTrack = [tracks objectAtIndex:0];
+    [tracks removeObjectAtIndex:0];
+  }
+    
   self.queuedTracks = [NSArray arrayWithArray:tracks];
   
   [[NSNotificationCenter defaultCenter] postNotificationName:PLANowPlayingUpdated object:nil];
-}
-
-  }
-    
-  
 }
 
 #if TARGET_OS_EMBEDDED
