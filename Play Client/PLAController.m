@@ -48,7 +48,7 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
 }
 
 - (void)logInWithBlock:(void(^)(BOOL succeeded))block{
-  [[PLAPlayClient sharedClient] getPath:@"/streaming_info" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+  [[PLAPlayClient sharedClient] getPath:@"/api/now_playing" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
 	if (block != nil)
 	  block(YES);
