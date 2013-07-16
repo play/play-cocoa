@@ -152,7 +152,7 @@
     
   if (currentlyPlayingTrack) {
     self.songLabel.text = [currentlyPlayingTrack name];
-    self.artistLabel.text = [currentlyPlayingTrack artist];
+    self.artistLabel.text = [NSString stringWithFormat:@"%@ • %@", [currentlyPlayingTrack artist], [currentlyPlayingTrack album]];
     
     [self adjustLabels];
     
