@@ -293,6 +293,7 @@
 	streamer = [[AudioStreamer alloc] initWithURL:url];
 	  
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackStateChanged:) name:ASStatusChangedNotification object:streamer];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchNowPlaying) name:ASUpdateMetadataNotification object:streamer];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(presentStreamerAlert:) name:ASPresentAlertWithTitleNotification object:streamer];
 }
 
@@ -300,6 +301,7 @@
 	if (streamer){
 		[[NSNotificationCenter defaultCenter] removeObserver:self name:ASStatusChangedNotification object:streamer];
 		[[NSNotificationCenter defaultCenter] removeObserver:self name:ASPresentAlertWithTitleNotification object:streamer];
+		[[NSNotificationCenter defaultCenter] removeObserver:self name:ASUpdateMetadataNotification object:streamer];
 		
     self.currentTrack = nil;
     
