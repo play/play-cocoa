@@ -86,24 +86,23 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
 
 #pragma mark - State methods
 
-- (void)updateNowPlaying:(NSDictionary *)nowPlayingDict{
-  // record current state
+- (void)updateNowPlaying{
+  NSLog(@"Updating Now Playing");
   
-  NSMutableArray *tracks = [NSMutableArray array];
-  for (NSDictionary *trackDict in [nowPlayingDict objectForKey:@"songs"]) {
-    PLATrack *track = [[PLATrack alloc] initWithAttributes:trackDict];
-    [tracks addObject:track];
-    [track release];
-  }
-  
-  if ([tracks count] > 0) {
-    self.currentlyPlayingTrack = [tracks objectAtIndex:0];
-    [tracks removeObjectAtIndex:0];
-  }
+  [PLATrack currentQueueWithBlock:^(NSArray *tracks, NSError *err) {
+    NSMutableArray *foundTracks = [NSMutableArray arrayWithArray:tracks];
     
-  self.queuedTracks = [NSArray arrayWithArray:tracks];
-  
-  [[NSNotificationCenter defaultCenter] postNotificationName:PLANowPlayingUpdated object:nil];
+    if ([foundTracks count] > 0) {
+      self.currentlyPlayingTrack = [foundTracks objectAtIndex:0];
+      [foundTracks removeObjectAtIndex:0];
+    }
+    
+    self.queuedTracks = [NSArray arrayWithArray:foundTracks];
+    
+    dispatch_async(dispatch_get_main_queue(), ^(void) {
+      [[NSNotificationCenter defaultCenter] postNotificationName:PLANowPlayingUpdated object:nil];
+    });
+  }];  
 }
 
 #if TARGET_OS_EMBEDDED

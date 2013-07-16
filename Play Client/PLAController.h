@@ -28,6 +28,6 @@ extern NSString *const PLANowPlayingUpdated;
 - (NSString *)streamUrl;
 - (void)setAuthToken:(NSString *)token;
 - (NSString *)authToken;
-- (void)updateNowPlaying:(NSDictionary *)nowPlayingDict;
+- (void)updateNowPlaying;
 
 @end
