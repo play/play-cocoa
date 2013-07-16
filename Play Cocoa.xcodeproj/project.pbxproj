@@ -83,6 +83,8 @@
 		E05AEC0F1534B6BE0094566C /* PLALogInViewControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E05AEC0D1534B6BE0094566C /* PLALogInViewControllerViewController.xib */; };
 		E06844A0153F9C1E009C6B3F /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E068449F153F9C1E009C6B3F /* OpenSans-Regular.ttf */; };
 		E06844A1153F9C1E009C6B3F /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E068449F153F9C1E009C6B3F /* OpenSans-Regular.ttf */; };
+		E06C3EB11795B6C600DD30E7 /* button-stop.png in Resources */ = {isa = PBXBuildFile; fileRef = E06C3EAF1795B6C600DD30E7 /* button-stop.png */; };
+		E06C3EB21795B6C600DD30E7 /* button-stop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E06C3EB01795B6C600DD30E7 /* button-stop@2x.png */; };
 		E072471C15408F7600F64C2B /* icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E072471B15408F7600F64C2B /* icon-72@2x.png */; };
 		E0761BB6153F928600CB3E2F /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E0761BB4153F928600CB3E2F /* OpenSans-LightItalic.ttf */; };
 		E0761BB7153F928600CB3E2F /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E0761BB4153F928600CB3E2F /* OpenSans-LightItalic.ttf */; };
@@ -277,6 +279,8 @@
 		E05AEC0C1534B6BE0094566C /* PLALogInViewControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLALogInViewControllerViewController.m; sourceTree = "<group>"; };
 		E05AEC0D1534B6BE0094566C /* PLALogInViewControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PLALogInViewControllerViewController.xib; sourceTree = "<group>"; };
 		E068449F153F9C1E009C6B3F /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		E06C3EAF1795B6C600DD30E7 /* button-stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-stop.png"; sourceTree = "<group>"; };
+		E06C3EB01795B6C600DD30E7 /* button-stop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-stop@2x.png"; sourceTree = "<group>"; };
 		E072471B15408F7600F64C2B /* icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72@2x.png"; sourceTree = "<group>"; };
 		E0761BB4153F928600CB3E2F /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
 		E0761BB5153F928600CB3E2F /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
@@ -828,6 +832,8 @@
 				E0C965DC153327A6001D52BF /* button-pause@2x.png */,
 				E0C965DD153327A6001D52BF /* button-play.png */,
 				E0C965DE153327A6001D52BF /* button-play@2x.png */,
+				E06C3EAF1795B6C600DD30E7 /* button-stop.png */,
+				E06C3EB01795B6C600DD30E7 /* button-stop@2x.png */,
 				E0C965DF153327A6001D52BF /* default_album.png */,
 				E0C965E0153327A6001D52BF /* default_album@2x.png */,
 				E0C965E1153327A6001D52BF /* shadow.png */,
@@ -951,6 +957,8 @@
 				E06844A1153F9C1E009C6B3F /* OpenSans-Regular.ttf in Resources */,
 				E072471C15408F7600F64C2B /* icon-72@2x.png in Resources */,
 				E0146EBD1602EF9E0042C696 /* Default-568h@2x.png in Resources */,
+				E06C3EB11795B6C600DD30E7 /* button-stop.png in Resources */,
+				E06C3EB21795B6C600DD30E7 /* button-stop@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
