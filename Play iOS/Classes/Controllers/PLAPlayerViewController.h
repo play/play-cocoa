@@ -27,8 +27,6 @@
 @property (retain, nonatomic) IBOutlet UILabel *artistLabel;
 @property (retain, nonatomic) IBOutlet UIImageView *albumArtImageView;
 @property (retain, nonatomic) IBOutlet UIButton *playButton;
-@property (retain, nonatomic) IBOutlet UIView *nowPlayingView;
-@property (retain, nonatomic) IBOutlet UIView *sliderView;
 @property (retain, nonatomic) IBOutlet UILabel *statusLabel;
 @property (retain, nonatomic) PLATrack *currentTrack;
 

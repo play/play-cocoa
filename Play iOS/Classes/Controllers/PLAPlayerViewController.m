@@ -16,7 +16,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 @implementation PLAPlayerViewController
-@synthesize songLabel, artistLabel, albumArtImageView, playButton, nowPlayingView, sliderView, statusLabel, currentTrack;
+@synthesize songLabel, artistLabel, albumArtImageView, playButton, statusLabel, currentTrack;
 
 - (void)dealloc {
   [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -28,8 +28,6 @@
   [artistLabel release];
   [albumArtImageView release];
   [playButton release];
-  [nowPlayingView release];
-  [sliderView release];
   [statusLabel release];
   [super dealloc];
 }
@@ -40,18 +38,10 @@
 - (void)viewDidLoad{
   [super viewDidLoad];
   
-  [self hideNowPlaying:NO];
+  [self.artistLabel setText:@""];
+  [self.songLabel setText:@""];
+  
   albumArtImageView.layer.masksToBounds = YES;
-  
-  CGRect nowPlayingViewFrame = nowPlayingView.frame;
-  
-  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-    nowPlayingViewFrame.size.height = 126.0;
-  }else{
-    nowPlayingViewFrame.size.height = 246.0;
-  }
-  [nowPlayingView setFrame:nowPlayingViewFrame];
-
   
   MPVolumeView *volumeView = [[MPVolumeView alloc] initWithFrame:CGRectMake(5, self.view.bounds.size.height - 35.0, 30.0, 50.0)];
   [volumeView setShowsVolumeSlider:NO];
@@ -79,8 +69,6 @@
   [self setArtistLabel:nil];
   [self setAlbumArtImageView:nil];
   [self setPlayButton:nil];
-  [self setNowPlayingView:nil];
-  [self setSliderView:nil];
   [self setStatusLabel:nil];
   [super viewDidUnload];
 }
@@ -161,16 +149,15 @@
 
 - (void)updateMetaData{
   PLATrack *currentlyPlayingTrack = [[PLAController sharedController] currentlyPlayingTrack];
-  
+    
   if (currentlyPlayingTrack) {
     self.songLabel.text = [currentlyPlayingTrack name];
     self.artistLabel.text = [currentlyPlayingTrack artist];
     
     [self adjustLabels];
-    [self showNowPlaying:YES];
     
     MPMediaItemArtwork *mediaItemArtwork = [[MPMediaItemArtwork alloc] initWithImage:albumArtImageView.image];
-    
+
     NSDictionary *nowPlayingMetaDict = [NSDictionary dictionaryWithObjectsAndKeys:[currentlyPlayingTrack name], MPMediaItemPropertyTitle, [currentlyPlayingTrack album], MPMediaItemPropertyAlbumTitle, [currentlyPlayingTrack artist], MPMediaItemPropertyArtist, mediaItemArtwork, MPMediaItemPropertyArtwork, nil];
     
     [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:nowPlayingMetaDict];
@@ -183,37 +170,6 @@
     
     [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:nil];
   }
-}
-
-- (void)hideNowPlaying:(BOOL)animated{
-  float duration = 0.0;
-  if (animated) {
-    duration = 0.3;
-  }
-  
-  [UIView animateWithDuration:duration delay:0.0 options:UIViewAnimationCurveEaseOut animations:^{
-    sliderView.transform = CGAffineTransformIdentity;
-  } completion:^(BOOL finished) {}];
-}
-
-- (void)showNowPlaying:(BOOL)animated{
-  float duration = 0.0;
-  if (animated) {
-    duration = 0.3;
-  }
-  
-  float yDistance;
-  
-  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-    yDistance = 125.0;
-  }else{
-    yDistance = 244.0;
-  }
-  
-  [UIView animateWithDuration:duration delay:0.0 options:UIViewAnimationCurveEaseIn animations:^{
-    sliderView.transform = CGAffineTransformMakeTranslation(0, yDistance);
-  } completion:^(BOOL finished) {}];
-  
 }
 
 - (void)adjustLabels{
@@ -235,12 +191,11 @@
     padding = 20.0;
   }
     
-  albumArtImageViewFrame.origin.y = padding + 3.0;
-  albumArtImageViewFrame.origin.x = nowPlayingView.bounds.size.width - albumArtImageViewFrame.size.width - padding;
+  albumArtImageViewFrame.origin.y = padding;
+  albumArtImageViewFrame.origin.x = padding;
   
-  songLabelFrame.origin.x = padding;
-  songLabelFrame.origin.y = padding;
-  songLabelFrame.size.width = albumArtImageViewFrame.origin.x - padding - 10.0;
+  songLabelFrame.origin.x = albumArtImageViewFrame.origin.x + albumArtImageViewFrame.size.width + padding;
+  songLabelFrame.origin.y = albumArtImageViewFrame.origin.y;
   
   CGSize maximumSongLabelSize = CGSizeMake(songLabelFrame.size.width,9999);
   CGSize expectedSongLabelSize = [[songLabel text] sizeWithFont:[songLabel font] constrainedToSize:maximumSongLabelSize lineBreakMode:[songLabel lineBreakMode]]; 
@@ -250,7 +205,6 @@
 
   artistLabelFrame.origin.x = songLabelFrame.origin.x;
   artistLabelFrame.origin.y = songLabelFrame.origin.y + songLabelFrame.size.height + 2.0;
-  artistLabelFrame.size.width = albumArtImageViewFrame.origin.x - padding - 10.0;
   
   CGSize maximumArtistLabelSize = CGSizeMake(artistLabelFrame.size.width,9999);
   CGSize expectedArtistLabelSize = [[artistLabel text] sizeWithFont:[artistLabel font] constrainedToSize:maximumArtistLabelSize lineBreakMode:[artistLabel lineBreakMode]]; 
@@ -314,9 +268,11 @@
 
 - (void)playbackStateChanged:(NSNotification *)aNotification{
 	if ([streamer isWaiting]){
+    [statusLabel setHidden:NO];
+    [playButton setImage:[UIImage imageNamed:@"button-stop"] forState:UIControlStateNormal];
 	}else if ([streamer isPlaying]){
     [statusLabel setHidden:YES];
-    [playButton setImage:[UIImage imageNamed:@"button-pause.png"] forState:UIControlStateNormal];
+    [playButton setImage:[UIImage imageNamed:@"button-stop"] forState:UIControlStateNormal];
 	}else if ([streamer isPaused]){
     [statusLabel setHidden:YES];
     [playButton setImage:[UIImage imageNamed:@"button-play.png"] forState:UIControlStateNormal];
@@ -341,8 +297,12 @@
 #pragma mark - SDWebImageDownloader Callback
 
 - (void)imageDownloader:(SDWebImageDownloader *)imageDownloader didFinishWithImage:(UIImage *)image{
-  [albumArtImageView setImage:image];
-  [self updateMetaData];  
+  if (image) {
+    [albumArtImageView setImage:image];
+  }else{
+    [albumArtImageView setImage:[UIImage imageNamed:@"default_album.png"]];
+  }
+  [self updateMetaData];
 }
 
 #pragma mark - Remote Control Events
