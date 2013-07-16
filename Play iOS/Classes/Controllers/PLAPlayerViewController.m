@@ -196,20 +196,22 @@
   
   songLabelFrame.origin.x = albumArtImageViewFrame.origin.x + albumArtImageViewFrame.size.width + padding;
   songLabelFrame.origin.y = albumArtImageViewFrame.origin.y;
+  songLabelFrame.size.width = self.view.bounds.size.width - songLabelFrame.origin.x - padding;
   
   CGSize maximumSongLabelSize = CGSizeMake(songLabelFrame.size.width,9999);
   CGSize expectedSongLabelSize = [[songLabel text] sizeWithFont:[songLabel font] constrainedToSize:maximumSongLabelSize lineBreakMode:[songLabel lineBreakMode]]; 
   
-  songLabelFrame.size = expectedSongLabelSize;
+  songLabelFrame.size.height = expectedSongLabelSize.height;
   
 
   artistLabelFrame.origin.x = songLabelFrame.origin.x;
   artistLabelFrame.origin.y = songLabelFrame.origin.y + songLabelFrame.size.height + 2.0;
+  artistLabelFrame.size.width = songLabelFrame.size.width;
   
   CGSize maximumArtistLabelSize = CGSizeMake(artistLabelFrame.size.width,9999);
   CGSize expectedArtistLabelSize = [[artistLabel text] sizeWithFont:[artistLabel font] constrainedToSize:maximumArtistLabelSize lineBreakMode:[artistLabel lineBreakMode]]; 
   
-  artistLabelFrame.size = expectedArtistLabelSize;
+  artistLabelFrame.size.height = expectedArtistLabelSize.height;
   
   
   self.songLabel.frame = songLabelFrame;
