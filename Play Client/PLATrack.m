@@ -76,8 +76,8 @@
   self.artist = [attributes valueForKeyPath:@"artist_name"];
   self.artistSlug = [attributes valueForKeyPath:@"artist_slug"];
   self.albumArtPath = [attributes valueForKeyPath:@"album_art_path"];
-//  queued = [[attributes valueForKeyPath:@"queued"] boolValue];
-//  starred = [[attributes valueForKeyPath:@"starred"] boolValue];
+  queued = [[attributes valueForKeyPath:@"queued"] boolValue];
+  starred = [[attributes valueForKeyPath:@"starred"] boolValue];
 	
 #if !TARGET_OS_IPHONE
 	[[PLAAlbumArtworkImageCache sharedCache] imageForTrack:self withCompletionBlock: ^ (NSImage *image, NSError *error) 
