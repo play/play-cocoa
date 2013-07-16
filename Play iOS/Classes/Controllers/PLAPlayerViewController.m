@@ -51,6 +51,15 @@
     nowPlayingViewFrame.size.height = 246.0;
   }
   [nowPlayingView setFrame:nowPlayingViewFrame];
+
+  
+  MPVolumeView *volumeView = [[MPVolumeView alloc] initWithFrame:CGRectMake(5, self.view.bounds.size.height - 35.0, 30.0, 50.0)];
+  [volumeView setShowsVolumeSlider:NO];
+  [volumeView setShowsRouteButton:YES];
+  [volumeView sizeToFit];
+  [self.view addSubview:volumeView];
+  [volumeView release];
+
   
   [[PLAController sharedController] logInWithBlock:^(BOOL succeeded) {
     dispatch_async(dispatch_get_main_queue(), ^(void) {
@@ -215,6 +224,7 @@
   [UIView animateWithDuration:duration delay:0.0 options:UIViewAnimationCurveEaseIn animations:^{
     sliderView.transform = CGAffineTransformMakeTranslation(0, yDistance);
   } completion:^(BOOL finished) {}];
+  
 }
 
 - (void)adjustLabels{
