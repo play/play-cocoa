@@ -43,7 +43,7 @@
   
   albumArtImageView.layer.masksToBounds = YES;
   
-  MPVolumeView *volumeView = [[MPVolumeView alloc] initWithFrame:CGRectMake(5, self.view.bounds.size.height - 35.0, 30.0, 50.0)];
+  MPVolumeView *volumeView = [[MPVolumeView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - 70.0, self.view.bounds.size.height - 35.0, 30.0, 50.0)];
   [volumeView setShowsVolumeSlider:NO];
   [volumeView setShowsRouteButton:YES];
   [volumeView sizeToFit];
