@@ -123,7 +123,7 @@
   // listen for notifications for updated songs from the CFController and pusher
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateViewsWithTrackInformation) name:PLANowPlayingUpdated object:nil];
 
-  [self fetchNowPlaying];
+  [[PLAController sharedController] updateNowPlaying];
 }
 
 #pragma mark - Actionable methods
@@ -148,17 +148,6 @@
 
 - (BOOL)canBecomeFirstResponder {
 	return YES;
-}
-
-- (void)fetchNowPlaying{
-  [PLATrack currentTrackWithBlock:^(PLATrack *track, NSError *error) {
-    [[PLAController sharedController] setCurrentlyPlayingTrack:track];
-    
-    dispatch_async(dispatch_get_main_queue(), ^(void) {
-      [self updateViewsWithTrackInformation];
-    });
-    
-  }];
 }
 
 - (void)updateViewsWithTrackInformation{
@@ -303,7 +292,7 @@
 	streamer = [[AudioStreamer alloc] initWithURL:url];
 	  
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackStateChanged:) name:ASStatusChangedNotification object:streamer];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchNowPlaying) name:ASUpdateMetadataNotification object:streamer];
+	[[NSNotificationCenter defaultCenter] addObserver:[PLAController sharedController] selector:@selector(updateNowPlaying) name:ASUpdateMetadataNotification object:streamer];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(presentStreamerAlert:) name:ASPresentAlertWithTitleNotification object:streamer];
 }
 
@@ -311,7 +300,7 @@
 	if (streamer){
 		[[NSNotificationCenter defaultCenter] removeObserver:self name:ASStatusChangedNotification object:streamer];
 		[[NSNotificationCenter defaultCenter] removeObserver:self name:ASPresentAlertWithTitleNotification object:streamer];
-		[[NSNotificationCenter defaultCenter] removeObserver:self name:ASUpdateMetadataNotification object:streamer];
+		[[NSNotificationCenter defaultCenter] removeObserver:[PLAController sharedController] name:ASUpdateMetadataNotification object:streamer];
 		
     self.currentTrack = nil;
     
