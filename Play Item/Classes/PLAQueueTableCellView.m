@@ -41,8 +41,8 @@ NSString *PLAQueueTableCellViewObjectValueObservationContext = @"PLAQueueTableCe
 
 - (void)updateStarImage
 {
-	self.starButton.image = [NSImage imageNamed:([self.objectValue starred] ? @"starred-grey" : @"unstarred-grey")];
-	self.starButton.alternateImage = [NSImage imageNamed:([self.objectValue starred] ? @"starred-grey-down" : @"unstarred-grey-down")];
+	self.starButton.image = [NSImage imageNamed:([self.objectValue liked] ? @"starred-grey" : @"unstarred-grey")];
+	self.starButton.alternateImage = [NSImage imageNamed:([self.objectValue liked] ? @"starred-grey-down" : @"unstarred-grey-down")];
 }
 
 #pragma mark -

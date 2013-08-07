@@ -26,7 +26,7 @@
 #endif
 
 @implementation PLATrack
-@synthesize slug, name, album, albumSlug, artist, artistSlug, albumArtPath, queued, starred;
+@synthesize slug, name, album, albumSlug, artist, artistSlug, albumArtPath, queued, liked;
 
 #if !TARGET_OS_IPHONE
 @synthesize albumArtwork = _albumArtwork;
@@ -77,7 +77,7 @@
   self.artistSlug = [attributes valueForKeyPath:@"artist_slug"];
   self.albumArtPath = [attributes valueForKeyPath:@"album_art_path"];
   queued = [[attributes valueForKeyPath:@"queued"] boolValue];
-  starred = [[attributes valueForKeyPath:@"starred"] boolValue];
+  liked = [[attributes valueForKeyPath:@"liked"] boolValue];
 	
 #if !TARGET_OS_IPHONE
 	[[PLAAlbumArtworkImageCache sharedCache] imageForTrack:self withCompletionBlock: ^ (NSImage *image, NSError *error) 
@@ -100,7 +100,7 @@
 	copy.artistSlug = self.artistSlug;
 	copy.albumArtPath = self.albumArtPath;
 	copy.queued = self.queued;
-	copy.starred = self.starred;
+	copy.liked = self.liked;
 	
 #if !TARGET_OS_IPHONE
 	copy.albumArtwork = self.albumArtwork;
@@ -150,7 +150,7 @@
 
 - (void)toggleStarredWithCompletionBlock:(void(^)(BOOL success, NSError *err))completionBlock
 {
-  if (self.starred) {
+  if (self.liked) {
     [self unstarWithCompletionBlock:^(BOOL success, NSError *err) {
       if (completionBlock != nil)
         completionBlock(success, err);
@@ -167,7 +167,7 @@
 {
   NSLog(@"starring");
   [[PLAPlayClient sharedClient] postPath:@"/star" parameters:[NSDictionary dictionaryWithObject:self.slug forKey:@"id"] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-    self.starred = YES;
+    self.liked = YES;
 		if (completionBlock != nil)
 			completionBlock(YES, nil);
 
@@ -180,7 +180,7 @@
 - (void)unstarWithCompletionBlock:(void(^)(BOOL success, NSError *err))completionBlock
 {
   [[PLAPlayClient sharedClient] deletePath:@"/star" parameters:[NSDictionary dictionaryWithObject:self.slug forKey:@"id"] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-    self.starred = NO;
+    self.liked = NO;
 		if (completionBlock != nil)
 			completionBlock(YES, nil);
     

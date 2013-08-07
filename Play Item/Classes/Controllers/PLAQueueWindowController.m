@@ -85,8 +85,8 @@
 
 - (void)updateNowPlayingStarImage
 {
-	self.nowPlayingStarButton.image = [NSImage imageNamed:(self.currentTrack.starred ? @"starred-pink" : @"unstarred-pink")];
-	self.nowPlayingStarButton.alternateImage = [NSImage imageNamed:(self.currentTrack.starred ? @"starred-pink-down" : @"unstarred-pink-down")];
+	self.nowPlayingStarButton.image = [NSImage imageNamed:(self.currentTrack.liked ? @"starred-pink" : @"unstarred-pink")];
+	self.nowPlayingStarButton.alternateImage = [NSImage imageNamed:(self.currentTrack.liked ? @"starred-pink-down" : @"unstarred-pink-down")];
 }
 
 #pragma mark -

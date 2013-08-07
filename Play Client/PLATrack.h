@@ -16,7 +16,7 @@
   NSString *artist;
   NSString *artistSlug;
   NSString *albumArtPath;
-  BOOL starred;
+  BOOL liked;
   BOOL queued;
 }
 
@@ -27,7 +27,7 @@
 @property (nonatomic, retain) NSString *artist;
 @property (nonatomic, retain) NSString *artistSlug;
 @property (nonatomic, retain) NSString *albumArtPath;
-@property (nonatomic, assign) BOOL starred;
+@property (nonatomic, assign) BOOL liked;
 @property (nonatomic, assign) BOOL queued;
 @property (nonatomic, readonly) NSURL *albumArtURL;
 @property (nonatomic, readonly) NSURL *downloadURL;
