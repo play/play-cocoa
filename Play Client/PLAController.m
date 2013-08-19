@@ -19,11 +19,13 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
 
 @implementation PLAController
 
-@synthesize queuedTracks, currentlyPlayingTrack;
+@synthesize queuedTracks, currentlyPlayingTrack, queuePoller;
 
 - (void) dealloc{
   [queuedTracks release];
   [currentlyPlayingTrack release];
+  [queuePoller invalidate];
+  [queuePoller release];
 
   [super dealloc];
 }
@@ -82,6 +84,19 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
 
 - (NSString *)authToken{
   return [[NSUserDefaults standardUserDefaults] objectForKey:@"authToken"];
+}
+
+- (void)startPolling{
+  if (queuePoller) return;
+  
+  self.queuePoller = [NSTimer scheduledTimerWithTimeInterval:20 target:self selector:@selector(updateNowPlaying) userInfo:nil repeats:YES];
+  [queuePoller fire];
+}
+
+- (void)stopPolling{
+  [queuePoller invalidate];
+  self.queuePoller = nil;
+  [queuePoller release];
 }
 
 #pragma mark - State methods
