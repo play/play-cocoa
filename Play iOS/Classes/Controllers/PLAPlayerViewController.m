@@ -49,8 +49,10 @@
   [volumeView sizeToFit];
   [self.view addSubview:volumeView];
   [volumeView release];
-
   
+  [playButton.titleLabel setFont:[UIFont fontWithName:@"FontAwesome" size:20.0]];
+  [playButton setTitle:@"\uf04b" forState:UIControlStateNormal];
+
   [[PLAController sharedController] logInWithBlock:^(BOOL succeeded) {
     dispatch_async(dispatch_get_main_queue(), ^(void) {
       if (succeeded) {
@@ -224,7 +226,7 @@
 - (IBAction)togglePlayState:(id)sender{
   if ([streamer isPlaying]) {
 		[self destroyStreamer];
-    [playButton setImage:[UIImage imageNamed:@"button-play.png"] forState:UIControlStateNormal];
+    [playButton setTitle:@"\uf04b" forState:UIControlStateNormal];
     [statusLabel setHidden:YES];
   }else{
     [self createStreamer];
@@ -271,22 +273,23 @@
 - (void)playbackStateChanged:(NSNotification *)aNotification{
 	if ([streamer isWaiting]){
     [statusLabel setHidden:NO];
-    [playButton setImage:[UIImage imageNamed:@"button-stop"] forState:UIControlStateNormal];
+    [playButton setTitle:@"\uf04d" forState:UIControlStateNormal];
 	}else if ([streamer isPlaying]){
     [statusLabel setHidden:YES];
-    [playButton setImage:[UIImage imageNamed:@"button-stop"] forState:UIControlStateNormal];
+    [playButton setTitle:@"\uf04d" forState:UIControlStateNormal];
 	}else if ([streamer isPaused]){
     [statusLabel setHidden:YES];
-    [playButton setImage:[UIImage imageNamed:@"button-play.png"] forState:UIControlStateNormal];
+    [playButton setTitle:@"\uf04b" forState:UIControlStateNormal];
 	}else if ([streamer isIdle]){
     [statusLabel setHidden:YES];
-    [playButton setImage:[UIImage imageNamed:@"button-play.png"] forState:UIControlStateNormal];
+    [playButton setTitle:@"\uf04b" forState:UIControlStateNormal];
 	}
 }
 
 - (void)presentStreamerAlert:(NSNotification *)aNotification{  
   [self destroyStreamer];
-  [playButton setImage:[UIImage imageNamed:@"button-play.png"] forState:UIControlStateNormal];
+  [playButton setTitle:@"\uf04b" forState:UIControlStateNormal];
+
   [statusLabel setHidden:YES];
   
   NSDictionary *userInfo = [aNotification userInfo];
