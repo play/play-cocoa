@@ -32,4 +32,20 @@
   return YES;
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{  
+  [[PLAController sharedController] setAuthToken:[[[url query] componentsSeparatedByString:@"="] lastObject]];
+  [[PLAController sharedController] logInWithBlock:^(BOOL succeeded) {
+    if (succeeded) {
+      [_viewController.modalViewController dismissViewControllerAnimated:YES completion:^{}];
+    }else{
+      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops!" message:@"Play cannot be reached or your log in details are incorrect. Try again." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+      [alert show];
+      [alert release];
+    }
+  }];
+  
+  return YES;
+}
+
+
 @end
