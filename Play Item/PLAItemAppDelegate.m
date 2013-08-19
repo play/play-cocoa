@@ -100,7 +100,7 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 
 - (void)didLogIn{
 	[[NSNotificationCenter defaultCenter] postNotificationName:PLAItemLoggedInNotificationName object:self];
-  [[PLAController sharedController] updateNowPlaying];	
+  [[PLAController sharedController] startPolling];
 }
 
 - (IBAction)toggleWindow:(id)sender
