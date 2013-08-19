@@ -291,9 +291,13 @@
   
   NSDictionary *userInfo = [aNotification userInfo];
   
-  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Stream Error" message:[userInfo objectForKey:@"message"] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-  [alert show];
-  [alert release];
+  dispatch_async(dispatch_get_main_queue(), ^(void) {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Stream Error" message:[userInfo objectForKey:@"message"] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    [alert show];
+    [alert release];
+  });
+
+  
 }
 
 #pragma mark - SDWebImageDownloader Callback
