@@ -66,9 +66,7 @@
   if (!self) {
     return nil;
   }
-  
-  NSLog(@"attributes: %@", attributes);
-  
+    
   self.slug = [attributes valueForKeyPath:@"slug"];
   self.name = [attributes valueForKeyPath:@"title"];
   self.album = [attributes valueForKeyPath:@"album_name"];
