@@ -89,7 +89,7 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
 - (void)startPolling{
   if (queuePoller) return;
   
-  self.queuePoller = [NSTimer scheduledTimerWithTimeInterval:20 target:self selector:@selector(updateNowPlaying) userInfo:nil repeats:YES];
+  self.queuePoller = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(updateNowPlaying) userInfo:nil repeats:YES];
   [queuePoller fire];
 }
 
