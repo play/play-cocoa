@@ -57,7 +57,7 @@
 		return;
 	}
 	
-	NSURL *tokenURL = [playURL URLByAppendingPathComponent:@"token"];
+	NSURL *tokenURL = [playURL URLByAppendingPathComponent:@"account/token"];
 	[[NSWorkspace sharedWorkspace] openURL:tokenURL];
 }
 
