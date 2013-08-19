@@ -63,6 +63,7 @@
 		<string>OpenSans-Semibold.ttf</string>
 		<string>OpenSans-Italic.ttf</string>
 		<string>OpenSans-Regular.ttf</string>
+		<string>fontawesome-webfont.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

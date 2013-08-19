@@ -126,6 +126,8 @@
 		E0783F7B15331ADF003EA138 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EF11533187D003EA138 /* AFURLConnectionOperation.m */; };
 		E0783F7C15331ADF003EA138 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EF31533187D003EA138 /* AFXMLRequestOperation.m */; };
 		E0783F7D15331ADF003EA138 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EF51533187D003EA138 /* UIImageView+AFNetworking.m */; };
+		E0AF1F5A17C2960800551745 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E0AF1F5917C2960800551745 /* fontawesome-webfont.ttf */; };
+		E0AF1F5B17C2960800551745 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E0AF1F5917C2960800551745 /* fontawesome-webfont.ttf */; };
 		E0C965BE1533279D001D52BF /* PLAItemAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E0C965AD1533279D001D52BF /* PLAItemAppDelegate.m */; };
 		E0C965BF1533279D001D52BF /* IgnoredAudioProcesses.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0C965AF1533279D001D52BF /* IgnoredAudioProcesses.plist */; };
 		E0C965C01533279D001D52BF /* Play-Item-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0C965B01533279D001D52BF /* Play-Item-Info.plist */; };
@@ -332,6 +334,7 @@
 		E0783F0E1533187D003EA138 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
 		E0783F0F1533187D003EA138 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		E09B1E4814E3FD4C001BD57E /* Play.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Play.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0AF1F5917C2960800551745 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		E0C965AC1533279D001D52BF /* PLAItemAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLAItemAppDelegate.h; path = ../PLAItemAppDelegate.h; sourceTree = "<group>"; };
 		E0C965AD1533279D001D52BF /* PLAItemAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLAItemAppDelegate.m; path = ../PLAItemAppDelegate.m; sourceTree = "<group>"; };
 		E0C965AF1533279D001D52BF /* IgnoredAudioProcesses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = IgnoredAudioProcesses.plist; sourceTree = "<group>"; };
@@ -577,6 +580,7 @@
 		E0761BB3153F928600CB3E2F /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				E0AF1F5917C2960800551745 /* fontawesome-webfont.ttf */,
 				E068449F153F9C1E009C6B3F /* OpenSans-Regular.ttf */,
 				E0761BBC153F977500CB3E2F /* OpenSans-Italic.ttf */,
 				E0761BB4153F928600CB3E2F /* OpenSans-LightItalic.ttf */,
@@ -959,6 +963,7 @@
 				E0146EBD1602EF9E0042C696 /* Default-568h@2x.png in Resources */,
 				E06C3EB11795B6C600DD30E7 /* button-stop.png in Resources */,
 				E06C3EB21795B6C600DD30E7 /* button-stop@2x.png in Resources */,
+				E0AF1F5B17C2960800551745 /* fontawesome-webfont.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1005,6 +1010,7 @@
 				E0761BB8153F928600CB3E2F /* OpenSans-Semibold.ttf in Resources */,
 				E0761BBD153F977500CB3E2F /* OpenSans-Italic.ttf in Resources */,
 				E06844A0153F9C1E009C6B3F /* OpenSans-Regular.ttf in Resources */,
+				E0AF1F5A17C2960800551745 /* fontawesome-webfont.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
