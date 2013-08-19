@@ -100,19 +100,7 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 
 - (void)didLogIn{
 	[[NSNotificationCenter defaultCenter] postNotificationName:PLAItemLoggedInNotificationName object:self];
-  
-  [PLATrack currentTrackWithBlock:^(PLATrack *track, NSError *err) {
-    [[PLAController sharedController] setCurrentlyPlayingTrack:track];
-
-    dispatch_async(dispatch_get_main_queue(), ^(void) {
-      [PLATrack currentQueueWithBlock:^(NSArray *tracks, NSError *err) {
-        [PLAController sharedController].queuedTracks = tracks;
-        [[NSNotificationCenter defaultCenter] postNotificationName:PLANowPlayingUpdated object:nil];
-      }];		
-    });
-
-  }];
-	
+  [[PLAController sharedController] startPolling];
 }
 
 - (IBAction)toggleWindow:(id)sender
@@ -193,12 +181,14 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
   
 	self.streamer = [[AudioStreamer alloc] initWithURL:[NSURL URLWithString:streamUrl]];
   
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackStateChanged:) name:ASStatusChangedNotification object:self.streamer];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackStateChanged:) name:ASStatusChangedNotification object:self.streamer];  
+  [[NSNotificationCenter defaultCenter] addObserver:[PLAController sharedController] selector:@selector(updateNowPlaying) name:ASUpdateMetadataNotification object:self.streamer];
 }
 
 - (void)destroyStreamer{
 	if (self.streamer){
 		[[NSNotificationCenter defaultCenter] removeObserver:self name:ASStatusChangedNotification object:self.streamer];
+    [[NSNotificationCenter defaultCenter] removeObserver:[PLAController sharedController] name:ASUpdateMetadataNotification object:self.streamer];
 		
 		[self.streamer stop];
 		self.streamer = nil;
