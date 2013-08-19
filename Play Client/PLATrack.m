@@ -139,7 +139,7 @@
 
 - (NSURL *)albumDownloadURL
 {
-	NSString *urlString = [NSString stringWithFormat:@"%@/api/artist/%@/album/%@/download", [[PLAController sharedController] playUrl], [self.artistSlug stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], [self.albumSlug stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+	NSString *urlString = [NSString stringWithFormat:@"%@/api/artists/%@/album/%@/download", [[PLAController sharedController] playUrl], [self.artistSlug stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], [self.albumSlug stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 	return [NSURL URLWithString:urlString];
 }
 
