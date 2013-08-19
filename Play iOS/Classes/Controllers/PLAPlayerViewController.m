@@ -242,8 +242,6 @@
   
   NSString *streamUrl = [[PLAController sharedController] streamUrl];
   
-  NSLog(@"opening stream at: %@", streamUrl);
-
 	[self destroyStreamer];
   
   NSURL *url = [NSURL URLWithString:streamUrl];

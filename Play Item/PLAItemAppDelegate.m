@@ -175,8 +175,6 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
   
   NSString *streamUrl = [[PLAController sharedController] streamUrl];
   
-  NSLog(@"opening stream at: %@", streamUrl);
-  
 	[self destroyStreamer];
   
 	self.streamer = [[AudioStreamer alloc] initWithURL:[NSURL URLWithString:streamUrl]];
