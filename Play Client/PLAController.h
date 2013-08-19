@@ -15,10 +15,12 @@ extern NSString *const PLANowPlayingUpdated;
 @interface PLAController : NSObject{
   NSArray *queuedTracks;
   PLATrack *currentlyPlayingTrack;
+  NSTimer *queuePoller;
 }
 
 @property (nonatomic, retain) NSArray *queuedTracks;
 @property (nonatomic, retain) PLATrack *currentlyPlayingTrack;
+@property (nonatomic, retain) NSTimer *queuePoller;
 
 + (PLAController *)sharedController;
 
@@ -29,5 +31,7 @@ extern NSString *const PLANowPlayingUpdated;
 - (void)setAuthToken:(NSString *)token;
 - (NSString *)authToken;
 - (void)updateNowPlaying;
+- (void)startPolling;
+- (void)stopPolling;
 
 @end
