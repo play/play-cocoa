@@ -54,6 +54,7 @@
 
 
 - (IBAction)logIn{
+  [[PLAController sharedController] setPlayUrl:playUrlTextField.text];
   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/account/token?back_to=play-ios://", playUrlTextField.text]]];
 }
 
