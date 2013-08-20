@@ -53,10 +53,13 @@
   [playButton.titleLabel setFont:[UIFont fontWithName:@"FontAwesome" size:20.0]];
   [playButton setTitle:@"\uf04b" forState:UIControlStateNormal];
 
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateViewsWithTrackInformation) name:PLANowPlayingUpdated object:nil];
+  
+
   [[PLAController sharedController] logInWithBlock:^(BOOL succeeded) {
     dispatch_async(dispatch_get_main_queue(), ^(void) {
       if (succeeded) {
-        [self setUpForStreaming];
+        [[PLAController sharedController] updateNowPlaying];
       }else{
         [self presentLogIn];
       }
@@ -105,16 +108,6 @@
   }
 }
 
-
-
-#pragma mark - Bootstrapping methods
-
-- (void)setUpForStreaming{
-  // listen for notifications for updated songs from the CFController and pusher
-  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateViewsWithTrackInformation) name:PLANowPlayingUpdated object:nil];
-
-  [[PLAController sharedController] updateNowPlaying];
-}
 
 #pragma mark - Actionable methods
 
