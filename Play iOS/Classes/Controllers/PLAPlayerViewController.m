@@ -42,14 +42,7 @@
   [self.songLabel setText:@""];
   
   albumArtImageView.layer.masksToBounds = YES;
-  
-  MPVolumeView *volumeView = [[MPVolumeView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - 70.0, self.view.bounds.size.height - 35.0, 30.0, 50.0)];
-  [volumeView setShowsVolumeSlider:NO];
-  [volumeView setShowsRouteButton:YES];
-  [volumeView sizeToFit];
-  [self.view addSubview:volumeView];
-  [volumeView release];
-  
+    
   [playButton.titleLabel setFont:[UIFont fontWithName:@"FontAwesome" size:20.0]];
   [playButton setTitle:@"\uf04b" forState:UIControlStateNormal];
 
@@ -80,11 +73,18 @@
 
 - (void)viewDidAppear:(BOOL)animated{
   [super viewDidAppear:animated];
+  
+  MPVolumeView *volumeView = [[MPVolumeView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - 70.0, self.view.bounds.size.height - 35.0, 30.0, 50.0)];
+  [volumeView setShowsVolumeSlider:NO];
+  [volumeView setShowsRouteButton:YES];
+  [volumeView sizeToFit];
+  [self.view addSubview:volumeView];
+  [volumeView release];
 
   UIApplication *application = [UIApplication sharedApplication];
   [application beginReceivingRemoteControlEvents];
 	[self becomeFirstResponder]; // this enables listening for events
-	[[NSNotificationCenter defaultCenter] postNotificationName:ASStatusChangedNotification object:self];  
+	[[NSNotificationCenter defaultCenter] postNotificationName:ASStatusChangedNotification object:self];
 }
 
 - (NSUInteger)supportedInterfaceOrientations {
