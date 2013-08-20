@@ -37,6 +37,7 @@
   [[PLAController sharedController] logInWithBlock:^(BOOL succeeded) {
     if (succeeded) {
       [_viewController.modalViewController dismissViewControllerAnimated:YES completion:^{}];
+      [[PLAController sharedController] updateNowPlaying];
     }else{
       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops!" message:@"Play cannot be reached or your log in details are incorrect. Try again." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
       [alert show];
