@@ -179,8 +179,6 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
   
 	self.streamer = [[AudioStreamer alloc] initWithURL:[NSURL URLWithString:streamUrl]];
   
-  [[PLAController sharedController] stopPolling];
-
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackStateChanged:) name:ASStatusChangedNotification object:self.streamer];
   [[NSNotificationCenter defaultCenter] addObserver:[PLAController sharedController] selector:@selector(updateNowPlaying) name:ASUpdateMetadataNotification object:self.streamer];
 }
@@ -193,7 +191,6 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 		[self.streamer stop];
 		self.streamer = nil;
 
-    [[PLAController sharedController] startPolling];
 		[[NSNotificationCenter defaultCenter] postNotificationName:PLAItemStoppedPlayingNotificationName object:self];
 	}
 }
@@ -201,10 +198,8 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 - (void)playbackStateChanged:(NSNotification *)aNotification
 {
 	if ([self.streamer isPlaying]) {
-    [[PLAController sharedController] stopPolling];
 		[[NSNotificationCenter defaultCenter] postNotificationName:PLAItemStartedPlayingNotificationName object:self];
 	} else {
-    [[PLAController sharedController] startPolling];
 		[[NSNotificationCenter defaultCenter] postNotificationName:PLAItemStoppedPlayingNotificationName object:self];
 	}
 }
