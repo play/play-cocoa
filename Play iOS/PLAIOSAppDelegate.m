@@ -32,6 +32,10 @@
   return YES;
 }
 
+- (void)applicationDidBecomeActive:(UIApplication *)application{
+  [[PLAController sharedController] updateNowPlaying];
+}
+
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{  
   [[PLAController sharedController] setAuthToken:[[[url query] componentsSeparatedByString:@"="] lastObject]];
   [[PLAController sharedController] logInWithBlock:^(BOOL succeeded) {
