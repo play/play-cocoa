@@ -10,6 +10,7 @@
 
 #import "PLAPlayClient.h"
 #import "PLATrack.h"
+#import "PLAChannel.h"
 
 #if TARGET_OS_EMBEDDED
 #import "Reachability.h"
@@ -19,13 +20,15 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
 
 @implementation PLAController
 
-@synthesize queuedTracks, currentlyPlayingTrack, queuePoller;
+@synthesize queuedTracks, currentlyPlayingTrack, queuePoller, channels, tunedChannel;
 
 - (void) dealloc{
   [queuedTracks release];
   [currentlyPlayingTrack release];
   [queuePoller invalidate];
   [queuePoller release];
+  [channels release];
+  [tunedChannel release];
 
   [super dealloc];
 }
@@ -46,14 +49,29 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
     return nil;
   }
   
+  self.channels = [NSMutableArray array];
+  
   return self;
 }
 
 - (void)logInWithBlock:(void(^)(BOOL succeeded))block{
-  [[PLAPlayClient sharedClient] getPath:@"/api/now_playing" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+  [[PLAPlayClient sharedClient] getPath:@"/api/channels" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
 	if (block != nil)
-	  block(YES);
+    
+    [self updateChannelsWithCompletionBlock:^{
+      [self loadTunedChannel];
+      
+      // nothing got tuned, so just tune the first channel
+      if (![self tuned]) {
+        NSLog(@"nothing got loaded so we'll do the first channel.");
+        NSLog(@"channels: %@", channels);
+        [self tuneChannel:[self.channels firstObject]];
+      }
+
+      block(YES);
+    }];
+    
   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
     NSLog(@"error: %@", error);
 	  if (block != nil)
@@ -63,7 +81,7 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
 }
 
 - (NSString *)streamUrl{
-  return [NSString stringWithFormat:@"%@/api/stream?token=%@", [[PLAController sharedController] playUrl], [self authToken]];
+  return [self.tunedChannel streamUrl];
 }
 
 #pragma mark - Settings
@@ -100,12 +118,65 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
   [queuePoller release];
 }
 
+#pragma mark - Channels
+
+- (void)updateChannelsWithCompletionBlock:(void(^)())completionBlock{
+  NSLog(@"updating channels");
+  
+  [PLAChannel channelsWithBlock:^(NSArray *returnedChannels, NSError *error) {
+    
+    for (PLAChannel *channel in returnedChannels) {
+      if ([channels containsObject:channel]) {
+        NSLog(@"we already have that channel");
+      }else{
+        NSLog(@"adding channel");
+        [channels addObject:channel];
+      }
+    }
+    
+    completionBlock();
+  }];
+}
+
+- (void)tuneChannel:(PLAChannel *)channel{
+  NSLog(@"Tuning channel: %@", channel.name);
+  self.tunedChannel = channel;
+  [self saveTunedChannel];
+  [self updateNowPlaying];
+}
+
+- (void)saveTunedChannel{
+  if (![self tuned]) return;
+
+  [[NSUserDefaults standardUserDefaults] setObject:self.tunedChannel.slug forKey:@"tunedChannelSlug"];
+  [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)loadTunedChannel{
+  NSString *channelSlug = [[NSUserDefaults standardUserDefaults]  objectForKey:@"tunedChannelSlug"];
+  
+  if (channelSlug) {
+    for (PLAChannel *channel in self.channels) {
+      if ([[channel slug] isEqualToString:channelSlug]) {
+        [self tuneChannel:channel];
+        break;
+      }
+    }
+  }
+}
+
+- (BOOL)tuned{
+  return self.tunedChannel != nil;
+}
+
 #pragma mark - State methods
 
 - (void)updateNowPlaying{
+  if (![self tuned]) return;
+  
   NSLog(@"Updating Now Playing");
   
-  [PLATrack currentQueueWithBlock:^(NSArray *tracks, NSError *err) {
+  [tunedChannel currentQueueWithBlock:^(NSArray *tracks, NSError *err) {
     NSMutableArray *foundTracks = [NSMutableArray arrayWithArray:tracks];
     
     if ([foundTracks count] > 0) {

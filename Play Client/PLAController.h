@@ -11,16 +11,21 @@
 extern NSString *const PLANowPlayingUpdated;
 
 @class PLATrack;
+@class PLAChannel;
 
 @interface PLAController : NSObject{
   NSArray *queuedTracks;
   PLATrack *currentlyPlayingTrack;
   NSTimer *queuePoller;
+  NSMutableArray *channels;
+  PLAChannel *tunedChannel;
 }
 
 @property (nonatomic, retain) NSArray *queuedTracks;
 @property (nonatomic, retain) PLATrack *currentlyPlayingTrack;
 @property (nonatomic, retain) NSTimer *queuePoller;
+@property (nonatomic, retain) NSMutableArray *channels;
+@property (nonatomic, retain) PLAChannel *tunedChannel;
 
 + (PLAController *)sharedController;
 
@@ -33,5 +38,8 @@ extern NSString *const PLANowPlayingUpdated;
 - (void)updateNowPlaying;
 - (void)startPolling;
 - (void)stopPolling;
+- (void)updateChannelsWithCompletionBlock:(void(^)())completionBlock;
+- (void)tuneChannel:(PLAChannel *)channel;
+- (BOOL)tuned;
 
 @end
