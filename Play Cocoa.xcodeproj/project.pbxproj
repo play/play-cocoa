@@ -158,6 +158,8 @@
 		E0CAF64615332619007EE510 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CAF64515332619007EE510 /* CFNetwork.framework */; };
 		E0CAF64815332623007EE510 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CAF64715332623007EE510 /* AVFoundation.framework */; };
 		E0CAF64A15332631007EE510 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CAF64915332631007EE510 /* Security.framework */; };
+		E0D561E517EB59910031D996 /* PLAChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D561E417EB59910031D996 /* PLAChannel.m */; };
+		E0D561E617EB59910031D996 /* PLAChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D561E417EB59910031D996 /* PLAChannel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -370,6 +372,8 @@
 		E0CAF64515332619007EE510 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		E0CAF64715332623007EE510 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		E0CAF64915332631007EE510 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		E0D561E317EB59910031D996 /* PLAChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAChannel.h; sourceTree = "<group>"; };
+		E0D561E417EB59910031D996 /* PLAChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAChannel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -553,6 +557,8 @@
 			children = (
 				E058E270153376E80079B226 /* PLAPlayClient.h */,
 				E058E271153376E80079B226 /* PLAPlayClient.m */,
+				E0D561E317EB59910031D996 /* PLAChannel.h */,
+				E0D561E417EB59910031D996 /* PLAChannel.m */,
 				E058E272153376E80079B226 /* PLATrack.h */,
 				E058E273153376E80079B226 /* PLATrack.m */,
 				E058E278153377160079B226 /* PLAController.h */,
@@ -1042,6 +1048,7 @@
 				E0783F421533187E003EA138 /* UIImageView+WebCache.m in Sources */,
 				E0783F431533187E003EA138 /* SFHFKeychainUtils.m in Sources */,
 				E0C965E3153327A6001D52BF /* PLAPlayerViewController.m in Sources */,
+				E0D561E617EB59910031D996 /* PLAChannel.m in Sources */,
 				E0C965E6153327A6001D52BF /* PLAIOSAppDelegate.m in Sources */,
 				E0C965E9153327A6001D52BF /* main.m in Sources */,
 				E058E275153376E80079B226 /* PLAPlayClient.m in Sources */,
@@ -1073,6 +1080,7 @@
 				E058E27A153377160079B226 /* PLAController.m in Sources */,
 				E051B0A71535569C007DC4F7 /* PLAItemLogInWindowController.m in Sources */,
 				E032805E153560680077B17B /* PLAItemWindow.m in Sources */,
+				E0D561E517EB59910031D996 /* PLAChannel.m in Sources */,
 				30A3B3BA15359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m in Sources */,
 				30A3B3BB15359D2E009DA3E0 /* SPMediaKeyTap.m in Sources */,
 				30A3B3C31535C5D7009DA3E0 /* PLAQueueWindowController.m in Sources */,
