@@ -42,6 +42,6 @@
 - (void)destroyStreamer;
 - (void)playbackStateChanged:(NSNotification *)aNotification;
 - (void)presentStreamerAlert:(NSNotification *)aNotification;
-
+- (void)presentChannels;
 
 @end

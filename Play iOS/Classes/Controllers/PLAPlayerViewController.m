@@ -13,6 +13,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "PLAController.h"
 #import "PLALogInViewControllerViewController.h"
+#import "PLAChannelsViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 @implementation PLAPlayerViewController
@@ -126,6 +127,17 @@
     [controller release];
   }];
 }
+
+- (void)presentChannels{
+  PLAChannelsViewController *controller = [[PLAChannelsViewController alloc] initWithStyle:UITableViewStylePlain];
+  UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:controller];
+  
+  [self presentViewController:nc animated:YES completion:^{
+    [controller release];
+    [nc release];
+  }];
+}
+
 
 #pragma mark - View State methods
 
