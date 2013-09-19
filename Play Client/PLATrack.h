@@ -37,9 +37,6 @@
 @property (nonatomic, readonly, retain) NSImage *albumArtwork; //starts off as nil, then gets downloaded in the background and set. KVO compliant.
 #endif
 
-+ (void)currentTrackWithBlock:(void(^)(PLATrack *track, NSError *err))block;
-+ (void)currentQueueWithBlock:(void(^)(NSArray *tracks, NSError *err))block;
-
 - (id)initWithAttributes:(NSDictionary *)attributes;
 - (void)toggleStarredWithCompletionBlock:(void(^)(BOOL success, NSError *err))completionBlock;
 - (void)starWithCompletionBlock:(void(^)(BOOL success, NSError *err))completionBlock;

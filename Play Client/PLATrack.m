@@ -32,35 +32,6 @@
 @synthesize albumArtwork = _albumArtwork;
 #endif
 
-+ (void)currentTrackWithBlock:(void(^)(PLATrack *track, NSError *error))block{
-	[[PLAPlayClient sharedClient] getPath:@"/api/now_playing" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-		PLATrack *track = [[[PLATrack alloc] initWithAttributes:[responseObject objectForKey:@"now_playing"]] autorelease];
-		block(track, nil);
-	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-		block(nil, error);
-	}];  
-}
-
-+ (void)currentQueueWithBlock:(void(^)(NSArray *tracks, NSError *error))block
-{
-	[[PLAPlayClient sharedClient] getPath:@"/api/queue" parameters:nil 
-	success: ^ (AFHTTPRequestOperation *operation, id responseObject) 
-	{
-		NSArray *songDicts = [responseObject valueForKey:@"songs"];
-		NSMutableArray *trackObjects = [NSMutableArray array];
-		for (id song in songDicts) {
-			PLATrack *track = [[[PLATrack alloc] initWithAttributes:song] autorelease];
-			[trackObjects addObject:track];
-		}
-		
-		block(trackObjects, nil);
-	} 
-	failure: ^ (AFHTTPRequestOperation *operation, NSError *error) 
-	{
-		block(nil, error);
-	}];
-}
-
 - (id)initWithAttributes:(NSDictionary *)attributes {
   self = [super init];
   if (!self) {
