@@ -10,26 +10,30 @@
 #import "PLAIOSAppDelegate.h"
 #import "UIImageView+WebCache.h"
 #import "SDWebImageDownloader.h"
-#import <MediaPlayer/MediaPlayer.h>
 #import "PLAController.h"
 #import "PLALogInViewControllerViewController.h"
 #import "PLAChannelsViewController.h"
+#import "PLANavigationController.h"
 #import <QuartzCore/QuartzCore.h>
 
 @implementation PLAPlayerViewController
-@synthesize songLabel, artistLabel, albumArtImageView, playButton, statusLabel, currentTrack;
+@synthesize songLabel, artistLabel, albumArtImageView, playButton, channelsButton, starButton, volumeDownLabel, volumeUpLabel, volumeView, airplayView;
 
 - (void)dealloc {
   [[NSNotificationCenter defaultCenter] removeObserver:self];
   
   [self destroyStreamer];
 
-  [currentTrack release];
   [songLabel release];
   [artistLabel release];
   [albumArtImageView release];
   [playButton release];
-  [statusLabel release];
+  [channelsButton release];
+  [starButton release];
+  [volumeDownLabel release];
+  [volumeUpLabel release];
+  [volumeView release];
+  [airplayView release];
   [super dealloc];
 }
 
@@ -39,12 +43,40 @@
 - (void)viewDidLoad{
   [super viewDidLoad];
   
+  [self.volumeDownLabel setFont:[UIFont fontWithName:@"FontAwesome" size:16.0]];
+  [self.volumeUpLabel setFont:[UIFont fontWithName:@"FontAwesome" size:16.0]];
+
+  [self.starButton.titleLabel setFont:[UIFont fontWithName:@"FontAwesome" size:22.0]];
+  
+  [self.volumeView setShowsRouteButton:NO];
+  [self.volumeView setVolumeThumbImage:[UIImage imageNamed:@"volume-knob.png"] forState:UIControlStateNormal];
+
+  [self.airplayView setShowsVolumeSlider:NO];
+  [self.airplayView setRouteButtonImage:[UIImage imageNamed:@"airplay-off.png"] forState:UIControlStateNormal];
+  [self.airplayView setRouteButtonImage:[UIImage imageNamed:@"airplay-on.png"] forState:UIControlStateSelected];
+  
+  [self adjustStarButton:NO];
+
+  CGRect artistLabelRect = self.artistLabel.frame;
+  [self.artistLabel removeFromSuperview];
+  self.artistLabel = [[[MarqueeLabel alloc] initWithFrame:artistLabelRect rate:50.0 andFadeLength:10.0f] autorelease];
+  self.artistLabel.marqueeType = MLContinuous;
+  self.artistLabel.animationCurve = UIViewAnimationOptionCurveLinear;
+  self.artistLabel.continuousMarqueeExtraBuffer = 50.0f;
+  self.artistLabel.textAlignment = NSTextAlignmentCenter;
+
+  
+  [self.view addSubview:artistLabel];
+  
+  
+  self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:self.channelsButton] autorelease];
+  
   [self.artistLabel setText:@""];
   [self.songLabel setText:@""];
   
   albumArtImageView.layer.masksToBounds = YES;
     
-  [playButton.titleLabel setFont:[UIFont fontWithName:@"FontAwesome" size:20.0]];
+  [playButton.titleLabel setFont:[UIFont fontWithName:@"FontAwesome" size:24.0]];
   [playButton setTitle:@"\uf04b" forState:UIControlStateNormal];
 
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateViewsWithTrackInformation) name:PLANowPlayingUpdated object:nil];
@@ -68,20 +100,12 @@
   [self setArtistLabel:nil];
   [self setAlbumArtImageView:nil];
   [self setPlayButton:nil];
-  [self setStatusLabel:nil];
   [super viewDidUnload];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
   [super viewDidAppear:animated];
   
-  MPVolumeView *volumeView = [[MPVolumeView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - 70.0, self.view.bounds.size.height - 35.0, 30.0, 50.0)];
-  [volumeView setShowsVolumeSlider:NO];
-  [volumeView setShowsRouteButton:YES];
-  [volumeView sizeToFit];
-  [self.view addSubview:volumeView];
-  [volumeView release];
-
   UIApplication *application = [UIApplication sharedApplication];
   [application beginReceivingRemoteControlEvents];
 	[self becomeFirstResponder]; // this enables listening for events
@@ -109,8 +133,33 @@
   }
 }
 
+#pragma mark - Data methods
+
+- (PLATrack *)currentTrack{
+  return [[PLAController sharedController] currentlyPlayingTrack];
+}
 
 #pragma mark - Actionable methods
+
+- (void)likeSong{
+  [self adjustStarButton:YES];
+
+  [[self currentTrack] starWithCompletionBlock:^(BOOL success, NSError *err) {
+    dispatch_async(dispatch_get_main_queue(), ^(void) {
+      [self adjustStarButton:[[self currentTrack] liked]];
+    });
+  }];
+}
+
+- (void)unlikeSong{
+  [self adjustStarButton:NO];
+
+  [[self currentTrack] unstarWithCompletionBlock:^(BOOL success, NSError *err) {
+    dispatch_async(dispatch_get_main_queue(), ^(void) {
+      [self adjustStarButton:[[self currentTrack] liked]];
+    });
+  }];
+}
 
 - (IBAction)presentLogIn{
   PLALogInViewControllerViewController *controller = [[PLALogInViewControllerViewController alloc] initWithNibName:@"PLALogInViewControllerViewController" bundle:nil];
@@ -128,9 +177,9 @@
   }];
 }
 
-- (void)presentChannels{
+- (IBAction)presentChannels{
   PLAChannelsViewController *controller = [[PLAChannelsViewController alloc] initWithStyle:UITableViewStylePlain];
-  UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:controller];
+  PLANavigationController *nc = [[PLANavigationController alloc] initWithRootViewController:controller];
   
   [self presentViewController:nc animated:YES completion:^{
     [controller release];
@@ -155,12 +204,16 @@
 }
 
 - (void)updateMetaData{
+
+  self.title = [[[PLAController sharedController] tunedChannel] name];
+  
   PLATrack *currentlyPlayingTrack = [[PLAController sharedController] currentlyPlayingTrack];
     
   if (currentlyPlayingTrack) {
     self.songLabel.text = [currentlyPlayingTrack name];
     self.artistLabel.text = [NSString stringWithFormat:@"%@ • %@", [currentlyPlayingTrack artist], [currentlyPlayingTrack album]];
-    
+    [self adjustStarButton:[currentlyPlayingTrack liked]];
+
     [self adjustLabels];
     
     MPMediaItemArtwork *mediaItemArtwork = [[MPMediaItemArtwork alloc] initWithImage:albumArtImageView.image];
@@ -174,56 +227,29 @@
     self.songLabel.text = @"";
     self.artistLabel.text = @"";
     [self hideNowPlaying:NO];
+    [self adjustStarButton:NO];
     
     [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:nil];
   }
 }
 
-- (void)adjustLabels{
-  CGRect songLabelFrame = songLabel.frame;
-  CGRect artistLabelFrame = artistLabel.frame;
-  CGRect albumArtImageViewFrame = albumArtImageView.frame;
-  
-  CGFloat padding;
-  
-  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-    [songLabel setFont:[UIFont fontWithName:@"OpenSans-Semibold" size:20.0]];
-    [artistLabel setFont:[UIFont fontWithName:@"OpenSansLight-Italic" size:17.0]];
-    albumArtImageViewFrame.size = CGSizeMake(100.0, 100.0);
-    padding = 10.0;
-  }else{
-    [songLabel setFont:[UIFont fontWithName:@"OpenSans-Semibold" size:38.0]];
-    [artistLabel setFont:[UIFont fontWithName:@"OpenSansLight-Italic" size:32.0]];
-    albumArtImageViewFrame.size = CGSizeMake(200.0, 200.0);
-    padding = 20.0;
-  }
-    
-  albumArtImageViewFrame.origin.y = padding;
-  albumArtImageViewFrame.origin.x = padding;
-  
-  songLabelFrame.origin.x = albumArtImageViewFrame.origin.x + albumArtImageViewFrame.size.width + padding;
-  songLabelFrame.origin.y = albumArtImageViewFrame.origin.y;
-  songLabelFrame.size.width = self.view.bounds.size.width - songLabelFrame.origin.x - padding;
-  
-  CGSize maximumSongLabelSize = CGSizeMake(songLabelFrame.size.width,9999);
-  CGSize expectedSongLabelSize = [[songLabel text] sizeWithFont:[songLabel font] constrainedToSize:maximumSongLabelSize lineBreakMode:[songLabel lineBreakMode]]; 
-  
-  songLabelFrame.size.height = expectedSongLabelSize.height;
-  
+- (void)adjustStarButton:(BOOL)isLiked{
+  [self.starButton removeTarget:nil action:nil forControlEvents:UIControlEventAllEvents];
 
-  artistLabelFrame.origin.x = songLabelFrame.origin.x;
-  artistLabelFrame.origin.y = songLabelFrame.origin.y + songLabelFrame.size.height + 2.0;
-  artistLabelFrame.size.width = songLabelFrame.size.width;
-  
-  CGSize maximumArtistLabelSize = CGSizeMake(artistLabelFrame.size.width,9999);
-  CGSize expectedArtistLabelSize = [[artistLabel text] sizeWithFont:[artistLabel font] constrainedToSize:maximumArtistLabelSize lineBreakMode:[artistLabel lineBreakMode]]; 
-  
-  artistLabelFrame.size.height = expectedArtistLabelSize.height;
-  
-  
-  self.songLabel.frame = songLabelFrame;
-  self.artistLabel.frame = artistLabelFrame;
-  self.albumArtImageView.frame = albumArtImageViewFrame;
+  if (isLiked) {
+    [self.starButton setTitle:@"\uf005" forState:UIControlStateNormal];
+    [self.starButton setTitle:@"\uf005" forState:UIControlStateSelected];
+    [self.starButton setTitle:@"\uf005" forState:UIControlStateHighlighted];
+    [self.starButton addTarget:self action:@selector(unlikeSong) forControlEvents:UIControlEventTouchDown];
+  }else{
+    [self.starButton setTitle:@"\uf006" forState:UIControlStateNormal];
+    [self.starButton setTitle:@"\uf006" forState:UIControlStateSelected];
+    [self.starButton setTitle:@"\uf006" forState:UIControlStateHighlighted];
+    [self.starButton addTarget:self action:@selector(likeSong) forControlEvents:UIControlEventTouchDown];
+  }
+}
+
+- (void)adjustLabels{
 }
 
 #pragma mark - Play Methods
@@ -232,10 +258,8 @@
   if ([streamer isPlaying]) {
 		[self destroyStreamer];
     [playButton setTitle:@"\uf04b" forState:UIControlStateNormal];
-    [statusLabel setHidden:YES];
   }else{
     [self createStreamer];
-    [statusLabel setHidden:NO];
     [streamer start];
   }
 }
@@ -262,9 +286,7 @@
 		[[NSNotificationCenter defaultCenter] removeObserver:self name:ASStatusChangedNotification object:streamer];
 		[[NSNotificationCenter defaultCenter] removeObserver:self name:ASPresentAlertWithTitleNotification object:streamer];
 		[[NSNotificationCenter defaultCenter] removeObserver:[PLAController sharedController] name:ASUpdateMetadataNotification object:streamer];
-		
-    self.currentTrack = nil;
-    
+		  
 		[streamer stop];
 		[streamer release];
 		streamer = nil;
@@ -275,16 +297,12 @@
 
 - (void)playbackStateChanged:(NSNotification *)aNotification{
 	if ([streamer isWaiting]){
-    [statusLabel setHidden:NO];
     [playButton setTitle:@"\uf04d" forState:UIControlStateNormal];
 	}else if ([streamer isPlaying]){
-    [statusLabel setHidden:YES];
     [playButton setTitle:@"\uf04d" forState:UIControlStateNormal];
 	}else if ([streamer isPaused]){
-    [statusLabel setHidden:YES];
     [playButton setTitle:@"\uf04b" forState:UIControlStateNormal];
 	}else if ([streamer isIdle]){
-    [statusLabel setHidden:YES];
     [playButton setTitle:@"\uf04b" forState:UIControlStateNormal];
 	}
 }
@@ -292,8 +310,6 @@
 - (void)presentStreamerAlert:(NSNotification *)aNotification{  
   [self destroyStreamer];
   [playButton setTitle:@"\uf04b" forState:UIControlStateNormal];
-
-  [statusLabel setHidden:YES];
   
   NSDictionary *userInfo = [aNotification userInfo];
   

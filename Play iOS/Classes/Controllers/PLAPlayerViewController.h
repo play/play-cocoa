@@ -10,25 +10,35 @@
 #import "AudioStreamer.h"
 #import "PLATrack.h"
 #import "SDWebImageDownloader.h"
+#import <MediaPlayer/MediaPlayer.h>
+#import "MarqueeLabel.h"
 
 @interface PLAPlayerViewController : UIViewController <SDWebImageDownloaderDelegate>{
   UILabel *songLabel;
-  UILabel *artistLabel;
+  MarqueeLabel *artistLabel;
   UIImageView *albumArtImageView;
   UIButton *playButton;
+  UIButton *channelsButton;
+  UIButton *starButton;
   UIView *nowPlayingView;
   UIView *sliderView;
-  UILabel *statusLabel;
-  PLATrack *currentTrack;
+  UILabel *volumeDownLabel;
+  UILabel *volumeUpLabel;
 	AudioStreamer *streamer;
+  MPVolumeView *volumeView;
+  MPVolumeView *airplayView;
 }
 
 @property (retain, nonatomic) IBOutlet UILabel *songLabel;
-@property (retain, nonatomic) IBOutlet UILabel *artistLabel;
+@property (retain, nonatomic) IBOutlet MarqueeLabel *artistLabel;
 @property (retain, nonatomic) IBOutlet UIImageView *albumArtImageView;
 @property (retain, nonatomic) IBOutlet UIButton *playButton;
-@property (retain, nonatomic) IBOutlet UILabel *statusLabel;
-@property (retain, nonatomic) PLATrack *currentTrack;
+@property (retain, nonatomic) IBOutlet UIButton *channelsButton;
+@property (retain, nonatomic) IBOutlet UIButton *starButton;
+@property (retain, nonatomic) IBOutlet UILabel *volumeDownLabel;
+@property (retain, nonatomic) IBOutlet UILabel *volumeUpLabel;
+@property (retain, nonatomic) IBOutlet MPVolumeView *volumeView;
+@property (retain, nonatomic) IBOutlet MPVolumeView *airplayView;
 
 - (void)setUpForStreaming;
 - (void)presentLogIn;
@@ -42,6 +52,8 @@
 - (void)destroyStreamer;
 - (void)playbackStateChanged:(NSNotification *)aNotification;
 - (void)presentStreamerAlert:(NSNotification *)aNotification;
-- (void)presentChannels;
+- (IBAction)presentChannels;
+- (void)adjustStarButton:(BOOL)isLiked;
+- (PLATrack *)currentTrack;
 
 @end
