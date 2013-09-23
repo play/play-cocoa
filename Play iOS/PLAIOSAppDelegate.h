@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @class PLAPlayerViewController;
+@class PLANavigationController;
 
 @interface PLAIOSAppDelegate : UIResponder <UIApplicationDelegate>{
 }
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) PLAPlayerViewController *viewController;
+@property (strong, nonatomic) PLANavigationController *rootViewController;
 
 @end

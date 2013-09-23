@@ -8,6 +8,7 @@
 
 #import "PLAIOSAppDelegate.h"
 #import "PLAPlayerViewController.h"
+#import "PLANavigationController.h"
 #import "PLAController.h"
 
 @implementation PLAIOSAppDelegate
@@ -27,7 +28,11 @@
   self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
   self.viewController = [[[PLAPlayerViewController alloc] initWithNibName:@"PLAPlayerViewController_iPhone" bundle:nil] autorelease];
-  self.window.rootViewController = self.viewController;
+  
+  self.rootViewController = [[[PLANavigationController alloc] initWithRootViewController:self.viewController] autorelease];
+  
+  
+  self.window.rootViewController = self.rootViewController;
   [self.window makeKeyAndVisible];
   return YES;
 }
