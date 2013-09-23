@@ -51,6 +51,7 @@
 		30FCE81F1538CCA600E70B42 /* PLAQueueDarkAlbumTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FCE81E1538CCA600E70B42 /* PLAQueueDarkAlbumTextField.m */; };
 		E0146EBD1602EF9E0042C696 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E0146EBC1602EF9E0042C696 /* Default-568h@2x.png */; };
 		E01DEF4F17EB79AE004C2689 /* PLAChannelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E01DEF4E17EB79AE004C2689 /* PLAChannelsViewController.m */; };
+		E01DEF5217EB8658004C2689 /* PLANavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E01DEF5117EB8658004C2689 /* PLANavigationController.m */; };
 		E032805E153560680077B17B /* PLAItemWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E032805D153560680077B17B /* PLAItemWindow.m */; };
 		E0328061153561180077B17B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0328060153561180077B17B /* QuartzCore.framework */; };
 		E051B0A71535569C007DC4F7 /* PLAItemLogInWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E051B0A51535569C007DC4F7 /* PLAItemLogInWindowController.m */; };
@@ -127,6 +128,13 @@
 		E0783F7B15331ADF003EA138 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EF11533187D003EA138 /* AFURLConnectionOperation.m */; };
 		E0783F7C15331ADF003EA138 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EF31533187D003EA138 /* AFXMLRequestOperation.m */; };
 		E0783F7D15331ADF003EA138 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EF51533187D003EA138 /* UIImageView+AFNetworking.m */; };
+		E093FDF317EBFF1E005C583E /* volume-knob@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E093FDF117EBFF1E005C583E /* volume-knob@2x.png */; };
+		E093FDF417EBFF1E005C583E /* volume-knob.png in Resources */ = {isa = PBXBuildFile; fileRef = E093FDF217EBFF1E005C583E /* volume-knob.png */; };
+		E093FDF717EC0769005C583E /* airplay-on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E093FDF517EC0769005C583E /* airplay-on@2x.png */; };
+		E093FDF817EC0769005C583E /* airplay-off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E093FDF617EC0769005C583E /* airplay-off@2x.png */; };
+		E093FDFC17EC0D2D005C583E /* MarqueeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E093FDFB17EC0D2D005C583E /* MarqueeLabel.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		E093FE0017EC0EA3005C583E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E093FDFF17EC0EA3005C583E /* QuartzCore.framework */; };
+		E093FE0217EC140E005C583E /* list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E093FE0117EC140E005C583E /* list@2x.png */; };
 		E0AF1F5A17C2960800551745 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E0AF1F5917C2960800551745 /* fontawesome-webfont.ttf */; };
 		E0AF1F5B17C2960800551745 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E0AF1F5917C2960800551745 /* fontawesome-webfont.ttf */; };
 		E0C965BE1533279D001D52BF /* PLAItemAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E0C965AD1533279D001D52BF /* PLAItemAppDelegate.m */; };
@@ -249,6 +257,8 @@
 		E0146EBC1602EF9E0042C696 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E01DEF4D17EB79AE004C2689 /* PLAChannelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAChannelsViewController.h; sourceTree = "<group>"; };
 		E01DEF4E17EB79AE004C2689 /* PLAChannelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAChannelsViewController.m; sourceTree = "<group>"; };
+		E01DEF5017EB8658004C2689 /* PLANavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLANavigationController.h; sourceTree = "<group>"; };
+		E01DEF5117EB8658004C2689 /* PLANavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLANavigationController.m; sourceTree = "<group>"; };
 		E032805C153560680077B17B /* PLAItemWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLAItemWindow.h; path = Controllers/PLAItemWindow.h; sourceTree = "<group>"; };
 		E032805D153560680077B17B /* PLAItemWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLAItemWindow.m; path = Controllers/PLAItemWindow.m; sourceTree = "<group>"; };
 		E0328060153561180077B17B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -338,6 +348,15 @@
 		E0783F0D1533187D003EA138 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		E0783F0E1533187D003EA138 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
 		E0783F0F1533187D003EA138 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
+		E093FDF117EBFF1E005C583E /* volume-knob@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "volume-knob@2x.png"; sourceTree = "<group>"; };
+		E093FDF217EBFF1E005C583E /* volume-knob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "volume-knob.png"; sourceTree = "<group>"; };
+		E093FDF517EC0769005C583E /* airplay-on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "airplay-on@2x.png"; sourceTree = "<group>"; };
+		E093FDF617EC0769005C583E /* airplay-off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "airplay-off@2x.png"; sourceTree = "<group>"; };
+		E093FDFA17EC0D2D005C583E /* MarqueeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarqueeLabel.h; sourceTree = "<group>"; };
+		E093FDFB17EC0D2D005C583E /* MarqueeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarqueeLabel.m; sourceTree = "<group>"; };
+		E093FDFD17EC0E50005C583E /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
+		E093FDFF17EC0EA3005C583E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		E093FE0117EC140E005C583E /* list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list@2x.png"; sourceTree = "<group>"; };
 		E09B1E4814E3FD4C001BD57E /* Play.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Play.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0AF1F5917C2960800551745 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		E0C965AC1533279D001D52BF /* PLAItemAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLAItemAppDelegate.h; path = ../PLAItemAppDelegate.h; sourceTree = "<group>"; };
@@ -384,6 +403,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E093FE0017EC0EA3005C583E /* QuartzCore.framework in Frameworks */,
 				E058E26215333B360079B226 /* libicucore.dylib in Frameworks */,
 				E0CAF64A15332631007EE510 /* Security.framework in Frameworks */,
 				E0CAF64815332623007EE510 /* AVFoundation.framework in Frameworks */,
@@ -601,6 +621,7 @@
 		E0783EDF1533187D003EA138 /* vendor */ = {
 			isa = PBXGroup;
 			children = (
+				E093FDF917EC0D2D005C583E /* MarqueeLabel */,
 				E058E2801533837E0079B226 /* Reachability */,
 				E0783EE01533187D003EA138 /* AFNetworking */,
 				E0783EF61533187D003EA138 /* AudioStreamer */,
@@ -677,6 +698,15 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		E093FDF917EC0D2D005C583E /* MarqueeLabel */ = {
+			isa = PBXGroup;
+			children = (
+				E093FDFA17EC0D2D005C583E /* MarqueeLabel.h */,
+				E093FDFB17EC0D2D005C583E /* MarqueeLabel.m */,
+			);
+			path = MarqueeLabel;
+			sourceTree = "<group>";
+		};
 		E09B1E3D14E3FD4C001BD57E = {
 			isa = PBXGroup;
 			children = (
@@ -703,6 +733,8 @@
 		E09B1E4B14E3FD4C001BD57E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E093FDFF17EC0EA3005C583E /* QuartzCore.framework */,
+				E093FDFD17EC0E50005C583E /* CoreText.framework */,
 				E05AEBFB1533DA340094566C /* libicucore.dylib */,
 				E0328060153561180077B17B /* QuartzCore.framework */,
 				E05AEBED1533D97E0094566C /* Foundation.framework */,
@@ -816,6 +848,8 @@
 				E0C965CF153327A6001D52BF /* PLAPlayerViewController_iPhone.xib */,
 				E01DEF4D17EB79AE004C2689 /* PLAChannelsViewController.h */,
 				E01DEF4E17EB79AE004C2689 /* PLAChannelsViewController.m */,
+				E01DEF5017EB8658004C2689 /* PLANavigationController.h */,
+				E01DEF5117EB8658004C2689 /* PLANavigationController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -834,6 +868,11 @@
 		E0C965D8153327A6001D52BF /* images */ = {
 			isa = PBXGroup;
 			children = (
+				E093FE0117EC140E005C583E /* list@2x.png */,
+				E093FDF517EC0769005C583E /* airplay-on@2x.png */,
+				E093FDF617EC0769005C583E /* airplay-off@2x.png */,
+				E093FDF117EBFF1E005C583E /* volume-knob@2x.png */,
+				E093FDF217EBFF1E005C583E /* volume-knob.png */,
 				E058E21F15332C4C0079B226 /* Default.png */,
 				E058E22015332C4C0079B226 /* Default@2x.png */,
 				E0146EBC1602EF9E0042C696 /* Default-568h@2x.png */,
@@ -951,10 +990,13 @@
 				E0C965E7153327A6001D52BF /* Play-iOS-Info.plist in Resources */,
 				E0C965E8153327A6001D52BF /* InfoPlist.strings in Resources */,
 				E0C965EA153327A6001D52BF /* bottom-shadow.png in Resources */,
+				E093FDF717EC0769005C583E /* airplay-on@2x.png in Resources */,
 				E0C965EB153327A6001D52BF /* bottom-shadow@2x.png in Resources */,
 				E0C965EC153327A6001D52BF /* button-pause.png in Resources */,
 				E0C965ED153327A6001D52BF /* button-pause@2x.png in Resources */,
 				E0C965EE153327A6001D52BF /* button-play.png in Resources */,
+				E093FDF817EC0769005C583E /* airplay-off@2x.png in Resources */,
+				E093FDF317EBFF1E005C583E /* volume-knob@2x.png in Resources */,
 				E0C965EF153327A6001D52BF /* button-play@2x.png in Resources */,
 				E0C965F0153327A6001D52BF /* default_album.png in Resources */,
 				E0C965F1153327A6001D52BF /* default_album@2x.png in Resources */,
@@ -969,11 +1011,13 @@
 				E0761BB7153F928600CB3E2F /* OpenSans-LightItalic.ttf in Resources */,
 				E0761BB9153F928600CB3E2F /* OpenSans-Semibold.ttf in Resources */,
 				E0761BBE153F977500CB3E2F /* OpenSans-Italic.ttf in Resources */,
+				E093FDF417EBFF1E005C583E /* volume-knob.png in Resources */,
 				E06844A1153F9C1E009C6B3F /* OpenSans-Regular.ttf in Resources */,
 				E072471C15408F7600F64C2B /* icon-72@2x.png in Resources */,
 				E0146EBD1602EF9E0042C696 /* Default-568h@2x.png in Resources */,
 				E06C3EB11795B6C600DD30E7 /* button-stop.png in Resources */,
 				E06C3EB21795B6C600DD30E7 /* button-stop@2x.png in Resources */,
+				E093FE0217EC140E005C583E /* list@2x.png in Resources */,
 				E0AF1F5B17C2960800551745 /* fontawesome-webfont.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1041,6 +1085,7 @@
 				E0783F361533187E003EA138 /* AFPropertyListRequestOperation.m in Sources */,
 				E0783F371533187E003EA138 /* AFURLConnectionOperation.m in Sources */,
 				E0783F381533187E003EA138 /* AFXMLRequestOperation.m in Sources */,
+				E093FDFC17EC0D2D005C583E /* MarqueeLabel.m in Sources */,
 				E0783F391533187E003EA138 /* UIImageView+AFNetworking.m in Sources */,
 				E0783F3A1533187E003EA138 /* AudioStreamer.m in Sources */,
 				E0783F3B1533187E003EA138 /* UIDevice+Hardware.m in Sources */,
@@ -1053,6 +1098,7 @@
 				E0783F421533187E003EA138 /* UIImageView+WebCache.m in Sources */,
 				E0783F431533187E003EA138 /* SFHFKeychainUtils.m in Sources */,
 				E0C965E3153327A6001D52BF /* PLAPlayerViewController.m in Sources */,
+				E01DEF5217EB8658004C2689 /* PLANavigationController.m in Sources */,
 				E01DEF4F17EB79AE004C2689 /* PLAChannelsViewController.m in Sources */,
 				E0D561E617EB59910031D996 /* PLAChannel.m in Sources */,
 				E0C965E6153327A6001D52BF /* PLAIOSAppDelegate.m in Sources */,
