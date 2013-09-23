@@ -46,7 +46,7 @@
 - (void)updateViewsWithTrackInformation;
 - (void)hideNowPlaying:(BOOL)animated;
 - (void)showNowPlaying:(BOOL)animated;
-- (void)adjustLabels;
+- (void)toggleViews:(BOOL)hidden;
 - (IBAction)togglePlayState:(id)sender;
 - (void)createStreamer;
 - (void)destroyStreamer;

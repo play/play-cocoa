@@ -92,6 +92,8 @@
       
     });
   }];
+  
+  [self toggleViews:YES];
 }
 
 - (void)viewDidUnload{
@@ -214,7 +216,7 @@
     self.artistLabel.text = [NSString stringWithFormat:@"%@ • %@", [currentlyPlayingTrack artist], [currentlyPlayingTrack album]];
     [self adjustStarButton:[currentlyPlayingTrack liked]];
 
-    [self adjustLabels];
+    [self toggleViews:NO];
     
     MPMediaItemArtwork *mediaItemArtwork = [[MPMediaItemArtwork alloc] initWithImage:albumArtImageView.image];
 
@@ -249,7 +251,10 @@
   }
 }
 
-- (void)adjustLabels{
+- (void)toggleViews:(BOOL)hidden{
+  for (id view in [self.view subviews]) {
+    [view setHidden:hidden];
+  }
 }
 
 #pragma mark - Play Methods
