@@ -134,13 +134,14 @@
 
 - (void)starWithCompletionBlock:(void(^)(BOOL success, NSError *err))completionBlock
 {
-	NSString *likePath = [[NSString stringWithFormat:@"api/artists/%@/songs/%@/like", self.artist, self.name] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+	NSString *likePath = [[NSString stringWithFormat:@"/api/artists/%@/songs/%@/like", self.artist, self.name] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
   [[PLAPlayClient sharedClient] putPath:likePath parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
     self.liked = YES;
 		if (completionBlock != nil)
 			completionBlock(YES, nil);
 
   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    
 		if (completionBlock != nil)
 			completionBlock(NO, error);
   }];
@@ -148,7 +149,7 @@
 
 - (void)unstarWithCompletionBlock:(void(^)(BOOL success, NSError *err))completionBlock
 {
-	NSString *unLikePath = [[NSString stringWithFormat:@"api/artists/%@/songs/%@/unlike", self.artist, self.name] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+	NSString *unLikePath = [[NSString stringWithFormat:@"/api/artists/%@/songs/%@/unlike", self.artist, self.name] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
   [[PLAPlayClient sharedClient] putPath:unLikePath parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
     self.liked = NO;
 		if (completionBlock != nil)
