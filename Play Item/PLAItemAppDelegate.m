@@ -148,20 +148,23 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 
 - (void)flipWindowToLogin
 {
+  NSWindow *lastWindow = self.currentWindowController.window;
 	self.currentWindowController = self.logInWindowController;
-	[self.queueWindowController.window flipToShowWindow:self.logInWindowController.window forward:YES];
+	[lastWindow flipToShowWindow:self.logInWindowController.window forward:YES];
 }
 
 - (void)flipWindowToQueue
 {
+  NSWindow *lastWindow = self.currentWindowController.window;
 	self.currentWindowController = self.queueWindowController;
-	[self.logInWindowController.window flipToShowWindow:self.queueWindowController.window forward:YES];
+	[lastWindow flipToShowWindow:self.queueWindowController.window forward:YES];
 }
 
 - (void)flipWindowToChannels
 {
+  NSWindow *lastWindow = self.currentWindowController.window;
 	self.currentWindowController = self.channelsWindowController;
-	[self.queueWindowController.window flipToShowWindow:self.channelsWindowController.window forward:YES];
+	[lastWindow flipToShowWindow:self.channelsWindowController.window forward:YES];
 }
 
 - (IBAction)goToPlay:(id)sender{
