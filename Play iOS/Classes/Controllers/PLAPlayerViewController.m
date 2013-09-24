@@ -198,8 +198,9 @@
 
 - (void)handleTunedChannel{
   BOOL isPlaying = [streamer isPlaying];
-  [self destroyStreamer];
+  
   if (isPlaying){
+    [self destroyStreamer];
     [self createStreamer];
     [streamer start];
   }
