@@ -20,13 +20,13 @@
 
 @implementation PLAChannelsWindowController
 
-- (id)initWithWindow:(NSWindow *)window
+- (id)init
 {
-    self = [super initWithWindow:window];
-    if (self) {
-        // Initialization code here.
-    }
-    return self;
+	self = [super initWithWindowNibName:@"PLAChannelsWindowController"];
+	if (self == nil)
+		return nil;
+	  
+	return self;
 }
 
 - (void)windowDidLoad
