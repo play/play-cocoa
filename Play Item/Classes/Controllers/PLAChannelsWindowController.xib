@@ -15,27 +15,64 @@
         <customObject id="-3" userLabel="Application"/>
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" showsToolbarButton="NO" wantsToBeColor="NO" visibleAtLaunch="NO" animationBehavior="default" id="1">
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="480" height="320"/>
+            <rect key="contentRect" x="196" y="240" width="350" height="320"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
             <view key="contentView" id="2">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                <rect key="frame" x="0.0" y="0.0" width="350" height="320"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="YtU-92-ggY" customClass="PLAHeaderBarBackgroundView">
+                        <rect key="frame" x="0.0" y="275" width="350" height="45"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <subviews>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="uCo-wU-dWn">
+                                <rect key="frame" x="321" y="7" width="24" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="ry1-Gd-TUB"/>
+                                    <constraint firstAttribute="height" constant="26" id="xQq-zy-aeD"/>
+                                </constraints>
+                                <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="note-grey" imagePosition="only" alignment="center" alternateImage="note-down" inset="2" id="Awb-jI-LHY">
+                                    <behavior key="behavior" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="showQueue:" target="-2" id="Cfi-Vs-iSL"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sbh-JD-HFE">
+                                <rect key="frame" x="144" y="14" width="63" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Channels" id="Btg-ZF-aPA">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="sbh-JD-HFE" secondAttribute="centerY" id="2J3-VR-qPV"/>
+                            <constraint firstAttribute="centerX" secondItem="sbh-JD-HFE" secondAttribute="centerX" constant="-0.5" id="9mQ-yl-dDE"/>
+                            <constraint firstAttribute="centerY" secondItem="uCo-wU-dWn" secondAttribute="centerY" constant="-2.5" id="KDQ-Vt-aXa"/>
+                            <constraint firstAttribute="height" constant="45" id="eqj-yx-34b"/>
+                            <constraint firstAttribute="trailing" secondItem="uCo-wU-dWn" secondAttribute="trailing" constant="5" id="pT5-PC-Av5"/>
+                        </constraints>
+                    </customView>
                     <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8S-QL-Slo">
-                        <rect key="frame" x="-1" y="-1" width="482" height="322"/>
+                        <rect key="frame" x="0.0" y="-1" width="352" height="277"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" ambiguous="YES" misplaced="YES" id="sIJ-Xm-zog">
-                            <rect key="frame" x="1" y="1" width="480" height="320"/>
+                            <rect key="frame" x="1" y="1" width="350" height="275"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="lvv-jf-Mn5">
-                                    <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="350" height="275"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="0.0"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn width="477" minWidth="40" maxWidth="1000" id="MEg-ia-86g">
+                                        <tableColumn width="347" minWidth="40" maxWidth="1000" id="MEg-ia-86g">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -49,7 +86,7 @@
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <prototypeCellViews>
                                                 <tableCellView id="pc8-NO-0Eb" userLabel="Channel Table Cell View">
-                                                    <rect key="frame" x="1" y="0.0" width="477" height="75"/>
+                                                    <rect key="frame" x="1" y="0.0" width="347" height="75"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <imageView translatesAutoresizingMaskIntoConstraints="NO" id="3Xc-eb-qCD" customClass="PLAQueueImageView">
@@ -130,9 +167,6 @@
                                             </connections>
                                         </tableColumn>
                                     </tableColumns>
-                                    <connections>
-                                        <outlet property="delegate" destination="-2" id="vno-My-Su6"/>
-                                    </connections>
                                 </tableView>
                             </subviews>
                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -147,10 +181,12 @@
                         </scroller>
                     </scrollView>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="YtU-92-ggY" firstAttribute="top" secondItem="2" secondAttribute="top" id="GLw-u2-W7F"/>
+                    <constraint firstItem="YtU-92-ggY" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="Osw-tc-xHn"/>
+                    <constraint firstAttribute="trailing" secondItem="YtU-92-ggY" secondAttribute="trailing" id="QDe-jW-7we"/>
+                </constraints>
             </view>
-            <connections>
-                <outlet property="delegate" destination="-2" id="4"/>
-            </connections>
         </window>
         <arrayController preservesSelection="NO" selectsInsertedObjects="NO" avoidsEmptySelection="NO" id="w50-Yu-tdd" userLabel="Channels Controller">
             <connections>
@@ -160,5 +196,7 @@
     </objects>
     <resources>
         <image name="icon" width="512" height="512"/>
+        <image name="note-down" width="128" height="128"/>
+        <image name="note-grey" width="14" height="16"/>
     </resources>
 </document>
