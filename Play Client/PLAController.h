@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 extern NSString *const PLANowPlayingUpdated;
+extern NSString *const PLAChannelTuned;
 
 @class PLATrack;
 @class PLAChannel;

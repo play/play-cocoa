@@ -75,6 +75,7 @@
   [playButton setTitle:@"\uf04b" forState:UIControlStateNormal];
 
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateViewsWithTrackInformation) name:PLANowPlayingUpdated object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTunedChannel) name:PLAChannelTuned object:nil];
   
 
   [[PLAController sharedController] logInWithBlock:^(BOOL succeeded) {
@@ -195,6 +196,15 @@
 	return YES;
 }
 
+- (void)handleTunedChannel{
+  BOOL isPlaying = [streamer isPlaying];
+  [self destroyStreamer];
+  if (isPlaying){
+   [self createStreamer];
+    [streamer start];
+  }
+}
+
 - (void)updateViewsWithTrackInformation{
   PLATrack *currentlyPlayingTrack = [[PLAController sharedController] currentlyPlayingTrack];
   
@@ -279,7 +289,7 @@
   
   NSURL *url = [NSURL URLWithString:streamUrl];
 	streamer = [[AudioStreamer alloc] initWithURL:url];
-	  
+	 
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackStateChanged:) name:ASStatusChangedNotification object:streamer];
 	[[NSNotificationCenter defaultCenter] addObserver:[PLAController sharedController] selector:@selector(updateNowPlaying) name:ASUpdateMetadataNotification object:streamer];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(presentStreamerAlert:) name:ASPresentAlertWithTitleNotification object:streamer];
@@ -351,6 +361,7 @@
 			break;
 		case UIEventSubtypeRemoteControlPlay:
       [self createStreamer];
+      [streamer start];
 			break;
 		case UIEventSubtypeRemoteControlPause:
       [self destroyStreamer];

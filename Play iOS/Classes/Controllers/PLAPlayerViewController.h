@@ -57,5 +57,6 @@
 - (PLATrack *)currentTrack;
 - (void)likeSong;
 - (void)unlikeSong;
+- (void)handleTunedChannel;
 
 @end

@@ -17,6 +17,7 @@
 #endif
 
 NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
+NSString *const PLAChannelTuned = @"PLAChannelTuned";
 
 @implementation PLAController
 
@@ -142,10 +143,10 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
 }
 
 - (void)tuneChannel:(PLAChannel *)channel{
-  NSLog(@"Tuning channel: %@", channel.name);
   self.tunedChannel = channel;
   [self saveTunedChannel];
   [self updateNowPlaying];
+  [[NSNotificationCenter defaultCenter] postNotificationName:PLAChannelTuned object:nil];
 }
 
 - (void)saveTunedChannel{
