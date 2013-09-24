@@ -58,16 +58,11 @@
   [self adjustStarButton:NO];
 
   CGRect artistLabelRect = self.artistLabel.frame;
-  [self.artistLabel removeFromSuperview];
-  self.artistLabel = [[[MarqueeLabel alloc] initWithFrame:artistLabelRect rate:50.0 andFadeLength:10.0f] autorelease];
+  self.artistLabel.fadeLength = 10.0f;
   self.artistLabel.marqueeType = MLContinuous;
   self.artistLabel.animationCurve = UIViewAnimationOptionCurveLinear;
   self.artistLabel.continuousMarqueeExtraBuffer = 50.0f;
   self.artistLabel.textAlignment = NSTextAlignmentCenter;
-
-  
-  [self.view addSubview:artistLabel];
-  
   
   self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:self.channelsButton] autorelease];
   
