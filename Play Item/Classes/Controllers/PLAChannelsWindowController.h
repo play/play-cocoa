@@ -8,6 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface PLAChannelsWindowController : NSWindowController
+@interface PLAChannelsWindowController : NSWindowController <NSTableViewDelegate>
 
 @end
