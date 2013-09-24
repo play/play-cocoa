@@ -52,5 +52,19 @@
 	[[NSApp delegate] flipWindowToQueue];
 }
 
+#pragma mark -
+#pragma mark TableView Delegate
+
+- (void)tableViewSelectionDidChange:(NSNotification *)notification{
+  NSInteger index = [self.tableView selectedRow];
+  
+  if (index >= 0){
+    PLAChannel *channel = [[[PLAController sharedController] channels] objectAtIndex:index];
+    [[PLAController sharedController] tuneChannel:channel];
+    
+    [self.tableView deselectAll:nil];
+    [self showQueue:nil];
+  }
+}
 
 @end
