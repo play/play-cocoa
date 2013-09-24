@@ -49,7 +49,6 @@
 		30EE1BA21538834A00AD9DF2 /* note-pink-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EE1BA01538834A00AD9DF2 /* note-pink-down.png */; };
 		30EE1BA31538834A00AD9DF2 /* note-pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EE1BA11538834A00AD9DF2 /* note-pink.png */; };
 		30FCE81F1538CCA600E70B42 /* PLAQueueDarkAlbumTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FCE81E1538CCA600E70B42 /* PLAQueueDarkAlbumTextField.m */; };
-		E0146EBD1602EF9E0042C696 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E0146EBC1602EF9E0042C696 /* Default-568h@2x.png */; };
 		E01DEF4F17EB79AE004C2689 /* PLAChannelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E01DEF4E17EB79AE004C2689 /* PLAChannelsViewController.m */; };
 		E01DEF5217EB8658004C2689 /* PLANavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E01DEF5117EB8658004C2689 /* PLANavigationController.m */; };
 		E026E2AA17F123BD000A1BDC /* PLAChannelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E026E2A917F123BD000A1BDC /* PLAChannelCell.m */; };
@@ -59,8 +58,6 @@
 		E0328061153561180077B17B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0328060153561180077B17B /* QuartzCore.framework */; };
 		E051B0A71535569C007DC4F7 /* PLAItemLogInWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E051B0A51535569C007DC4F7 /* PLAItemLogInWindowController.m */; };
 		E051B0A81535569C007DC4F7 /* PLAItemLogInWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E051B0A61535569C007DC4F7 /* PLAItemLogInWindow.xib */; };
-		E058E22415332C4C0079B226 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E058E21F15332C4C0079B226 /* Default.png */; };
-		E058E22515332C4C0079B226 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E058E22015332C4C0079B226 /* Default@2x.png */; };
 		E058E22615332C4C0079B226 /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = E058E22115332C4C0079B226 /* icon-72.png */; };
 		E058E22715332C4C0079B226 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E058E22215332C4C0079B226 /* icon.png */; };
 		E058E22815332C4C0079B226 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E058E22315332C4C0079B226 /* icon@2x.png */; };
@@ -257,7 +254,6 @@
 		30EE1BA11538834A00AD9DF2 /* note-pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "note-pink.png"; sourceTree = "<group>"; };
 		30FCE81D1538CCA600E70B42 /* PLAQueueDarkAlbumTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAQueueDarkAlbumTextField.h; sourceTree = "<group>"; };
 		30FCE81E1538CCA600E70B42 /* PLAQueueDarkAlbumTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAQueueDarkAlbumTextField.m; sourceTree = "<group>"; };
-		E0146EBC1602EF9E0042C696 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E01DEF4D17EB79AE004C2689 /* PLAChannelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAChannelsViewController.h; sourceTree = "<group>"; };
 		E01DEF4E17EB79AE004C2689 /* PLAChannelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAChannelsViewController.m; sourceTree = "<group>"; };
 		E01DEF5017EB8658004C2689 /* PLANavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLANavigationController.h; sourceTree = "<group>"; };
@@ -272,8 +268,6 @@
 		E051B0A41535569C007DC4F7 /* PLAItemLogInWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAItemLogInWindowController.h; sourceTree = "<group>"; };
 		E051B0A51535569C007DC4F7 /* PLAItemLogInWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAItemLogInWindowController.m; sourceTree = "<group>"; };
 		E051B0A61535569C007DC4F7 /* PLAItemLogInWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PLAItemLogInWindow.xib; sourceTree = "<group>"; };
-		E058E21F15332C4C0079B226 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		E058E22015332C4C0079B226 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		E058E22115332C4C0079B226 /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72.png"; sourceTree = "<group>"; };
 		E058E22215332C4C0079B226 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		E058E22315332C4C0079B226 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
@@ -884,9 +878,6 @@
 				E093FDF617EC0769005C583E /* airplay-off@2x.png */,
 				E093FDF117EBFF1E005C583E /* volume-knob@2x.png */,
 				E093FDF217EBFF1E005C583E /* volume-knob.png */,
-				E058E21F15332C4C0079B226 /* Default.png */,
-				E058E22015332C4C0079B226 /* Default@2x.png */,
-				E0146EBC1602EF9E0042C696 /* Default-568h@2x.png */,
 				E058E22115332C4C0079B226 /* icon-72.png */,
 				E072471B15408F7600F64C2B /* icon-72@2x.png */,
 				E058E22215332C4C0079B226 /* icon.png */,
@@ -1015,8 +1006,6 @@
 				E0C965F2153327A6001D52BF /* shadow.png in Resources */,
 				E026E2AE17F132D0000A1BDC /* Images.xcassets in Resources */,
 				E0C965F3153327A6001D52BF /* shadow@2x.png in Resources */,
-				E058E22415332C4C0079B226 /* Default.png in Resources */,
-				E058E22515332C4C0079B226 /* Default@2x.png in Resources */,
 				E058E22615332C4C0079B226 /* icon-72.png in Resources */,
 				E058E22715332C4C0079B226 /* icon.png in Resources */,
 				E058E22815332C4C0079B226 /* icon@2x.png in Resources */,
@@ -1027,7 +1016,6 @@
 				E093FDF417EBFF1E005C583E /* volume-knob.png in Resources */,
 				E06844A1153F9C1E009C6B3F /* OpenSans-Regular.ttf in Resources */,
 				E072471C15408F7600F64C2B /* icon-72@2x.png in Resources */,
-				E0146EBD1602EF9E0042C696 /* Default-568h@2x.png in Resources */,
 				E06C3EB11795B6C600DD30E7 /* button-stop.png in Resources */,
 				E06C3EB21795B6C600DD30E7 /* button-stop@2x.png in Resources */,
 				E093FE0217EC140E005C583E /* list@2x.png in Resources */,
