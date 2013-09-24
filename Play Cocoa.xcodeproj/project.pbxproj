@@ -54,6 +54,8 @@
 		E026E2AA17F123BD000A1BDC /* PLAChannelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E026E2A917F123BD000A1BDC /* PLAChannelCell.m */; };
 		E026E2AC17F125C6000A1BDC /* channel-placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E026E2AB17F125C6000A1BDC /* channel-placeholder@2x.png */; };
 		E026E2AE17F132D0000A1BDC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E026E2AD17F132D0000A1BDC /* Images.xcassets */; };
+		E026E2B517F1C10F000A1BDC /* PLAChannelsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E026E2B317F1C10F000A1BDC /* PLAChannelsWindowController.m */; };
+		E026E2B617F1C10F000A1BDC /* PLAChannelsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E026E2B417F1C10F000A1BDC /* PLAChannelsWindowController.xib */; };
 		E032805E153560680077B17B /* PLAItemWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E032805D153560680077B17B /* PLAItemWindow.m */; };
 		E0328061153561180077B17B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0328060153561180077B17B /* QuartzCore.framework */; };
 		E051B0A71535569C007DC4F7 /* PLAItemLogInWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E051B0A51535569C007DC4F7 /* PLAItemLogInWindowController.m */; };
@@ -258,6 +260,9 @@
 		E026E2A917F123BD000A1BDC /* PLAChannelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAChannelCell.m; sourceTree = "<group>"; };
 		E026E2AB17F125C6000A1BDC /* channel-placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "channel-placeholder@2x.png"; sourceTree = "<group>"; };
 		E026E2AD17F132D0000A1BDC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E026E2B217F1C10F000A1BDC /* PLAChannelsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAChannelsWindowController.h; sourceTree = "<group>"; };
+		E026E2B317F1C10F000A1BDC /* PLAChannelsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAChannelsWindowController.m; sourceTree = "<group>"; };
+		E026E2B417F1C10F000A1BDC /* PLAChannelsWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PLAChannelsWindowController.xib; sourceTree = "<group>"; };
 		E032805C153560680077B17B /* PLAItemWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLAItemWindow.h; path = Controllers/PLAItemWindow.h; sourceTree = "<group>"; };
 		E032805D153560680077B17B /* PLAItemWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLAItemWindow.m; path = Controllers/PLAItemWindow.m; sourceTree = "<group>"; };
 		E0328060153561180077B17B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -777,6 +782,9 @@
 				30A3B3C01535C5D7009DA3E0 /* PLAQueueWindowController.h */,
 				30A3B3C11535C5D7009DA3E0 /* PLAQueueWindowController.m */,
 				30A3B3C21535C5D7009DA3E0 /* PLAQueueWindow.xib */,
+				E026E2B217F1C10F000A1BDC /* PLAChannelsWindowController.h */,
+				E026E2B317F1C10F000A1BDC /* PLAChannelsWindowController.m */,
+				E026E2B417F1C10F000A1BDC /* PLAChannelsWindowController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1022,6 +1030,7 @@
 				30EE1B3A15383D4700AD9DF2 /* status-icon-off.png in Resources */,
 				30EE1B3B15383D4700AD9DF2 /* status-icon-on.png in Resources */,
 				30EE1B3D15383E8000AD9DF2 /* status-icon-inverted.png in Resources */,
+				E026E2B617F1C10F000A1BDC /* PLAChannelsWindowController.xib in Resources */,
 				30EE1B4D15384AB000AD9DF2 /* now-playing-background.png in Resources */,
 				30EE1BA21538834A00AD9DF2 /* note-pink-down.png in Resources */,
 				30EE1BA31538834A00AD9DF2 /* note-pink.png in Resources */,
@@ -1119,6 +1128,7 @@
 				E051B0A71535569C007DC4F7 /* PLAItemLogInWindowController.m in Sources */,
 				E032805E153560680077B17B /* PLAItemWindow.m in Sources */,
 				E0D561E517EB59910031D996 /* PLAChannel.m in Sources */,
+				E026E2B517F1C10F000A1BDC /* PLAChannelsWindowController.m in Sources */,
 				30A3B3BA15359D2E009DA3E0 /* NSObject+SPInvocationGrabbing.m in Sources */,
 				30A3B3BB15359D2E009DA3E0 /* SPMediaKeyTap.m in Sources */,
 				30A3B3C31535C5D7009DA3E0 /* PLAQueueWindowController.m in Sources */,
