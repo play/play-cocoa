@@ -14,6 +14,7 @@
 #import "PLAPlayClient.h"
 #import "PLAItemLogInWindowController.h"
 #import "PLAQueueWindowController.h"
+#import "PLAChannelsWindowController.h"
 #import "PLATrack.h"
 #import "SPMediaKeyTap.h"
 
@@ -39,6 +40,7 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 
 @synthesize keyTap = _keyTap;
 @synthesize queueWindowController = _queueWindowController;
+@synthesize channelsWindowController = _channelsWindowController;
 @synthesize currentWindowController = _currentWindowController;
 
 - (id)init
@@ -48,6 +50,7 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 		return nil;
 	
 	_queueWindowController = [[PLAQueueWindowController alloc] init];
+	_channelsWindowController = [[PLAChannelsWindowController alloc] init];
 	_logInWindowController = [[PLAItemLogInWindowController alloc] init];
 
 	return self;
@@ -60,6 +63,7 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 	[_logInWindowController release];
   [_keyTap release], _keyTap = nil;
 	[_queueWindowController release], _queueWindowController = nil;
+	[_channelsWindowController release], _channelsWindowController = nil;
 	[_currentWindowController release], _currentWindowController = nil;
   [super dealloc];
 }
@@ -80,6 +84,7 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 	//pre-load the queue and login windows.
 	self.currentWindowController = self.queueWindowController;
 	(void)self.logInWindowController.window;
+	(void)self.channelsWindowController.window;
 	(void)self.currentWindowController.window;
 	
   [[PLAController sharedController] logInWithBlock:^(BOOL succeeded) {
@@ -151,6 +156,12 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 {
 	self.currentWindowController = self.queueWindowController;
 	[self.logInWindowController.window flipToShowWindow:self.queueWindowController.window forward:YES];
+}
+
+- (void)flipWindowToChannels
+{
+	self.currentWindowController = self.channelsWindowController;
+	[self.queueWindowController.window flipToShowWindow:self.channelsWindowController.window forward:YES];
 }
 
 - (IBAction)goToPlay:(id)sender{

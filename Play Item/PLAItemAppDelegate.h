@@ -11,6 +11,7 @@
 @class AudioStreamer;
 @class PLAItemLogInWindowController;
 @class PLAQueueWindowController;
+@class PLAChannelsWindowController;
 
 extern NSString *const PLAItemStartedPlayingNotificationName;
 extern NSString *const PLAItemStoppedPlayingNotificationName;
@@ -21,10 +22,12 @@ extern NSString *const PLAItemLoggedInNotificationName;
 @property (strong) NSStatusItem *statusItem;
 @property (strong) PLAItemLogInWindowController *logInWindowController;
 @property (nonatomic, readonly) PLAQueueWindowController *queueWindowController;
+@property (nonatomic, readonly) PLAChannelsWindowController *channelsWindowController;
 
 - (void)didLogIn;
 - (void)flipWindowToLogin;
 - (void)flipWindowToQueue;
+- (void)flipWindowToChannels;
 - (IBAction)goToPlay:(id)sender;
 - (void)togglePlayState;
 - (void)createStreamer;
