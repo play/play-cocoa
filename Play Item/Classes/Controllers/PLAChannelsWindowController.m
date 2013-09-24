@@ -7,10 +7,14 @@
 //
 
 #import "PLAChannelsWindowController.h"
+#import "PLAController.h"
 
 @interface PLAChannelsWindowController ()
 
+@property (retain) NSArray *channels;
 @property (nonatomic, retain) IBOutlet NSTableView *tableView;
+
+- (void)updateChannels;
 
 @end
 
@@ -27,9 +31,19 @@
 
 - (void)windowDidLoad
 {
-    [super windowDidLoad];
-    
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+  [super windowDidLoad];
+	[self.window setOpaque:NO];
+	self.window.backgroundColor = [NSColor greenColor];
+	[self.window setLevel:NSFloatingWindowLevel];
+  
+  [self updateChannels];
+}
+
+- (void)updateChannels
+{
+  [[PLAController sharedController] updateChannelsWithCompletionBlock:^{
+    self.channels = [[PLAController sharedController] channels];
+  }];
 }
 
 @end
