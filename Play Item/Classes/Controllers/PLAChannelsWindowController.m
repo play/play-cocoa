@@ -13,7 +13,6 @@
 @interface PLAChannelsWindowController ()
 
 @property (retain) NSArray *channels;
-@property (nonatomic, retain) IBOutlet NSTableView *tableView;
 
 - (void)updateChannels;
 - (IBAction)showQueue:(id)sender;
@@ -56,13 +55,13 @@
 #pragma mark TableView Delegate
 
 - (void)tableViewSelectionDidChange:(NSNotification *)notification{
-  NSInteger index = [self.tableView selectedRow];
+  NSInteger index = [notification.object selectedRow];
   
   if (index >= 0){
     PLAChannel *channel = [[[PLAController sharedController] channels] objectAtIndex:index];
     [[PLAController sharedController] tuneChannel:channel];
     
-    [self.tableView deselectAll:nil];
+    [notification.object deselectAll:nil];
     [self showQueue:nil];
   }
 }
