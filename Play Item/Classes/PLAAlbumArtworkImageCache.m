@@ -119,13 +119,8 @@ CGFloat const PLAAlbumArtworkImageCacheImageSize = 47.0;
 
 - (NSURL *)localImageLocationForTrack:(PLATrack *)track
 {
-	NSString *(^normalizeString)(NSString *) = ^ (NSString *string) 
-	{
-		return [string stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-	};
-	
-	NSString *artist = normalizeString(track.artist);
-	NSString *album = normalizeString(track.album);
+	NSString *artist = track.artist;;
+	NSString *album = track.album;
 	
 	NSString *fileName = [NSString stringWithFormat:@"%@-%@.png", artist, album];
 	
