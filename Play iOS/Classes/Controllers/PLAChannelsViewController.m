@@ -11,6 +11,7 @@
 #import "PLAChannel.h"
 #import "PLATrack.h"
 #import "UIImageView+AFNetworking.h"
+#import "PLAChannelCell.h"
 
 @interface PLAChannelsViewController ()
 
@@ -52,10 +53,10 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"PLAChannelCell";
+    PLAChannelCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
   if (!cell) {
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    cell = [[PLAChannelCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
   }
   
   PLAChannel *channel = [[[PLAController sharedController] channels] objectAtIndex:indexPath.row];
