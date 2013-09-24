@@ -200,8 +200,8 @@
   BOOL isPlaying = [streamer isPlaying];
   [self destroyStreamer];
   if (isPlaying){
-   [self createStreamer];
-    [streamer start];
+    [self createStreamer];
+    [self createStreamer];
   }
 }
 
