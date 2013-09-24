@@ -7,6 +7,7 @@
 //
 
 #import "PLAChannelsWindowController.h"
+#import "PLAItemAppDelegate.h"
 #import "PLAController.h"
 
 @interface PLAChannelsWindowController ()
@@ -15,6 +16,7 @@
 @property (nonatomic, retain) IBOutlet NSTableView *tableView;
 
 - (void)updateChannels;
+- (IBAction)showQueue:(id)sender;
 
 @end
 
@@ -45,5 +47,11 @@
     self.channels = [[PLAController sharedController] channels];
   }];
 }
+
+- (IBAction)showQueue:(id)sender
+{
+	[[NSApp delegate] flipWindowToQueue];
+}
+
 
 @end
