@@ -65,9 +65,7 @@
   cell.textLabel.text = [channel name];
   cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ by %@", [track name], [track artist]];
   
-  [self.tableView beginUpdates];
-  [cell.imageView setImageWithURL:[track albumArtURL] placeholderImage:nil];
-  [self.tableView endUpdates];
+  [cell.imageView setImageWithURL:[track albumArtURL] placeholderImage:[UIImage imageNamed:@"channel-placeholder.png"]];
   
   return cell;
 }
