@@ -140,9 +140,11 @@
 
 - (void)likeSong{
   [self adjustStarButton:YES];
+  [self.starButton setUserInteractionEnabled:NO];
 
   [[self currentTrack] starWithCompletionBlock:^(BOOL success, NSError *err) {
     dispatch_async(dispatch_get_main_queue(), ^(void) {
+      [self.starButton setUserInteractionEnabled:YES];
       [self adjustStarButton:[[self currentTrack] liked]];
     });
   }];
@@ -150,10 +152,12 @@
 
 - (void)unlikeSong{
   [self adjustStarButton:NO];
+  [self.starButton setUserInteractionEnabled:NO];
 
   [[self currentTrack] unstarWithCompletionBlock:^(BOOL success, NSError *err) {
     dispatch_async(dispatch_get_main_queue(), ^(void) {
       [self adjustStarButton:[[self currentTrack] liked]];
+      [self.starButton setUserInteractionEnabled:YES];
     });
   }];
 }

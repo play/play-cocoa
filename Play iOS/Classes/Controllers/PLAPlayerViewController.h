@@ -55,5 +55,7 @@
 - (IBAction)presentChannels;
 - (void)adjustStarButton:(BOOL)isLiked;
 - (PLATrack *)currentTrack;
+- (void)likeSong;
+- (void)unlikeSong;
 
 @end
