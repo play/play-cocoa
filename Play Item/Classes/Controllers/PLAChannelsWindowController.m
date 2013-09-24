@@ -34,6 +34,7 @@
 {
   [super windowDidLoad];
 	[self.window setOpaque:NO];
+	self.window.backgroundColor = [NSColor clearColor];
 	[self.window setLevel:NSFloatingWindowLevel];
   
   [self updateChannels];
