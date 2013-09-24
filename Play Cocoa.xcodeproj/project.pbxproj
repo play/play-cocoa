@@ -56,6 +56,8 @@
 		E026E2AE17F132D0000A1BDC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E026E2AD17F132D0000A1BDC /* Images.xcassets */; };
 		E026E2B517F1C10F000A1BDC /* PLAChannelsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E026E2B317F1C10F000A1BDC /* PLAChannelsWindowController.m */; };
 		E026E2B617F1C10F000A1BDC /* PLAChannelsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E026E2B417F1C10F000A1BDC /* PLAChannelsWindowController.xib */; };
+		E026E2BA17F1C69D000A1BDC /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = E026E2B817F1C69D000A1BDC /* list.png */; };
+		E026E2BB17F1C69D000A1BDC /* list-down.png in Resources */ = {isa = PBXBuildFile; fileRef = E026E2B917F1C69D000A1BDC /* list-down.png */; };
 		E032805E153560680077B17B /* PLAItemWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E032805D153560680077B17B /* PLAItemWindow.m */; };
 		E0328061153561180077B17B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0328060153561180077B17B /* QuartzCore.framework */; };
 		E051B0A71535569C007DC4F7 /* PLAItemLogInWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E051B0A51535569C007DC4F7 /* PLAItemLogInWindowController.m */; };
@@ -263,6 +265,8 @@
 		E026E2B217F1C10F000A1BDC /* PLAChannelsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAChannelsWindowController.h; sourceTree = "<group>"; };
 		E026E2B317F1C10F000A1BDC /* PLAChannelsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAChannelsWindowController.m; sourceTree = "<group>"; };
 		E026E2B417F1C10F000A1BDC /* PLAChannelsWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PLAChannelsWindowController.xib; sourceTree = "<group>"; };
+		E026E2B817F1C69D000A1BDC /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
+		E026E2B917F1C69D000A1BDC /* list-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-down.png"; sourceTree = "<group>"; };
 		E032805C153560680077B17B /* PLAItemWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLAItemWindow.h; path = Controllers/PLAItemWindow.h; sourceTree = "<group>"; };
 		E032805D153560680077B17B /* PLAItemWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLAItemWindow.m; path = Controllers/PLAItemWindow.m; sourceTree = "<group>"; };
 		E0328060153561180077B17B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -573,6 +577,15 @@
 			name = "Download Song";
 			sourceTree = "<group>";
 		};
+		E026E2B717F1C68C000A1BDC /* List */ = {
+			isa = PBXGroup;
+			children = (
+				E026E2B817F1C69D000A1BDC /* list.png */,
+				E026E2B917F1C69D000A1BDC /* list-down.png */,
+			);
+			name = List;
+			sourceTree = "<group>";
+		};
 		E058E26F153376E80079B226 /* Play Client */ = {
 			isa = PBXGroup;
 			children = (
@@ -807,6 +820,7 @@
 		E0C965BA1533279D001D52BF /* images */ = {
 			isa = PBXGroup;
 			children = (
+				E026E2B717F1C68C000A1BDC /* List */,
 				3080FCF41539DA590058D7EA /* record.png */,
 				309006E5153E08D500FB297F /* Cog */,
 				30836C2E153C6D9400987A13 /* Download Album */,
@@ -1043,6 +1057,7 @@
 				3080FD001539FF0E0058D7EA /* stop-button.png in Resources */,
 				30836C22153C61A200987A13 /* starred-grey-down.png in Resources */,
 				30836C23153C61A200987A13 /* starred-grey.png in Resources */,
+				E026E2BB17F1C69D000A1BDC /* list-down.png in Resources */,
 				30836C24153C61A200987A13 /* unstarred-grey-down.png in Resources */,
 				30836C25153C61A200987A13 /* unstarred-grey.png in Resources */,
 				30836C2A153C6AD600987A13 /* starred-pink-down.png in Resources */,
@@ -1054,6 +1069,7 @@
 				30836C35153C6DA400987A13 /* record-pink-down.png in Resources */,
 				30836C36153C6DA400987A13 /* record-pink.png in Resources */,
 				309006E9153E08E000FB297F /* cog-down.png in Resources */,
+				E026E2BA17F1C69D000A1BDC /* list.png in Resources */,
 				309006EA153E08E000FB297F /* cog.png in Resources */,
 				E0761BB6153F928600CB3E2F /* OpenSans-LightItalic.ttf in Resources */,
 				E0761BB8153F928600CB3E2F /* OpenSans-Semibold.ttf in Resources */,
