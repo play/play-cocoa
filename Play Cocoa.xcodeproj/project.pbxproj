@@ -58,9 +58,6 @@
 		E0328061153561180077B17B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0328060153561180077B17B /* QuartzCore.framework */; };
 		E051B0A71535569C007DC4F7 /* PLAItemLogInWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E051B0A51535569C007DC4F7 /* PLAItemLogInWindowController.m */; };
 		E051B0A81535569C007DC4F7 /* PLAItemLogInWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E051B0A61535569C007DC4F7 /* PLAItemLogInWindow.xib */; };
-		E058E22615332C4C0079B226 /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = E058E22115332C4C0079B226 /* icon-72.png */; };
-		E058E22715332C4C0079B226 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E058E22215332C4C0079B226 /* icon.png */; };
-		E058E22815332C4C0079B226 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E058E22315332C4C0079B226 /* icon@2x.png */; };
 		E058E25715333AB50079B226 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E058E2551533381F0079B226 /* SystemConfiguration.framework */; };
 		E058E25E15333AE40079B226 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E058E25C15333ADB0079B226 /* CoreGraphics.framework */; };
 		E058E25F15333AE70079B226 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E058E25A15333AD10079B226 /* Foundation.framework */; };
@@ -87,7 +84,6 @@
 		E06844A1153F9C1E009C6B3F /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E068449F153F9C1E009C6B3F /* OpenSans-Regular.ttf */; };
 		E06C3EB11795B6C600DD30E7 /* button-stop.png in Resources */ = {isa = PBXBuildFile; fileRef = E06C3EAF1795B6C600DD30E7 /* button-stop.png */; };
 		E06C3EB21795B6C600DD30E7 /* button-stop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E06C3EB01795B6C600DD30E7 /* button-stop@2x.png */; };
-		E072471C15408F7600F64C2B /* icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E072471B15408F7600F64C2B /* icon-72@2x.png */; };
 		E0761BB6153F928600CB3E2F /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E0761BB4153F928600CB3E2F /* OpenSans-LightItalic.ttf */; };
 		E0761BB7153F928600CB3E2F /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E0761BB4153F928600CB3E2F /* OpenSans-LightItalic.ttf */; };
 		E0761BB8153F928600CB3E2F /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E0761BB5153F928600CB3E2F /* OpenSans-Semibold.ttf */; };
@@ -268,9 +264,6 @@
 		E051B0A41535569C007DC4F7 /* PLAItemLogInWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAItemLogInWindowController.h; sourceTree = "<group>"; };
 		E051B0A51535569C007DC4F7 /* PLAItemLogInWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAItemLogInWindowController.m; sourceTree = "<group>"; };
 		E051B0A61535569C007DC4F7 /* PLAItemLogInWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PLAItemLogInWindow.xib; sourceTree = "<group>"; };
-		E058E22115332C4C0079B226 /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72.png"; sourceTree = "<group>"; };
-		E058E22215332C4C0079B226 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		E058E22315332C4C0079B226 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		E058E2551533381F0079B226 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		E058E25815333AC80079B226 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		E058E25A15333AD10079B226 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -299,7 +292,6 @@
 		E068449F153F9C1E009C6B3F /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		E06C3EAF1795B6C600DD30E7 /* button-stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-stop.png"; sourceTree = "<group>"; };
 		E06C3EB01795B6C600DD30E7 /* button-stop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-stop@2x.png"; sourceTree = "<group>"; };
-		E072471B15408F7600F64C2B /* icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72@2x.png"; sourceTree = "<group>"; };
 		E0761BB4153F928600CB3E2F /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
 		E0761BB5153F928600CB3E2F /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		E0761BBC153F977500CB3E2F /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
@@ -878,10 +870,6 @@
 				E093FDF617EC0769005C583E /* airplay-off@2x.png */,
 				E093FDF117EBFF1E005C583E /* volume-knob@2x.png */,
 				E093FDF217EBFF1E005C583E /* volume-knob.png */,
-				E058E22115332C4C0079B226 /* icon-72.png */,
-				E072471B15408F7600F64C2B /* icon-72@2x.png */,
-				E058E22215332C4C0079B226 /* icon.png */,
-				E058E22315332C4C0079B226 /* icon@2x.png */,
 				E0C965D9153327A6001D52BF /* bottom-shadow.png */,
 				E0C965DA153327A6001D52BF /* bottom-shadow@2x.png */,
 				E0C965DB153327A6001D52BF /* button-pause.png */,
@@ -1006,16 +994,12 @@
 				E0C965F2153327A6001D52BF /* shadow.png in Resources */,
 				E026E2AE17F132D0000A1BDC /* Images.xcassets in Resources */,
 				E0C965F3153327A6001D52BF /* shadow@2x.png in Resources */,
-				E058E22615332C4C0079B226 /* icon-72.png in Resources */,
-				E058E22715332C4C0079B226 /* icon.png in Resources */,
-				E058E22815332C4C0079B226 /* icon@2x.png in Resources */,
 				E05AEC0F1534B6BE0094566C /* PLALogInViewControllerViewController.xib in Resources */,
 				E0761BB7153F928600CB3E2F /* OpenSans-LightItalic.ttf in Resources */,
 				E0761BB9153F928600CB3E2F /* OpenSans-Semibold.ttf in Resources */,
 				E0761BBE153F977500CB3E2F /* OpenSans-Italic.ttf in Resources */,
 				E093FDF417EBFF1E005C583E /* volume-knob.png in Resources */,
 				E06844A1153F9C1E009C6B3F /* OpenSans-Regular.ttf in Resources */,
-				E072471C15408F7600F64C2B /* icon-72@2x.png in Resources */,
 				E06C3EB11795B6C600DD30E7 /* button-stop.png in Resources */,
 				E06C3EB21795B6C600DD30E7 /* button-stop@2x.png in Resources */,
 				E093FE0217EC140E005C583E /* list@2x.png in Resources */,
