@@ -126,10 +126,13 @@ NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
   [PLAChannel channelsWithBlock:^(NSArray *returnedChannels, NSError *error) {
     
     for (PLAChannel *channel in returnedChannels) {
-      if ([channels containsObject:channel]) {
-        NSLog(@"we already have that channel");
+      NSInteger index = [channels indexOfObject:channel];
+      
+      if (index != NSNotFound) {
+        PLAChannel *foundChannel = [channels objectAtIndex:index];
+        [foundChannel setName:[channel name]];
+        [foundChannel setNowPlaying:[channel nowPlaying]];
       }else{
-        NSLog(@"adding channel");
         [channels addObject:channel];
       }
     }
