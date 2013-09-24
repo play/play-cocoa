@@ -77,6 +77,7 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackStarted:) name:PLAItemStartedPlayingNotificationName object:self];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackStopped:) name:PLAItemStoppedPlayingNotificationName object:self];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTunedChannel) name:PLAChannelTuned object:nil];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification{
@@ -172,6 +173,16 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 }
 
 #pragma mark - Play Methods
+
+- (void)handleTunedChannel{
+  BOOL isPlaying = [self.streamer isPlaying];
+  
+  if (isPlaying){
+    [self destroyStreamer];
+    [self createStreamer];
+    [self.streamer start];
+  }
+}
 
 - (void)togglePlayState{
   if (self.streamer && [self.streamer isPlaying]) {

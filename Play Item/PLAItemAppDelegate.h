@@ -32,5 +32,6 @@ extern NSString *const PLAItemLoggedInNotificationName;
 - (void)togglePlayState;
 - (void)createStreamer;
 - (void)destroyStreamer;
+- (void)handleTunedChannel;
 
 @end
