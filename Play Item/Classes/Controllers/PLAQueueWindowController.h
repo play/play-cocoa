@@ -26,6 +26,7 @@
 - (IBAction)togglePlay:(id)sender;
 - (IBAction)toggleNowPlayingStar:(id)sender;
 - (IBAction)showPrefs:(id)sender;
+- (IBAction)showChannels:(id)sender;
 
 - (void)downloadTrack:(PLATrack *)track;
 - (void)downloadAlbumFromTrack:(PLATrack *)track;

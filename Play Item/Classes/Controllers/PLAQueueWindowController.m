@@ -110,6 +110,12 @@
 	[[NSApp delegate] flipWindowToLogin];
 }
 
+- (IBAction)showChannels:(id)sender
+{
+	[[NSApp delegate] flipWindowToChannels];
+}
+
+
 NSURL *(^downloadsFolderLocation)() = ^ 
 {
 	NSArray *downloadFolderPaths = NSSearchPathForDirectoriesInDomains(NSDownloadsDirectory, NSUserDomainMask, YES);
