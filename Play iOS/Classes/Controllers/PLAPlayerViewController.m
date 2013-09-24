@@ -201,7 +201,7 @@
   [self destroyStreamer];
   if (isPlaying){
     [self createStreamer];
-    [self createStreamer];
+    [streamer start];
   }
 }
 
