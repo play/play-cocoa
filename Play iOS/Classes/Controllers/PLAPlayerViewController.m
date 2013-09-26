@@ -311,6 +311,11 @@
 #pragma mark - Audio player callbacks
 
 - (void)playbackStateChanged:(NSNotification *)aNotification{
+  NSLog(@"streamer isWaiting: %d", [streamer isWaiting]);
+  NSLog(@"streamer isPlaying: %d", [streamer isPlaying]);
+  NSLog(@"streamer isPaused: %d", [streamer isPaused]);
+  NSLog(@"streamer isIdle: %d", [streamer isIdle]);
+  
 	if ([streamer isWaiting]){
     [playButton setTitle:@"\uf04d" forState:UIControlStateNormal];
 	}else if ([streamer isPlaying]){
