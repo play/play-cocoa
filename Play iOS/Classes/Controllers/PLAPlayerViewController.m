@@ -272,7 +272,6 @@
 - (IBAction)togglePlayState:(id)sender{
   if ([streamer isPlaying]) {
 		[self destroyStreamer];
-    [playButton setTitle:@"\uf04b" forState:UIControlStateNormal];
   }else{
     [self createStreamer];
     [streamer start];
