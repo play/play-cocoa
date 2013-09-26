@@ -299,6 +299,8 @@
 - (void)destroyStreamer{
 	if (streamer){
     [streamer stop];
+    [playButton setTitle:@"\uf04b" forState:UIControlStateNormal];
+
 		[[NSNotificationCenter defaultCenter] removeObserver:self name:ASStatusChangedNotification object:streamer];
 		[[NSNotificationCenter defaultCenter] removeObserver:self name:ASPresentAlertWithTitleNotification object:streamer];
 		[[NSNotificationCenter defaultCenter] removeObserver:[PLAController sharedController] name:ASUpdateMetadataNotification object:streamer];
