@@ -59,6 +59,7 @@ NSString *const PLAChannelTuned = @"PLAChannelTuned";
   [[PLAPlayClient sharedClient] getPath:@"/api/channels" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
 	if (block != nil)
+    self.channels = [NSMutableArray array];
     
     [self updateChannelsWithCompletionBlock:^{
       [self loadTunedChannel];
