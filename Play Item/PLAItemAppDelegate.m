@@ -211,10 +211,10 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 
 - (void)destroyStreamer{
 	if (self.streamer){
+		[self.streamer stop];
 		[[NSNotificationCenter defaultCenter] removeObserver:self name:ASStatusChangedNotification object:self.streamer];
     [[NSNotificationCenter defaultCenter] removeObserver:[PLAController sharedController] name:ASUpdateMetadataNotification object:self.streamer];
 		
-		[self.streamer stop];
 		self.streamer = nil;
 
 		[[NSNotificationCenter defaultCenter] postNotificationName:PLAItemStoppedPlayingNotificationName object:self];
