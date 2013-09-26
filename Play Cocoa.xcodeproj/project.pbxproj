@@ -53,7 +53,6 @@
 		E01DEF5217EB8658004C2689 /* PLANavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E01DEF5117EB8658004C2689 /* PLANavigationController.m */; };
 		E026E2AA17F123BD000A1BDC /* PLAChannelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E026E2A917F123BD000A1BDC /* PLAChannelCell.m */; };
 		E026E2AC17F125C6000A1BDC /* channel-placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E026E2AB17F125C6000A1BDC /* channel-placeholder@2x.png */; };
-		E026E2AE17F132D0000A1BDC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E026E2AD17F132D0000A1BDC /* Images.xcassets */; };
 		E026E2B517F1C10F000A1BDC /* PLAChannelsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E026E2B317F1C10F000A1BDC /* PLAChannelsWindowController.m */; };
 		E026E2B617F1C10F000A1BDC /* PLAChannelsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E026E2B417F1C10F000A1BDC /* PLAChannelsWindowController.xib */; };
 		E026E2BA17F1C69D000A1BDC /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = E026E2B817F1C69D000A1BDC /* list.png */; };
@@ -263,7 +262,6 @@
 		E026E2A817F123BD000A1BDC /* PLAChannelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAChannelCell.h; sourceTree = "<group>"; };
 		E026E2A917F123BD000A1BDC /* PLAChannelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAChannelCell.m; sourceTree = "<group>"; };
 		E026E2AB17F125C6000A1BDC /* channel-placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "channel-placeholder@2x.png"; sourceTree = "<group>"; };
-		E026E2AD17F132D0000A1BDC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E026E2B217F1C10F000A1BDC /* PLAChannelsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAChannelsWindowController.h; sourceTree = "<group>"; };
 		E026E2B317F1C10F000A1BDC /* PLAChannelsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAChannelsWindowController.m; sourceTree = "<group>"; };
 		E026E2B417F1C10F000A1BDC /* PLAChannelsWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PLAChannelsWindowController.xib; sourceTree = "<group>"; };
@@ -846,7 +844,6 @@
 				E0C965D1153327A6001D52BF /* PLAIOSAppDelegate.m */,
 				E0C965D8153327A6001D52BF /* images */,
 				E0C965CA153327A6001D52BF /* Classes */,
-				E026E2AD17F132D0000A1BDC /* Images.xcassets */,
 				E0C965D2153327A6001D52BF /* Supporting Files */,
 			);
 			path = "Play iOS";
@@ -1020,7 +1017,6 @@
 				E0C965F0153327A6001D52BF /* default_album.png in Resources */,
 				E0C965F1153327A6001D52BF /* default_album@2x.png in Resources */,
 				E0C965F2153327A6001D52BF /* shadow.png in Resources */,
-				E026E2AE17F132D0000A1BDC /* Images.xcassets in Resources */,
 				E0C965F3153327A6001D52BF /* shadow@2x.png in Resources */,
 				E05AEC0F1534B6BE0094566C /* PLALogInViewControllerViewController.xib in Resources */,
 				E0761BB7153F928600CB3E2F /* OpenSans-LightItalic.ttf in Resources */,
