@@ -165,6 +165,7 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 {
   NSWindow *lastWindow = self.currentWindowController.window;
 	self.currentWindowController = self.channelsWindowController;
+  [self.channelsWindowController updateChannels];
 	[lastWindow flipToShowWindow:self.channelsWindowController.window forward:YES];
 }
 
