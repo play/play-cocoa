@@ -10,4 +10,6 @@
 
 @interface PLAChannelsWindowController : NSWindowController <NSTableViewDelegate>
 
+- (void)updateChannels;
+
 @end

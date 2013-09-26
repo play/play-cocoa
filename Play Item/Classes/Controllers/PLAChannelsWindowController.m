@@ -14,7 +14,6 @@
 
 @property (retain) NSArray *channels;
 
-- (void)updateChannels;
 - (IBAction)showQueue:(id)sender;
 
 @end
