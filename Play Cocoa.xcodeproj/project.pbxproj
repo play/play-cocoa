@@ -168,6 +168,7 @@
 		E0CAF64615332619007EE510 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CAF64515332619007EE510 /* CFNetwork.framework */; };
 		E0CAF64815332623007EE510 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CAF64715332623007EE510 /* AVFoundation.framework */; };
 		E0CAF64A15332631007EE510 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CAF64915332631007EE510 /* Security.framework */; };
+		E0D224F017F3F59500CF5774 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0D224EF17F3F59500CF5774 /* Images.xcassets */; };
 		E0D561E517EB59910031D996 /* PLAChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D561E417EB59910031D996 /* PLAChannel.m */; };
 		E0D561E617EB59910031D996 /* PLAChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D561E417EB59910031D996 /* PLAChannel.m */; };
 /* End PBXBuildFile section */
@@ -398,6 +399,7 @@
 		E0CAF64515332619007EE510 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		E0CAF64715332623007EE510 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		E0CAF64915332631007EE510 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		E0D224EF17F3F59500CF5774 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E0D561E317EB59910031D996 /* PLAChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAChannel.h; sourceTree = "<group>"; };
 		E0D561E417EB59910031D996 /* PLAChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAChannel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -840,6 +842,7 @@
 		E0C965C9153327A6001D52BF /* Play iOS */ = {
 			isa = PBXGroup;
 			children = (
+				E0D224EF17F3F59500CF5774 /* Images.xcassets */,
 				E0C965D0153327A6001D52BF /* PLAIOSAppDelegate.h */,
 				E0C965D1153327A6001D52BF /* PLAIOSAppDelegate.m */,
 				E0C965D8153327A6001D52BF /* images */,
@@ -1010,6 +1013,7 @@
 				E0C965EC153327A6001D52BF /* button-pause.png in Resources */,
 				E0C965ED153327A6001D52BF /* button-pause@2x.png in Resources */,
 				E026E2AC17F125C6000A1BDC /* channel-placeholder@2x.png in Resources */,
+				E0D224F017F3F59500CF5774 /* Images.xcassets in Resources */,
 				E0C965EE153327A6001D52BF /* button-play.png in Resources */,
 				E093FDF817EC0769005C583E /* airplay-off@2x.png in Resources */,
 				E093FDF317EBFF1E005C583E /* volume-knob@2x.png in Resources */,
