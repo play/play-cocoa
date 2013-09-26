@@ -149,6 +149,7 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 
 - (void)flipWindowToLogin
 {
+  [self destroyStreamer];
   NSWindow *lastWindow = self.currentWindowController.window;
 	self.currentWindowController = self.logInWindowController;
 	[lastWindow flipToShowWindow:self.logInWindowController.window forward:YES];
