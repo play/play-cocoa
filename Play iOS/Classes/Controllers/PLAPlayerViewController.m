@@ -164,6 +164,8 @@
 }
 
 - (IBAction)presentLogIn{
+  [self destroyStreamer];
+  
   PLALogInViewControllerViewController *controller = [[PLALogInViewControllerViewController alloc] initWithNibName:@"PLALogInViewControllerViewController" bundle:nil];
   
   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
