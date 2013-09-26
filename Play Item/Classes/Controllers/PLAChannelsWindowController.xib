@@ -32,7 +32,7 @@
                                     <constraint firstAttribute="width" constant="24" id="ry1-Gd-TUB"/>
                                     <constraint firstAttribute="height" constant="26" id="xQq-zy-aeD"/>
                                 </constraints>
-                                <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="note-grey" imagePosition="only" alignment="center" alternateImage="note-down" inset="2" id="Awb-jI-LHY">
+                                <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="note-dark" imagePosition="only" alignment="center" alternateImage="note-dark-down" inset="2" id="Awb-jI-LHY">
                                     <behavior key="behavior" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -58,7 +58,7 @@
                             <constraint firstAttribute="trailing" secondItem="uCo-wU-dWn" secondAttribute="trailing" constant="5" id="pT5-PC-Av5"/>
                         </constraints>
                     </customView>
-                    <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8S-QL-Slo">
+                    <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8S-QL-Slo">
                         <rect key="frame" x="0.0" y="-1" width="352" height="277"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" ambiguous="YES" misplaced="YES" copiesOnScroll="NO" id="sIJ-Xm-zog">
@@ -176,11 +176,11 @@
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                         </clipView>
                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" id="3ea-Jh-76h">
-                            <rect key="frame" x="1" y="-15" width="0.0" height="16"/>
+                            <rect key="frame" x="-100" y="-100" width="0.0" height="16"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" id="jhc-P1-WyU">
-                            <rect key="frame" x="-15" y="17" width="16" height="0.0"/>
+                            <rect key="frame" x="-100" y="-100" width="16" height="0.0"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
@@ -200,7 +200,7 @@
     </objects>
     <resources>
         <image name="icon" width="512" height="512"/>
-        <image name="note-down" width="128" height="128"/>
-        <image name="note-grey" width="14" height="16"/>
+        <image name="note-dark" width="14" height="16"/>
+        <image name="note-dark-down" width="14" height="16"/>
     </resources>
 </document>

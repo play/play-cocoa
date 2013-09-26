@@ -128,6 +128,8 @@
 		E0783F7B15331ADF003EA138 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EF11533187D003EA138 /* AFURLConnectionOperation.m */; };
 		E0783F7C15331ADF003EA138 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EF31533187D003EA138 /* AFXMLRequestOperation.m */; };
 		E0783F7D15331ADF003EA138 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E0783EF51533187D003EA138 /* UIImageView+AFNetworking.m */; };
+		E08B7E7717F3BA6F00968EC2 /* note-dark-down.png in Resources */ = {isa = PBXBuildFile; fileRef = E08B7E7517F3BA6F00968EC2 /* note-dark-down.png */; };
+		E08B7E7817F3BA6F00968EC2 /* note-dark.png in Resources */ = {isa = PBXBuildFile; fileRef = E08B7E7617F3BA6F00968EC2 /* note-dark.png */; };
 		E093FDF317EBFF1E005C583E /* volume-knob@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E093FDF117EBFF1E005C583E /* volume-knob@2x.png */; };
 		E093FDF417EBFF1E005C583E /* volume-knob.png in Resources */ = {isa = PBXBuildFile; fileRef = E093FDF217EBFF1E005C583E /* volume-knob.png */; };
 		E093FDF717EC0769005C583E /* airplay-on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E093FDF517EC0769005C583E /* airplay-on@2x.png */; };
@@ -350,6 +352,8 @@
 		E0783F0D1533187D003EA138 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		E0783F0E1533187D003EA138 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
 		E0783F0F1533187D003EA138 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
+		E08B7E7517F3BA6F00968EC2 /* note-dark-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "note-dark-down.png"; sourceTree = "<group>"; };
+		E08B7E7617F3BA6F00968EC2 /* note-dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "note-dark.png"; sourceTree = "<group>"; };
 		E093FDF117EBFF1E005C583E /* volume-knob@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "volume-knob@2x.png"; sourceTree = "<group>"; };
 		E093FDF217EBFF1E005C583E /* volume-knob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "volume-knob.png"; sourceTree = "<group>"; };
 		E093FDF517EC0769005C583E /* airplay-on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "airplay-on@2x.png"; sourceTree = "<group>"; };
@@ -569,6 +573,8 @@
 		30EE1B9F1538834200AD9DF2 /* Download Song */ = {
 			isa = PBXGroup;
 			children = (
+				E08B7E7517F3BA6F00968EC2 /* note-dark-down.png */,
+				E08B7E7617F3BA6F00968EC2 /* note-dark.png */,
 				30EE1BA01538834A00AD9DF2 /* note-pink-down.png */,
 				30EE1BA11538834A00AD9DF2 /* note-pink.png */,
 				3080FCEF1539D1890058D7EA /* note-grey-down.png */,
@@ -1036,6 +1042,7 @@
 				E0C965BF1533279D001D52BF /* IgnoredAudioProcesses.plist in Resources */,
 				E0C965C01533279D001D52BF /* Play-Item-Info.plist in Resources */,
 				E0C965C11533279D001D52BF /* Credits.rtf in Resources */,
+				E08B7E7717F3BA6F00968EC2 /* note-dark-down.png in Resources */,
 				E0C965C21533279D001D52BF /* InfoPlist.strings in Resources */,
 				E0C965C31533279D001D52BF /* MainMenu.xib in Resources */,
 				E0C965C41533279D001D52BF /* icon.icns in Resources */,
@@ -1045,6 +1052,7 @@
 				30EE1B3B15383D4700AD9DF2 /* status-icon-on.png in Resources */,
 				30EE1B3D15383E8000AD9DF2 /* status-icon-inverted.png in Resources */,
 				E026E2B617F1C10F000A1BDC /* PLAChannelsWindowController.xib in Resources */,
+				E08B7E7817F3BA6F00968EC2 /* note-dark.png in Resources */,
 				30EE1B4D15384AB000AD9DF2 /* now-playing-background.png in Resources */,
 				30EE1BA21538834A00AD9DF2 /* note-pink-down.png in Resources */,
 				30EE1BA31538834A00AD9DF2 /* note-pink.png in Resources */,
