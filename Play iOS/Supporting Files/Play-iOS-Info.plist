@@ -8,17 +8,6 @@
 	<string>Play</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleIconFiles</key>
-	<array>
-		<string>icon.png</string>
-		<string>icon@2x.png</string>
-		<string>icon-72.png</string>
-		<string>icon-72@2x.png</string>
-	</array>
-	<key>CFBundleIcons</key>
-	<dict/>
-	<key>CFBundleIcons~ipad</key>
-	<dict/>
 	<key>CFBundleIdentifier</key>
 	<string>org.play.play-ios</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -67,13 +56,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-	</array>
-	<key>UISupportedInterfaceOrientations~ipad</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 </dict>
 </plist>
