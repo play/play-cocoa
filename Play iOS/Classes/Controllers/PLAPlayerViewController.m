@@ -324,6 +324,8 @@
     [playButton setTitle:@"\uf04b" forState:UIControlStateNormal];
 	}else if ([streamer isIdle]){
     [playButton setTitle:@"\uf04b" forState:UIControlStateNormal];
+	}else{
+    [playButton setTitle:@"\uf04b" forState:UIControlStateNormal];
 	}
 }
 
