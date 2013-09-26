@@ -298,11 +298,11 @@
 
 - (void)destroyStreamer{
 	if (streamer){
+    [streamer stop];
 		[[NSNotificationCenter defaultCenter] removeObserver:self name:ASStatusChangedNotification object:streamer];
 		[[NSNotificationCenter defaultCenter] removeObserver:self name:ASPresentAlertWithTitleNotification object:streamer];
 		[[NSNotificationCenter defaultCenter] removeObserver:[PLAController sharedController] name:ASUpdateMetadataNotification object:streamer];
 		  
-		[streamer stop];
 		[streamer release];
 		streamer = nil;
 	}
