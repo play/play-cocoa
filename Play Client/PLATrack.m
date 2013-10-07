@@ -45,8 +45,12 @@
   self.artist = [attributes valueForKeyPath:@"artist_name"];
   self.artistSlug = [attributes valueForKeyPath:@"artist_slug"];
   self.albumArtPath = [attributes valueForKeyPath:@"album_art_path"];
-  queued = [[attributes valueForKeyPath:@"queued"] boolValue];
-  liked = [[attributes valueForKeyPath:@"liked"] boolValue];
+  if ([attributes valueForKeyPath:@"liked"]) {
+    liked = [[attributes valueForKeyPath:@"liked"] boolValue];
+  }
+  if ([attributes valueForKeyPath:@"queued"]) {
+    queued = [[attributes valueForKeyPath:@"queued"] boolValue];
+  }
 	
 #if !TARGET_OS_IPHONE
 	[[PLAAlbumArtworkImageCache sharedCache] imageForTrack:self withCompletionBlock: ^ (NSImage *image, NSError *error) 
