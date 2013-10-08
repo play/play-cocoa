@@ -15,6 +15,7 @@
 @property (retain) NSArray *channels;
 
 - (IBAction)showQueue:(id)sender;
+- (void)setupChannels;
 
 @end
 
@@ -41,10 +42,14 @@
   [self updateChannels];
 }
 
+- (void)setupChannels{
+  self.channels = [[PLAController sharedController] channels];
+}
+
 - (void)updateChannels
 {
   [[PLAController sharedController] updateChannelsWithCompletionBlock:^{
-    self.channels = [[PLAController sharedController] channels];
+    [self setupChannels];
   }];
 }
 
