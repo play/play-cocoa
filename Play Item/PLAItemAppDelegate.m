@@ -71,8 +71,8 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 -(void)awakeFromNib{
   self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
   [self.statusItem setAction:@selector(toggleWindow:)];
-  [self.statusItem setImage:[NSImage imageNamed:@"status-icon-off.png"]];
-  [self.statusItem setAlternateImage:[NSImage imageNamed:@"status-icon-inverted.png"]];
+  [self.statusItem setImage:[NSImage imageNamed:@"status-icon-off"]];
+  [self.statusItem setAlternateImage:[NSImage imageNamed:@"status-icon-inverted"]];
   [self.statusItem setHighlightMode:YES];
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackStarted:) name:PLAItemStartedPlayingNotificationName object:self];
@@ -251,12 +251,12 @@ NSString *const PLAItemLoggedInNotificationName = @"PLAItemLoggedInNotificationN
 
 - (void)playbackStarted:(NSNotification *)note
 {
-	self.statusItem.image = [NSImage imageNamed:@"status-icon-on.png"];
+	self.statusItem.image = [NSImage imageNamed:@"status-icon-on"];
 }
 
 - (void)playbackStopped:(NSNotification *)note
 {
-	self.statusItem.image = [NSImage imageNamed:@"status-icon-off.png"];
+	self.statusItem.image = [NSImage imageNamed:@"status-icon-off"];
 }
 
 @end
