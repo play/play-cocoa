@@ -23,9 +23,7 @@
 
 - (void)viewDidLoad{
   [super viewDidLoad];
-  
-  [welcomeLabel setFont:[UIFont fontWithName:@"OpenSans-Semibold" size:24.0]];
-  
+    
   if ([[PLAController sharedController] playUrl]) {
     [playUrlTextField setText:[[PLAController sharedController] playUrl]];
   }
