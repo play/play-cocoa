@@ -63,16 +63,17 @@ NSString *const PLAChannelsUpdated = @"PLAChannelsUpdated";
     self.channels = [NSMutableArray array];
     
     [self updateChannelsWithCompletionBlock:^{
-      [self loadTunedChannel];
-      
-      // nothing got tuned, so just tune the first channel
-      if (![self tuned]) {
-        NSLog(@"nothing got loaded so we'll do the first channel.");
-        NSLog(@"channels: %@", channels);
-        [self tuneChannel:[self.channels firstObject]];
-      }
-
-      block(YES);
+      dispatch_async(dispatch_get_main_queue(), ^(void) {
+        [self loadTunedChannel];
+        // nothing got tuned, so just tune the first channel
+        if (![self tuned]) {
+          NSLog(@"nothing got loaded so we'll do the first channel.");
+          NSLog(@"channels: %@", channels);
+          [self tuneChannel:[self.channels objectAtIndex:0]];
+        }
+        
+        block(YES);
+      });
     }];
     
   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
