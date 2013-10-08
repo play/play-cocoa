@@ -157,13 +157,17 @@ NSString *const PLAChannelsUpdated = @"PLAChannelsUpdated";
 
 - (void)saveTunedChannel{
   if (![self tuned]) return;
+  
+  NSString *key = [NSString stringWithFormat:@"%@::tunedChannelSlug", [[[PLAPlayClient sharedClient] baseURL] absoluteString]];
 
-  [[NSUserDefaults standardUserDefaults] setObject:self.tunedChannel.slug forKey:@"tunedChannelSlug"];
+  [[NSUserDefaults standardUserDefaults] setObject:self.tunedChannel.slug forKey:key];
   [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)loadTunedChannel{
-  NSString *channelSlug = [[NSUserDefaults standardUserDefaults]  objectForKey:@"tunedChannelSlug"];
+  NSString *key = [NSString stringWithFormat:@"%@::tunedChannelSlug", [[[PLAPlayClient sharedClient] baseURL] absoluteString]];
+  
+  NSString *channelSlug = [[NSUserDefaults standardUserDefaults]  objectForKey:key];
   
   if (channelSlug) {
     for (PLAChannel *channel in self.channels) {
