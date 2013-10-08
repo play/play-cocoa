@@ -10,6 +10,7 @@
 
 extern NSString *const PLANowPlayingUpdated;
 extern NSString *const PLAChannelTuned;
+extern NSString *const PLAChannelsUpdated;
 
 @class PLATrack;
 @class PLAChannel;

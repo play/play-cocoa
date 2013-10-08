@@ -18,6 +18,7 @@
 
 NSString *const PLANowPlayingUpdated = @"PLANowPlayingUpdated";
 NSString *const PLAChannelTuned = @"PLAChannelTuned";
+NSString *const PLAChannelsUpdated = @"PLAChannelsUpdated";
 
 @implementation PLAController
 
@@ -138,6 +139,10 @@ NSString *const PLAChannelTuned = @"PLAChannelTuned";
         [channels addObject:channel];
       }
     }
+    
+    dispatch_async(dispatch_get_main_queue(), ^(void) {
+      [[NSNotificationCenter defaultCenter] postNotificationName:PLAChannelsUpdated object:nil];
+    });
     
     completionBlock();
   }];

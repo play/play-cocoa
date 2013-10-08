@@ -36,6 +36,8 @@
 	self.window.backgroundColor = [NSColor clearColor];
 	[self.window setLevel:NSFloatingWindowLevel];
   
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateChannels) name:PLAChannelsUpdated object:nil];
+
   [self updateChannels];
 }
 
