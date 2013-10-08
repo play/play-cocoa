@@ -281,10 +281,6 @@
 }
 
 - (void)createStreamer{
-	if (streamer){
-		return;
-	}
-  
   NSString *streamUrl = [[PLAController sharedController] streamUrl];
   
 	[self destroyStreamer];
